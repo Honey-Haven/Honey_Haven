@@ -1,0 +1,59 @@
+[gd_resource type="Resource" script_class="VNTheme" format=3 uid="uid://cgeon6stjg2n8"]
+
+[ext_resource type="Script" uid="uid://de7mn0ofm6q7c" path="res://resources/VNThemeChoices.gd" id="1_bags0"]
+[ext_resource type="Script" uid="uid://2o1qm3s0dpnm" path="res://resources/VNTheme.gd" id="1_dfh5v"]
+[ext_resource type="Script" uid="uid://bjidwmwu4h6ak" path="res://resources/VNThemeEffects.gd" id="2_8kri3"]
+[ext_resource type="Script" uid="uid://cacl4te26q5q2" path="res://resources/VNThemeNameplate.gd" id="3_7evcc"]
+[ext_resource type="Script" uid="uid://bxgr1pbwt8map" path="res://resources/VNThemeSprites.gd" id="5_okm8k"]
+[ext_resource type="Script" uid="uid://c48t6nr0ym5ch" path="res://resources/VNThemeTextbox.gd" id="6_y6r7j"]
+[ext_resource type="Script" uid="uid://dgehn8qw0phb8" path="res://resources/VNThemeTransitions.gd" id="7_k0uow"]
+[ext_resource type="Script" uid="uid://drm2ubrn867ui" path="res://resources/VNThemeTypewriter.gd" id="8_272qe"]
+
+[sub_resource type="Resource" id="Resource_xhn5g"]
+script = ExtResource("1_bags0")
+bg_color = Color(0.9140046, 0.5502427, 0.3703563, 0.9019608)
+hover_bg_color = Color(0.60138136, 0.30294287, 0.09461399, 0.9490196)
+border_color = Color(0.42658123, 0.17802379, 0.12725958, 0.8)
+font_color = Color(0.9372549, 0.87058824, 0.62352943, 1)
+metadata/_custom_type_script = "uid://de7mn0ofm6q7c"
+
+[sub_resource type="Resource" id="Resource_dcahf"]
+script = ExtResource("2_8kri3")
+metadata/_custom_type_script = "uid://bjidwmwu4h6ak"
+
+[sub_resource type="Resource" id="Resource_t3fuo"]
+script = ExtResource("3_7evcc")
+bg_color = Color(0.9782149, 0.79547805, 0.7713882, 1)
+border_color = Color(0.94799083, 0.48247278, 0.54955536, 1)
+font_color = Color(0.9061183, 0.3404381, 0.43509352, 1)
+metadata/_custom_type_script = "uid://cacl4te26q5q2"
+
+[sub_resource type="Resource" id="Resource_egt1s"]
+script = ExtResource("5_okm8k")
+metadata/_custom_type_script = "uid://bxgr1pbwt8map"
+
+[sub_resource type="Resource" id="Resource_b5efn"]
+script = ExtResource("6_y6r7j")
+bg_color = Color(0.77457094, 0.353671, 0.47516137, 0.7254902)
+border_color = Color(0.980277, 0.71590954, 0.79096293, 1)
+font_color = Color(0.9910098, 0.9035326, 0.9115813, 1)
+metadata/_custom_type_script = "uid://c48t6nr0ym5ch"
+
+[sub_resource type="Resource" id="Resource_sic0y"]
+script = ExtResource("7_k0uow")
+metadata/_custom_type_script = "uid://dgehn8qw0phb8"
+
+[sub_resource type="Resource" id="Resource_nh6v2"]
+script = ExtResource("8_272qe")
+metadata/_custom_type_script = "uid://drm2ubrn867ui"
+
+[resource]
+script = ExtResource("1_dfh5v")
+textbox = SubResource("Resource_b5efn")
+nameplate = SubResource("Resource_t3fuo")
+choices = SubResource("Resource_xhn5g")
+typewriter = SubResource("Resource_nh6v2")
+effects = SubResource("Resource_dcahf")
+sprites = SubResource("Resource_egt1s")
+transitions = SubResource("Resource_sic0y")
+metadata/_custom_type_script = "uid://2o1qm3s0dpnm"

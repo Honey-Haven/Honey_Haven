@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="VNThemeNameplate" format=3 uid="uid://hrkk6c4b2q4e"]
+
+[ext_resource type="Script" uid="uid://cacl4te26q5q2" path="res://resources/VNThemeNameplate.gd" id="1_qp2sn"]
+
+[resource]
+script = ExtResource("1_qp2sn")
