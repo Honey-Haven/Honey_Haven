@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://bv1en25vpoxmj"]
+
+[ext_resource type="Script" uid="uid://b1m8ikkugo35x" path="res://scripts/VNController.gd" id="1_xunwx"]
+[ext_resource type="Resource" uid="uid://cgeon6stjg2n8" path="res://resources/my_theme.tres" id="2_ovnvk"]
+[ext_resource type="Script" uid="uid://xamk3rp5acka" path="res://scripts/BackgroundManager.gd" id="2_qiym0"]
+[ext_resource type="Script" uid="uid://dr1uyr3yybsyn" path="res://scripts/ActorManager.gd" id="3_ovnvk"]
+[ext_resource type="Script" uid="uid://c7cyqi6fm0apa" path="res://scripts/VNLogic.gd" id="4_pjpao"]
+[ext_resource type="Script" uid="uid://cvl6wig0ix7w0" path="res://scripts/DialogueUI.gd" id="6_ovnvk"]
+
+[node name="VNScene" type="Node" unique_id=1892691119]
+script = ExtResource("1_xunwx")
+vn_theme = ExtResource("2_ovnvk")
+
+[node name="BackgroundManager" type="Node2D" parent="." unique_id=708421523]
+script = ExtResource("2_qiym0")
+
+[node name="BG_A" type="Sprite2D" parent="BackgroundManager" unique_id=1733581415]
+position = Vector2(640, 360)
+
+[node name="BG_B" type="Sprite2D" parent="BackgroundManager" unique_id=1975105745]
+position = Vector2(640, 360)
+
+[node name="ActorManager" type="Node2D" parent="." unique_id=2034830135]
+script = ExtResource("3_ovnvk")
+
+[node name="VNLogic" type="Node" parent="." unique_id=935076725]
+script = ExtResource("4_pjpao")
+
+[node name="DialogueUI" type="CanvasLayer" parent="." unique_id=2101510460]
+script = ExtResource("6_ovnvk")
+
+[node name="TextboxPanel" type="PanelContainer" parent="DialogueUI" unique_id=933285374]
+custom_minimum_size = Vector2(0, 180)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -607.5
+offset_top = -210.0
+offset_right = 607.5
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+
+[node name="VBox" type="VBoxContainer" parent="DialogueUI/TextboxPanel" unique_id=709573337]
+layout_mode = 2
+
+[node name="DialogueLabel" type="RichTextLabel" parent="DialogueUI/TextboxPanel/VBox" unique_id=879503014]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+mouse_filter = 2
+bbcode_enabled = true
+
+[node name="ChoiceContainer" type="VBoxContainer" parent="DialogueUI" unique_id=79840428]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ContinueArrow" type="Label" parent="DialogueUI" unique_id=1343319280]
+offset_left = 1187.0
+offset_top = 630.0
+offset_right = 1223.0
+offset_bottom = 685.0
+theme_override_colors/font_color = Color(1, 0.5, 0.6333332, 1)
+theme_override_font_sizes/font_size = 20
+text = "▼"
+
+[node name="NameplatePanel" type="PanelContainer" parent="DialogueUI" unique_id=1722856478]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 75.0
+offset_top = 132.0
+offset_right = 275.0
+offset_bottom = 172.0
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="NameLabel" type="RichTextLabel" parent="DialogueUI/NameplatePanel" unique_id=1140861134]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonContainer" type="HBoxContainer" parent="DialogueUI" unique_id=653792785]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BackButton" type="Button" parent="DialogueUI/ButtonContainer" unique_id=726434497]
+layout_mode = 2
+text = "◀"

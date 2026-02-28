@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="VNThemeChoices" format=3 uid="uid://crrmbgdsv38m4"]
+
+[ext_resource type="Script" uid="uid://de7mn0ofm6q7c" path="res://resources/VNThemeChoices.gd" id="1_y6cbv"]
+
+[resource]
+script = ExtResource("1_y6cbv")

@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="VNThemeTypewriter" format=3 uid="uid://ddks027fvahcw"]
+
+[ext_resource type="Script" uid="uid://drm2ubrn867ui" path="res://resources/VNThemeTypewriter.gd" id="1_tbuck"]
+
+[resource]
+script = ExtResource("1_tbuck")
