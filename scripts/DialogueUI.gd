@@ -27,6 +27,7 @@ func _ready() -> void:
 	SignalBus.scene_packet_ready.connect(_on_packet)
 	SignalBus.dialogue_line_finished.connect(_on_line_finish_signal)
 	SignalBus.textbox_effect.connect(_play_textbox_effect)
+	SignalBus.back_button_visibility_changed.connect(_on_back_visibility_changed)
 
 	# Mouse filters
 	textbox_panel.mouse_filter    = Control.MOUSE_FILTER_STOP
@@ -178,6 +179,9 @@ func _on_packet(packet: Dictionary) -> void:
 			_choice_active = true
 			_show_choices(packet)
 
+func _on_back_visibility_changed(is_visible: bool) -> void:
+	if _back_button:
+		_back_button.visible = is_visible
 # ══════════════════════════════════════════════════════════════
 #  DIALOGUE
 # ══════════════════════════════════════════════════════════════
@@ -280,9 +284,9 @@ func _show_choices(packet: Dictionary) -> void:
 	continue_arrow.hide()
 	_click_catcher.hide()
 
+	choice_container.hide()
 	for child in choice_container.get_children():
-		child.queue_free()
-	await get_tree().process_frame
+		child.free()
 
 	choice_container.anchor_left   = 0.5
 	choice_container.anchor_right  = 0.5
@@ -294,7 +298,6 @@ func _show_choices(packet: Dictionary) -> void:
 	choice_container.offset_right  =  230
 	choice_container.offset_top    = -170
 	choice_container.offset_bottom =  170
-	choice_container.show()
 
 	var ch_res := _ch()
 	var choices: Array = packet.get("choices", [])
@@ -309,6 +312,7 @@ func _show_choices(packet: Dictionary) -> void:
 		_style_btn(btn, ch_res)
 		choice_container.add_child(btn)
 		btn.pressed.connect(func(): _on_choice_pressed(idx))
+	choice_container.show()
 
 func _on_choice_pressed(index: int) -> void:
 	print("Choice: ", index)
@@ -349,10 +353,11 @@ func _play_textbox_effect(effect: String) -> void:
 	var fx := _fx()
 	match effect:
 		"flash":
-			var dur: float = fx.flash_duration if fx else 0.15
+			var dur: float = fx.flash_duration if fx else 0.5
 			var tw := create_tween()
-			tw.tween_property(textbox_panel, "modulate", Color(2,2,2,1), dur * 0.25)
-			tw.tween_property(textbox_panel, "modulate", Color.WHITE,    dur * 0.75)
+			tw.tween_property(textbox_panel, "modulate", Color(2,2,2,1), dur * 0.15).set_ease(Tween.EASE_OUT)
+			tw.tween_property(textbox_panel, "modulate", Color(1.4,1.4,1.4,1), dur * 0.2)
+			tw.tween_property(textbox_panel, "modulate", Color.WHITE,    dur * 0.65).set_ease(Tween.EASE_IN)
 		"shake":
 			var strength: float = fx.shake_strength if fx else 6.0
 			var dur: float      = fx.shake_duration  if fx else 0.4

@@ -23,34 +23,41 @@ static func _parse_entry(raw: Dictionary) -> Dictionary:
 		"actor_show":
 			return {
 				"type": "actor_show",
-				"actor": raw.get("actor", ""),
+				"actor_id": raw.get("actor_id", raw.get("actor", "")),
 				"expression": raw.get("expression", "default"),
 				"position": raw.get("position", "center"),
 				"anim": raw.get("anim", "appear"),
 			}
+		"appear":
+			return {
+				"type": "appear",
+				"actor_id": raw.get("actor_id", ""),
+				"expression": raw.get("expression", "neutral"),
+				"position": raw.get("position", "center"),
+			}
 		"actor_hide":
 			return {
 				"type": "actor_hide",
-				"actor": raw.get("actor", ""),
+				"actor_id": raw.get("actor_id", raw.get("actor", "")),
 				"anim": raw.get("anim", "fade"),
 			}
 		"actor_move":
 			return {
 				"type": "actor_move",
-				"actor": raw.get("actor", ""),
+				"actor_id": raw.get("actor_id", raw.get("actor", "")),
 				"position": raw.get("position", "center"),
 				"anim": raw.get("anim", "slide"),
 			}
 		"actor_anim":
 			return {
 				"type": "actor_anim",
-				"actor": raw.get("actor", ""),
+				"actor_id": raw.get("actor_id", raw.get("actor", "")),
 				"anim": raw.get("anim", "shake"),
 			}
 		"actor_expression":
 			return {
 				"type": "actor_expression",
-				"actor": raw.get("actor", ""),
+				"actor_id": raw.get("actor_id", raw.get("actor", "")),
 				"expression": raw.get("expression", "default"),
 			}
 		"background":

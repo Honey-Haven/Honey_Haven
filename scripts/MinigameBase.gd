@@ -28,3 +28,4 @@ func finish(result: Dictionary = {}) -> void:
 	# Remove self from tree first, then signal
 	queue_free()
 	SignalBus.minigame_end.emit(result)
+	

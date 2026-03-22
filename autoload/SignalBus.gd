@@ -16,10 +16,13 @@ signal actor_hide(actor_id: String)
 signal actor_move(actor_id: String, position: String, anim: String)
 signal actor_expression(actor_id: String, expression: String)
 signal actor_animate(actor_id: String, anim: String)   # shake / hop / etc.
-
+signal actor_appear(actor_id: String, expression: String, position: String, instant: bool)
+signal restore_visual_state(snapshot: Dictionary)
 # ── UI effect signals ────────────────────────────────────────
 signal textbox_effect(effect: String)            # "flash", "shake", "none"
 signal background_change(path: String, transition: String)
+signal clear_visual_state() 
+signal back_button_visibility_changed(is_visible: bool)
 
 # ── Audio signals ────────────────────────────────────────────
 signal bgm_play(path: String, fade_in: float)
