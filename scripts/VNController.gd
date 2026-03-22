@@ -39,9 +39,9 @@ func _register_actors() -> void:
 		"id": "Marty",
 		"scale": 1.0,
 		"expressions": {
-			"neutral": preload("res://actors/marty/marty_normal.jpg"),
-			"happy":   preload("res://actors/marty/marty_happy.jpg"),
-			"sad":     preload("res://actors/marty/marty_sad.jpg"),
+			"neutral": preload("res://actors/marty/marty_normal.PNG"),
+			"happy":   preload("res://actors/marty/marty_happy.PNG"),
+			"sad":     preload("res://actors/marty/marty_sad.PNG"),
 		}
 	})    
 

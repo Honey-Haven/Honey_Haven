@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://r46eni4mv3iu"
-path="res://.godot/imported/marty_normal.jpg-da3824823df699c6ca2cc35ef619ad7b.ctex"
+uid="uid://dl50cvr8clsui"
+path="res://.godot/imported/marty_happy.PNG-7d8d1adcb661fa4d280a68e4a60d5c03.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://actors/marty/marty_normal.jpg"
-dest_files=["res://.godot/imported/marty_normal.jpg-da3824823df699c6ca2cc35ef619ad7b.ctex"]
+source_file="res://actors/marty/marty_happy.PNG"
+dest_files=["res://.godot/imported/marty_happy.PNG-7d8d1adcb661fa4d280a68e4a60d5c03.ctex"]
 
 [params]
 
