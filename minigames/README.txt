@@ -1,3 +1,5 @@
+1 folder per game, be sure to include the following for VN integration:
+
 extends MinigameBase  # PUT THIS 
 
 func _on_setup(_data: Dictionary):
