@@ -7,7 +7,7 @@
   "creatorVersion": "2.11.1",
   "schemaName": "Twine to JSON",
   "schemaVersion": "0.0.6",
-  "createdAtMs": 1774319831670,
+  "createdAtMs": 1774476265318,
   "passages": [
     {
       "name": "1.1",
@@ -133,7 +133,7 @@
     },
     {
       "name": " 1.9 pepper lane",
-      "tags": "must_visit",
+      "tags": "must_visit pepper",
       "id": "9",
       "text": "You head northwest and reach Pepper Lane, a street bustling with young children playing on unkempt, wild front lawns and elderly residents in rocking chairs on white porches. [[1.10 pepper]]",
       "links": [
@@ -147,7 +147,7 @@
     },
     {
       "name": " 1.9 casserole avenue",
-      "tags": "must_visit Narrator",
+      "tags": "must_visit Narrator casserole",
       "id": "10",
       "text": "You turn left onto Casserole Avenue, a beautiful street full of dewey green vegetables. [[1.10]]",
       "links": [
@@ -161,7 +161,7 @@
     },
     {
       "name": " 1.9 truffle corner",
-      "tags": "must_visit",
+      "tags": "must_visit truffle",
       "id": "11",
       "text": "You go eastward until you hit Truffle Corner, a small crevice where two streets meet. Only one resident lives in the tiny, rundown, yet cozy shaft. [[1.10 truffle corner]]",
       "links": [
@@ -1068,7 +1068,7 @@
     },
     {
       "name": "1.9 main",
-      "tags": "",
+      "tags": "towncenter",
       "id": "74",
       "text": "You're off to Honeybee Center, the town square, when you see Ms. Buttons running up to you with a cradle of carrots. [[1.10 main]]",
       "links": [

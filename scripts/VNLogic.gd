@@ -155,8 +155,9 @@ func _show_must_visit_menu(hub_id: String) -> void:
 	for branch_name in remaining:
 		var display: String = label_map.get(branch_name, branch_name)
 		choices.append({
-			"label": display,
-			"goto":  TwineParser._label_for(branch_name),
+			"label":        display,
+			"goto":         TwineParser._label_for(branch_name),
+			"passage_name": branch_name,   # needed to erase from remaining
 		})
 
 	# Store on instance so _on_choice_selected reads it directly,
@@ -218,9 +219,9 @@ func _on_choice_selected(choice_index: int) -> void:
 		var hub_id: String  = _active_hub["__must_visit_hub"]
 		var choices: Array  = _active_hub.get("choices", [])
 		if choice_index < choices.size():
-			var chosen_label: String = choices[choice_index].get("label", "")
+			var chosen_passage: String = choices[choice_index].get("passage_name", choices[choice_index].get("label", ""))
 			var remaining: Array = _must_visit_remaining.get(hub_id, [])
-			remaining.erase(chosen_label)
+			remaining.erase(chosen_passage)
 			_must_visit_remaining[hub_id] = remaining
 			# Clear _active_hub BEFORE jumping so that normal choices inside
 			# the branch are not mistaken for must_visit hub choices.

@@ -162,7 +162,10 @@ func _register_actors() -> void:
 func _register_backgrounds() -> void:
 	TwineParser.register_background("sunny_bedroom", "res://backgrounds/sunny_bedroom.png")
 	# Add more backgrounds here as you create them:
-	# TwineParser.register_background("town_square",  "res://backgrounds/town_square.PNG")
+	TwineParser.register_background("pepper",  "res://backgrounds/TEMPpepper.jpg")
+	TwineParser.register_background("casserole",  "res://backgrounds/TEMPcassarole.jpg")
+	TwineParser.register_background("truffle",  "res://backgrounds/TEMPtruffle.jpg")
+	TwineParser.register_background("towncenter",  "res://backgrounds/TEMPtowncenter.jpg")
 
 func _on_minigame_start(minigame_id: String, data: Dictionary) -> void:
 	var scene_path := "res://minigames/%s/%s.tscn" % [minigame_id, minigame_id]
