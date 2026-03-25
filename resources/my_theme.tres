@@ -5,16 +5,17 @@
 [ext_resource type="Script" uid="uid://bjidwmwu4h6ak" path="res://resources/VNThemeEffects.gd" id="2_8kri3"]
 [ext_resource type="Script" uid="uid://cacl4te26q5q2" path="res://resources/VNThemeNameplate.gd" id="3_7evcc"]
 [ext_resource type="Script" uid="uid://bxgr1pbwt8map" path="res://resources/VNThemeSprites.gd" id="5_okm8k"]
+[ext_resource type="FontFile" uid="uid://bceaixocq7ucp" path="res://fonts/HelpMe-Yz7Lq.ttf" id="6_8kri3"]
 [ext_resource type="Script" uid="uid://c48t6nr0ym5ch" path="res://resources/VNThemeTextbox.gd" id="6_y6r7j"]
 [ext_resource type="Script" uid="uid://dgehn8qw0phb8" path="res://resources/VNThemeTransitions.gd" id="7_k0uow"]
 [ext_resource type="Script" uid="uid://drm2ubrn867ui" path="res://resources/VNThemeTypewriter.gd" id="8_272qe"]
 
 [sub_resource type="Resource" id="Resource_xhn5g"]
 script = ExtResource("1_bags0")
-bg_color = Color(0.8640935, 0.41959956, 0.47605014, 0.9019608)
-hover_bg_color = Color(0.85, 0.476, 0.55080014, 0.9490196)
-border_color = Color(0.8627451, 0.41960785, 0.4745098, 0.9019608)
-font_color = Color(0.99735373, 0.8162173, 0.8437348, 1)
+bg_color = Color(0.29, 0.23127499, 0.21169999, 0.8784314)
+hover_bg_color = Color(0.41, 0.27989334, 0.2706, 0.8784314)
+border_color = Color(0.2901961, 0.23137255, 0.21176471, 0.8784314)
+font_color = Color(0.87, 0.78387004, 0.6351, 1)
 metadata/_custom_type_script = "uid://de7mn0ofm6q7c"
 
 [sub_resource type="Resource" id="Resource_dcahf"]
@@ -39,10 +40,15 @@ metadata/_custom_type_script = "uid://bxgr1pbwt8map"
 script = ExtResource("6_y6r7j")
 bg_color = Color(0.99378604, 0.89712274, 0.84977794, 1)
 border_color = Color(0.9793454, 0.7421668, 0.7927908, 1)
-font_color = Color(0.53136754, 0.31985277, 0.3482896, 1)
-narrator_bg_color = Color(0.20411533, 0.11964586, 0.1204123, 0.8784314)
-narrator_border_color = Color(0.17, 0.115600005, 0.12557334, 1)
-narrator_font_color = Color(0.905888, 0.6617034, 0.7026355, 1)
+font_color = Color(0.59, 0.30089998, 0.35872006, 1)
+narrator_bg_color = Color(1, 0.9253333, 0.84000003, 1)
+narrator_border_color = Color(0.7804305, 0.5215943, 0.43571785, 1)
+narrator_font_color = Color(0.78039217, 0.52156866, 0.43529412, 1)
+demon_bg_color = Color(0.05647122, 0.0015289565, 0.0015969181, 0.92941177)
+demon_border_color = Color(0.05490196, 0, 0, 0.92941177)
+demon_font_color = Color(1, 1, 1, 1)
+demon_font = ExtResource("6_8kri3")
+demon_font_size = 80
 metadata/_custom_type_script = "uid://c48t6nr0ym5ch"
 
 [sub_resource type="Resource" id="Resource_sic0y"]

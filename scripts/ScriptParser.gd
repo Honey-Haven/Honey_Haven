@@ -1,6 +1,5 @@
 extends Node
 #Using JSON for now (subject to change)
-
 class_name ScriptParser
 
 # ── Parse entry point ─────────────────────────────────────────
@@ -87,6 +86,9 @@ static func _parse_entry(raw: Dictionary) -> Dictionary:
 			return {"type": "jump", "label": raw.get("label", "")}
 		"label":
 			return {"type": "label", "name": raw.get("name", "")}
+		"must_visit_hub":
+			# Pass through as-is — handled by VNLogic, not normalised here.
+			return raw.duplicate()
 		_:
 			push_warning("ScriptParser: unknown type '%s'" % t)
 			return {}
@@ -109,4 +111,5 @@ static func _parse_choice(raw: Dictionary) -> Dictionary:
 		"type": "choice",
 		"prompt": raw.get("prompt", ""),
 		"choices": raw.get("choices", []),
+		"continuation": raw.get("continuation", ""),
 	}

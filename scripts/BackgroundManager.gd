@@ -12,6 +12,9 @@ func _ready() -> void:
 	_active = bg_a
 	_inactive = bg_b
 	bg_b.modulate.a = 0.0
+	var centre := get_viewport_rect().size / 2.0
+	bg_a.position = centre
+	bg_b.position = centre
 	SignalBus.background_change.connect(_on_background_change)
 
 func _on_background_change(path: String, transition: String) -> void:
@@ -23,8 +26,7 @@ func _on_background_change(path: String, transition: String) -> void:
 		push_error("BackgroundManager: could not load '%s'" % path)
 		return
 
-	var theme: Resource = vn_theme
-	var dur: float = theme.transition_duration if theme else 0.5
+	var dur: float = vn_theme.transitions.duration if vn_theme and vn_theme.transitions else 0.5
 
 	_inactive.texture = tex
 	_inactive.modulate.a = 0.0
@@ -50,18 +52,20 @@ func _on_background_change(path: String, transition: String) -> void:
 			tween.tween_callback(_swap_buffers)
 
 func _slide_transition(from_offset: Vector2, dur: float) -> void:
-	_inactive.position = from_offset
+	var centre := get_viewport_rect().size / 2.0
+	_inactive.position = centre + from_offset
 	_inactive.modulate.a = 1.0
 	var tween: Tween = create_tween()
-	tween.tween_property(_inactive, "position", Vector2.ZERO, dur).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
-	tween.parallel().tween_property(_active, "position", -from_offset, dur).set_ease(Tween.EASE_IN)
+	tween.tween_property(_inactive, "position", centre, dur).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	tween.parallel().tween_property(_active, "position", centre - from_offset, dur).set_ease(Tween.EASE_IN)
 	tween.tween_callback(_swap_buffers)
 
 func _swap_buffers() -> void:
 	var tmp: Sprite2D = _active
 	_active = _inactive
 	_inactive = tmp
+	var centre := get_viewport_rect().size / 2.0
 	_active.modulate.a = 1.0
-	_active.position = Vector2.ZERO
+	_active.position = centre
 	_inactive.modulate.a = 0.0
-	_inactive.position = Vector2.ZERO
+	_inactive.position = centre

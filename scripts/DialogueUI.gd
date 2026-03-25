@@ -195,20 +195,33 @@ func _show_dialogue(packet: Dictionary) -> void:
 	if speaker == "":
 		nameplate_panel.hide()
 		_set_textbox_narrator_style()
+	elif speaker.to_lower() == "demon":
+		nameplate_panel.hide()
+		_set_textbox_demon_style()
 	else:
 		name_label.text = speaker
 		nameplate_panel.show()
 		_set_textbox_normal_style()
-		
+
 	var effect: String = packet.get("textbox_effect", "none")
 	if effect != "none":
 		_play_textbox_effect(effect)
 
-	_start_typewriter(packet.get("text", ""), packet.get("word_shake", false))
+	if speaker.to_lower() == "demon":
+		# No typewriter for Demon — show text instantly and shake the textbox
+		_full_text = packet.get("text", "")
+		_typewriting = false
+		dialogue_label.text = "[shake rate=20 level=3]%s[/shake]" % _full_text
+		continue_arrow.show()
+		_play_textbox_effect("shake")
+	else:
+		_start_typewriter(packet.get("text", ""), packet.get("word_shake", false))
 	_back_button.show()
 
 func _set_textbox_normal_style() -> void:
 	var tb := _tb()
+	var np := _np()
+	# Textbox
 	var s := StyleBoxFlat.new()
 	s.bg_color              = tb.bg_color     if tb else Color(0.05, 0.05, 0.1, 0.88)
 	s.border_color          = tb.border_color if tb else Color(0.5, 0.7, 1.0, 1.0)
@@ -220,6 +233,24 @@ func _set_textbox_normal_style() -> void:
 	s.content_margin_bottom = tb.padding.w if tb else 12
 	textbox_panel.add_theme_stylebox_override("panel", s)
 	dialogue_label.add_theme_color_override("default_color", tb.font_color if tb else Color.WHITE)
+	# Reset font and size overrides so demon style doesn't bleed into normal dialogue
+	if tb and tb.get("font") and tb.font:
+		dialogue_label.add_theme_font_override("normal_font", tb.font)
+	else:
+		dialogue_label.remove_theme_font_override("normal_font")
+	dialogue_label.add_theme_font_size_override("normal_font_size", tb.font_size if tb else 22)
+	# Reset nameplate to default (undoes any demon/narrator tint)
+	var nps := StyleBoxFlat.new()
+	nps.bg_color     = np.bg_color     if np else Color(0.1, 0.1, 0.25, 1.0)
+	nps.border_color = np.border_color if np else Color(0.5, 0.7, 1.0, 1.0)
+	nps.set_border_width_all(  np.border_width   if np else 2)
+	nps.set_corner_radius_all( np.corner_radius  if np else 8)
+	nps.content_margin_left   = np.padding.x if np else 14
+	nps.content_margin_top    = np.padding.y if np else 4
+	nps.content_margin_right  = np.padding.z if np else 14
+	nps.content_margin_bottom = np.padding.w if np else 4
+	nameplate_panel.add_theme_stylebox_override("panel", nps)
+	name_label.add_theme_color_override("default_color", np.font_color if np else Color(0.8, 0.9, 1.0))
 
 func _set_textbox_narrator_style() -> void:
 	var tb := _tb()
@@ -234,6 +265,31 @@ func _set_textbox_narrator_style() -> void:
 	s.content_margin_bottom = tb.padding.w if tb else 12
 	textbox_panel.add_theme_stylebox_override("panel", s)
 	dialogue_label.add_theme_color_override("default_color", tb.narrator_font_color if tb else Color(0.75, 0.495, 0.546, 1.0))
+
+func _set_textbox_demon_style() -> void:
+	# Reads demon_bg_color, demon_border_color, demon_font_color from the
+	# textbox theme resource — add those three @export Color properties to
+	# your TextboxTheme resource script and they'll appear in the Inspector
+	# right alongside narrator_bg_color etc.
+	var tb := _tb()
+	var s := StyleBoxFlat.new()
+	s.bg_color     = tb.demon_bg_color     if tb else Color(0.04, 0.0, 0.06, 0.93)
+	s.border_color = tb.demon_border_color if tb else Color(0.45, 0.0, 0.55, 1.0)
+	s.set_border_width_all(  tb.border_width  if tb else 2)
+	s.set_corner_radius_all( tb.corner_radius if tb else 12)
+	s.content_margin_left   = tb.padding.x if tb else 20
+	s.content_margin_top    = tb.padding.y if tb else 12
+	s.content_margin_right  = tb.padding.z if tb else 20
+	s.content_margin_bottom = tb.padding.w if tb else 12
+	textbox_panel.add_theme_stylebox_override("panel", s)
+	dialogue_label.add_theme_color_override("default_color",
+		tb.demon_font_color if tb else Color(0.85, 0.6, 1.0, 1.0))
+	if tb and tb.get("demon_font") and tb.demon_font:
+		dialogue_label.add_theme_font_override("normal_font", tb.demon_font)
+	else:
+		dialogue_label.remove_theme_font_override("normal_font")
+	dialogue_label.add_theme_font_size_override("normal_font_size",
+		tb.demon_font_size if (tb and tb.get("demon_font_size")) else 22)
 
 # ══════════════════════════════════════════════════════════════
 #  TYPEWRITER

@@ -1,0 +1,2075 @@
+
+
+{
+  "uuid": "D1513AE4-C7FB-4740-AAD7-C61BE2AEA55F",
+  "name": "Honey Haven Day 1",
+  "creator": "Twine",
+  "creatorVersion": "2.11.1",
+  "schemaName": "Twine to JSON",
+  "schemaVersion": "0.0.6",
+  "createdAtMs": 1774319831670,
+  "passages": [
+    {
+      "name": "1.1",
+      "tags": "Demon",
+      "id": "1",
+      "text": "It's time to wake up~ [[1.2]]",
+      "links": [
+        {
+          "linkText": "1.2",
+          "passageName": "1.2",
+          "original": "[[1.2]]"
+        }
+      ],
+      "cleanText": "It's time to wake up~"
+    },
+    {
+      "name": "1.2",
+      "tags": "Marty startled Marty_enter",
+      "id": "2",
+      "text": "AH- [[1.3]]",
+      "links": [
+        {
+          "linkText": "1.3",
+          "passageName": "1.3",
+          "original": "[[1.3]]"
+        }
+      ],
+      "cleanText": "AH-"
+    },
+    {
+      "name": "1.3",
+      "tags": "Marty",
+      "id": "3",
+      "text": "Woah- what a weird dream. 4th night in a row, whew. [[1.4]]",
+      "links": [
+        {
+          "linkText": "1.4",
+          "passageName": "1.4",
+          "original": "[[1.4]]"
+        }
+      ],
+      "cleanText": "Woah- what a weird dream. 4th night in a row, whew."
+    },
+    {
+      "name": "1.4",
+      "tags": "Marty worried",
+      "id": "4",
+      "text": "Maybe I should get a check up from Dr. Muffins... \n[[\"I'll call him now...\" -> 1.5]] \n[[\"Well he might be busy... maybe I'll ask later.\" -> 1.5]]",
+      "links": [
+        {
+          "linkText": "\"I'll call him now...\"",
+          "passageName": "1.5",
+          "original": "[[\"I'll call him now...\" -> 1.5]]"
+        },
+        {
+          "linkText": "\"Well he might be busy... maybe I'll ask later.\"",
+          "passageName": "1.5",
+          "original": "[[\"Well he might be busy... maybe I'll ask later.\" -> 1.5]]"
+        }
+      ],
+      "cleanText": "Maybe I should get a check up from Dr. Muffins..."
+    },
+    {
+      "name": "1.6",
+      "tags": "Narrator Marty_leave",
+      "id": "5",
+      "text": "You are Marty R, Honey Haven's mailmouse. Every morning you brush your teeth, pack your satchel, and enjoy a filling breakfast. Today's is a simple stew with boiled potatoes, carrots, and sunflower seeds. The chilly autumn months are rapidly approaching... [[1.7]]",
+      "links": [
+        {
+          "linkText": "1.7",
+          "passageName": "1.7",
+          "original": "[[1.7]]"
+        }
+      ],
+      "cleanText": "You are Marty R, Honey Haven's mailmouse. Every morning you brush your teeth, pack your satchel, and enjoy a filling breakfast. Today's is a simple stew with boiled potatoes, carrots, and sunflower seeds. The chilly autumn months are rapidly approaching..."
+    },
+    {
+      "name": "1.7",
+      "tags": "Marty sneezing Marty_enter",
+      "id": "6",
+      "text": "AH- A- ACHOOOOO! \n\n[[\"Oh wow. I better put on a coat before heading out!\" ->1.8]]\n[[\"This weather's got nothing on me!\" ->1.8]]",
+      "links": [
+        {
+          "linkText": "\"Oh wow. I better put on a coat before heading out!\"",
+          "passageName": "1.8",
+          "original": "[[\"Oh wow. I better put on a coat before heading out!\" ->1.8]]"
+        },
+        {
+          "linkText": "\"This weather's got nothing on me!\"",
+          "passageName": "1.8",
+          "original": "[[\"This weather's got nothing on me!\" ->1.8]]"
+        }
+      ],
+      "cleanText": "AH- A- ACHOOOOO!"
+    },
+    {
+      "name": " 1.5",
+      "tags": "Marty startled",
+      "id": "7",
+      "text": "7:52!! I'll be late at this rate! [[1.6]]",
+      "links": [
+        {
+          "linkText": "1.6",
+          "passageName": "1.6",
+          "original": "[[1.6]]"
+        }
+      ],
+      "cleanText": "7:52!! I'll be late at this rate!"
+    },
+    {
+      "name": "1.8",
+      "tags": "Narrator Marty_leave",
+      "id": "8",
+      "text": "You head out to deliver mail across Honey Haven. [[1.8 MAIN]]",
+      "links": [
+        {
+          "linkText": "1.8 MAIN",
+          "passageName": "1.8 MAIN",
+          "original": "[[1.8 MAIN]]"
+        }
+      ],
+      "cleanText": "You head out to deliver mail across Honey Haven."
+    },
+    {
+      "name": " 1.9 pepper lane",
+      "tags": "must_visit",
+      "id": "9",
+      "text": "You head northwest and reach Pepper Lane, a street bustling with young children playing on unkempt, wild front lawns and elderly residents in rocking chairs on white porches. [[1.10 pepper]]",
+      "links": [
+        {
+          "linkText": "1.10 pepper",
+          "passageName": "1.10 pepper",
+          "original": "[[1.10 pepper]]"
+        }
+      ],
+      "cleanText": "You head northwest and reach Pepper Lane, a street bustling with young children playing on unkempt, wild front lawns and elderly residents in rocking chairs on white porches."
+    },
+    {
+      "name": " 1.9 casserole avenue",
+      "tags": "must_visit Narrator",
+      "id": "10",
+      "text": "You turn left onto Casserole Avenue, a beautiful street full of dewey green vegetables. [[1.10]]",
+      "links": [
+        {
+          "linkText": "1.10",
+          "passageName": "1.10",
+          "original": "[[1.10]]"
+        }
+      ],
+      "cleanText": "You turn left onto Casserole Avenue, a beautiful street full of dewey green vegetables."
+    },
+    {
+      "name": " 1.9 truffle corner",
+      "tags": "must_visit",
+      "id": "11",
+      "text": "You go eastward until you hit Truffle Corner, a small crevice where two streets meet. Only one resident lives in the tiny, rundown, yet cozy shaft. [[1.10 truffle corner]]",
+      "links": [
+        {
+          "linkText": "1.10 truffle corner",
+          "passageName": "1.10 truffle corner",
+          "original": "[[1.10 truffle corner]]"
+        }
+      ],
+      "cleanText": "You go eastward until you hit Truffle Corner, a small crevice where two streets meet. Only one resident lives in the tiny, rundown, yet cozy shaft."
+    },
+    {
+      "name": " 1.11a casserole",
+      "tags": "Marty_enter Marty buttons_enter",
+      "id": "12",
+      "text": "BOO!!!\n[[1.12a casserole]]",
+      "links": [
+        {
+          "linkText": "1.12a casserole",
+          "passageName": "1.12a casserole",
+          "original": "[[1.12a casserole]]"
+        }
+      ],
+      "cleanText": "BOO!!!"
+    },
+    {
+      "name": " 1.11b casserole",
+      "tags": "Marty Marty_enter buttons_enter",
+      "id": "13",
+      "text": "Hey Ms. Buttons! Already at it so early, I see. [[1.12b casserole]]",
+      "links": [
+        {
+          "linkText": "1.12b casserole",
+          "passageName": "1.12b casserole",
+          "original": "[[1.12b casserole]]"
+        }
+      ],
+      "cleanText": "Hey Ms. Buttons! Already at it so early, I see."
+    },
+    {
+      "name": "1.10",
+      "tags": "",
+      "id": "14",
+      "text": "The first home you see has a wooden enclosure sprouting plump carrots. Ms. Buttons, the restaurant owner of Bunalicious, lives here. She's picking the carrots in her garden when you approach. \n[[Jumpscare Ms. Buttons -> 1.11a casserole]]\n[[Call for her attention -> 1.11b casserole]]",
+      "links": [
+        {
+          "linkText": "Jumpscare Ms. Buttons",
+          "passageName": "1.11a casserole",
+          "original": "[[Jumpscare Ms. Buttons -> 1.11a casserole]]"
+        },
+        {
+          "linkText": "Call for her attention",
+          "passageName": "1.11b casserole",
+          "original": "[[Call for her attention -> 1.11b casserole]]"
+        }
+      ],
+      "cleanText": "The first home you see has a wooden enclosure sprouting plump carrots. Ms. Buttons, the restaurant owner of Bunalicious, lives here. She's picking the carrots in her garden when you approach."
+    },
+    {
+      "name": "1.12a casserole",
+      "tags": "buttons",
+      "id": "15",
+      "text": "AHHHGJDLFpfhuff.. *huff* [[1.12a.1 casserole]]",
+      "links": [
+        {
+          "linkText": "1.12a.1 casserole",
+          "passageName": "1.12a.1 casserole",
+          "original": "[[1.12a.1 casserole]]"
+        }
+      ],
+      "cleanText": "AHHHGJDLFpfhuff.. *huff*"
+    },
+    {
+      "name": "1.12b casserole",
+      "tags": "buttons",
+      "id": "16",
+      "text": "Ah, hello Marty! Well, an old bunny like me needs to get her work done early. [[1.14 casserole]]",
+      "links": [
+        {
+          "linkText": "1.14 casserole",
+          "passageName": "1.14 casserole",
+          "original": "[[1.14 casserole]]"
+        }
+      ],
+      "cleanText": "Ah, hello Marty! Well, an old bunny like me needs to get her work done early."
+    },
+    {
+      "name": "1.13a casserole",
+      "tags": "buttons",
+      "id": "17",
+      "text": "Always trying to scare an old bunny. [[1.14 casserole]]",
+      "links": [
+        {
+          "linkText": "1.14 casserole",
+          "passageName": "1.14 casserole",
+          "original": "[[1.14 casserole]]"
+        }
+      ],
+      "cleanText": "Always trying to scare an old bunny."
+    },
+    {
+      "name": "1.14 casserole",
+      "tags": "Marty",
+      "id": "18",
+      "text": "Haha, you're no old bunny yet. When you get to Mrs. Tofu's age, then you can start talking. [[1.15 casserole]]",
+      "links": [
+        {
+          "linkText": "1.15 casserole",
+          "passageName": "1.15 casserole",
+          "original": "[[1.15 casserole]]"
+        }
+      ],
+      "cleanText": "Haha, you're no old bunny yet. When you get to Mrs. Tofu's age, then you can start talking."
+    },
+    {
+      "name": "1.15 casserole",
+      "tags": "buttons",
+      "id": "19",
+      "text": "You sure know how to make a bunny blush, you lil charmer. Do you have some mail for me? [[1.16 casserole]]",
+      "links": [
+        {
+          "linkText": "1.16 casserole",
+          "passageName": "1.16 casserole",
+          "original": "[[1.16 casserole]]"
+        }
+      ],
+      "cleanText": "You sure know how to make a bunny blush, you lil charmer. Do you have some mail for me?"
+    },
+    {
+      "name": "1.16 casserole",
+      "tags": "Marty",
+      "id": "20",
+      "text": "Sure do. I guess Bunalicious is booming, 'cause you have a lottt of interest. [[1.17 casserole]]",
+      "links": [
+        {
+          "linkText": "1.17 casserole",
+          "passageName": "1.17 casserole",
+          "original": "[[1.17 casserole]]"
+        }
+      ],
+      "cleanText": "Sure do. I guess Bunalicious is booming, 'cause you have a lottt of interest."
+    },
+    {
+      "name": "1.17 casserole",
+      "tags": "buttons",
+      "id": "21",
+      "text": "Thanks sweetie pie! [[1.18 casserole]]",
+      "links": [
+        {
+          "linkText": "1.18 casserole",
+          "passageName": "1.18 casserole",
+          "original": "[[1.18 casserole]]"
+        }
+      ],
+      "cleanText": "Thanks sweetie pie!"
+    },
+    {
+      "name": "1.18 casserole",
+      "tags": "marty_leave buttons_leave",
+      "id": "22",
+      "text": "You bid Ms. Buttons farewell and move onto the next home, a hollowed out treehouse. This is the home of Peaches, a vibrant, young possum mother. [[1.19 casserole]]",
+      "links": [
+        {
+          "linkText": "1.19 casserole",
+          "passageName": "1.19 casserole",
+          "original": "[[1.19 casserole]]"
+        }
+      ],
+      "cleanText": "You bid Ms. Buttons farewell and move onto the next home, a hollowed out treehouse. This is the home of Peaches, a vibrant, young possum mother."
+    },
+    {
+      "name": "1.19 casserole",
+      "tags": "marty_enter peaches_enter marty",
+      "id": "23",
+      "text": "Hi Peaches! How ya doing?  [[1.20 casserole]]",
+      "links": [
+        {
+          "linkText": "1.20 casserole",
+          "passageName": "1.20 casserole",
+          "original": "[[1.20 casserole]]"
+        }
+      ],
+      "cleanText": "Hi Peaches! How ya doing?"
+    },
+    {
+      "name": "1.20 casserole",
+      "tags": "peaches",
+      "id": "24",
+      "text": "Just wonderful, Marty. I hope you are doing wonderful, too. I just got back from the most amazing vacation at the Rainforest Resort. [[1.21 casserole]]",
+      "links": [
+        {
+          "linkText": "1.21 casserole",
+          "passageName": "1.21 casserole",
+          "original": "[[1.21 casserole]]"
+        }
+      ],
+      "cleanText": "Just wonderful, Marty. I hope you are doing wonderful, too. I just got back from the most amazing vacation at the Rainforest Resort."
+    },
+    {
+      "name": "1.21 casserole",
+      "tags": "marty",
+      "id": "25",
+      "text": "Wow! That's an expensive place. [[1.22 casserole]]",
+      "links": [
+        {
+          "linkText": "1.22 casserole",
+          "passageName": "1.22 casserole",
+          "original": "[[1.22 casserole]]"
+        }
+      ],
+      "cleanText": "Wow! That's an expensive place."
+    },
+    {
+      "name": "1.22 casserole",
+      "tags": "peaches",
+      "id": "26",
+      "text": "Yes, it was a nice.. gift. From a lil friend of mine. [[1.23 casserole]]",
+      "links": [
+        {
+          "linkText": "1.23 casserole",
+          "passageName": "1.23 casserole",
+          "original": "[[1.23 casserole]]"
+        }
+      ],
+      "cleanText": "Yes, it was a nice.. gift. From a lil friend of mine."
+    },
+    {
+      "name": "1.23 casserole",
+      "tags": "marty",
+      "id": "27",
+      "text": "What a kind (and rich) friend you have! [[1.24 casserole]]",
+      "links": [
+        {
+          "linkText": "1.24 casserole",
+          "passageName": "1.24 casserole",
+          "original": "[[1.24 casserole]]"
+        }
+      ],
+      "cleanText": "What a kind (and rich) friend you have!"
+    },
+    {
+      "name": "1.24 casserole",
+      "tags": "marty",
+      "id": "28",
+      "text": "Oh my GOAT, I haven't met your babies yet. Can I say hi? [[1.25 casserole]]",
+      "links": [
+        {
+          "linkText": "1.25 casserole",
+          "passageName": "1.25 casserole",
+          "original": "[[1.25 casserole]]"
+        }
+      ],
+      "cleanText": "Oh my GOAT, I haven't met your babies yet. Can I say hi?"
+    },
+    {
+      "name": "1.25 casserole",
+      "tags": "peaches",
+      "id": "29",
+      "text": "Aw sorry, they're just a little shy. Maybe next time! Thank you for the mail Marty. [[1.26 casserole]]",
+      "links": [
+        {
+          "linkText": "1.26 casserole",
+          "passageName": "1.26 casserole",
+          "original": "[[1.26 casserole]]"
+        }
+      ],
+      "cleanText": "Aw sorry, they're just a little shy. Maybe next time! Thank you for the mail Marty."
+    },
+    {
+      "name": "1.26 casserole",
+      "tags": "marty_leave peaches_leave",
+      "id": "30",
+      "text": "You move to the end of Casserole Avenue where your best friend, Matthew, lives. He's waiting for you when you arrive. [[1.27 casserole]]",
+      "links": [
+        {
+          "linkText": "1.27 casserole",
+          "passageName": "1.27 casserole",
+          "original": "[[1.27 casserole]]"
+        }
+      ],
+      "cleanText": "You move to the end of Casserole Avenue where your best friend, Matthew, lives. He's waiting for you when you arrive."
+    },
+    {
+      "name": "1.27 casserole",
+      "tags": "marty_enter matthew_enter matthew",
+      "id": "31",
+      "text": "Took you long enough. This mouse might as well be a snail. [[1.28 casserole]]",
+      "links": [
+        {
+          "linkText": "1.28 casserole",
+          "passageName": "1.28 casserole",
+          "original": "[[1.28 casserole]]"
+        }
+      ],
+      "cleanText": "Took you long enough. This mouse might as well be a snail."
+    },
+    {
+      "name": "1.28 casserole",
+      "tags": "marty",
+      "id": "32",
+      "text": "Bah ba baaa. Whatever, Matthew. Here's your mail. [[1.29 casserole]]",
+      "links": [
+        {
+          "linkText": "1.29 casserole",
+          "passageName": "1.29 casserole",
+          "original": "[[1.29 casserole]]"
+        }
+      ],
+      "cleanText": "Bah ba baaa. Whatever, Matthew. Here's your mail."
+    },
+    {
+      "name": "1.29 casserole",
+      "tags": "matthew",
+      "id": "33",
+      "text": "You doing alright? You look a lil tired. [[1.30 casserole]]",
+      "links": [
+        {
+          "linkText": "1.30 casserole",
+          "passageName": "1.30 casserole",
+          "original": "[[1.30 casserole]]"
+        }
+      ],
+      "cleanText": "You doing alright? You look a lil tired."
+    },
+    {
+      "name": "1.30 casserole",
+      "tags": "marty",
+      "id": "34",
+      "text": "It's nothing big, I just haven't been sleeping well. [[1.31 casserole]]",
+      "links": [
+        {
+          "linkText": "1.31 casserole",
+          "passageName": "1.31 casserole",
+          "original": "[[1.31 casserole]]"
+        }
+      ],
+      "cleanText": "It's nothing big, I just haven't been sleeping well."
+    },
+    {
+      "name": "1.31 casserole",
+      "tags": "matthew",
+      "id": "35",
+      "text": "Aw rats, that stinks! \n[[\"What did you just call me!?\" -> 1.32 casserole]]\n[[\"That's me!\" -> 1.32 casserole]]",
+      "links": [
+        {
+          "linkText": "\"What did you just call me!?\"",
+          "passageName": "1.32 casserole",
+          "original": "[[\"What did you just call me!?\" -> 1.32 casserole]]"
+        },
+        {
+          "linkText": "\"That's me!\"",
+          "passageName": "1.32 casserole",
+          "original": "[[\"That's me!\" -> 1.32 casserole]]"
+        }
+      ],
+      "cleanText": "Aw rats, that stinks!"
+    },
+    {
+      "name": " 1.32 casserole",
+      "tags": "marty",
+      "id": "36",
+      "text": "Sooo. Who's the lady who keeps sending you mail? I keep having to stop by here everyday. [[1.33 casserole]]",
+      "links": [
+        {
+          "linkText": "1.33 casserole",
+          "passageName": "1.33 casserole",
+          "original": "[[1.33 casserole]]"
+        }
+      ],
+      "cleanText": "Sooo. Who's the lady who keeps sending you mail? I keep having to stop by here everyday."
+    },
+    {
+      "name": "1.33 casserole",
+      "tags": "matthew",
+      "id": "37",
+      "text": "Sigh, it's just my aunt Susan. She's constantly checking up on me. [[1.34 casserole]]",
+      "links": [
+        {
+          "linkText": "1.34 casserole",
+          "passageName": "1.34 casserole",
+          "original": "[[1.34 casserole]]"
+        }
+      ],
+      "cleanText": "Sigh, it's just my aunt Susan. She's constantly checking up on me."
+    },
+    {
+      "name": "1.34 casserole",
+      "tags": "marty",
+      "id": "38",
+      "text": "Haha! Someone's still in grade school. [[1.35 casserole]]",
+      "links": [
+        {
+          "linkText": "1.35 casserole",
+          "passageName": "1.35 casserole",
+          "original": "[[1.35 casserole]]"
+        }
+      ],
+      "cleanText": "Haha! Someone's still in grade school."
+    },
+    {
+      "name": "1.35 casserole",
+      "tags": "marty",
+      "id": "39",
+      "text": "I'll be on my way now! Knowing Aunt Susan, I'll be back tomorrow. [[1.36 casserole]]",
+      "links": [
+        {
+          "linkText": "1.36 casserole",
+          "passageName": "1.36 casserole",
+          "original": "[[1.36 casserole]]"
+        }
+      ],
+      "cleanText": "I'll be on my way now! Knowing Aunt Susan, I'll be back tomorrow."
+    },
+    {
+      "name": "1.8 MAIN",
+      "tags": "",
+      "id": "40",
+      "text": "Where to?\n[[Pepper Lane -> 1.9 pepper lane]]\n[[Casserole Avenue -> 1.9 casserole avenue]]\n[[Truffle Corner -> 1.9 truffle corner]]\n[[1.9 main]]",
+      "links": [
+        {
+          "linkText": "Pepper Lane",
+          "passageName": "1.9 pepper lane",
+          "original": "[[Pepper Lane -> 1.9 pepper lane]]"
+        },
+        {
+          "linkText": "Casserole Avenue",
+          "passageName": "1.9 casserole avenue",
+          "original": "[[Casserole Avenue -> 1.9 casserole avenue]]"
+        },
+        {
+          "linkText": "Truffle Corner",
+          "passageName": "1.9 truffle corner",
+          "original": "[[Truffle Corner -> 1.9 truffle corner]]"
+        },
+        {
+          "linkText": "1.9 main",
+          "passageName": "1.9 main",
+          "original": "[[1.9 main]]"
+        }
+      ],
+      "cleanText": "Where to?"
+    },
+    {
+      "name": "1.10 truffle corner",
+      "tags": "marty_enter",
+      "id": "41",
+      "text": "You knock on the door of the eerily silent home. The doorplate reads, \"Jonathan F. Smith.\" [[1.11 truffle]]",
+      "links": [
+        {
+          "linkText": "1.11 truffle",
+          "passageName": "1.11 truffle",
+          "original": "[[1.11 truffle]]"
+        }
+      ],
+      "cleanText": "You knock on the door of the eerily silent home. The doorplate reads, \"Jonathan F. Smith.\""
+    },
+    {
+      "name": "1.11 truffle",
+      "tags": "marty",
+      "id": "42",
+      "text": "Hello? Mr. Smith? Are you home? [[1.11.5 truffle]]",
+      "links": [
+        {
+          "linkText": "1.11.5 truffle",
+          "passageName": "1.11.5 truffle",
+          "original": "[[1.11.5 truffle]]"
+        }
+      ],
+      "cleanText": "Hello? Mr. Smith? Are you home?"
+    },
+    {
+      "name": "1.12 truffle",
+      "tags": "marty",
+      "id": "43",
+      "text": "I guess not. Sigh, it's been a few years since I've seen Mr. Smith. [[1.13 truffle]]",
+      "links": [
+        {
+          "linkText": "1.13 truffle",
+          "passageName": "1.13 truffle",
+          "original": "[[1.13 truffle]]"
+        }
+      ],
+      "cleanText": "I guess not. Sigh, it's been a few years since I've seen Mr. Smith."
+    },
+    {
+      "name": "1.13 truffle",
+      "tags": "marty",
+      "id": "44",
+      "text": "I wonder why he suddenly became so reclusive... Come to think of it, wasn't it also around this time two years ago? [[1.14 truffle]]",
+      "links": [
+        {
+          "linkText": "1.14 truffle",
+          "passageName": "1.14 truffle",
+          "original": "[[1.14 truffle]]"
+        }
+      ],
+      "cleanText": "I wonder why he suddenly became so reclusive... Come to think of it, wasn't it also around this time two years ago?"
+    },
+    {
+      "name": "1.14 truffle",
+      "tags": "marty",
+      "id": "45",
+      "text": "Ah- You're getting distracted, me! Gah! I better get on my way. I need to make it in time for Mayor Barnaby's speech tonight. [[1.15 truffle]]",
+      "links": [
+        {
+          "linkText": "1.15 truffle",
+          "passageName": "1.15 truffle",
+          "original": "[[1.15 truffle]]"
+        }
+      ],
+      "cleanText": "Ah- You're getting distracted, me! Gah! I better get on my way. I need to make it in time for Mayor Barnaby's speech tonight."
+    },
+    {
+      "name": "1.15 truffle",
+      "tags": "",
+      "id": "46",
+      "text": "You put the letters for Jonathan F. Smith in his mailbox and head out. [[1.8 MAIN]]",
+      "links": [
+        {
+          "linkText": "1.8 MAIN",
+          "passageName": "1.8 MAIN",
+          "original": "[[1.8 MAIN]]"
+        }
+      ],
+      "cleanText": "You put the letters for Jonathan F. Smith in his mailbox and head out."
+    },
+    {
+      "name": "1.11.5 truffle",
+      "tags": "",
+      "id": "47",
+      "text": "[[1.12 truffle]] You hear soft sounds of tv and static from inside the home. There's some shifting, but no indications of footsteps or movements towards the door.",
+      "links": [
+        {
+          "linkText": "1.12 truffle",
+          "passageName": "1.12 truffle",
+          "original": "[[1.12 truffle]]"
+        }
+      ],
+      "cleanText": "You hear soft sounds of tv and static from inside the home. There's some shifting, but no indications of footsteps or movements towards the door."
+    },
+    {
+      "name": "1.36 casserole",
+      "tags": "marty_leave matthew_leave",
+      "id": "48",
+      "text": "You turn to leave Casserole Avenue. [[1.8 MAIN]]",
+      "links": [
+        {
+          "linkText": "1.8 MAIN",
+          "passageName": "1.8 MAIN",
+          "original": "[[1.8 MAIN]]"
+        }
+      ],
+      "cleanText": "You turn to leave Casserole Avenue."
+    },
+    {
+      "name": "1.10 pepper",
+      "tags": "",
+      "id": "49",
+      "text": "You approach the cozy home of Mrs. Tofu and Mr. Scotch, an elderly tortoise and sloth couple who, despite having no kids of their own, delight in having the company of such youthful, racous neighbors. [[1.11 pepper]]",
+      "links": [
+        {
+          "linkText": "1.11 pepper",
+          "passageName": "1.11 pepper",
+          "original": "[[1.11 pepper]]"
+        }
+      ],
+      "cleanText": "You approach the cozy home of Mrs. Tofu and Mr. Scotch, an elderly tortoise and sloth couple who, despite having no kids of their own, delight in having the company of such youthful, racous neighbors."
+    },
+    {
+      "name": "1.11 pepper",
+      "tags": "marty_enter tofu/scotch_enter marty",
+      "id": "50",
+      "text": "Mrs. Tofu! Mr. Scotch! Good morning! [[1.12 pepper]]",
+      "links": [
+        {
+          "linkText": "1.12 pepper",
+          "passageName": "1.12 pepper",
+          "original": "[[1.12 pepper]]"
+        }
+      ],
+      "cleanText": "Mrs. Tofu! Mr. Scotch! Good morning!"
+    },
+    {
+      "name": "1.12 pepper",
+      "tags": "scotch",
+      "id": "51",
+      "text": "Why, good morning Marty! Jolly day, isn't it. [[1.13 pepper]]",
+      "links": [
+        {
+          "linkText": "1.13 pepper",
+          "passageName": "1.13 pepper",
+          "original": "[[1.13 pepper]]"
+        }
+      ],
+      "cleanText": "Why, good morning Marty! Jolly day, isn't it."
+    },
+    {
+      "name": "1.13 pepper",
+      "tags": "marty",
+      "id": "52",
+      "text": "Haha, the air is starting to feel like a knife though. [[1.14 pepper]]",
+      "links": [
+        {
+          "linkText": "1.14 pepper",
+          "passageName": "1.14 pepper",
+          "original": "[[1.14 pepper]]"
+        }
+      ],
+      "cleanText": "Haha, the air is starting to feel like a knife though."
+    },
+    {
+      "name": "1.14 pepper",
+      "tags": "marty",
+      "id": "53",
+      "text": "Here's your mail! [[1.15 pepper]]",
+      "links": [
+        {
+          "linkText": "1.15 pepper",
+          "passageName": "1.15 pepper",
+          "original": "[[1.15 pepper]]"
+        }
+      ],
+      "cleanText": "Here's your mail!"
+    },
+    {
+      "name": "1.15 pepper",
+      "tags": "tofu",
+      "id": "54",
+      "text": "Thank you, Marty! It is always nice to see your face, my dear. [[1.16 pepper]]",
+      "links": [
+        {
+          "linkText": "1.16 pepper",
+          "passageName": "1.16 pepper",
+          "original": "[[1.16 pepper]]"
+        }
+      ],
+      "cleanText": "Thank you, Marty! It is always nice to see your face, my dear."
+    },
+    {
+      "name": "1.16 pepper",
+      "tags": "marty_leave tofu/scotch_leave",
+      "id": "55",
+      "text": "You bid farewell to Mrs. Tofu and Mr. Scotch, your favorite elderly residents in Honey Haven. [[1.17 pepper]]",
+      "links": [
+        {
+          "linkText": "1.17 pepper",
+          "passageName": "1.17 pepper",
+          "original": "[[1.17 pepper]]"
+        }
+      ],
+      "cleanText": "You bid farewell to Mrs. Tofu and Mr. Scotch, your favorite elderly residents in Honey Haven."
+    },
+    {
+      "name": "1.17 pepper",
+      "tags": "",
+      "id": "56",
+      "text": "You approach the next house, where a little purple cat is leaning on the mailbox and smirking at you. [[1.18 pepper]]",
+      "links": [
+        {
+          "linkText": "1.18 pepper",
+          "passageName": "1.18 pepper",
+          "original": "[[1.18 pepper]]"
+        }
+      ],
+      "cleanText": "You approach the next house, where a little purple cat is leaning on the mailbox and smirking at you."
+    },
+    {
+      "name": "1.18 pepper",
+      "tags": "marty_enter chester_enter chester",
+      "id": "57",
+      "text": "Mr. Marty, what's up with the scary monster behind you? [[1.19 pepper]]",
+      "links": [
+        {
+          "linkText": "1.19 pepper",
+          "passageName": "1.19 pepper",
+          "original": "[[1.19 pepper]]"
+        }
+      ],
+      "cleanText": "Mr. Marty, what's up with the scary monster behind you?"
+    },
+    {
+      "name": "1.19 pepper",
+      "tags": "marty",
+      "id": "58",
+      "text": "What? [[1.20 pepper]]",
+      "links": [
+        {
+          "linkText": "1.20 pepper",
+          "passageName": "1.20 pepper",
+          "original": "[[1.20 pepper]]"
+        }
+      ],
+      "cleanText": "What?"
+    },
+    {
+      "name": "1.20 pepper",
+      "tags": "chester",
+      "id": "59",
+      "text": "You heard me. It keeps following you for some reason. [[1.21 pepper]]",
+      "links": [
+        {
+          "linkText": "1.21 pepper",
+          "passageName": "1.21 pepper",
+          "original": "[[1.21 pepper]]"
+        }
+      ],
+      "cleanText": "You heard me. It keeps following you for some reason."
+    },
+    {
+      "name": "1.21 pepper",
+      "tags": "",
+      "id": "60",
+      "text": "You turn around and see nothing there. You breathe a sigh of relief. [[1.22 pepper]]",
+      "links": [
+        {
+          "linkText": "1.22 pepper",
+          "passageName": "1.22 pepper",
+          "original": "[[1.22 pepper]]"
+        }
+      ],
+      "cleanText": "You turn around and see nothing there. You breathe a sigh of relief."
+    },
+    {
+      "name": "1.22 pepper",
+      "tags": "marty",
+      "id": "61",
+      "text": "See Chester? Nothing there. [[1.23 pepper]]",
+      "links": [
+        {
+          "linkText": "1.23 pepper",
+          "passageName": "1.23 pepper",
+          "original": "[[1.23 pepper]]"
+        }
+      ],
+      "cleanText": "See Chester? Nothing there."
+    },
+    {
+      "name": "1.23 pepper",
+      "tags": "chester",
+      "id": "62",
+      "text": "\nThat's cuz you can't see him... but he's there. But I can. He really likes you- [[1.24 pepper]]",
+      "links": [
+        {
+          "linkText": "1.24 pepper",
+          "passageName": "1.24 pepper",
+          "original": "[[1.24 pepper]]"
+        }
+      ],
+      "cleanText": "\nThat's cuz you can't see him... but he's there. But I can. He really likes you-"
+    },
+    {
+      "name": "1.24 pepper",
+      "tags": "mochi_enter chester",
+      "id": "63",
+      "text": "AH! [[1.25 pepper]]",
+      "links": [
+        {
+          "linkText": "1.25 pepper",
+          "passageName": "1.25 pepper",
+          "original": "[[1.25 pepper]]"
+        }
+      ],
+      "cleanText": "AH!"
+    },
+    {
+      "name": "1.25 pepper",
+      "tags": "",
+      "id": "64",
+      "text": "Ms. Mochi, Chester's mom, picks him up. [[1.26 pepper]]",
+      "links": [
+        {
+          "linkText": "1.26 pepper",
+          "passageName": "1.26 pepper",
+          "original": "[[1.26 pepper]]"
+        }
+      ],
+      "cleanText": "Ms. Mochi, Chester's mom, picks him up."
+    },
+    {
+      "name": "1.26 pepper",
+      "tags": "mochi",
+      "id": "65",
+      "text": "Oh my, I'm so sorry Marty. Chester likes playing with mice. [[1.27 pepper]]",
+      "links": [
+        {
+          "linkText": "1.27 pepper",
+          "passageName": "1.27 pepper",
+          "original": "[[1.27 pepper]]"
+        }
+      ],
+      "cleanText": "Oh my, I'm so sorry Marty. Chester likes playing with mice."
+    },
+    {
+      "name": "1.27 pepper",
+      "tags": "mochi",
+      "id": "66",
+      "text": "I'll make sure he doesn't misbehave again. [[1.28 pepper]]",
+      "links": [
+        {
+          "linkText": "1.28 pepper",
+          "passageName": "1.28 pepper",
+          "original": "[[1.28 pepper]]"
+        }
+      ],
+      "cleanText": "I'll make sure he doesn't misbehave again."
+    },
+    {
+      "name": "1.28 pepper",
+      "tags": "mochi",
+      "id": "67",
+      "text": "Thanks for the mail! [[1.29 pepper]]",
+      "links": [
+        {
+          "linkText": "1.29 pepper",
+          "passageName": "1.29 pepper",
+          "original": "[[1.29 pepper]]"
+        }
+      ],
+      "cleanText": "Thanks for the mail!"
+    },
+    {
+      "name": "1.30 pepper",
+      "tags": "marty_leave",
+      "id": "68",
+      "text": "You shrug off the bristling feeling and knock on the door of the final house in the row, belonging to Mr. Schlawg and his son, Peanut. [[1.31 pepper]]",
+      "links": [
+        {
+          "linkText": "1.31 pepper",
+          "passageName": "1.31 pepper",
+          "original": "[[1.31 pepper]]"
+        }
+      ],
+      "cleanText": "You shrug off the bristling feeling and knock on the door of the final house in the row, belonging to Mr. Schlawg and his son, Peanut."
+    },
+    {
+      "name": "1.29 pepper",
+      "tags": "marty chester_leave mochi_leave",
+      "id": "69",
+      "text": "[[1.30 pepper]] That was weird...",
+      "links": [
+        {
+          "linkText": "1.30 pepper",
+          "passageName": "1.30 pepper",
+          "original": "[[1.30 pepper]]"
+        }
+      ],
+      "cleanText": "That was weird..."
+    },
+    {
+      "name": "1.31 pepper",
+      "tags": "marty_enter",
+      "id": "70",
+      "text": "There's a note on the door. Let's see.. oh, they're at the doctors. [[1.32 pepper]]",
+      "links": [
+        {
+          "linkText": "1.32 pepper",
+          "passageName": "1.32 pepper",
+          "original": "[[1.32 pepper]]"
+        }
+      ],
+      "cleanText": "There's a note on the door. Let's see.. oh, they're at the doctors."
+    },
+    {
+      "name": "1.32 pepper",
+      "tags": "",
+      "id": "71",
+      "text": "You leave their letters in the mailbox. [[1.33 pepper]]",
+      "links": [
+        {
+          "linkText": "1.33 pepper",
+          "passageName": "1.33 pepper",
+          "original": "[[1.33 pepper]]"
+        }
+      ],
+      "cleanText": "You leave their letters in the mailbox."
+    },
+    {
+      "name": "1.33 pepper",
+      "tags": "marty",
+      "id": "72",
+      "text": "That reminds me, I have to see Dr. Muffins. [[1.34 pepper]]",
+      "links": [
+        {
+          "linkText": "1.34 pepper",
+          "passageName": "1.34 pepper",
+          "original": "[[1.34 pepper]]"
+        }
+      ],
+      "cleanText": "That reminds me, I have to see Dr. Muffins."
+    },
+    {
+      "name": "1.34 pepper",
+      "tags": "marty_leave",
+      "id": "73",
+      "text": "You leave Pepper Lane. [[1.8 MAIN]]",
+      "links": [
+        {
+          "linkText": "1.8 MAIN",
+          "passageName": "1.8 MAIN",
+          "original": "[[1.8 MAIN]]"
+        }
+      ],
+      "cleanText": "You leave Pepper Lane."
+    },
+    {
+      "name": "1.9 main",
+      "tags": "",
+      "id": "74",
+      "text": "You're off to Honeybee Center, the town square, when you see Ms. Buttons running up to you with a cradle of carrots. [[1.10 main]]",
+      "links": [
+        {
+          "linkText": "1.10 main",
+          "passageName": "1.10 main",
+          "original": "[[1.10 main]]"
+        }
+      ],
+      "cleanText": "You're off to Honeybee Center, the town square, when you see Ms. Buttons running up to you with a cradle of carrots."
+    },
+    {
+      "name": "1.10 main",
+      "tags": "marty_enter buttons_enter buttons",
+      "id": "75",
+      "text": "Marty! I just finished picking all my carrots and I need these at Bunalicious ASAP. Can you take them for me?\n[[\"Yes, of course!\" -> 1.11a main]]\n[[\"I'm a little busy...\" -> 1.11b main]]",
+      "links": [
+        {
+          "linkText": "\"Yes, of course!\"",
+          "passageName": "1.11a main",
+          "original": "[[\"Yes, of course!\" -> 1.11a main]]"
+        },
+        {
+          "linkText": "\"I'm a little busy...\"",
+          "passageName": "1.11b main",
+          "original": "[[\"I'm a little busy...\" -> 1.11b main]]"
+        }
+      ],
+      "cleanText": "Marty! I just finished picking all my carrots and I need these at Bunalicious ASAP. Can you take them for me?"
+    },
+    {
+      "name": " 1.11a main",
+      "tags": "buttons",
+      "id": "76",
+      "text": "Thank you sweetie pie! I'll make sure you get some free carrot cake next time you stop by. [[1.12a main]]",
+      "links": [
+        {
+          "linkText": "1.12a main",
+          "passageName": "1.12a main",
+          "original": "[[1.12a main]]"
+        }
+      ],
+      "cleanText": "Thank you sweetie pie! I'll make sure you get some free carrot cake next time you stop by."
+    },
+    {
+      "name": " 1.11b main",
+      "tags": "buttons",
+      "id": "77",
+      "text": "Well surely you can spare a few minutes for this old bunny! [[1.12b main]]",
+      "links": [
+        {
+          "linkText": "1.12b main",
+          "passageName": "1.12b main",
+          "original": "[[1.12b main]]"
+        }
+      ],
+      "cleanText": "Well surely you can spare a few minutes for this old bunny!"
+    },
+    {
+      "name": "1.12b main",
+      "tags": "buttons",
+      "id": "78",
+      "text": "You're already on your way to Honeybee Center. Just take these with you! [[1.13b main]]",
+      "links": [
+        {
+          "linkText": "1.13b main",
+          "passageName": "1.13b main",
+          "original": "[[1.13b main]]"
+        }
+      ],
+      "cleanText": "You're already on your way to Honeybee Center. Just take these with you!"
+    },
+    {
+      "name": "1.13b main",
+      "tags": "buttons_leave",
+      "id": "79",
+      "text": "She hops off after thrusting the cradle of carrots into your arm, mumbling about how the younger generations are lazy and incapable. [[Deliver carrots and go to Honeybee Center -> 1.14 main]]",
+      "links": [
+        {
+          "linkText": "Deliver carrots and go to Honeybee Center",
+          "passageName": "1.14 main",
+          "original": "[[Deliver carrots and go to Honeybee Center -> 1.14 main]]"
+        }
+      ],
+      "cleanText": "She hops off after thrusting the cradle of carrots into your arm, mumbling about how the younger generations are lazy and incapable."
+    },
+    {
+      "name": " 1.14 main",
+      "tags": "minigame_start",
+      "id": "80",
+      "text": "minigame starts [[1.15 main]]",
+      "links": [
+        {
+          "linkText": "1.15 main",
+          "passageName": "1.15 main",
+          "original": "[[1.15 main]]"
+        }
+      ],
+      "cleanText": "minigame starts"
+    },
+    {
+      "name": "1.15 main",
+      "tags": "minigame_end",
+      "id": "81",
+      "text": "minigame ends [[1.16 main]]",
+      "links": [
+        {
+          "linkText": "1.16 main",
+          "passageName": "1.16 main",
+          "original": "[[1.16 main]]"
+        }
+      ],
+      "cleanText": "minigame ends"
+    },
+    {
+      "name": "1.12a main",
+      "tags": "buttons_leave",
+      "id": "82",
+      "text": "She hands you the carrots and hops off. [[Deliver carrots and go to Honeybee Center -> 1.14 main]]",
+      "links": [
+        {
+          "linkText": "Deliver carrots and go to Honeybee Center",
+          "passageName": "1.14 main",
+          "original": "[[Deliver carrots and go to Honeybee Center -> 1.14 main]]"
+        }
+      ],
+      "cleanText": "She hands you the carrots and hops off."
+    },
+    {
+      "name": "1.16 main",
+      "tags": "",
+      "id": "83",
+      "text": "You've arrived Honeybee Center, Honey Haven's town square. [[1.17 main]]",
+      "links": [
+        {
+          "linkText": "1.17 main",
+          "passageName": "1.17 main",
+          "original": "[[1.17 main]]"
+        }
+      ],
+      "cleanText": "You've arrived Honeybee Center, Honey Haven's town square."
+    },
+    {
+      "name": "1.17 main",
+      "tags": "",
+      "id": "84",
+      "text": "You enter the brick building and find Jane D, Mayor Barnaby's secretary. [[1.18 main]]",
+      "links": [
+        {
+          "linkText": "1.18 main",
+          "passageName": "1.18 main",
+          "original": "[[1.18 main]]"
+        }
+      ],
+      "cleanText": "You enter the brick building and find Jane D, Mayor Barnaby's secretary."
+    },
+    {
+      "name": "1.18 main",
+      "tags": "jane_enter marty_enter jane",
+      "id": "85",
+      "text": "Hello Marty. You have some mail for me? [[1.19 main]]",
+      "links": [
+        {
+          "linkText": "1.19 main",
+          "passageName": "1.19 main",
+          "original": "[[1.19 main]]"
+        }
+      ],
+      "cleanText": "Hello Marty. You have some mail for me?"
+    },
+    {
+      "name": "1.19 main",
+      "tags": "marty",
+      "id": "86",
+      "text": "Sure do. Here's a letter for you... and here's 6 for the mayor. [[1.20 main]]",
+      "links": [
+        {
+          "linkText": "1.20 main",
+          "passageName": "1.20 main",
+          "original": "[[1.20 main]]"
+        }
+      ],
+      "cleanText": "Sure do. Here's a letter for you... and here's 6 for the mayor."
+    },
+    {
+      "name": "1.20 main",
+      "tags": "jane",
+      "id": "87",
+      "text": "Thanks. You'll be going to Barnaby's speech tonight, right? \n[[\"I guess...\" -> 1.21a main]]\n[[\"Yes!\" -> 1.21b main]]",
+      "links": [
+        {
+          "linkText": "\"I guess...\"",
+          "passageName": "1.21a main",
+          "original": "[[\"I guess...\" -> 1.21a main]]"
+        },
+        {
+          "linkText": "\"Yes!\"",
+          "passageName": "1.21b main",
+          "original": "[[\"Yes!\" -> 1.21b main]]"
+        }
+      ],
+      "cleanText": "Thanks. You'll be going to Barnaby's speech tonight, right?"
+    },
+    {
+      "name": " 1.21a main",
+      "tags": "jane",
+      "id": "88",
+      "text": "Oh Marty. Quit joking with me, you might actually make me laugh. Barnaby can look a lil shifty, but he's not a bad mayor. [[1.22 main]]",
+      "links": [
+        {
+          "linkText": "1.22 main",
+          "passageName": "1.22 main",
+          "original": "[[1.22 main]]"
+        }
+      ],
+      "cleanText": "Oh Marty. Quit joking with me, you might actually make me laugh. Barnaby can look a lil shifty, but he's not a bad mayor."
+    },
+    {
+      "name": " 1.21b main",
+      "tags": "jane",
+      "id": "89",
+      "text": "Fantastic. Barnaby's a good mayor. [[1.22 main]]",
+      "links": [
+        {
+          "linkText": "1.22 main",
+          "passageName": "1.22 main",
+          "original": "[[1.22 main]]"
+        }
+      ],
+      "cleanText": "Fantastic. Barnaby's a good mayor."
+    },
+    {
+      "name": "1.22 main",
+      "tags": "jane",
+      "id": "90",
+      "text": "He does what he needs to do. And that's what matters. [[1.23 main]]",
+      "links": [
+        {
+          "linkText": "1.23 main",
+          "passageName": "1.23 main",
+          "original": "[[1.23 main]]"
+        }
+      ],
+      "cleanText": "He does what he needs to do. And that's what matters."
+    },
+    {
+      "name": "1.23 main",
+      "tags": "marty_leave jane_leave",
+      "id": "91",
+      "text": "You nod and start heading back home. On your commute, you realize there's one letter left. [[1.24 main]]",
+      "links": [
+        {
+          "linkText": "1.24 main",
+          "passageName": "1.24 main",
+          "original": "[[1.24 main]]"
+        }
+      ],
+      "cleanText": "You nod and start heading back home. On your commute, you realize there's one letter left."
+    },
+    {
+      "name": "1.24 main",
+      "tags": "marty_enter main",
+      "id": "92",
+      "text": "Hm, what's this? [[1.25 main]]",
+      "links": [
+        {
+          "linkText": "1.25 main",
+          "passageName": "1.25 main",
+          "original": "[[1.25 main]]"
+        }
+      ],
+      "cleanText": "Hm, what's this?"
+    },
+    {
+      "name": "1.25 main",
+      "tags": "",
+      "id": "93",
+      "text": "You turn the letter over to find that there's no stamp or addressment. [[Open the letter -> 1.26 main]]",
+      "links": [
+        {
+          "linkText": "Open the letter",
+          "passageName": "1.26 main",
+          "original": "[[Open the letter -> 1.26 main]]"
+        }
+      ],
+      "cleanText": "You turn the letter over to find that there's no stamp or addressment."
+    },
+    {
+      "name": " 1.26 main",
+      "tags": "",
+      "id": "94",
+      "text": "The letter is blank except for one line: [[1.27 main]]",
+      "links": [
+        {
+          "linkText": "1.27 main",
+          "passageName": "1.27 main",
+          "original": "[[1.27 main]]"
+        }
+      ],
+      "cleanText": "The letter is blank except for one line:"
+    },
+    {
+      "name": "1.27 main",
+      "tags": "marty_leave",
+      "id": "95",
+      "text": "cutscene for they're lying [[1.28 main]]",
+      "links": [
+        {
+          "linkText": "1.28 main",
+          "passageName": "1.28 main",
+          "original": "[[1.28 main]]"
+        }
+      ],
+      "cleanText": "cutscene for they're lying"
+    },
+    {
+      "name": "1.28 main",
+      "tags": "marty_enter",
+      "id": "96",
+      "text": "You blink and letter disappears from your forepaws like a passing dream. You no longer feel the weight of the paper on your palms. \n[[\"What the ****\" -> 1.29 main]]\n[[\"This day is making less and less sense\" -> 1.29 main]]",
+      "links": [
+        {
+          "linkText": "\"What the ****\"",
+          "passageName": "1.29 main",
+          "original": "[[\"What the ****\" -> 1.29 main]]"
+        },
+        {
+          "linkText": "\"This day is making less and less sense\"",
+          "passageName": "1.29 main",
+          "original": "[[\"This day is making less and less sense\" -> 1.29 main]]"
+        }
+      ],
+      "cleanText": "You blink and letter disappears from your forepaws like a passing dream. You no longer feel the weight of the paper on your palms."
+    },
+    {
+      "name": " 1.29 main",
+      "tags": "marty",
+      "id": "97",
+      "text": "I should see Dr Muffins. [[1.30 main]]",
+      "links": [
+        {
+          "linkText": "1.30 main",
+          "passageName": "1.30 main",
+          "original": "[[1.30 main]]"
+        }
+      ],
+      "cleanText": "I should see Dr Muffins."
+    },
+    {
+      "name": "1.30 main",
+      "tags": "marty_leave",
+      "id": "98",
+      "text": "You meet Dr. Muffins at his private practice. [[1.31 main]]",
+      "links": [
+        {
+          "linkText": "1.31 main",
+          "passageName": "1.31 main",
+          "original": "[[1.31 main]]"
+        }
+      ],
+      "cleanText": "You meet Dr. Muffins at his private practice."
+    },
+    {
+      "name": "1.31 main",
+      "tags": "marty_enter muffins_enter marty",
+      "id": "99",
+      "text": "Hey there Marty! What brings you in today? [[1.32 main]]",
+      "links": [
+        {
+          "linkText": "1.32 main",
+          "passageName": "1.32 main",
+          "original": "[[1.32 main]]"
+        }
+      ],
+      "cleanText": "Hey there Marty! What brings you in today?"
+    },
+    {
+      "name": "1.32 main",
+      "tags": "marty",
+      "id": "100",
+      "text": "Doc.. I've been having really weird dreams... hallucinations too. [[1.33 main]]",
+      "links": [
+        {
+          "linkText": "1.33 main",
+          "passageName": "1.33 main",
+          "original": "[[1.33 main]]"
+        }
+      ],
+      "cleanText": "Doc.. I've been having really weird dreams... hallucinations too."
+    },
+    {
+      "name": "1.33 main",
+      "tags": "marty",
+      "id": "101",
+      "text": "But the weirdest thing is that they all feel... so real. [[1.34 main]]",
+      "links": [
+        {
+          "linkText": "1.34 main",
+          "passageName": "1.34 main",
+          "original": "[[1.34 main]]"
+        }
+      ],
+      "cleanText": "But the weirdest thing is that they all feel... so real."
+    },
+    {
+      "name": "1.34 main",
+      "tags": "marty",
+      "id": "102",
+      "text": "There was a letter in my hand... it said \n[[Tell him -> 1.34a main]]\n[[Don't tell him -> 1.34b main]]",
+      "links": [
+        {
+          "linkText": "Tell him",
+          "passageName": "1.34a main",
+          "original": "[[Tell him -> 1.34a main]]"
+        },
+        {
+          "linkText": "Don't tell him",
+          "passageName": "1.34b main",
+          "original": "[[Don't tell him -> 1.34b main]]"
+        }
+      ],
+      "cleanText": "There was a letter in my hand... it said"
+    },
+    {
+      "name": " 1.34a main",
+      "tags": "marty",
+      "id": "103",
+      "text": "It said \"they're lying.\" I don't even know what it meant or who sent it. [[1.35 main]]",
+      "links": [
+        {
+          "linkText": "1.35 main",
+          "passageName": "1.35 main",
+          "original": "[[1.35 main]]"
+        }
+      ],
+      "cleanText": "It said \"they're lying.\" I don't even know what it meant or who sent it."
+    },
+    {
+      "name": " 1.34b main",
+      "tags": "marty",
+      "id": "104",
+      "text": "Nevermind. But the weirdest thing was... [[1.35 main]]",
+      "links": [
+        {
+          "linkText": "1.35 main",
+          "passageName": "1.35 main",
+          "original": "[[1.35 main]]"
+        }
+      ],
+      "cleanText": "Nevermind. But the weirdest thing was..."
+    },
+    {
+      "name": "1.35 main",
+      "tags": "marty",
+      "id": "105",
+      "text": "It disappeared. It just felt like that wasn't real and it didn't happen for a second. [[1.36 main]]",
+      "links": [
+        {
+          "linkText": "1.36 main",
+          "passageName": "1.36 main",
+          "original": "[[1.36 main]]"
+        }
+      ],
+      "cleanText": "It disappeared. It just felt like that wasn't real and it didn't happen for a second."
+    },
+    {
+      "name": "1.36 main",
+      "tags": "muffins",
+      "id": "106",
+      "text": "That's terribly unfortunate. But let me assure you, those sights are //just// hallucinations. [[1.37 main]]",
+      "links": [
+        {
+          "linkText": "1.37 main",
+          "passageName": "1.37 main",
+          "original": "[[1.37 main]]"
+        }
+      ],
+      "cleanText": "That's terribly unfortunate. But let me assure you, those sights are //just// hallucinations."
+    },
+    {
+      "name": "1.37 main",
+      "tags": "muffins",
+      "id": "107",
+      "text": "They aren't real, and you shouldn't believe they are. \n[[\"Why am I seeing them?\" -> 1.38a main]]\n[[\"Then what are they? -> 1.38b main]]",
+      "links": [
+        {
+          "linkText": "\"Why am I seeing them?\"",
+          "passageName": "1.38a main",
+          "original": "[[\"Why am I seeing them?\" -> 1.38a main]]"
+        },
+        {
+          "linkText": "\"Then what are they?",
+          "passageName": "1.38b main",
+          "original": "[[\"Then what are they? -> 1.38b main]]"
+        }
+      ],
+      "cleanText": "They aren't real, and you shouldn't believe they are."
+    },
+    {
+      "name": " 1.38a main",
+      "tags": "muffins",
+      "id": "108",
+      "text": "Well, you keep overworking yourself. [[1.39 main]]",
+      "links": [
+        {
+          "linkText": "1.39 main",
+          "passageName": "1.39 main",
+          "original": "[[1.39 main]]"
+        }
+      ],
+      "cleanText": "Well, you keep overworking yourself."
+    },
+    {
+      "name": " 1.38b main",
+      "tags": "muffins",
+      "id": "109",
+      "text": "So curious today, aren't you? No need to worry, they're just blips in the brain since you're overworking yourself. [[1.39 main]]",
+      "links": [
+        {
+          "linkText": "1.39 main",
+          "passageName": "1.39 main",
+          "original": "[[1.39 main]]"
+        }
+      ],
+      "cleanText": "So curious today, aren't you? No need to worry, they're just blips in the brain since you're overworking yourself."
+    },
+    {
+      "name": "1.39 main",
+      "tags": "muffins",
+      "id": "110",
+      "text": "Here: my prescription is a cup of honey tea every morning. [[1.40 main]]",
+      "links": [
+        {
+          "linkText": "1.40 main",
+          "passageName": "1.40 main",
+          "original": "[[1.40 main]]"
+        }
+      ],
+      "cleanText": "Here: my prescription is a cup of honey tea every morning."
+    },
+    {
+      "name": "1.40 main",
+      "tags": "marty",
+      "id": "111",
+      "text": "From the magical honey flower? Are those rare? [[1.41 main]]",
+      "links": [
+        {
+          "linkText": "1.41 main",
+          "passageName": "1.41 main",
+          "original": "[[1.41 main]]"
+        }
+      ],
+      "cleanText": "From the magical honey flower? Are those rare?"
+    },
+    {
+      "name": "1.41 main",
+      "tags": "muffins",
+      "id": "112",
+      "text": "Rare everywhere but Honey Haven. Now, you must drink this everyday. [[1.42 main]]",
+      "links": [
+        {
+          "linkText": "1.42 main",
+          "passageName": "1.42 main",
+          "original": "[[1.42 main]]"
+        }
+      ],
+      "cleanText": "Rare everywhere but Honey Haven. Now, you must drink this everyday."
+    },
+    {
+      "name": "1.42 main",
+      "tags": "muffins",
+      "id": "113",
+      "text": "Do not stop drinking it and do not skip days. Trust me, you really don't want to keep seeing things. [[1.43 main]]",
+      "links": [
+        {
+          "linkText": "1.43 main",
+          "passageName": "1.43 main",
+          "original": "[[1.43 main]]"
+        }
+      ],
+      "cleanText": "Do not stop drinking it and do not skip days. Trust me, you really don't want to keep seeing things."
+    },
+    {
+      "name": "1.43 main",
+      "tags": "marty",
+      "id": "114",
+      "text": "Oh um, thanks Dr. Muffins. [[1.44 main]]",
+      "links": [
+        {
+          "linkText": "1.44 main",
+          "passageName": "1.44 main",
+          "original": "[[1.44 main]]"
+        }
+      ],
+      "cleanText": "Oh um, thanks Dr. Muffins."
+    },
+    {
+      "name": "1.44 main",
+      "tags": "marty_leave muffins_leave",
+      "id": "115",
+      "text": "He hands you a pouch with dried honey flowers. He pushes a cup he just brewed towards you. [[1.45 main]]",
+      "links": [
+        {
+          "linkText": "1.45 main",
+          "passageName": "1.45 main",
+          "original": "[[1.45 main]]"
+        }
+      ],
+      "cleanText": "He hands you a pouch with dried honey flowers. He pushes a cup he just brewed towards you."
+    },
+    {
+      "name": "1.45 main",
+      "tags": "marty_enter muffins_enter muffins",
+      "id": "116",
+      "text": "Oh and Marty? [[1.46 main]]",
+      "links": [
+        {
+          "linkText": "1.46 main",
+          "passageName": "1.46 main",
+          "original": "[[1.46 main]]"
+        }
+      ],
+      "cleanText": "Oh and Marty?"
+    },
+    {
+      "name": "1.46 main",
+      "tags": "marty",
+      "id": "117",
+      "text": "Yes? [[1.47 main]]",
+      "links": [
+        {
+          "linkText": "1.47 main",
+          "passageName": "1.47 main",
+          "original": "[[1.47 main]]"
+        }
+      ],
+      "cleanText": "Yes?"
+    },
+    {
+      "name": "1.47 main",
+      "tags": "muffins",
+      "id": "118",
+      "text": "Don't tell anyone about this. \n[[Drink the tea -> 1.48a main]]\n[[Question Dr. Muffins -> 1.48b main]]",
+      "links": [
+        {
+          "linkText": "Drink the tea",
+          "passageName": "1.48a main",
+          "original": "[[Drink the tea -> 1.48a main]]"
+        },
+        {
+          "linkText": "Question Dr. Muffins",
+          "passageName": "1.48b main",
+          "original": "[[Question Dr. Muffins -> 1.48b main]]"
+        }
+      ],
+      "cleanText": "Don't tell anyone about this."
+    },
+    {
+      "name": "1.48 main",
+      "tags": "marty_leave muffins_leave",
+      "id": "119",
+      "text": "You head back to Honeybee Center to hear Barnaby's speech. You only catch the tailwind of it since you're late. [[1.50 main]]",
+      "links": [
+        {
+          "linkText": "1.50 main",
+          "passageName": "1.50 main",
+          "original": "[[1.50 main]]"
+        }
+      ],
+      "cleanText": "You head back to Honeybee Center to hear Barnaby's speech. You only catch the tailwind of it since you're late."
+    },
+    {
+      "name": "1.50 main",
+      "tags": "barnaby_enter marty_enter",
+      "id": "120",
+      "text": "I know you all are tired of hearing me talk, so I'll wrap this up quickly. [[1.51 main]]",
+      "links": [
+        {
+          "linkText": "1.51 main",
+          "passageName": "1.51 main",
+          "original": "[[1.51 main]]"
+        }
+      ],
+      "cleanText": "I know you all are tired of hearing me talk, so I'll wrap this up quickly."
+    },
+    {
+      "name": " 1.48b main",
+      "tags": "marty",
+      "id": "121",
+      "text": "Why? [[1.49b main]]",
+      "links": [
+        {
+          "linkText": "1.49b main",
+          "passageName": "1.49b main",
+          "original": "[[1.49b main]]"
+        }
+      ],
+      "cleanText": "Why?"
+    },
+    {
+      "name": " 1.48a main",
+      "tags": "",
+      "id": "122",
+      "text": "You drink the honey tea from the mystical \"honey flower\" plant. It makes you feel a little loopy. [[1.49a main]]",
+      "links": [
+        {
+          "linkText": "1.49a main",
+          "passageName": "1.49a main",
+          "original": "[[1.49a main]]"
+        }
+      ],
+      "cleanText": "You drink the honey tea from the mystical \"honey flower\" plant. It makes you feel a little loopy."
+    },
+    {
+      "name": "1.49a main",
+      "tags": "marty",
+      "id": "123",
+      "text": "I feel a little weird... [[1.50a main]]",
+      "links": [
+        {
+          "linkText": "1.50a main",
+          "passageName": "1.50a main",
+          "original": "[[1.50a main]]"
+        }
+      ],
+      "cleanText": "I feel a little weird..."
+    },
+    {
+      "name": "1.50a main",
+      "tags": "muffins",
+      "id": "124",
+      "text": "For now. You'll feel better in no time. [[1.48 main]]",
+      "links": [
+        {
+          "linkText": "1.48 main",
+          "passageName": "1.48 main",
+          "original": "[[1.48 main]]"
+        }
+      ],
+      "cleanText": "For now. You'll feel better in no time."
+    },
+    {
+      "name": "1.49b main",
+      "tags": "muffins",
+      "id": "125",
+      "text": "It's a beautiful day, Marty. Don't ruin it with questions. I'll be on my way now. Drink your tea and rest up [[1.50b main]]",
+      "links": [
+        {
+          "linkText": "1.50b main",
+          "passageName": "1.50b main",
+          "original": "[[1.50b main]]"
+        }
+      ],
+      "cleanText": "It's a beautiful day, Marty. Don't ruin it with questions. I'll be on my way now. Drink your tea and rest up"
+    },
+    {
+      "name": "1.50b main",
+      "tags": "muffins_leave",
+      "id": "126",
+      "text": "You drink the tea brewed from the mystical \"honey flower\" plant. It makes you feel a little woozy. [[1.48 main]]",
+      "links": [
+        {
+          "linkText": "1.48 main",
+          "passageName": "1.48 main",
+          "original": "[[1.48 main]]"
+        }
+      ],
+      "cleanText": "You drink the tea brewed from the mystical \"honey flower\" plant. It makes you feel a little woozy."
+    },
+    {
+      "name": "1.51 main",
+      "tags": "barnaby",
+      "id": "127",
+      "text": "Today is the celebration of Honey Haven's 44th anniversary! [[1.52 main]]",
+      "links": [
+        {
+          "linkText": "1.52 main",
+          "passageName": "1.52 main",
+          "original": "[[1.52 main]]"
+        }
+      ],
+      "cleanText": "Today is the celebration of Honey Haven's 44th anniversary!"
+    },
+    {
+      "name": "1.52 main",
+      "tags": "barnaby",
+      "id": "128",
+      "text": "Honey Haven is the world's first utopia-- a place that knows only kindness. [[1.53 main]]",
+      "links": [
+        {
+          "linkText": "1.53 main",
+          "passageName": "1.53 main",
+          "original": "[[1.53 main]]"
+        }
+      ],
+      "cleanText": "Honey Haven is the world's first utopia-- a place that knows only kindness."
+    },
+    {
+      "name": "1.53 main",
+      "tags": "barnaby",
+      "id": "129",
+      "text": "It doesn't matter where you came from and what you've done. Now that you've chosen to be here, you are in paradise. [[1.54 main]]",
+      "links": [
+        {
+          "linkText": "1.54 main",
+          "passageName": "1.54 main",
+          "original": "[[1.54 main]]"
+        }
+      ],
+      "cleanText": "It doesn't matter where you came from and what you've done. Now that you've chosen to be here, you are in paradise."
+    },
+    {
+      "name": "1.54 main",
+      "tags": "barnaby",
+      "id": "130",
+      "text": "Together we shall stand united as a community against anything or anyone who threatens our perfect picture of peace. Those are the only ones not welcomed here. [[1.55 main]]",
+      "links": [
+        {
+          "linkText": "1.55 main",
+          "passageName": "1.55 main",
+          "original": "[[1.55 main]]"
+        }
+      ],
+      "cleanText": "Together we shall stand united as a community against anything or anyone who threatens our perfect picture of peace. Those are the only ones not welcomed here."
+    },
+    {
+      "name": "1.55 main",
+      "tags": "barnaby",
+      "id": "131",
+      "text": "Stand strong, Honey Haven! [[1.56 main]]",
+      "links": [
+        {
+          "linkText": "1.56 main",
+          "passageName": "1.56 main",
+          "original": "[[1.56 main]]"
+        }
+      ],
+      "cleanText": "Stand strong, Honey Haven!"
+    },
+    {
+      "name": "1.56 main",
+      "tags": "",
+      "id": "132",
+      "text": "The crowd erupts in cheers. You feel immense pride in your home. [[1.57 main]]",
+      "links": [
+        {
+          "linkText": "1.57 main",
+          "passageName": "1.57 main",
+          "original": "[[1.57 main]]"
+        }
+      ],
+      "cleanText": "The crowd erupts in cheers. You feel immense pride in your home."
+    },
+    {
+      "name": "1.57 main",
+      "tags": "marty_leave barnaby_leave",
+      "id": "133",
+      "text": "You eat dinner with a few neighbors and then head home. After tucking yourself into bed, you look at the sky. [[1.58 main]]",
+      "links": [
+        {
+          "linkText": "1.58 main",
+          "passageName": "1.58 main",
+          "original": "[[1.58 main]]"
+        }
+      ],
+      "cleanText": "You eat dinner with a few neighbors and then head home. After tucking yourself into bed, you look at the sky."
+    },
+    {
+      "name": "1.58 main",
+      "tags": "marty_enter marty",
+      "id": "134",
+      "text": "Wow... the stars are so beautiful tonight. [[1.59 main]]",
+      "links": [
+        {
+          "linkText": "1.59 main",
+          "passageName": "1.59 main",
+          "original": "[[1.59 main]]"
+        }
+      ],
+      "cleanText": "Wow... the stars are so beautiful tonight."
+    },
+    {
+      "name": "1.59 main",
+      "tags": "marty",
+      "id": "135",
+      "text": "I hope things... hoaah.. stay like this forev.... [[1.60 main]]",
+      "links": [
+        {
+          "linkText": "1.60 main",
+          "passageName": "1.60 main",
+          "original": "[[1.60 main]]"
+        }
+      ],
+      "cleanText": "I hope things... hoaah.. stay like this forev...."
+    },
+    {
+      "name": "1.60 main",
+      "tags": "marty",
+      "id": "136",
+      "text": "zzzz.... zzzzzzzzz... [[1.61 main]]",
+      "links": [
+        {
+          "linkText": "1.61 main",
+          "passageName": "1.61 main",
+          "original": "[[1.61 main]]"
+        }
+      ],
+      "cleanText": "zzzz.... zzzzzzzzz..."
+    },
+    {
+      "name": "1.61 main",
+      "tags": "marty_leave",
+      "id": "137",
+      "text": "Goodnight!",
+      "links": [],
+      "cleanText": "Goodnight!"
+    },
+    {
+      "name": "1.0",
+      "tags": "sunny_bedroom",
+      "id": "138",
+      "text": "Day 1 Starts [[1.1.1]]",
+      "links": [
+        {
+          "linkText": "1.1.1",
+          "passageName": "1.1.1",
+          "original": "[[1.1.1]]"
+        }
+      ],
+      "cleanText": "Day 1 Starts"
+    },
+    {
+      "name": "1.1.1",
+      "tags": "",
+      "id": "139",
+      "text": "You ever feel like you're in a dream so real [[1.1.2]]",
+      "links": [
+        {
+          "linkText": "1.1.2",
+          "passageName": "1.1.2",
+          "original": "[[1.1.2]]"
+        }
+      ],
+      "cleanText": "You ever feel like you're in a dream so real"
+    },
+    {
+      "name": "1.1.2",
+      "tags": "",
+      "id": "140",
+      "text": "that you think it is? [[1.1.3]]",
+      "links": [
+        {
+          "linkText": "1.1.3",
+          "passageName": "1.1.3",
+          "original": "[[1.1.3]]"
+        }
+      ],
+      "cleanText": "that you think it is?"
+    },
+    {
+      "name": "1.1.3",
+      "tags": "",
+      "id": "141",
+      "text": "When that's the case, do you want to wake up? [[1.1.4]]",
+      "links": [
+        {
+          "linkText": "1.1.4",
+          "passageName": "1.1.4",
+          "original": "[[1.1.4]]"
+        }
+      ],
+      "cleanText": "When that's the case, do you want to wake up?"
+    },
+    {
+      "name": "1.1.4",
+      "tags": "",
+      "id": "142",
+      "text": "Too bad, you don't get a choice. [[1.1]]",
+      "links": [
+        {
+          "linkText": "1.1",
+          "passageName": "1.1",
+          "original": "[[1.1]]"
+        }
+      ],
+      "cleanText": "Too bad, you don't get a choice."
+    },
+    {
+      "name": "1.12a.1 casserole",
+      "tags": "",
+      "id": "143",
+      "text": "Oh thank the GOAT that it's just you, Marty. [[1.13a casserole]]",
+      "links": [
+        {
+          "linkText": "1.13a casserole",
+          "passageName": "1.13a casserole",
+          "original": "[[1.13a casserole]]"
+        }
+      ],
+      "cleanText": "Oh thank the GOAT that it's just you, Marty."
+    }
+  ]
+}
+

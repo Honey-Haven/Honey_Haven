@@ -12,11 +12,31 @@ var _in_minigame: bool = false
 var _history: Array = [] # Stores: {"type": string, "id": string, "idx": int}
 var _current_stage_state: Dictionary = {} # Stores: { "actor_id": {"expression": "...", "pos": "..."} }
 
+# must_visit tracking: hub_id → Array of unvisited passage names
+# Populated when TwineParser emits a "must_visit_hub" packet.
+var _must_visit_remaining: Dictionary = {}
+# Stores the continuation label for each hub (the passage after all branches done).
+var _must_visit_continuation: Dictionary = {}
+# The hub packet currently being managed (so we can re-show the menu).
+var _active_hub: Dictionary = {}
+
 func load_script(json_array: Array) -> void:
 	_packets = ScriptParser.parse(json_array)
 	_index = 0
 	_labels = _build_label_map(_packets)
 	_history.clear()
+
+## Use this instead of load_script() when feeding TwineParser output.
+## Twine packets are already fully formed — ScriptParser would strip
+## any type it doesn't recognise (e.g. must_visit_hub), so we skip it.
+func load_twine_script(packets: Array) -> void:
+	_packets = packets
+	_index = 0
+	_labels = _build_label_map(_packets)
+	_history.clear()
+	_must_visit_remaining.clear()
+	_must_visit_continuation.clear()
+	_active_hub = {}
 
 func start() -> void:
 	_process_next()
@@ -54,7 +74,7 @@ func _process_next() -> void:
 				else:
 					appear_pos = "left"
 			_current_stage_state[packet["actor_id"]] = {"expression": packet.get("expression", "neutral"), "position": appear_pos}
-			SignalBus.actor_appear.emit(packet["actor_id"], _current_stage_state[packet["actor_id"]]["expression"], packet.get("position", ""))
+			SignalBus.actor_appear.emit(packet["actor_id"], _current_stage_state[packet["actor_id"]]["expression"], appear_pos)
 			_process_next()
 		"dialogue":
 			_history.append({"idx": current_idx, "stage_snapshot": _current_stage_state.duplicate(true)})
@@ -99,10 +119,58 @@ func _process_next() -> void:
 		"minigame":
 			_in_minigame = true
 			SignalBus.minigame_start.emit(packet["id"], packet.get("data", {}))
+		"must_visit_hub":
+			_handle_must_visit_hub(packet)
 		_:
 			_process_next()
 	SignalBus.back_button_visibility_changed.emit(_history.size() >= 2)
 	
+func _handle_must_visit_hub(packet: Dictionary) -> void:
+	var hub_id: String      = packet.get("hub_id", "")
+	var all_branches: Array = packet.get("must_visit", [])
+	var continuation: String = packet.get("continuation", "")
+
+	# First time we see this hub – register it.
+	if not _must_visit_remaining.has(hub_id):
+		_must_visit_remaining[hub_id] = all_branches.duplicate()
+		_must_visit_continuation[hub_id] = continuation
+
+	_active_hub = packet
+	_show_must_visit_menu(hub_id)
+
+func _show_must_visit_menu(hub_id: String) -> void:
+	var remaining: Array = _must_visit_remaining.get(hub_id, [])
+
+	if remaining.is_empty():
+		_active_hub = {}
+		var cont: String = _must_visit_continuation.get(hub_id, "")
+		if cont != "":
+			_jump_to_label(TwineParser._label_for(cont))
+		else:
+			_process_next()
+		return
+
+	var label_map: Dictionary = _active_hub.get("label_map", {})
+	var choices: Array = []
+	for branch_name in remaining:
+		var display: String = label_map.get(branch_name, branch_name)
+		choices.append({
+			"label": display,
+			"goto":  TwineParser._label_for(branch_name),
+		})
+
+	# Store on instance so _on_choice_selected reads it directly,
+	# without touching _packets (which would corrupt _index).
+	_active_hub = {
+		"type":             "choice",
+		"prompt":           "Where to?",
+		"choices":          choices,
+		"__must_visit_hub": hub_id,
+	}
+	_choice_pending = true
+	_waiting_for_input = false
+	SignalBus.scene_packet_ready.emit(_active_hub)
+
 func go_back() -> void:
 	if _history.size() < 2: return
 	
@@ -142,15 +210,40 @@ func _on_choice_selected(choice_index: int) -> void:
 	if not _choice_pending:
 		return
 	_choice_pending = false
+
+	# ── must_visit hub path ──────────────────────────────────────────────────
+	# _active_hub is set by _show_must_visit_menu and holds the live packet,
+	# so we never need to read _packets[_index-1] for hub choices.
+	if not _active_hub.is_empty() and _active_hub.has("__must_visit_hub"):
+		var hub_id: String  = _active_hub["__must_visit_hub"]
+		var choices: Array  = _active_hub.get("choices", [])
+		if choice_index < choices.size():
+			var chosen_label: String = choices[choice_index].get("label", "")
+			var remaining: Array = _must_visit_remaining.get(hub_id, [])
+			remaining.erase(chosen_label)
+			_must_visit_remaining[hub_id] = remaining
+			# Clear _active_hub BEFORE jumping so that normal choices inside
+			# the branch are not mistaken for must_visit hub choices.
+			var goto_label: String = choices[choice_index].get("goto", "")
+			_active_hub = {}
+			_jump_to_label(goto_label)
+		return
+
+	# ── Normal choice path ────────────────────────────────────────────────────
+	var prev: Dictionary = _packets[_index - 1]
+	var choices: Array   = prev.get("choices", [])
 	_history.clear()
 	SignalBus.back_button_visibility_changed.emit(false)
-	var prev: Dictionary = _packets[_index - 1]
-	var choices: Array = prev.get("choices", [])
 	if choice_index < choices.size():
 		var goto_label: String = choices[choice_index].get("goto", "")
 		if goto_label != "":
 			_jump_to_label(goto_label)
 			return
+	# Fall back to silent continuation ([[PassageName]] with no arrow)
+	var continuation: String = prev.get("continuation", "")
+	if continuation != "":
+		_jump_to_label(continuation)
+		return
 	_process_next()
 
 func _on_minigame_end(_result: Dictionary) -> void:
