@@ -70,9 +70,12 @@ func _register_actors() -> void:
 		"id": "Marty",
 		"scale": 1.0,
 		"expressions": {
-			"neutral": preload("res://actors/marty/marty_normal.PNG"),
-			"happy":   preload("res://actors/marty/marty_happy.PNG"),
-			"sad":     preload("res://actors/marty/marty_sad.PNG"),
+			"neutral": preload("res://actors/marty/Martyneutral.PNG"),
+			"happy":   preload("res://actors/marty/Martyhappy.PNG"),
+			"sad":     preload("res://actors/marty/Martysad.PNG"),
+			"angry": preload("res://actors/marty/Martyangry.PNG"),
+			"surprised": preload("res://actors/marty/Martysuprised.PNG")
+			
 		}
 	})
 
@@ -80,8 +83,8 @@ func _register_actors() -> void:
 		"id": "Matthew",
 		"scale": 1.0,
 		"expressions": {
-			"neutral": preload("res://actors/matthew/matthew_normal.jpg"),
-			"happy":   preload("res://actors/matthew/matthew_happy.jpg"),
+			"neutral": preload("res://actors/matthew/sheepNeutral.webp"),
+			"happy":   preload("res://actors/matthew/sheepHappy.webp"),
 		}
 	})
 
@@ -89,7 +92,7 @@ func _register_actors() -> void:
 		"id": "Chester",
 		"scale": 1.0,
 		"expressions": {
-			"neutral": preload("res://actors/chester/chester_evil.png")
+			"neutral": preload("res://actors/chester/chesterNeutral.webp")
 		}
 	})
 
@@ -105,7 +108,7 @@ func _register_actors() -> void:
 		"id": "Peanut",
 		"scale": 1.0,
 		"expressions": {
-			"neutral": preload("res://actors/peanut/peanut_open.png")
+			"neutral": preload("res://actors/peanut/peanutOpen.webp")
 		}
 	})
 
@@ -113,7 +116,7 @@ func _register_actors() -> void:
 		"id": "Peaches",
 		"scale": 1.0,
 		"expressions": {
-			"neutral": preload("res://actors/peaches/OLD.jpg")
+			"neutral": preload("res://actors/peaches/Opposumneutral.PNG")
 		}
 	})
 
@@ -121,7 +124,7 @@ func _register_actors() -> void:
 		"id": "Buttons",
 		"scale": 1.0,
 		"expressions": {
-			"neutral": preload("res://actors/buttons/TEST.jpg")
+			"neutral": preload("res://actors/buttons/buttonsneutral.webp")
 		}
 	})
 
@@ -163,7 +166,7 @@ func _register_backgrounds() -> void:
 	TwineParser.register_background("sunny_bedroom", "res://backgrounds/sunny_bedroom.png")
 	# Add more backgrounds here as you create them:
 	TwineParser.register_background("pepper",  "res://backgrounds/TEMPpepper.jpg")
-	TwineParser.register_background("casserole",  "res://backgrounds/TEMPcassarole.jpg")
+	TwineParser.register_background("casserole",  "res://backgrounds/casserole_carrots.PNG")
 	TwineParser.register_background("truffle",  "res://backgrounds/TEMPtruffle.jpg")
 	TwineParser.register_background("towncenter",  "res://backgrounds/TEMPtowncenter.jpg")
 

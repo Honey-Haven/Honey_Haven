@@ -1,14 +1,71 @@
 
 
 {
-  "uuid": "D1513AE4-C7FB-4740-AAD7-C61BE2AEA55F",
-  "name": "Honey Haven Day 1",
+  "uuid": "8f8283d8-f0e2-4684-8854-e19774ec097e",
+  "name": "Honey Haven Day 1 1",
   "creator": "Twine",
   "creatorVersion": "2.11.1",
   "schemaName": "Twine to JSON",
   "schemaVersion": "0.0.6",
-  "createdAtMs": 1774476265318,
+  "createdAtMs": 1774622915268,
   "passages": [
+    {
+      "name": "1.1.1",
+      "tags": "Demon",
+      "id": "138",
+      "text": "You ever feel like you're in a dream so real [[1.1.2]]",
+      "links": [
+        {
+          "linkText": "1.1.2",
+          "passageName": "1.1.2",
+          "original": "[[1.1.2]]"
+        }
+      ],
+      "cleanText": "You ever feel like you're in a dream so real"
+    },
+    {
+      "name": "1.1.2",
+      "tags": "Demon",
+      "id": "139",
+      "text": "that you think it is? [[1.1.3]]",
+      "links": [
+        {
+          "linkText": "1.1.3",
+          "passageName": "1.1.3",
+          "original": "[[1.1.3]]"
+        }
+      ],
+      "cleanText": "that you think it is?"
+    },
+    {
+      "name": "1.1.3",
+      "tags": "Demon",
+      "id": "140",
+      "text": "When that's the case, do you want to wake up? [[1.1.4]]",
+      "links": [
+        {
+          "linkText": "1.1.4",
+          "passageName": "1.1.4",
+          "original": "[[1.1.4]]"
+        }
+      ],
+      "cleanText": "When that's the case, do you want to wake up?"
+    },
+    {
+      "name": "1.1.4",
+      "tags": "Demon sunny_bedroom",
+      "id": "141",
+      "text": "Too bad, you don't get a choice. [[1.1]]",
+      "links": [
+        {
+          "linkText": "1.1",
+          "passageName": "1.1",
+          "original": "[[1.1]]"
+        }
+      ],
+      "cleanText": "Too bad, you don't get a choice."
+    },
+
     {
       "name": "1.1",
       "tags": "Demon",
@@ -732,7 +789,7 @@
     },
     {
       "name": "1.11 pepper",
-      "tags": "marty_enter tofu/scotch_enter marty",
+      "tags": "marty_enter tofu/scotch_enter tofu_neutral scotch_neutral marty",
       "id": "50",
       "text": "Mrs. Tofu! Mr. Scotch! Good morning! [[1.12 pepper]]",
       "links": [
@@ -746,7 +803,7 @@
     },
     {
       "name": "1.12 pepper",
-      "tags": "scotch",
+      "tags": "scotch scotch_happy",
       "id": "51",
       "text": "Why, good morning Marty! Jolly day, isn't it. [[1.13 pepper]]",
       "links": [
@@ -760,7 +817,7 @@
     },
     {
       "name": "1.13 pepper",
-      "tags": "marty",
+      "tags": "marty scotch_neutral",
       "id": "52",
       "text": "Haha, the air is starting to feel like a knife though. [[1.14 pepper]]",
       "links": [
@@ -788,7 +845,7 @@
     },
     {
       "name": "1.15 pepper",
-      "tags": "tofu",
+      "tags": "tofu tofu_happy",
       "id": "54",
       "text": "Thank you, Marty! It is always nice to see your face, my dear. [[1.16 pepper]]",
       "links": [
@@ -1987,79 +2044,9 @@
       "cleanText": "Goodnight!"
     },
     {
-      "name": "1.0",
-      "tags": "sunny_bedroom",
-      "id": "138",
-      "text": "Day 1 Starts [[1.1.1]]",
-      "links": [
-        {
-          "linkText": "1.1.1",
-          "passageName": "1.1.1",
-          "original": "[[1.1.1]]"
-        }
-      ],
-      "cleanText": "Day 1 Starts"
-    },
-    {
-      "name": "1.1.1",
-      "tags": "",
-      "id": "139",
-      "text": "You ever feel like you're in a dream so real [[1.1.2]]",
-      "links": [
-        {
-          "linkText": "1.1.2",
-          "passageName": "1.1.2",
-          "original": "[[1.1.2]]"
-        }
-      ],
-      "cleanText": "You ever feel like you're in a dream so real"
-    },
-    {
-      "name": "1.1.2",
-      "tags": "",
-      "id": "140",
-      "text": "that you think it is? [[1.1.3]]",
-      "links": [
-        {
-          "linkText": "1.1.3",
-          "passageName": "1.1.3",
-          "original": "[[1.1.3]]"
-        }
-      ],
-      "cleanText": "that you think it is?"
-    },
-    {
-      "name": "1.1.3",
-      "tags": "",
-      "id": "141",
-      "text": "When that's the case, do you want to wake up? [[1.1.4]]",
-      "links": [
-        {
-          "linkText": "1.1.4",
-          "passageName": "1.1.4",
-          "original": "[[1.1.4]]"
-        }
-      ],
-      "cleanText": "When that's the case, do you want to wake up?"
-    },
-    {
-      "name": "1.1.4",
-      "tags": "",
-      "id": "142",
-      "text": "Too bad, you don't get a choice. [[1.1]]",
-      "links": [
-        {
-          "linkText": "1.1",
-          "passageName": "1.1",
-          "original": "[[1.1]]"
-        }
-      ],
-      "cleanText": "Too bad, you don't get a choice."
-    },
-    {
       "name": "1.12a.1 casserole",
       "tags": "",
-      "id": "143",
+      "id": "142",
       "text": "Oh thank the GOAT that it's just you, Marty. [[1.13a casserole]]",
       "links": [
         {

@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://bjidwmwu4h6ak" path="res://resources/VNThemeEffects.gd" id="2_8kri3"]
 [ext_resource type="Script" uid="uid://cacl4te26q5q2" path="res://resources/VNThemeNameplate.gd" id="3_7evcc"]
 [ext_resource type="Script" uid="uid://bxgr1pbwt8map" path="res://resources/VNThemeSprites.gd" id="5_okm8k"]
-[ext_resource type="FontFile" uid="uid://bceaixocq7ucp" path="res://fonts/HelpMe-Yz7Lq.ttf" id="6_8kri3"]
+[ext_resource type="FontFile" uid="uid://dcjkoy0g4xapb" path="res://fonts/NiceDreamComeTrue-A87g.ttf" id="6_8kri3"]
 [ext_resource type="Script" uid="uid://c48t6nr0ym5ch" path="res://resources/VNThemeTextbox.gd" id="6_y6r7j"]
 [ext_resource type="Script" uid="uid://dgehn8qw0phb8" path="res://resources/VNThemeTransitions.gd" id="7_k0uow"]
 [ext_resource type="Script" uid="uid://drm2ubrn867ui" path="res://resources/VNThemeTypewriter.gd" id="8_272qe"]

@@ -15,6 +15,17 @@ const POSITIONS: Dictionary = {
 
 @export var vn_theme: Resource
 
+# ── Expression synonyms ───────────────────────────────────────
+# Map any alias → the real expression key on the actor.
+# e.g. { "sneeze": "sad", "grin": "happy", "beam": "happy" }
+const EXPRESSION_SYNONYMS: Dictionary = {
+	"sneeze": "sad",   
+	"startled" : "sad",
+	"worried" : "sad"
+	
+	
+}
+
 var _actors: Dictionary = {}
 var _current_speaker: String = ""
 var _active_slots: Array = ["", ""] # [0]=Left, [1]=Right
@@ -211,6 +222,9 @@ func _stop_bob(actor_id: String) -> void:
 
 # ── Expression swap (auto-resize on swap) ─────────────────────
 func _set_expression(data: Dictionary, expression: String) -> void:
+	# Resolve synonym first (e.g. "sneeze" → "sad")
+	if EXPRESSION_SYNONYMS.has(expression):
+		expression = EXPRESSION_SYNONYMS[expression]
 	var exprs: Dictionary = data["expressions"]
 	if expression == "" or not exprs.has(expression):
 		expression = exprs.keys()[0] if not exprs.is_empty() else ""
