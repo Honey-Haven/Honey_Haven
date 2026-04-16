@@ -1,0 +1,1938 @@
+
+
+{
+  "uuid": "8A1385AC-DBA2-4E30-B279-633069EF1C27",
+  "name": "Honey Haven Day 6",
+  "creator": "Twine",
+  "creatorVersion": "2.12.0",
+  "schemaName": "Twine to JSON",
+  "schemaVersion": "0.0.6",
+  "createdAtMs": 1776367590808,
+  "passages": [
+    {
+      "name": "6.1",
+      "tags": "Narrator sunny_bedroom honey-haven-title",
+      "id": "1",
+      "text": "You didn’t sleep a wink last night. [[6.2]]",
+      "links": [
+        {
+          "linkText": "6.2",
+          "passageName": "6.2",
+          "original": "[[6.2]]"
+        }
+      ],
+      "cleanText": "You didn’t sleep a wink last night."
+    },
+    {
+      "name": "6.2",
+      "tags": "Narrator",
+      "id": "2",
+      "text": "But duty calls. [[6.3]]",
+      "links": [
+        {
+          "linkText": "6.3",
+          "passageName": "6.3",
+          "original": "[[6.3]]"
+        }
+      ],
+      "cleanText": "But duty calls."
+    },
+    {
+      "name": "6.3",
+      "tags": "Narrator",
+      "id": "3",
+      "text": "Not your old duty. Your new, greater duty. Your duty to find the truth. [[6.4]]",
+      "links": [
+        {
+          "linkText": "6.4",
+          "passageName": "6.4",
+          "original": "[[6.4]]"
+        }
+      ],
+      "cleanText": "Not your old duty. Your new, greater duty. Your duty to find the truth."
+    },
+    {
+      "name": "6.4",
+      "tags": "Narrator marty-enter marty-angry",
+      "id": "4",
+      "text": "You tear letters out of their envelopes. [[6.5]]",
+      "links": [
+        {
+          "linkText": "6.5",
+          "passageName": "6.5",
+          "original": "[[6.5]]"
+        }
+      ],
+      "cleanText": "You tear letters out of their envelopes."
+    },
+    {
+      "name": "6.5",
+      "tags": "Narrator marty-scared",
+      "id": "5",
+      "text": "Dozens are covered in Arcane symbols. Alchemical signs. Pentagrams and sun crosses and Eyes of Providence. [[6.6]]",
+      "links": [
+        {
+          "linkText": "6.6",
+          "passageName": "6.6",
+          "original": "[[6.6]]"
+        }
+      ],
+      "cleanText": "Dozens are covered in Arcane symbols. Alchemical signs. Pentagrams and sun crosses and Eyes of Providence."
+    },
+    {
+      "name": "6.6",
+      "tags": "Narrator marty-sad",
+      "id": "6",
+      "text": "The others… [[6.7]]",
+      "links": [
+        {
+          "linkText": "6.7",
+          "passageName": "6.7",
+          "original": "[[6.7]]"
+        }
+      ],
+      "cleanText": "The others…"
+    },
+    {
+      "name": "6.7",
+      "tags": "Narrator marty-neutral",
+      "id": "7",
+      "text": "//We can’t let anybody know how we do it.// [[6.7.5]]",
+      "links": [
+        {
+          "linkText": "6.7.5",
+          "passageName": "6.7.5",
+          "original": "[[6.7.5]]"
+        }
+      ],
+      "cleanText": "//We can’t let anybody know how we do it.//"
+    },
+    {
+      "name": "6.8",
+      "tags": "Marty marty-speaker marty-sad",
+      "id": "8",
+      "text": "No… this can’t be… [[6.9]]",
+      "links": [
+        {
+          "linkText": "6.9",
+          "passageName": "6.9",
+          "original": "[[6.9]]"
+        }
+      ],
+      "cleanText": "No… this can’t be…"
+    },
+    {
+      "name": "6.7.5",
+      "tags": "",
+      "id": "9",
+      "text": "//If he asks, don’t let him see your notebook.// [[6.8]]",
+      "links": [
+        {
+          "linkText": "6.8",
+          "passageName": "6.8",
+          "original": "[[6.8]]"
+        }
+      ],
+      "cleanText": "//If he asks, don’t let him see your notebook.//"
+    },
+    {
+      "name": "6.9",
+      "tags": "",
+      "id": "10",
+      "text": "//Have you spoken to the mailmouse? Marty?// [[6.10]]",
+      "links": [
+        {
+          "linkText": "6.10",
+          "passageName": "6.10",
+          "original": "[[6.10]]"
+        }
+      ],
+      "cleanText": "//Have you spoken to the mailmouse? Marty?//"
+    },
+    {
+      "name": "6.10",
+      "tags": "",
+      "id": "11",
+      "text": "//I fear he's discovered our secret.// [[6.11]]",
+      "links": [
+        {
+          "linkText": "6.11",
+          "passageName": "6.11",
+          "original": "[[6.11]]"
+        }
+      ],
+      "cleanText": "//I fear he's discovered our secret.//"
+    },
+    {
+      "name": "6.11",
+      "tags": "marty-scared marty-speaker",
+      "id": "12",
+      "text": "No... NO! [[6.12]]",
+      "links": [
+        {
+          "linkText": "6.12",
+          "passageName": "6.12",
+          "original": "[[6.12]]"
+        }
+      ],
+      "cleanText": "No... NO!"
+    },
+    {
+      "name": "6.12",
+      "tags": "marty-sad",
+      "id": "13",
+      "text": "As you look down at your paw, you can see it morphing. The pinky grows, the fur fades away. [[6.13]]",
+      "links": [
+        {
+          "linkText": "6.13",
+          "passageName": "6.13",
+          "original": "[[6.13]]"
+        }
+      ],
+      "cleanText": "As you look down at your paw, you can see it morphing. The pinky grows, the fur fades away."
+    },
+    {
+      "name": "6.13",
+      "tags": "marty-scared",
+      "id": "14",
+      "text": "The word for this appendage appears in your mind. [[6.14]]",
+      "links": [
+        {
+          "linkText": "6.14",
+          "passageName": "6.14",
+          "original": "[[6.14]]"
+        }
+      ],
+      "cleanText": "The word for this appendage appears in your mind."
+    },
+    {
+      "name": "6.14",
+      "tags": "",
+      "id": "15",
+      "text": "\"Hand.\" [[6.15]]",
+      "links": [
+        {
+          "linkText": "6.15",
+          "passageName": "6.15",
+          "original": "[[6.15]]"
+        }
+      ],
+      "cleanText": "\"Hand.\""
+    },
+    {
+      "name": "6.15",
+      "tags": "marty-speaker",
+      "id": "16",
+      "text": "NO! [[6.16]]",
+      "links": [
+        {
+          "linkText": "6.16",
+          "passageName": "6.16",
+          "original": "[[6.16]]"
+        }
+      ],
+      "cleanText": "NO!"
+    },
+    {
+      "name": "6.16",
+      "tags": "casserole_avenue marty-neutral",
+      "id": "17",
+      "text": "You are outside now. [[6.16.5]]",
+      "links": [
+        {
+          "linkText": "6.16.5",
+          "passageName": "6.16.5",
+          "original": "[[6.16.5]]"
+        }
+      ],
+      "cleanText": "You are outside now."
+    },
+    {
+      "name": "6.17",
+      "tags": "",
+      "id": "18",
+      "text": "The eye appears in the sky.",
+      "links": [],
+      "cleanText": "The eye appears in the sky."
+    },
+    {
+      "name": "6.18",
+      "tags": "",
+      "id": "19",
+      "text": "The sun opens into an eye, joining the moon.",
+      "links": [],
+      "cleanText": "The sun opens into an eye, joining the moon."
+    },
+    {
+      "name": "6.19",
+      "tags": "marty-sad",
+      "id": "20",
+      "text": "But no one can see it. No one will trust you. [[6.20]]",
+      "links": [
+        {
+          "linkText": "6.20",
+          "passageName": "6.20",
+          "original": "[[6.20]]"
+        }
+      ],
+      "cleanText": "But no one can see it. No one will trust you."
+    },
+    {
+      "name": "6.20",
+      "tags": "marty-neutral",
+      "id": "21",
+      "text": "But surely there s someone you can talk to... [[6.21]]",
+      "links": [
+        {
+          "linkText": "6.21",
+          "passageName": "6.21",
+          "original": "[[6.21]]"
+        }
+      ],
+      "cleanText": "But surely there s someone you can talk to..."
+    },
+    {
+      "name": "6.21",
+      "tags": "marty-speaker marty-happy matthew-enter-right matthew-happy",
+      "id": "22",
+      "text": "MATTHEW!! [[6.22]]",
+      "links": [
+        {
+          "linkText": "6.22",
+          "passageName": "6.22",
+          "original": "[[6.22]]"
+        }
+      ],
+      "cleanText": "MATTHEW!!"
+    },
+    {
+      "name": "6.22",
+      "tags": "matthew-netural matthew-speaker",
+      "id": "23",
+      "text": "What is it?! [[6.23]]",
+      "links": [
+        {
+          "linkText": "6.23",
+          "passageName": "6.23",
+          "original": "[[6.23]]"
+        }
+      ],
+      "cleanText": "What is it?!"
+    },
+    {
+      "name": "6.23",
+      "tags": "marty-speaker",
+      "id": "24",
+      "text": "I've figured it out. [[6.24]]",
+      "links": [
+        {
+          "linkText": "6.24",
+          "passageName": "6.24",
+          "original": "[[6.24]]"
+        }
+      ],
+      "cleanText": "I've figured it out."
+    },
+    {
+      "name": "6.24",
+      "tags": "marty-speaker marty-neutral",
+      "id": "25",
+      "text": "Everybody in this town, they've been... [[6.25]]",
+      "links": [
+        {
+          "linkText": "6.25",
+          "passageName": "6.25",
+          "original": "[[6.25]]"
+        }
+      ],
+      "cleanText": "Everybody in this town, they've been..."
+    },
+    {
+      "name": "6.25",
+      "tags": "marty-sad marty-speaker",
+      "id": "26",
+      "text": "They've been keeping secrets from us. They've been lying to us! [[6.26]]",
+      "links": [
+        {
+          "linkText": "6.26",
+          "passageName": "6.26",
+          "original": "[[6.26]]"
+        }
+      ],
+      "cleanText": "They've been keeping secrets from us. They've been lying to us!"
+    },
+    {
+      "name": "6.26",
+      "tags": "marty-angry marty-speaker",
+      "id": "27",
+      "text": "And when I start asking questions, they get mad! [[6.27]]",
+      "links": [
+        {
+          "linkText": "6.27",
+          "passageName": "6.27",
+          "original": "[[6.27]]"
+        }
+      ],
+      "cleanText": "And when I start asking questions, they get mad!"
+    },
+    {
+      "name": "6.27",
+      "tags": "matthew-speaker matthew-sad marty-neutral",
+      "id": "28",
+      "text": "I don't understand, Marty. We should go home and- [[6.28]]",
+      "links": [
+        {
+          "linkText": "6.28",
+          "passageName": "6.28",
+          "original": "[[6.28]]"
+        }
+      ],
+      "cleanText": "I don't understand, Marty. We should go home and-"
+    },
+    {
+      "name": "6.28",
+      "tags": "marty-angry marty-speaker",
+      "id": "29",
+      "text": "DON'T YOU GET IT? HOME ISN'T REAL NONE OF THIS IS REAL, MATTHEW! [[6.29]]",
+      "links": [
+        {
+          "linkText": "6.29",
+          "passageName": "6.29",
+          "original": "[[6.29]]"
+        }
+      ],
+      "cleanText": "DON'T YOU GET IT? HOME ISN'T REAL NONE OF THIS IS REAL, MATTHEW!"
+    },
+    {
+      "name": "6.29",
+      "tags": "marty-speaker marty-sad",
+      "id": "30",
+      "text": "The town, the tea, the food... maybe even some of the people! [[6.30]]",
+      "links": [
+        {
+          "linkText": "6.30",
+          "passageName": "6.30",
+          "original": "[[6.30]]"
+        }
+      ],
+      "cleanText": "The town, the tea, the food... maybe even some of the people!"
+    },
+    {
+      "name": "6.30",
+      "tags": "marty-speaker marty-scared",
+      "id": "31",
+      "text": "This world isn't real, Matthew! It's.. I don't know! A book, a movie, a theater show, SOMETHING! [[6.31]]",
+      "links": [
+        {
+          "linkText": "6.31",
+          "passageName": "6.31",
+          "original": "[[6.31]]"
+        }
+      ],
+      "cleanText": "This world isn't real, Matthew! It's.. I don't know! A book, a movie, a theater show, SOMETHING!"
+    },
+    {
+      "name": "6.31",
+      "tags": "marty-speaker",
+      "id": "32",
+      "text": "Whatever it is, we've been trapped inside! [[6.32]]",
+      "links": [
+        {
+          "linkText": "6.32",
+          "passageName": "6.32",
+          "original": "[[6.32]]"
+        }
+      ],
+      "cleanText": "Whatever it is, we've been trapped inside!"
+    },
+    {
+      "name": "6.32",
+      "tags": "marty-speaker",
+      "id": "33",
+      "text": "We need to leave, Matthew! NOW! Before they stop us! [[6.33]]",
+      "links": [
+        {
+          "linkText": "6.33",
+          "passageName": "6.33",
+          "original": "[[6.33]]"
+        }
+      ],
+      "cleanText": "We need to leave, Matthew! NOW! Before they stop us!"
+    },
+    {
+      "name": "6.33",
+      "tags": "marty-neutral matthew-speaker",
+      "id": "34",
+      "text": "... [[6.34]]",
+      "links": [
+        {
+          "linkText": "6.34",
+          "passageName": "6.34",
+          "original": "[[6.34]]"
+        }
+      ],
+      "cleanText": "..."
+    },
+    {
+      "name": "6.34",
+      "tags": "matthew-speaker",
+      "id": "35",
+      "text": "Marty... [[6.35]]",
+      "links": [
+        {
+          "linkText": "6.35",
+          "passageName": "6.35",
+          "original": "[[6.35]]"
+        }
+      ],
+      "cleanText": "Marty..."
+    },
+    {
+      "name": "6.35",
+      "tags": "marty-speaker marty-sad",
+      "id": "36",
+      "text": "PLEASE, you have to listen! [[6.36]]",
+      "links": [
+        {
+          "linkText": "6.36",
+          "passageName": "6.36",
+          "original": "[[6.36]]"
+        }
+      ],
+      "cleanText": "PLEASE, you have to listen!"
+    },
+    {
+      "name": "6.36",
+      "tags": "marty-angry marty-speaker",
+      "id": "37",
+      "text": "That tea they keep giving me... it's a potion! [[6.37]]",
+      "links": [
+        {
+          "linkText": "6.37",
+          "passageName": "6.37",
+          "original": "[[6.37]]"
+        }
+      ],
+      "cleanText": "That tea they keep giving me... it's a potion!"
+    },
+    {
+      "name": "6.37",
+      "tags": "marty-speaker marty-scared",
+      "id": "38",
+      "text": "It keeps me from seeing what's real! [[6.38]]",
+      "links": [
+        {
+          "linkText": "6.38",
+          "passageName": "6.38",
+          "original": "[[6.38]]"
+        }
+      ],
+      "cleanText": "It keeps me from seeing what's real!"
+    },
+    {
+      "name": "6.38",
+      "tags": "marty-speaker",
+      "id": "39",
+      "text": "We're being //watched//, Matthew! Watched from the sky! [[6.39]]",
+      "links": [
+        {
+          "linkText": "6.39",
+          "passageName": "6.39",
+          "original": "[[6.39]]"
+        }
+      ],
+      "cleanText": "We're being //watched//, Matthew! Watched from the sky!"
+    },
+    {
+      "name": "6.39",
+      "tags": "marty-happy marty-speaker",
+      "id": "40",
+      "text": "And whatever's watching us, it wants to help us escape! [[6.40]]",
+      "links": [
+        {
+          "linkText": "6.40",
+          "passageName": "6.40",
+          "original": "[[6.40]]"
+        }
+      ],
+      "cleanText": "And whatever's watching us, it wants to help us escape!"
+    },
+    {
+      "name": "6.40",
+      "tags": "marty-scared marty-speaker",
+      "id": "41",
+      "text": "//Now//, Matthew We need to //GO//! [[6.41]]",
+      "links": [
+        {
+          "linkText": "6.41",
+          "passageName": "6.41",
+          "original": "[[6.41]]"
+        }
+      ],
+      "cleanText": "//Now//, Matthew We need to //GO//!"
+    },
+    {
+      "name": "6.41",
+      "tags": "matthew-speaker",
+      "id": "42",
+      "text": "Marty... [[6.42]]",
+      "links": [
+        {
+          "linkText": "6.42",
+          "passageName": "6.42",
+          "original": "[[6.42]]"
+        }
+      ],
+      "cleanText": "Marty..."
+    },
+    {
+      "name": "6.42",
+      "tags": "matthew-speaker",
+      "id": "43",
+      "text": "I.. I'm sorry. [[6.43]]",
+      "links": [
+        {
+          "linkText": "6.43",
+          "passageName": "6.43",
+          "original": "[[6.43]]"
+        }
+      ],
+      "cleanText": "I.. I'm sorry."
+    },
+    {
+      "name": "6.43",
+      "tags": "matthew-speaker",
+      "id": "44",
+      "text": "I shouldn't have let things get this far. [[6.44]]",
+      "links": [
+        {
+          "linkText": "6.44",
+          "passageName": "6.44",
+          "original": "[[6.44]]"
+        }
+      ],
+      "cleanText": "I shouldn't have let things get this far."
+    },
+    {
+      "name": "6.44",
+      "tags": "matthew-speaker",
+      "id": "45",
+      "text": "I can't go with you. I.. can't let you go, either. [[6.45]]",
+      "links": [
+        {
+          "linkText": "6.45",
+          "passageName": "6.45",
+          "original": "[[6.45]]"
+        }
+      ],
+      "cleanText": "I can't go with you. I.. can't let you go, either."
+    },
+    {
+      "name": "6.45",
+      "tags": "matthew-speaker",
+      "id": "46",
+      "text": "I need to take you to a doctor, Marty. [[6.46]]",
+      "links": [
+        {
+          "linkText": "6.46",
+          "passageName": "6.46",
+          "original": "[[6.46]]"
+        }
+      ],
+      "cleanText": "I need to take you to a doctor, Marty."
+    },
+    {
+      "name": "6.46",
+      "tags": "matthew-neutral matthew-speaker",
+      "id": "47",
+      "text": "I need to take you to a doctor because... [[6.47]]",
+      "links": [
+        {
+          "linkText": "6.47",
+          "passageName": "6.47",
+          "original": "[[6.47]]"
+        }
+      ],
+      "cleanText": "I need to take you to a doctor because..."
+    },
+    {
+      "name": "6.47",
+      "tags": "matthew-leave wolf-enter-right wolf-speaker wolf-angry demonic-sympathy",
+      "id": "48",
+      "text": "I'm one of them. [[6.48]]",
+      "links": [
+        {
+          "linkText": "6.48",
+          "passageName": "6.48",
+          "original": "[[6.48]]"
+        }
+      ],
+      "cleanText": "I'm one of them."
+    },
+    {
+      "name": "6.48",
+      "tags": "wolf-speaker wolf-happy marty-scared",
+      "id": "49",
+      "text": "Marty, how long have we been friends? [[6.49]]",
+      "links": [
+        {
+          "linkText": "6.49",
+          "passageName": "6.49",
+          "original": "[[6.49]]"
+        }
+      ],
+      "cleanText": "Marty, how long have we been friends?"
+    },
+    {
+      "name": "6.49",
+      "tags": "wolf-speaker wolf-neutral",
+      "id": "50",
+      "text": "How many times have we had lunch together, talked about books? How many times did we play as kids? [[6.50]]",
+      "links": [
+        {
+          "linkText": "6.50",
+          "passageName": "6.50",
+          "original": "[[6.50]]"
+        }
+      ],
+      "cleanText": "How many times have we had lunch together, talked about books? How many times did we play as kids?"
+    },
+    {
+      "name": "6.50",
+      "tags": "wolf-speaker wolf-neutral marty-sad",
+      "id": "51",
+      "text": "Listen, Marty. [[6.51]]",
+      "links": [
+        {
+          "linkText": "6.51",
+          "passageName": "6.51",
+          "original": "[[6.51]]"
+        }
+      ],
+      "cleanText": "Listen, Marty."
+    },
+    {
+      "name": "6.51",
+      "tags": "wolf-speaker wolf-angry",
+      "id": "52",
+      "text": "I'm your best friend. [[6.52]]",
+      "links": [
+        {
+          "linkText": "6.52",
+          "passageName": "6.52",
+          "original": "[[6.52]]"
+        }
+      ],
+      "cleanText": "I'm your best friend."
+    },
+    {
+      "name": "6.52",
+      "tags": "wolf-neutral wolf-speaker",
+      "id": "53",
+      "text": "But there are some things I could never let you know. [[6.53]]",
+      "links": [
+        {
+          "linkText": "6.53",
+          "passageName": "6.53",
+          "original": "[[6.53]]"
+        }
+      ],
+      "cleanText": "But there are some things I could never let you know."
+    },
+    {
+      "name": "6.53",
+      "tags": "wolf-happy wolf-speaker",
+      "id": "54",
+      "text": "Because you're important, Marty. [[6.54]]",
+      "links": [
+        {
+          "linkText": "6.54",
+          "passageName": "6.54",
+          "original": "[[6.54]]"
+        }
+      ],
+      "cleanText": "Because you're important, Marty."
+    },
+    {
+      "name": "6.54",
+      "tags": "wolf-neutral wolf-speaker",
+      "id": "55",
+      "text": "You're the key to all of this. [[6.55]]",
+      "links": [
+        {
+          "linkText": "6.55",
+          "passageName": "6.55",
+          "original": "[[6.55]]"
+        }
+      ],
+      "cleanText": "You're the key to all of this."
+    },
+    {
+      "name": "6.55",
+      "tags": "wolf-speaker wolf-happy",
+      "id": "56",
+      "text": "So, from one old friend to another... [[6.56]]",
+      "links": [
+        {
+          "linkText": "6.56",
+          "passageName": "6.56",
+          "original": "[[6.56]]"
+        }
+      ],
+      "cleanText": "So, from one old friend to another..."
+    },
+    {
+      "name": "6.56",
+      "tags": "wolf-angry wolf-speaker",
+      "id": "57",
+      "text": "Don't resist. [[6.57]]",
+      "links": [
+        {
+          "linkText": "6.57",
+          "passageName": "6.57",
+          "original": "[[6.57]]"
+        }
+      ],
+      "cleanText": "Don't resist."
+    },
+    {
+      "name": "6.57",
+      "tags": "marty-scared",
+      "id": "58",
+      "text": "Your legs twitch. [[6.58]]",
+      "links": [
+        {
+          "linkText": "6.58",
+          "passageName": "6.58",
+          "original": "[[6.58]]"
+        }
+      ],
+      "cleanText": "Your legs twitch."
+    },
+    {
+      "name": "6.58",
+      "tags": "wolf-leave",
+      "id": "59",
+      "text": "You run. [[6.59]]",
+      "links": [
+        {
+          "linkText": "6.59",
+          "passageName": "6.59",
+          "original": "[[6.59]]"
+        }
+      ],
+      "cleanText": "You run."
+    },
+    {
+      "name": "6.59",
+      "tags": "marty-sad",
+      "id": "60",
+      "text": "Suddenly you're at Peaches house. [[6.60]]",
+      "links": [
+        {
+          "linkText": "6.60",
+          "passageName": "6.60",
+          "original": "[[6.60]]"
+        }
+      ],
+      "cleanText": "Suddenly you're at Peaches house."
+    },
+    {
+      "name": "6.60",
+      "tags": "marty-neutral",
+      "id": "61",
+      "text": "Peaches. Those kids she never lets you see. [[6.61]]",
+      "links": [
+        {
+          "linkText": "6.61",
+          "passageName": "6.61",
+          "original": "[[6.61]]"
+        }
+      ],
+      "cleanText": "Peaches. Those kids she never lets you see."
+    },
+    {
+      "name": "6.61",
+      "tags": "marty-angry",
+      "id": "62",
+      "text": "Perhaps there's a reason why she's never let you see them. [[6.62]]",
+      "links": [
+        {
+          "linkText": "6.62",
+          "passageName": "6.62",
+          "original": "[[6.62]]"
+        }
+      ],
+      "cleanText": "Perhaps there's a reason why she's never let you see them."
+    },
+    {
+      "name": "6.62",
+      "tags": "marty-scared",
+      "id": "63",
+      "text": "That's it! They're wolves too! Just more wolves in sheep's clothing... [[6.63]]",
+      "links": [
+        {
+          "linkText": "6.63",
+          "passageName": "6.63",
+          "original": "[[6.63]]"
+        }
+      ],
+      "cleanText": "That's it! They're wolves too! Just more wolves in sheep's clothing..."
+    },
+    {
+      "name": "6.63",
+      "tags": "marty-angry peaches-enter-right peaches-speaker peaches-angry",
+      "id": "64",
+      "text": "Marty, what are you... Marty wa- Stop- MARTY! [[6.64]]",
+      "links": [
+        {
+          "linkText": "6.64",
+          "passageName": "6.64",
+          "original": "[[6.64]]"
+        }
+      ],
+      "cleanText": "Marty, what are you... Marty wa- Stop- MARTY!"
+    },
+    {
+      "name": "6.64",
+      "tags": "peaches-baby marty-leave peaches-leave",
+      "id": "65",
+      "text": "The child's skin is not the soft fur you would expect, but smooth, sticky flesh. [[6.65]]",
+      "links": [
+        {
+          "linkText": "6.65",
+          "passageName": "6.65",
+          "original": "[[6.65]]"
+        }
+      ],
+      "cleanText": "The child's skin is not the soft fur you would expect, but smooth, sticky flesh."
+    },
+    {
+      "name": "6.65",
+      "tags": "",
+      "id": "66",
+      "text": "It's head is perfectly round, its arms ending in paws without claws. Another \"hand.\" [[6.66]]",
+      "links": [
+        {
+          "linkText": "6.66",
+          "passageName": "6.66",
+          "original": "[[6.66]]"
+        }
+      ],
+      "cleanText": "It's head is perfectly round, its arms ending in paws without claws. Another \"hand.\""
+    },
+    {
+      "name": "6.66",
+      "tags": "",
+      "id": "67",
+      "text": "The eyes are blue. ringed in white. [[6.67]]",
+      "links": [
+        {
+          "linkText": "6.67",
+          "passageName": "6.67",
+          "original": "[[6.67]]"
+        }
+      ],
+      "cleanText": "The eyes are blue. ringed in white."
+    },
+    {
+      "name": "6.67",
+      "tags": "",
+      "id": "68",
+      "text": "They look strangely familiar... [[6.68]]",
+      "links": [
+        {
+          "linkText": "6.68",
+          "passageName": "6.68",
+          "original": "[[6.68]]"
+        }
+      ],
+      "cleanText": "They look strangely familiar..."
+    },
+    {
+      "name": "6.68",
+      "tags": "peaches-speaker marty-enter peaches-enter-right peaches-angry marty-scared",
+      "id": "69",
+      "text": "GET YOUR PAWS AWAY FROM THEM! [[6.69]]",
+      "links": [
+        {
+          "linkText": "6.69",
+          "passageName": "6.69",
+          "original": "[[6.69]]"
+        }
+      ],
+      "cleanText": "GET YOUR PAWS AWAY FROM THEM!"
+    },
+    {
+      "name": "6.69",
+      "tags": "peaches-sad peaches-speaker",
+      "id": "70",
+      "text": "HELP! ANYBODY! PLEASE! I'M BEING ATTACKED! [[6.70]]",
+      "links": [
+        {
+          "linkText": "6.70",
+          "passageName": "6.70",
+          "original": "[[6.70]]"
+        }
+      ],
+      "cleanText": "HELP! ANYBODY! PLEASE! I'M BEING ATTACKED!"
+    },
+    {
+      "name": "6.70",
+      "tags": "",
+      "id": "71",
+      "text": "Peaches appears to be a little upset. [[6.71]]",
+      "links": [
+        {
+          "linkText": "6.71",
+          "passageName": "6.71",
+          "original": "[[6.71]]"
+        }
+      ],
+      "cleanText": "Peaches appears to be a little upset."
+    },
+    {
+      "name": "6.71",
+      "tags": "",
+      "id": "72",
+      "text": "This is what she was hiding. [[6.73]]",
+      "links": [
+        {
+          "linkText": "6.73",
+          "passageName": "6.73",
+          "original": "[[6.73]]"
+        }
+      ],
+      "cleanText": "This is what she was hiding."
+    },
+    {
+      "name": "6.73",
+      "tags": "marty-angry",
+      "id": "73",
+      "text": "No wonder she tried so much to avoid you. [[6.74]]",
+      "links": [
+        {
+          "linkText": "6.74",
+          "passageName": "6.74",
+          "original": "[[6.74]]"
+        }
+      ],
+      "cleanText": "No wonder she tried so much to avoid you."
+    },
+    {
+      "name": "6.74",
+      "tags": "",
+      "id": "74",
+      "text": "There's no telling what she could be hiding under that fur of hers... [[6.75]]",
+      "links": [
+        {
+          "linkText": "6.75",
+          "passageName": "6.75",
+          "original": "[[6.75]]"
+        }
+      ],
+      "cleanText": "There's no telling what she could be hiding under that fur of hers..."
+    },
+    {
+      "name": "6.75",
+      "tags": "peaches-leave marty-leave",
+      "id": "75",
+      "text": "Suddenly you're tackled from behind. [[6.76]]",
+      "links": [
+        {
+          "linkText": "6.76",
+          "passageName": "6.76",
+          "original": "[[6.76]]"
+        }
+      ],
+      "cleanText": "Suddenly you're tackled from behind."
+    },
+    {
+      "name": "6.76",
+      "tags": "wolf-enter-left marty-enter-right marty-scared wolf-angry",
+      "id": "76",
+      "text": "Matthew has knocked you to the ground. His breath stinks of meat. [[6.77]]",
+      "links": [
+        {
+          "linkText": "6.77",
+          "passageName": "6.77",
+          "original": "[[6.77]]"
+        }
+      ],
+      "cleanText": "Matthew has knocked you to the ground. His breath stinks of meat."
+    },
+    {
+      "name": "6.77",
+      "tags": "marty-angry wolf-neutral",
+      "id": "77",
+      "text": "You pry yourself free, but more are coming. [[6.78]]",
+      "links": [
+        {
+          "linkText": "6.78",
+          "passageName": "6.78",
+          "original": "[[6.78]]"
+        }
+      ],
+      "cleanText": "You pry yourself free, but more are coming."
+    },
+    {
+      "name": "6.78",
+      "tags": "marty-leave barnaby-enter-right barnaby-angry",
+      "id": "78",
+      "text": "They pin you down. They've won. [[6.79]]",
+      "links": [
+        {
+          "linkText": "6.79",
+          "passageName": "6.79",
+          "original": "[[6.79]]"
+        }
+      ],
+      "cleanText": "They pin you down. They've won."
+    },
+    {
+      "name": "6.79",
+      "tags": "hand-scene barnaby-leave wolf-leave",
+      "id": "79",
+      "text": "Just when it seems you won't be able to hold out any longer, the sky splits. [[6.80]]",
+      "links": [
+        {
+          "linkText": "6.80",
+          "passageName": "6.80",
+          "original": "[[6.80]]"
+        }
+      ],
+      "cleanText": "Just when it seems you won't be able to hold out any longer, the sky splits."
+    },
+    {
+      "name": "6.80",
+      "tags": "",
+      "id": "80",
+      "text": "The \"people\" of the real world are here. [[6.81]]",
+      "links": [
+        {
+          "linkText": "6.81",
+          "passageName": "6.81",
+          "original": "[[6.81]]"
+        }
+      ],
+      "cleanText": "The \"people\" of the real world are here."
+    },
+    {
+      "name": "6.81",
+      "tags": "",
+      "id": "81",
+      "text": "You've broken the chains on your mind. Now they will break the chains on your body. [[6.82]]",
+      "links": [
+        {
+          "linkText": "6.82",
+          "passageName": "6.82",
+          "original": "[[6.82]]"
+        }
+      ],
+      "cleanText": "You've broken the chains on your mind. Now they will break the chains on your body."
+    },
+    {
+      "name": "6.82",
+      "tags": "",
+      "id": "82",
+      "text": "An enormous hand blots out the sun. [[6.83]]",
+      "links": [
+        {
+          "linkText": "6.83",
+          "passageName": "6.83",
+          "original": "[[6.83]]"
+        }
+      ],
+      "cleanText": "An enormous hand blots out the sun."
+    },
+    {
+      "name": "6.83",
+      "tags": "",
+      "id": "83",
+      "text": "It reaches across the town, it's palm open. [[6.84]]",
+      "links": [
+        {
+          "linkText": "6.84",
+          "passageName": "6.84",
+          "original": "[[6.84]]"
+        }
+      ],
+      "cleanText": "It reaches across the town, it's palm open."
+    },
+    {
+      "name": "6.84",
+      "tags": "",
+      "id": "84",
+      "text": "Step into the hand? \n[[Yes -> 6.85a]]\n[[No -> 6.85b]]",
+      "links": [
+        {
+          "linkText": "Yes",
+          "passageName": "6.85a",
+          "original": "[[Yes -> 6.85a]]"
+        },
+        {
+          "linkText": "No",
+          "passageName": "6.85b",
+          "original": "[[No -> 6.85b]]"
+        }
+      ],
+      "cleanText": "Step into the hand?"
+    },
+    {
+      "name": " 6.85a",
+      "tags": "",
+      "id": "85",
+      "text": "You step into the hand. [[6.86a]]",
+      "links": [
+        {
+          "linkText": "6.86a",
+          "passageName": "6.86a",
+          "original": "[[6.86a]]"
+        }
+      ],
+      "cleanText": "You step into the hand."
+    },
+    {
+      "name": " 6.85b",
+      "tags": "",
+      "id": "86",
+      "text": "The hand gently beckons you. [[6.86b]]",
+      "links": [
+        {
+          "linkText": "6.86b",
+          "passageName": "6.86b",
+          "original": "[[6.86b]]"
+        }
+      ],
+      "cleanText": "The hand gently beckons you."
+    },
+    {
+      "name": "6.86a",
+      "tags": "birds-eye",
+      "id": "87",
+      "text": "You see the town from above, as if it's a picture in a storybook. [[6.87a]]",
+      "links": [
+        {
+          "linkText": "6.87a",
+          "passageName": "6.87a",
+          "original": "[[6.87a]]"
+        }
+      ],
+      "cleanText": "You see the town from above, as if it's a picture in a storybook."
+    },
+    {
+      "name": "6.87a",
+      "tags": "black-screen",
+      "id": "88",
+      "text": "Your vision fades to black. [[6.88]]",
+      "links": [
+        {
+          "linkText": "6.88",
+          "passageName": "6.88",
+          "original": "[[6.88]]"
+        }
+      ],
+      "cleanText": "Your vision fades to black."
+    },
+    {
+      "name": "6.86b",
+      "tags": "",
+      "id": "89",
+      "text": "Step into the hand? \n[[Yes -> 6.85a]]\n[[No -> 6.85c]]",
+      "links": [
+        {
+          "linkText": "Yes",
+          "passageName": "6.85a",
+          "original": "[[Yes -> 6.85a]]"
+        },
+        {
+          "linkText": "No",
+          "passageName": "6.85c",
+          "original": "[[No -> 6.85c]]"
+        }
+      ],
+      "cleanText": "Step into the hand?"
+    },
+    {
+      "name": " 6.85c",
+      "tags": "",
+      "id": "90",
+      "text": "The hand beckons you once more. [[6.86c]]",
+      "links": [
+        {
+          "linkText": "6.86c",
+          "passageName": "6.86c",
+          "original": "[[6.86c]]"
+        }
+      ],
+      "cleanText": "The hand beckons you once more."
+    },
+    {
+      "name": "6.86c",
+      "tags": "",
+      "id": "91",
+      "text": "You start backing away. Why are you backing away? [[6.87c]]",
+      "links": [
+        {
+          "linkText": "6.87c",
+          "passageName": "6.87c",
+          "original": "[[6.87c]]"
+        }
+      ],
+      "cleanText": "You start backing away. Why are you backing away?"
+    },
+    {
+      "name": "6.87c",
+      "tags": "black-screen",
+      "id": "92",
+      "text": "The hand covers you with its palm, then slowly and softly presses you into the blackness of the earth. [[6.88]]",
+      "links": [
+        {
+          "linkText": "6.88",
+          "passageName": "6.88",
+          "original": "[[6.88]]"
+        }
+      ],
+      "cleanText": "The hand covers you with its palm, then slowly and softly presses you into the blackness of the earth."
+    },
+    {
+      "name": "6.88",
+      "tags": "white-sreen marty-speaker",
+      "id": "93",
+      "text": "Why.. can't I move my head? Where's.. my body? [[6.88.5]]",
+      "links": [
+        {
+          "linkText": "6.88.5",
+          "passageName": "6.88.5",
+          "original": "[[6.88.5]]"
+        }
+      ],
+      "cleanText": "Why.. can't I move my head? Where's.. my body?"
+    },
+    {
+      "name": "6.89",
+      "tags": "stranger-speaker",
+      "id": "94",
+      "text": "When did you grow up? [[6.90]]",
+      "links": [
+        {
+          "linkText": "6.90",
+          "passageName": "6.90",
+          "original": "[[6.90]]"
+        }
+      ],
+      "cleanText": "When did you grow up?"
+    },
+    {
+      "name": "6.90",
+      "tags": "stranger-speaker stranger-frown",
+      "id": "95",
+      "text": "It feels like just yesterday you were a wee little pup, taking your first steps... [[6.91]]",
+      "links": [
+        {
+          "linkText": "6.91",
+          "passageName": "6.91",
+          "original": "[[6.91]]"
+        }
+      ],
+      "cleanText": "It feels like just yesterday you were a wee little pup, taking your first steps..."
+    },
+    {
+      "name": "6.91",
+      "tags": "stranger-speaker",
+      "id": "96",
+      "text": "Going to school, getting a job, building a quaint little life for yourself. [[6.92]]",
+      "links": [
+        {
+          "linkText": "6.92",
+          "passageName": "6.92",
+          "original": "[[6.92]]"
+        }
+      ],
+      "cleanText": "Going to school, getting a job, building a quaint little life for yourself."
+    },
+    {
+      "name": "6.92",
+      "tags": "stranger-speaker stranger-smile",
+      "id": "97",
+      "text": "And now, look at you. [[6.93]]",
+      "links": [
+        {
+          "linkText": "6.93",
+          "passageName": "6.93",
+          "original": "[[6.93]]"
+        }
+      ],
+      "cleanText": "And now, look at you."
+    },
+    {
+      "name": "6.93",
+      "tags": "stranger-speaker",
+      "id": "98",
+      "text": "In less than a week, it's all gone. [[6.94]]",
+      "links": [
+        {
+          "linkText": "6.94",
+          "passageName": "6.94",
+          "original": "[[6.94]]"
+        }
+      ],
+      "cleanText": "In less than a week, it's all gone."
+    },
+    {
+      "name": "6.94",
+      "tags": "stranger-speaker",
+      "id": "99",
+      "text": "You've caught on now, haven't you? [[6.95]]",
+      "links": [
+        {
+          "linkText": "6.95",
+          "passageName": "6.95",
+          "original": "[[6.95]]"
+        }
+      ],
+      "cleanText": "You've caught on now, haven't you?"
+    },
+    {
+      "name": "6.95",
+      "tags": "stranger-speaker",
+      "id": "100",
+      "text": "I'm always sure to start small. [[6.96]]",
+      "links": [
+        {
+          "linkText": "6.96",
+          "passageName": "6.96",
+          "original": "[[6.96]]"
+        }
+      ],
+      "cleanText": "I'm always sure to start small."
+    },
+    {
+      "name": "6.96",
+      "tags": "stranger-speaker",
+      "id": "101",
+      "text": "A strange dream or two. [[6.97]]",
+      "links": [
+        {
+          "linkText": "6.97",
+          "passageName": "6.97",
+          "original": "[[6.97]]"
+        }
+      ],
+      "cleanText": "A strange dream or two."
+    },
+    {
+      "name": "6.97",
+      "tags": "stranger-speaker",
+      "id": "102",
+      "text": "A reflection in the mirror. [[6.98]]",
+      "links": [
+        {
+          "linkText": "6.98",
+          "passageName": "6.98",
+          "original": "[[6.98]]"
+        }
+      ],
+      "cleanText": "A reflection in the mirror."
+    },
+    {
+      "name": "6.98",
+      "tags": "stranger-speaker",
+      "id": "103",
+      "text": "Then let the town do the rest. [[6.99]]",
+      "links": [
+        {
+          "linkText": "6.99",
+          "passageName": "6.99",
+          "original": "[[6.99]]"
+        }
+      ],
+      "cleanText": "Then let the town do the rest."
+    },
+    {
+      "name": "6.99",
+      "tags": "stranger-speaker",
+      "id": "104",
+      "text": "Those arrogant little snacks are so afraid of everyone knowing their secrets... [[6.100]]",
+      "links": [
+        {
+          "linkText": "6.100",
+          "passageName": "6.100",
+          "original": "[[6.100]]"
+        }
+      ],
+      "cleanText": "Those arrogant little snacks are so afraid of everyone knowing their secrets..."
+    },
+    {
+      "name": "6.100",
+      "tags": "stranger-speaker",
+      "id": "105",
+      "text": "Their neighbors. Their families. Honey Haven~ [[6.101]]",
+      "links": [
+        {
+          "linkText": "6.101",
+          "passageName": "6.101",
+          "original": "[[6.101]]"
+        }
+      ],
+      "cleanText": "Their neighbors. Their families. Honey Haven~"
+    },
+    {
+      "name": "6.101",
+      "tags": "stranger-speaker",
+      "id": "106",
+      "text": "You just need to prod them a little and they'll start seeing demons in everything. [[6.102]]",
+      "links": [
+        {
+          "linkText": "6.102",
+          "passageName": "6.102",
+          "original": "[[6.102]]"
+        }
+      ],
+      "cleanText": "You just need to prod them a little and they'll start seeing demons in everything."
+    },
+    {
+      "name": "6.102",
+      "tags": "stranger-speaker",
+      "id": "107",
+      "text": "ehehehehe... [[6.103]]",
+      "links": [
+        {
+          "linkText": "6.103",
+          "passageName": "6.103",
+          "original": "[[6.103]]"
+        }
+      ],
+      "cleanText": "ehehehehe..."
+    },
+    {
+      "name": "6.103",
+      "tags": "stranger-speaker",
+      "id": "108",
+      "text": "Even though the only one was right here. [[6.104]]",
+      "links": [
+        {
+          "linkText": "6.104",
+          "passageName": "6.104",
+          "original": "[[6.104]]"
+        }
+      ],
+      "cleanText": "Even though the only one was right here."
+    },
+    {
+      "name": "6.104",
+      "tags": "stranger-speaker",
+      "id": "109",
+      "text": "Once that starts, I'll seed some suspicions. [[6.105]]",
+      "links": [
+        {
+          "linkText": "6.105",
+          "passageName": "6.105",
+          "original": "[[6.105]]"
+        }
+      ],
+      "cleanText": "Once that starts, I'll seed some suspicions."
+    },
+    {
+      "name": "6.105",
+      "tags": "stranger-speaker",
+      "id": "110",
+      "text": "Help them view the town from a....  different perspective. [[6.106]]",
+      "links": [
+        {
+          "linkText": "6.106",
+          "passageName": "6.106",
+          "original": "[[6.106]]"
+        }
+      ],
+      "cleanText": "Help them view the town from a....  different perspective."
+    },
+    {
+      "name": "6.106",
+      "tags": "stranger-speaker",
+      "id": "111",
+      "text": "That eye in the sky was a personal touch. [[6.107]]",
+      "links": [
+        {
+          "linkText": "6.107",
+          "passageName": "6.107",
+          "original": "[[6.107]]"
+        }
+      ],
+      "cleanText": "That eye in the sky was a personal touch."
+    },
+    {
+      "name": "6.107",
+      "tags": "stranger-speaker",
+      "id": "112",
+      "text": "It was nice, looking down at my meal. [[6.108]]",
+      "links": [
+        {
+          "linkText": "6.108",
+          "passageName": "6.108",
+          "original": "[[6.108]]"
+        }
+      ],
+      "cleanText": "It was nice, looking down at my meal."
+    },
+    {
+      "name": "6.108",
+      "tags": "stranger-speaker",
+      "id": "113",
+      "text": "Making it think I was a savior. [[6.109]]",
+      "links": [
+        {
+          "linkText": "6.109",
+          "passageName": "6.109",
+          "original": "[[6.109]]"
+        }
+      ],
+      "cleanText": "Making it think I was a savior."
+    },
+    {
+      "name": "6.109",
+      "tags": "stranger-speaker",
+      "id": "114",
+      "text": "And once they start thinking Honey Haven isn't real, they'll believe anything they hear. [[6.110]]",
+      "links": [
+        {
+          "linkText": "6.110",
+          "passageName": "6.110",
+          "original": "[[6.110]]"
+        }
+      ],
+      "cleanText": "And once they start thinking Honey Haven isn't real, they'll believe anything they hear."
+    },
+    {
+      "name": "6.110",
+      "tags": "stranger-speaker",
+      "id": "115",
+      "text": "Once you push everyone away, there's nobody left to tell you you're going crazy. [[6.111]]",
+      "links": [
+        {
+          "linkText": "6.111",
+          "passageName": "6.111",
+          "original": "[[6.111]]"
+        }
+      ],
+      "cleanText": "Once you push everyone away, there's nobody left to tell you you're going crazy."
+    },
+    {
+      "name": "6.111",
+      "tags": "stranger-speaker stranger-frown",
+      "id": "116",
+      "text": "Then all you've got is that damnable tea.... [[6.112]]",
+      "links": [
+        {
+          "linkText": "6.112",
+          "passageName": "6.112",
+          "original": "[[6.112]]"
+        }
+      ],
+      "cleanText": "Then all you've got is that damnable tea...."
+    },
+    {
+      "name": "6.112",
+      "tags": "stranger-speaker stranger-smile",
+      "id": "117",
+      "text": "ehehehe... You know, you could have saved yourself if you had just kept drinking it? [[6.113]]",
+      "links": [
+        {
+          "linkText": "6.113",
+          "passageName": "6.113",
+          "original": "[[6.113]]"
+        }
+      ],
+      "cleanText": "ehehehe... You know, you could have saved yourself if you had just kept drinking it?"
+    },
+    {
+      "name": "6.113",
+      "tags": "stranger-speaker",
+      "id": "118",
+      "text": "Honey flower.. perhaps it could have worked. [[6.114]]",
+      "links": [
+        {
+          "linkText": "6.114",
+          "passageName": "6.114",
+          "original": "[[6.114]]"
+        }
+      ],
+      "cleanText": "Honey flower.. perhaps it could have worked."
+    },
+    {
+      "name": "6.114",
+      "tags": "stranger-speaker",
+      "id": "119",
+      "text": "Oh, but you just HAD to keep looking, didn't you? [[6.115]]",
+      "links": [
+        {
+          "linkText": "6.115",
+          "passageName": "6.115",
+          "original": "[[6.115]]"
+        }
+      ],
+      "cleanText": "Oh, but you just HAD to keep looking, didn't you?"
+    },
+    {
+      "name": "6.115",
+      "tags": "stranger-speaker",
+      "id": "120",
+      "text": "So I gave you something to find. My writing. All the town's dirty laundry, all at once. [[6.116]]",
+      "links": [
+        {
+          "linkText": "6.116",
+          "passageName": "6.116",
+          "original": "[[6.116]]"
+        }
+      ],
+      "cleanText": "So I gave you something to find. My writing. All the town's dirty laundry, all at once."
+    },
+    {
+      "name": "6.116",
+      "tags": "stranger-speaker",
+      "id": "121",
+      "text": "And for my final act.. a wolf in sheep's clothing. [[6.117]]",
+      "links": [
+        {
+          "linkText": "6.117",
+          "passageName": "6.117",
+          "original": "[[6.117]]"
+        }
+      ],
+      "cleanText": "And for my final act.. a wolf in sheep's clothing."
+    },
+    {
+      "name": "6.117",
+      "tags": "stranger-speaker",
+      "id": "122",
+      "text": "It always astounds me how easy you creatures are to trick. [[6.118]]",
+      "links": [
+        {
+          "linkText": "6.118",
+          "passageName": "6.118",
+          "original": "[[6.118]]"
+        }
+      ],
+      "cleanText": "It always astounds me how easy you creatures are to trick."
+    },
+    {
+      "name": "6.118",
+      "tags": "stranger-speaker",
+      "id": "123",
+      "text": "Invade your mind a little each night and they'll do the work for you. [[6.119]]",
+      "links": [
+        {
+          "linkText": "6.119",
+          "passageName": "6.119",
+          "original": "[[6.119]]"
+        }
+      ],
+      "cleanText": "Invade your mind a little each night and they'll do the work for you."
+    },
+    {
+      "name": "6.119",
+      "tags": "stranger-speaker stranger-frown",
+      "id": "124",
+      "text": "Push away their friends. Abandon their lives. [[6.120]]",
+      "links": [
+        {
+          "linkText": "6.120",
+          "passageName": "6.120",
+          "original": "[[6.120]]"
+        }
+      ],
+      "cleanText": "Push away their friends. Abandon their lives."
+    },
+    {
+      "name": "6.120",
+      "tags": "stranger-speaker",
+      "id": "125",
+      "text": "Kill themselves searching for a truth that isn't there. [[6.121]]",
+      "links": [
+        {
+          "linkText": "6.121",
+          "passageName": "6.121",
+          "original": "[[6.121]]"
+        }
+      ],
+      "cleanText": "Kill themselves searching for a truth that isn't there."
+    },
+    {
+      "name": "6.121",
+      "tags": "stranger-speaker stranger-smile",
+      "id": "126",
+      "text": "ehehehe... [[6.122]]",
+      "links": [
+        {
+          "linkText": "6.122",
+          "passageName": "6.122",
+          "original": "[[6.122]]"
+        }
+      ],
+      "cleanText": "ehehehe..."
+    },
+    {
+      "name": "6.122",
+      "tags": "stranger-speaker",
+      "id": "127",
+      "text": "You paranoid little rat. [[6.123]]",
+      "links": [
+        {
+          "linkText": "6.123",
+          "passageName": "6.123",
+          "original": "[[6.123]]"
+        }
+      ],
+      "cleanText": "You paranoid little rat."
+    },
+    {
+      "name": "6.123",
+      "tags": "stranger-speaker",
+      "id": "128",
+      "text": "You shoved them all away for.. the sake of a lie. [[6.124]]",
+      "links": [
+        {
+          "linkText": "6.124",
+          "passageName": "6.124",
+          "original": "[[6.124]]"
+        }
+      ],
+      "cleanText": "You shoved them all away for.. the sake of a lie."
+    },
+    {
+      "name": "6.124",
+      "tags": "stranger-speaker",
+      "id": "129",
+      "text": "For HERE. [[6.125]]",
+      "links": [
+        {
+          "linkText": "6.125",
+          "passageName": "6.125",
+          "original": "[[6.125]]"
+        }
+      ],
+      "cleanText": "For HERE."
+    },
+    {
+      "name": "6.125",
+      "tags": "stranger-speaker",
+      "id": "130",
+      "text": "ehehehehehehe will they even remember you? [[6.126]]",
+      "links": [
+        {
+          "linkText": "6.126",
+          "passageName": "6.126",
+          "original": "[[6.126]]"
+        }
+      ],
+      "cleanText": "ehehehehehehe will they even remember you?"
+    },
+    {
+      "name": "6.126",
+      "tags": "stranger-speaker stranger-frown",
+      "id": "131",
+      "text": "They've certainly been trying to forget Jonathan. [[6.127]]",
+      "links": [
+        {
+          "linkText": "6.127",
+          "passageName": "6.127",
+          "original": "[[6.127]]"
+        }
+      ],
+      "cleanText": "They've certainly been trying to forget Jonathan."
+    },
+    {
+      "name": "6.127",
+      "tags": "stranger-speaker stranger-smile",
+      "id": "132",
+      "text": "You.. you're even less alive than he is! [[6.128]]",
+      "links": [
+        {
+          "linkText": "6.128",
+          "passageName": "6.128",
+          "original": "[[6.128]]"
+        }
+      ],
+      "cleanText": "You.. you're even less alive than he is!"
+    },
+    {
+      "name": "6.128",
+      "tags": "stranger-speaker",
+      "id": "133",
+      "text": "HA! [[6.129]]",
+      "links": [
+        {
+          "linkText": "6.129",
+          "passageName": "6.129",
+          "original": "[[6.129]]"
+        }
+      ],
+      "cleanText": "HA!"
+    },
+    {
+      "name": "6.129",
+      "tags": "stranger-speaker",
+      "id": "134",
+      "text": "Goodbye, Marty. [[6.130]]",
+      "links": [
+        {
+          "linkText": "6.130",
+          "passageName": "6.130",
+          "original": "[[6.130]]"
+        }
+      ],
+      "cleanText": "Goodbye, Marty."
+    },
+    {
+      "name": "6.130",
+      "tags": "stranger-speaker",
+      "id": "135",
+      "text": "You were a fun one. [[6.131]]",
+      "links": [
+        {
+          "linkText": "6.131",
+          "passageName": "6.131",
+          "original": "[[6.131]]"
+        }
+      ],
+      "cleanText": "You were a fun one."
+    },
+    {
+      "name": "6.131",
+      "tags": "",
+      "id": "136",
+      "text": "End of Day 3.",
+      "links": [],
+      "cleanText": "End of Day 3."
+    },
+    {
+      "name": "6.88.5",
+      "tags": "stranger-enter-middle stranger-speaker stranger-smile",
+      "id": "137",
+      "text": "Hello Marty. [[6.89]]",
+      "links": [
+        {
+          "linkText": "6.89",
+          "passageName": "6.89",
+          "original": "[[6.89]]"
+        }
+      ],
+      "cleanText": "Hello Marty."
+    },
+    {
+      "name": "6.16.5",
+      "tags": "",
+      "id": "138",
+      "text": "You feel... different. You see things. You're starting to understand things. [[6.19]]",
+      "links": [
+        {
+          "linkText": "6.19",
+          "passageName": "6.19",
+          "original": "[[6.19]]"
+        }
+      ],
+      "cleanText": "You feel... different. You see things. You're starting to understand things."
+    }
+  ]
+}
+

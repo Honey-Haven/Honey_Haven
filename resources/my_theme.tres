@@ -38,10 +38,10 @@ metadata/_custom_type_script = "uid://bxgr1pbwt8map"
 
 [sub_resource type="Resource" id="Resource_b5efn"]
 script = ExtResource("6_y6r7j")
-bg_color = Color(0.99, 0.89991, 0.8514, 0.8235294)
+bg_color = Color(0.99, 0.89991, 0.8514, 1)
 border_color = Color(0.9793454, 0.7421668, 0.7927908, 1)
 font_color = Color(0.59, 0.30089998, 0.35872006, 1)
-narrator_bg_color = Color(1, 0.9253333, 0.84000003, 0.8235294)
+narrator_bg_color = Color(1, 0.9253333, 0.84000003, 1)
 narrator_border_color = Color(0.7804305, 0.5215943, 0.43571785, 1)
 narrator_font_color = Color(0.78039217, 0.52156866, 0.43529412, 1)
 demon_bg_color = Color(0.05647122, 0.0015289565, 0.0015969181, 0.92941177)

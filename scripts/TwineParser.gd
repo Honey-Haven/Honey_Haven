@@ -7,25 +7,29 @@ class_name TwineParser
 #
 #  TAG CONVENTIONS (space-separated in the passage "tags" field)
 #  ─────────────────────────────────────────────────────────────
-#  <actor>              → that actor is the speaker for this passage
-#  <actor>_enter        → show that actor's sprite before the line
-#  <actor>_leave        → hide that actor's sprite after the line
-#  <expression>         → emotion tag; resolved to "<speaker>_<expression>"
-#                         using EXPRESSION_MAP (see below).  Only applied
-#                         when the expression belongs to the current speaker.
-#  Narrator             → no name-tag shown  (maps to speaker "")
-#  Demon                → name tag shows "Demon", no sprite on screen
-#  must_visit           → this passage-name is added to the must-visit set;
-#                         the hub passage that links to it is blocked until
-#                         every must_visit sibling has been seen.
-#  minigame_start       → emits a minigame_start packet (id = passage name)
-#  minigame_end         → emits a minigame_end packet (currently a no-op marker)
+#  <n>-enter             → actor enters on their default side
+#  <n>-enter-left        → actor enters on the left
+#  <n>-enter-right       → actor enters on the right
+#  <n>-enter-middle      → actor enters at centre
+#  <n>-leave             → actor leaves the scene
+#  <n>-<expression>      → sets that actor's sprite/expression
+#                             (e.g. marty-angry, wolf-happy)
+#  <n>-speaker           → this actor is the speaker for this passage
+#  Narrator                 → no name-tag shown (maps to speaker "")
+#  Demon                    → name tag shows "Demon", no sprite on screen
+#  must_visit               → this passage-name is added to the must-visit set
+#  minigame_start           → emits a minigame_start packet
+#  minigame_end             → emits a minigame_end packet (no-op marker)
+#
+#  DEFAULT POSITIONS
+#  ─────────────────
+#  Marty always defaults to LEFT (see ActorManager.PREFER_LEFT_ACTORS).
+#  All other actors default to RIGHT unless -left / -right / -middle is given.
 #
 #  EXPRESSION MAP
 #  ──────────────
-#  Keys are the raw tag words that represent emotions.
+#  Keys are the raw expression words used after the hyphen in tags.
 #  Values are the expression IDs registered in ActorManager / VNController.
-#  Add or rename entries freely; the parser never hard-codes actor names.
 # ══════════════════════════════════════════════════════════════════════════════
 
 const EXPRESSION_MAP: Dictionary = {
@@ -37,25 +41,25 @@ const EXPRESSION_MAP: Dictionary = {
 	"angry":     "angry",
 	"surprised": "surprised",
 	"sneezing":  "sneezing",
-	"buttons":   "",   # ← actor name, not an expression; ignored here
+	"scared":    "scared",
+	"smile":     "smile",
+	"frown":     "frown",
+	"baby":      "baby",
 	# Add more as you create sprites:
 	# "shocked":  "shocked",
 	# "smug":     "smug",
 }
 
-# Tags that are actor names (or special roles) – never treated as expressions.
-# Extend this as you add characters.
+# Known actor names (lower-case). Extend as you add characters.
 const KNOWN_ACTORS: Array = [
 	"marty", "matthew", "buttons", "peaches", "mochi", "chester",
 	"scotch", "tofu", "barnaby", "jane", "muffins", "demon",
-	"narrator", "peanut", "smith",
+	"narrator", "peanut", "smith", "wolf", "stranger",
 ]
 
-# Actor aliases: multiple tag names that share one sprite / actor slot.
-# Map alias → canonical_id. The canonical_id must be registered in VNController.
+# Actor aliases: map tag name → canonical actor_id.
 const ACTOR_ALIASES: Dictionary = {
-	"tofu":  "Scotch_Tofu",
-	"scotch": "Scotch_Tofu",
+	# No shared alias for tofu/scotch anymore; each maps to itself (title-cased below).
 }
 
 # Tags that carry structural meaning and should never be mistaken for actors
@@ -64,33 +68,37 @@ const STRUCTURAL_TAGS: Array = [
 	"must_visit", "minigame_start", "minigame_end",
 ]
 
-# Populated at runtime via register_background() in VNController —
-# same pattern as registering actors. No need to edit TwineParser for new backgrounds.
+# Populated at runtime via register_background() in VNController.
 static var BACKGROUND_MAP: Dictionary = {}
+# Near the top with BACKGROUND_MAP
+static var SFX_MAP: Dictionary = {}
 
-## Register a background tag → texture path. Call from VNController before loading any script.
+# Inside TwineParser.gd
+
+static var BGM_MAP := {}
+
+static func register_bgm(tag: String, path: String, volume: float = 0.0) -> void:
+	BGM_MAP[tag.to_lower().replace("-", "_")] = {
+		"path": path,
+		"volume": volume
+		}
+static func register_sfx(tag: String, path: String) -> void:
+	SFX_MAP[tag.to_lower().replace("-", "_")] = path
+## Register a background tag -> texture path.
 static func register_background(tag: String, path: String) -> void:
 	BACKGROUND_MAP[tag.to_lower()] = path
 
 
 # ── Public entry point ────────────────────────────────────────────────────────
-#
-#  twine_json  : the parsed Dictionary from the Twine-to-JSON export
-#                (the top-level object that contains a "passages" array).
-#
-#  Returns the flat packet Array ready for  VNLogic.load_script().
-#
 static func parse(twine_json: Dictionary) -> Array:
 	var passages: Array = twine_json.get("passages", [])
 
-	# ── 1. Build a name→passage lookup ───────────────────────────────────────
+	# ── 1. Build a name->passage lookup ──────────────────────────────────────
 	var passage_map: Dictionary = {}
 	for p in passages:
 		passage_map[p["name"].strip_edges()] = p
 
 	# ── 2. Identify the start passage ────────────────────────────────────────
-	#  Twine's first passage is "1.0" in this project, but fall back to
-	#  whatever comes first in the array if not found.
 	var start_name: String = _find_start(passages, passage_map)
 
 	# ── 3. Walk the graph and emit packets ───────────────────────────────────
@@ -106,22 +114,19 @@ static func parse(twine_json: Dictionary) -> Array:
 # ══════════════════════════════════════════════════════════════════════════════
 
 class _ParseContext:
-	var passage_map:    Dictionary = {}
-	var packets:        Array      = []
-	var visited:        Dictionary = {}   # passage_name → true
-	var on_stage:       Dictionary = {}   # actor_id → true (parse-time stage tracking)
-	var current_bg:     String     = ""   # last background tag emitted
-	# must_visit tracking: hub_passage_name → { child_name: bool }
+	var passage_map:     Dictionary = {}
+	var packets:         Array      = []
+	var visited:         Dictionary = {}   # passage_name → true
+	var on_stage:        Dictionary = {}   # actor_id → true (parse-time stage tracking)
+	var current_bg:      String     = ""   # last background tag emitted
 	var must_visit_sets: Dictionary = {}
-	# Which hub we're currently serving (set when we enter a must_visit branch)
-	var current_hub:   String      = ""
+	var current_hub:     String     = ""
 
 
 static func _walk(name: String, ctx: _ParseContext) -> void:
 	var clean_name: String = name.strip_edges()
 
 	if ctx.visited.has(clean_name):
-		# Already emitted – emit a jump instead so VNLogic can land here.
 		ctx.packets.append({"type": "jump", "label": _label_for(clean_name)})
 		return
 
@@ -139,15 +144,20 @@ static func _walk(name: String, ctx: _ParseContext) -> void:
 	# ── Emit a label so jumps can land here ──────────────────────────────────
 	ctx.packets.append({"type": "label", "name": _label_for(clean_name)})
 
-	# ── Decode who is on stage ────────────────────────────────────────────────
-	var speaker:    String = _get_speaker(raw_tags)
-	var expression: String = _get_expression(raw_tags, speaker)
-	var enters:     Array  = _get_enters(raw_tags)
-	var leaves:     Array  = _get_leaves(raw_tags)
+	# ── Decode all actor tags in one pass ────────────────────────────────────
+	var parsed := _parse_actor_tags(raw_tags)
+	# parsed keys:
+	#   "speaker"     → String  (actor_id of speaker, "" = Narrator)
+	#   "enters"      → Array of { actor_id, position, expression }
+	#   "leaves"      → Array of actor_id strings
+	#   "expressions" → Dictionary of actor_lower → expression string
+
+	var speaker:    String     = parsed["speaker"]
+	var enters:     Array      = parsed["enters"]
+	var leaves:     Array      = parsed["leaves"]
+	var expression: String     = parsed["expressions"].get(speaker.to_lower(), "")
 
 	# ── Background tag ────────────────────────────────────────────────────────
-	# If a tag matches a key in BACKGROUND_MAP and it differs from the current
-	# background, emit a background_change packet (fade transition by default).
 	var bg_tag: String = _get_background_tag(raw_tags)
 	if bg_tag != "" and bg_tag != ctx.current_bg:
 		ctx.current_bg = bg_tag
@@ -157,28 +167,81 @@ static func _walk(name: String, ctx: _ParseContext) -> void:
 			"transition": "fade",
 		})
 
+
+	# ── Audio Tags ────────────────────────────────────────────────────────────
+	for t in raw_tags:
+		var clean_t = t.replace("-", "_")
+		
+		# Check for BGM
+		if BGM_MAP.has(clean_t):
+			var bgm_data = BGM_MAP[clean_t]
+			ctx.packets.append({
+				"type": "bgm",
+				"action": "play",
+				"path": bgm_data["path"],
+				"volume": bgm_data["volume"], # THE AUTOMATIC VOLUME
+				"fade": 0.1 # 1 second crossfade
+			})
+		elif clean_t == "stop_bgm":
+			ctx.packets.append({
+				"type": "bgm",
+				"action": "stop",
+				"fade": 1.0
+			})
+			
+		# Check for one-off SFX
+		if SFX_MAP.has(clean_t):
+			ctx.packets.append({
+				"type": "sfx",
+				"path": SFX_MAP[clean_t]
+			})
 	# ── Actor leaves — fire BEFORE this passage's dialogue ───────────────────
-	# A _leave tag on a passage means "this character exits before this line
-	# is spoken." Only hide if the actor is actually on stage.
 	for actor_id in leaves:
 		if ctx.on_stage.has(actor_id):
 			ctx.packets.append({"type": "actor_hide", "actor_id": actor_id})
 			ctx.on_stage.erase(actor_id)
 
 	# ── Actor enters ──────────────────────────────────────────────────────────
-	# Guard: only appear if not already on stage.
-	for actor_id in enters:
+	for enter_info in enters:
+		var actor_id:   String = enter_info["actor_id"]
+		var position:   String = enter_info["position"]
+		var enter_expr: String = enter_info["expression"]
+		if enter_expr == "":
+			enter_expr = "neutral"
 		if not ctx.on_stage.has(actor_id):
-			var expr: String = "neutral"
-			if actor_id.to_lower() == speaker.to_lower() and expression != "":
-				expr = expression
 			ctx.packets.append({
-				"type":      "appear",
-				"actor_id":  actor_id,
-				"expression": expr,
-				"position":  "",
+				"type":       "appear",
+				"actor_id":   actor_id,
+				"expression": enter_expr,
+				"position":   position,
 			})
 			ctx.on_stage[actor_id] = true
+
+	# ── Expression update for actors already on stage ─────────────────────────
+	# If a character already on stage has a new expression tag this passage,
+	# and they are NOT entering this passage, emit an expression-change packet.
+	for actor_lower in parsed["expressions"]:
+		var actor_id: String
+		if ACTOR_ALIASES.has(actor_lower):
+			actor_id = ACTOR_ALIASES[actor_lower]
+		else:
+			actor_id = actor_lower.substr(0, 1).to_upper() + actor_lower.substr(1)
+
+		if ctx.on_stage.has(actor_id):
+			# Skip if they just entered (enter already sets the expression)
+			var just_entered: bool = false
+			for e in enters:
+				if e["actor_id"] == actor_id:
+					just_entered = true
+					break
+			if not just_entered:
+				var new_expr: String = parsed["expressions"][actor_lower]
+				if new_expr != "":
+					ctx.packets.append({
+						"type":       "actor_expression",
+						"actor_id":   actor_id,
+						"expression": new_expr,
+					})
 
 	# ── Dialogue / narrator line ──────────────────────────────────────────────
 	if text != "" and not _is_structural_only(raw_tags, text):
@@ -214,52 +277,34 @@ static func _route_children(
 		return   # end of branch
 
 	# ── must_visit hub detection ──────────────────────────────────────────────
-	#  A passage is a "hub" if ANY of its direct children has must_visit.
-	var must_visit_children: Array = []
-	var free_children: Array       = []
-
-	var must_visit_labels: Dictionary = {}  # passage_name → display label
+	var mv_children: Array   = []
+	var free_children: Array = []
 	for lnk in links:
-		var child_name: String = lnk.get("passageName", "").strip_edges()
-		if not ctx.passage_map.has(child_name):
-			continue
-		var child_tags: Array = _split_tags(
-				ctx.passage_map[child_name].get("tags", ""))
+		var target: String  = lnk.get("passageName", "").strip_edges()
+		var child_p         = ctx.passage_map.get(target, {})
+		var child_tags: Array = _split_tags(child_p.get("tags", ""))
 		if child_tags.has("must_visit"):
-			must_visit_children.append(child_name)
-			# Use link text as display label if it differs from the passage name
-			var link_text: String = lnk.get("linkText", "").strip_edges()
-			must_visit_labels[child_name] = link_text if link_text != child_name else child_name
+			mv_children.append(target)
 		else:
-			free_children.append(child_name)
+			free_children.append(target)
 
-	if not must_visit_children.is_empty():
-		# Register the must-visit set keyed to this hub.
-		if not ctx.must_visit_sets.has(parent_name):
-			var mv_dict: Dictionary = {}
-			for cn in must_visit_children:
-				mv_dict[cn] = false
-			ctx.must_visit_sets[parent_name] = mv_dict
+	if not mv_children.is_empty():
+		var set_dict: Dictionary = {}
+		for c in mv_children:
+			set_dict[c] = false
+		ctx.must_visit_sets[parent_name] = set_dict
 
-		# Emit a special "must_visit_hub" packet that VNLogic will expand into
-		# a repeated choice menu until all children are visited.
 		ctx.packets.append({
-			"type":           "must_visit_hub",
-			"hub_id":         parent_name,
-			"must_visit":     must_visit_children.duplicate(),
-			"label_map":      must_visit_labels.duplicate(),
-			"continuation":   free_children[0] if not free_children.is_empty() else "",
+			"type":     "must_visit_hub",
+			"hub":      _label_for(parent_name),
+			"children": mv_children.map(func(n): return _label_for(n)),
 		})
 
-		# Pre-walk every must-visit branch so labels exist.
-		# Snapshot on_stage so each branch starts from the same state.
 		var stage_before_mv: Dictionary = ctx.on_stage.duplicate()
-		for cn in must_visit_children:
+		for child in mv_children:
 			ctx.on_stage = stage_before_mv.duplicate()
-			if not ctx.visited.has(cn):
-				_walk(cn, ctx)
+			_walk(child, ctx)
 
-		# Walk the free continuation after the hub.
 		if not free_children.is_empty():
 			ctx.on_stage = stage_before_mv.duplicate()
 			_walk(free_children[0], ctx)
@@ -267,21 +312,17 @@ static func _route_children(
 		return
 
 	# ── Choice (multiple non-must_visit children, with link text) ────────────
-	#  Twine creates a choice when the link text differs from the passage name.
 	var is_choice: bool = _links_are_choices(links)
 
 	if is_choice and links.size() > 1:
-		var choice_entries: Array = []
+		var choice_entries: Array    = []
 		var silent_continuation: String = ""
 		for lnk in links:
 			var label_text: String = lnk.get("linkText", "").strip_edges()
 			var target:     String = lnk.get("passageName", "").strip_edges()
-			# [[PassageName]] with no arrow → linkText == passageName.
-			# Treat as a silent fallthrough, not a visible button.
 			if label_text == target:
 				silent_continuation = target
 				continue
-			# Strip surrounding quotes Twine wraps around player-facing text.
 			label_text = label_text.trim_prefix("\"").trim_suffix("\"")
 			choice_entries.append({
 				"label": label_text,
@@ -293,8 +334,6 @@ static func _route_children(
 			"choices":      choice_entries,
 			"continuation": _label_for(silent_continuation),
 		})
-		# Walk every branch, snapshotting on_stage so branches don't
-		# bleed into each other's enter/leave guards.
 		var stage_before_choice: Dictionary = ctx.on_stage.duplicate()
 		for lnk in links:
 			var target: String = lnk.get("passageName", "").strip_edges()
@@ -303,143 +342,164 @@ static func _route_children(
 				_walk(target, ctx)
 		return
 
-	# ── Linear (single next passage, or link text == passage name) ───────────
+	# ── Linear ───────────────────────────────────────────────────────────────
 	for lnk in links:
 		var target: String = lnk.get("passageName", "").strip_edges()
 		if ctx.visited.has(target):
 			ctx.packets.append({"type": "jump", "label": _label_for(target)})
 		else:
 			_walk(target, ctx)
-		break   # only ever one linear successor
+		break
 
 
 # ══════════════════════════════════════════════════════════════════════════════
-#  Tag helpers
+#  Tag parsing — hyphen-based format
+#
+#  Format:  <actorname>-<suffix>
+#
+#  Suffixes:
+#    speaker            → this actor speaks this passage
+#    leave              → actor exits before the line
+#    enter              → actor appears (default side)
+#    enter-left         → actor appears on the left
+#    enter-right        → actor appears on the right
+#    enter-middle       → actor appears at centre
+#    <expression>       → sets the actor's sprite expression
+#                         (must be a key in EXPRESSION_MAP)
 # ══════════════════════════════════════════════════════════════════════════════
 
 static func _split_tags(tags_str: String) -> Array:
 	var result: Array = []
 	for t in tags_str.split(" "):
 		var cleaned: String = t.strip_edges().to_lower()
-		# Normalise "tofu/scotch_enter" compound tags — split on slash,
-		# giving each name its own _enter/_leave suffix.
-		if "/" in cleaned:
-			var suffix := ""
-			if cleaned.ends_with("_enter"): suffix = "_enter"
-			elif cleaned.ends_with("_leave"): suffix = "_leave"
-			for part in cleaned.split("/"):
-				var base := part.replace("_enter","").replace("_leave","")
-				if base != "":
-					result.append(base + suffix)
-			continue
 		if cleaned != "":
 			result.append(cleaned)
 	return result
 
 
-## Return the actor id who is speaking (empty string = Narrator).
-static func _get_speaker(tags: Array) -> String:
-	# Special roles first
-	if tags.has("demon"):
-		return "Demon"
-	if tags.has("narrator"):
-		return ""
-	# Look for a known actor that is NOT an _enter / _leave tag and NOT a
-	# structural tag.
+## Parse all actor-related tags in one pass and return a summary dict.
+static func _parse_actor_tags(tags: Array) -> Dictionary:
+	var speaker:     String     = ""
+	var enters:      Array      = []
+	var leaves:      Array      = []
+	var expressions: Dictionary = {}   # actor_lower → expression string
+
 	for t in tags:
-		if t.ends_with("_enter") or t.ends_with("_leave"):
-			continue
+		# ── Structural / background tags — skip ───────────────────────────────
 		if STRUCTURAL_TAGS.has(t):
 			continue
-		if ACTOR_ALIASES.has(t):
-			return ACTOR_ALIASES[t]
-		if KNOWN_ACTORS.has(t):
-			return t.substr(0, 1).to_upper() + t.substr(1)
-	return ""   # narrator
+		if BACKGROUND_MAP.has(t.replace("-", "_")):
+			continue
+		if t == "narrator":
+			# explicit Narrator tag: speaker stays ""
+			continue
+
+		# ── Must contain a hyphen to be an actor tag ──────────────────────────
+		if not "-" in t:
+			continue
+
+		# Split on the FIRST hyphen: actor | suffix (suffix may contain hyphens)
+		var hyphen_pos:  int    = t.find("-")
+		var actor_part:  String = t.substr(0, hyphen_pos)        # e.g. "marty"
+		var suffix:      String = t.substr(hyphen_pos + 1)       # e.g. "angry" / "enter-right"
+
+		if not KNOWN_ACTORS.has(actor_part):
+			continue
+
+		# Resolve alias → canonical title-cased actor_id
+		var actor_id: String
+		if ACTOR_ALIASES.has(actor_part):
+			actor_id = ACTOR_ALIASES[actor_part]
+		else:
+			actor_id = actor_part.substr(0, 1).to_upper() + actor_part.substr(1)
+
+		# ── -speaker ─────────────────────────────────────────────────────────
+		if suffix == "speaker":
+			speaker = actor_id
+			continue
+
+		# ── -leave ───────────────────────────────────────────────────────────
+		if suffix == "leave":
+			if not leaves.has(actor_id):
+				leaves.append(actor_id)
+			continue
+
+		# ── -enter / -enter-left / -enter-right / -enter-middle ──────────────
+		if suffix == "enter" or suffix.begins_with("enter-"):
+			var position: String = ""
+			if   suffix == "enter-left":                        position = "left"
+			elif suffix == "enter-right":                       position = "right"
+			elif suffix == "enter-middle" or suffix == "enter-center": position = "center"
+			# "" means ActorManager picks the default side for this actor
+
+			# Avoid duplicates; allow a more-specific position to override
+			var already: bool = false
+			for e in enters:
+				if e["actor_id"] == actor_id:
+					already = true
+					if position != "":
+						e["position"] = position
+					break
+			if not already:
+				enters.append({
+					"actor_id":   actor_id,
+					"position":   position,
+					"expression": "",   # filled below
+				})
+			continue
+
+		# ── -<expression> ─────────────────────────────────────────────────────
+		if EXPRESSION_MAP.has(suffix):
+			expressions[actor_part] = EXPRESSION_MAP[suffix]
+			continue
+
+		# Unknown suffix — ignore silently.
+
+	# Back-fill enter expressions from the expressions dict
+	for enter_info in enters:
+		if enter_info["expression"] == "":
+			var key: String = enter_info["actor_id"].to_lower()
+			enter_info["expression"] = expressions.get(key, "neutral")
+
+	return {
+		"speaker":     speaker,
+		"enters":      enters,
+		"leaves":      leaves,
+		"expressions": expressions,
+	}
 
 
 ## Returns the display name for the dialogue name-tag.
-## Demon shows "Demon" but has no sprite.  Narrator shows nothing.
 static func _display_speaker(speaker: String, _tags: Array) -> String:
 	return speaker   # "" → Narrator box hidden by DialogueUI
 
 
-## Find an expression tag that belongs to the current speaker.
-## Expression tags are words that exist in EXPRESSION_MAP and are NOT
-## an actor name or structural tag.
-static func _get_expression(tags: Array, speaker: String) -> String:
-	for t in tags:
-		if t.ends_with("_enter") or t.ends_with("_leave"):
-			continue
-		if STRUCTURAL_TAGS.has(t):
-			continue
-		if KNOWN_ACTORS.has(t):
-			continue
-		if EXPRESSION_MAP.has(t) and EXPRESSION_MAP[t] != "":
-			return EXPRESSION_MAP[t]
-	return ""
-
-
-## Returns a list of actor ids that should appear (from *_enter tags).
-static func _get_enters(tags: Array) -> Array:
-	var result: Array = []
-	for t in tags:
-		if t.ends_with("_enter"):
-			var actor: String = t.substr(0, t.length() - 6)
-			if ACTOR_ALIASES.has(actor):
-				actor = ACTOR_ALIASES[actor]
-			else:
-				actor = actor.substr(0, 1).to_upper() + actor.substr(1)
-			if not result.has(actor):
-				result.append(actor)
-	return result
-
-
-## Returns a list of actor ids that should leave (from *_leave tags).
-static func _get_leaves(tags: Array) -> Array:
-	var result: Array = []
-	for t in tags:
-		if t.ends_with("_leave"):
-			var actor: String = t.substr(0, t.length() - 6)
-			if ACTOR_ALIASES.has(actor):
-				actor = ACTOR_ALIASES[actor]
-			else:
-				actor = actor.substr(0, 1).to_upper() + actor.substr(1)
-			if not result.has(actor):
-				result.append(actor)
-	return result
-
-
 ## Returns the background tag from this passage's tags, or "" if none.
+## Accepts both underscore and hyphen forms (e.g. "sunny_bedroom" = "sunny-bedroom").
 static func _get_background_tag(tags: Array) -> String:
 	for t in tags:
-		if BACKGROUND_MAP.has(t):
-			return t
+		var normalized: String = t.replace("-", "_")
+		if BACKGROUND_MAP.has(normalized):
+			return normalized
 	return ""
 
 
-## True if the passage's links represent player choices rather than a
-## simple linear continuation (i.e. the link text is not just the passage name).
+## True if links represent player choices rather than a linear continuation.
 static func _links_are_choices(links: Array) -> bool:
 	if links.size() <= 1:
 		return false
 	for lnk in links:
 		var lt: String = lnk.get("linkText", "").strip_edges()
 		var pn: String = lnk.get("passageName", "").strip_edges()
-		# If the link text is meaningfully different from the target name,
-		# it's player-facing choice text.
 		if lt != pn and lt != "":
 			return true
 	return false
 
 
-## True when the passage text is a dev note (e.g. "minigame starts") that
-## should not be spoken aloud.
+## True when the passage text is a dev note that should not be spoken aloud.
 static func _is_structural_only(tags: Array, text: String) -> bool:
 	if tags.has("minigame_start") or tags.has("minigame_end"):
 		return true
-	# Passages whose cleanText is just a passage name (Twine auto-link) are
-	# also silent.
 	if text.begins_with("[[") and text.ends_with("]]"):
 		return true
 	return false
@@ -450,7 +510,7 @@ static func _label_for(passage_name: String) -> String:
 	return passage_name.strip_edges().replace(" ", "_").replace(".", "_")
 
 
-## Find the starting passage.  Prefer "1.0", then "Start", then first entry.
+## Find the starting passage. Prefer "1.0", then "Start", then first entry.
 static func _find_start(passages: Array, passage_map: Dictionary) -> String:
 	for candidate in ["1.0", "Start", "start"]:
 		if passage_map.has(candidate):

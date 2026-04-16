@@ -25,7 +25,8 @@ signal clear_visual_state()
 signal back_button_visibility_changed(is_visible: bool)
 
 # ── Audio signals ────────────────────────────────────────────
-signal bgm_play(path: String, fade_in: float)
+# Inside SignalBus.gd
+signal bgm_play(path: String, fade_time: float, volume: float)
 signal bgm_stop(fade_out: float)
 signal sfx_play(path: String)
 

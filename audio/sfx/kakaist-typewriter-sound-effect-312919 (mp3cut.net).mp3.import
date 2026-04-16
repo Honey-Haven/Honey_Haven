@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dhbhkao25tnxg"
+path="res://.godot/imported/kakaist-typewriter-sound-effect-312919 (mp3cut.net).mp3-dba2afaa5ef844c76417e6d93cd5b41b.mp3str"
+
+[deps]
+
+source_file="res://audio/sfx/kakaist-typewriter-sound-effect-312919 (mp3cut.net).mp3"
+dest_files=["res://.godot/imported/kakaist-typewriter-sound-effect-312919 (mp3cut.net).mp3-dba2afaa5ef844c76417e6d93cd5b41b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

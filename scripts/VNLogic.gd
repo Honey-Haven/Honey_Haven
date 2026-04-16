@@ -109,7 +109,7 @@ func _process_next() -> void:
 			_process_next()
 		"bgm":
 			if packet["action"] == "play":
-				SignalBus.bgm_play.emit(packet["path"], packet.get("fade", 0.5))
+				SignalBus.bgm_play.emit(packet["path"], packet["fade"], packet.get("volume", 0.0))
 			else:
 				SignalBus.bgm_stop.emit(packet.get("fade", 0.5))
 			_process_next()
@@ -223,6 +223,9 @@ func _on_choice_selected(choice_index: int) -> void:
 			var remaining: Array = _must_visit_remaining.get(hub_id, [])
 			remaining.erase(chosen_passage)
 			_must_visit_remaining[hub_id] = remaining
+			# Clear history and hide back button — no going back after a hub choice.
+			_history.clear()
+			SignalBus.back_button_visibility_changed.emit(false)
 			# Clear _active_hub BEFORE jumping so that normal choices inside
 			# the branch are not mistaken for must_visit hub choices.
 			var goto_label: String = choices[choice_index].get("goto", "")

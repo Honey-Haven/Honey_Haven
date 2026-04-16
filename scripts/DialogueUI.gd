@@ -1,7 +1,8 @@
 extends CanvasLayer
 
 @export var vn_theme: Resource
-
+@export var typewriter_sfx: AudioStream
+var _type_player: AudioStreamPlayer
 # ══════════════════════════════════════════════════════════════
 #  DEMON TUNING — adjust these to taste
 # ══════════════════════════════════════════════════════════════
@@ -84,6 +85,7 @@ func _ready() -> void:
 	textbox_panel.hide()
 	choice_container.hide()
 	continue_arrow.hide()
+	dialogue_label.bbcode_enabled = true
 	_back_button.pressed.connect(_on_back_pressed)
 	_back_button.hide()
 
@@ -100,8 +102,16 @@ func _ready() -> void:
 	_demon_char_root.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_demon_char_root.visible = false
 	add_child(_demon_char_root)
-
-# ══════════════════════════════════════════════════════════════
+	
+	_type_player = AudioStreamPlayer.new()
+	_type_player.name = "TypewriterAudioPlayer"
+	add_child(_type_player)
+	_type_player.bus = "Master" 
+	_type_player.volume_db = -6.0 # Adjust volume here
+	if typewriter_sfx:
+		_type_player.stream = typewriter_sfx
+	else:
+		print("DEBUG: No typewriter sound assigned in Inspector!")# ══════════════════════════════════════════════════════════════
 #  THEME
 # ══════════════════════════════════════════════════════════════
 func _get_theme() -> Resource:
@@ -137,9 +147,6 @@ func _apply_theme() -> void:
 		return
 	var t := _get_theme()
 	print("_get_theme() = ", t)
-	if t:
-		print("t.textbox = ", t.textbox)
-		print("t.nameplate = ", t.nameplate)
 	var tb := _tb()
 	var np := _np()
 	print("tb=", tb, " np=", np)
@@ -152,22 +159,33 @@ func _apply_theme() -> void:
 	var tbs := StyleBoxFlat.new()
 	tbs.bg_color     = tb.bg_color     if tb else Color(0.05, 0.05, 0.1, 0.88)
 	tbs.border_color = tb.border_color if tb else Color(0.5, 0.7, 1.0, 1.0)
-	tbs.set_border_width_all(tb.border_width    if tb else 2)
+	tbs.set_border_width_all(tb.border_width if tb else 2)
 	tbs.set_corner_radius_all(tb.corner_radius  if tb else 12)
 	tbs.content_margin_left   = tb.padding.x if tb else 20
 	tbs.content_margin_top    = tb.padding.y if tb else 12
 	tbs.content_margin_right  = tb.padding.z if tb else 20
 	tbs.content_margin_bottom = tb.padding.w if tb else 12
 	textbox_panel.add_theme_stylebox_override("panel", tbs)
-	dialogue_label.add_theme_font_size_override("normal_font_size", tb.font_size if tb else 22)
+	
+	# --- FONT SIZE FIX APPLIED HERE ---
+	var f_size = tb.font_size if tb else 22
+	dialogue_label.add_theme_font_size_override("normal_font_size", f_size)
+	dialogue_label.add_theme_font_size_override("italics_font_size", f_size)
+	dialogue_label.add_theme_font_size_override("bold_font_size", f_size)
+	dialogue_label.add_theme_font_size_override("bold_italics_font_size", f_size)
+	# ----------------------------------
+
 	dialogue_label.add_theme_color_override("default_color", tb.font_color if tb else Color.WHITE)
 	if tb and tb.get("font") and tb.font:
 		dialogue_label.add_theme_font_override("normal_font", tb.font)
+		dialogue_label.add_theme_font_override("italics_font", tb.font)
+		dialogue_label.add_theme_font_override("bold_font", tb.font)
+		dialogue_label.add_theme_font_override("bold_italics_font", tb.font)
 
 	var nps := StyleBoxFlat.new()
 	nps.bg_color     = np.bg_color     if np else Color(0.1, 0.1, 0.25, 1.0)
 	nps.border_color = np.border_color if np else Color(0.5, 0.7, 1.0, 1.0)
-	nps.set_border_width_all(np.border_width    if np else 2)
+	nps.set_border_width_all(np.border_width if np else 2)
 	nps.set_corner_radius_all(np.corner_radius  if np else 8)
 	nps.content_margin_left   = np.padding.x if np else 14
 	nps.content_margin_top    = np.padding.y if np else 4
@@ -179,7 +197,6 @@ func _apply_theme() -> void:
 	if np and np.get("font") and np.font:
 		name_label.add_theme_font_override("normal_font", np.font)
 	print("Theme done! textbox bg=", tbs.bg_color)
-
 # ══════════════════════════════════════════════════════════════
 #  INPUT
 # ══════════════════════════════════════════════════════════════
@@ -541,39 +558,77 @@ func _set_textbox_narrator_style() -> void:
 # ══════════════════════════════════════════════════════════════
 #  TYPEWRITER
 # ══════════════════════════════════════════════════════════════
+## Convert lightweight markup to BBCode before display.
+## Supported:  //italic//   **bold**   __underline__
+static func _to_bbcode(text: String) -> String:
+	var result: String = text
+	# //italic//
+	var re_italic := RegEx.new()
+	re_italic.compile("//(.+?)//")
+	result = re_italic.sub(result, "[i]$1[/i]", true)
+	# **bold**
+	var re_bold := RegEx.new()
+	re_bold.compile("\\*\\*(.+?)\\*\\*")
+	result = re_bold.sub(result, "[b]$1[/b]", true)
+	# __underline__
+	var re_ul := RegEx.new()
+	re_ul.compile("__(.+?)__")
+	result = re_ul.sub(result, "[u]$1[/u]", true)
+	return result
+
 func _start_typewriter(text: String, word_shake: bool) -> void:
-	_full_text = text
+	dialogue_label.bbcode_enabled = true
+	var bbtext: String = _to_bbcode(text)
+	_full_text = bbtext
 	_typewriting = true
-	dialogue_label.text = ""
+
 	if _typewriter_tween:
 		_typewriter_tween.kill()
+
+	# Set the full BBCode text upfront; reveal via visible_characters so tags are never split
+	if word_shake:
+		dialogue_label.text = "[shake rate=20 level=3]%s[/shake]" % bbtext
+	else:
+		dialogue_label.text = bbtext
+	dialogue_label.visible_characters = 0
 
 	var tw_res := _tw()
 	var speed: float = tw_res.speed if tw_res else 0.04
 	var punct: float = tw_res.punctuation_pause if tw_res else 0.15
 
+	# Count how many *visible* characters are in the plain original text
+	# (BBCode tags don't add visible chars, so we drive by original length)
+	var total_visible: int = text.length()
+
 	_typewriter_tween = create_tween()
-	for i in text.length():
+	for i in total_visible:
 		var ch: String = text[i]
 		var d: float = speed + (punct if ch in [".", ",", "!", "?", "…", ";"] else 0.0)
-		_typewriter_tween.tween_callback(_reveal_char.bind(i, word_shake)).set_delay(d)
+		_typewriter_tween.tween_callback(_reveal_char.bind(i + 1)).set_delay(d)
 	_typewriter_tween.tween_callback(_on_typewriter_done)
 
-func _reveal_char(index: int, word_shake: bool) -> void:
-	var t: String = _full_text.substr(0, index + 1)
-	dialogue_label.text = "[shake rate=20 level=3]%s[/shake]" % t if word_shake else t
-
+func _reveal_char(visible_count: int, _is_last: bool = false) -> void:
+	dialogue_label.visible_characters = visible_count
+	
+	if _type_player and typewriter_sfx and visible_count > 0:
+		# We use the text length to ensure we don't out-of-bounds
+		if visible_count <= _full_text.length():
+			var current_char = _full_text[visible_count - 1]
+			
+			# Don't play for spaces, newlines, or BBCode brackets
+			if current_char != " " and current_char != "\n" and current_char != "[" and current_char != "]":
+				_type_player.play()
+				
 func _on_typewriter_done() -> void:
 	_typewriting = false
-	if not _current_packet.get("word_shake", false):
-		dialogue_label.text = _full_text
+	dialogue_label.visible_characters = -1   # show all
 	continue_arrow.show()
 
 func _finish_typewriter_instant() -> void:
 	if _typewriter_tween:
 		_typewriter_tween.kill()
 	_typewriting = false
-	dialogue_label.text = _full_text
+	dialogue_label.visible_characters = -1   # show all
 	continue_arrow.show()
 
 func _on_line_finish_signal() -> void:

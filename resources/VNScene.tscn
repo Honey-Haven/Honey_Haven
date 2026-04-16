@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dr1uyr3yybsyn" path="res://scripts/ActorManager.gd" id="3_ovnvk"]
 [ext_resource type="Script" uid="uid://c7cyqi6fm0apa" path="res://scripts/VNLogic.gd" id="4_pjpao"]
 [ext_resource type="Script" uid="uid://cvl6wig0ix7w0" path="res://scripts/DialogueUI.gd" id="6_ovnvk"]
+[ext_resource type="AudioStream" uid="uid://b3ddnjqxwhjfh" path="res://audio/sfx/kakaist-typewriter-sound-effect-312919 (mp3cut.net)(1).mp3" id="7_pjpao"]
 
 [node name="VNScene" type="Node" unique_id=1892691119]
 script = ExtResource("1_xunwx")
@@ -28,6 +29,7 @@ script = ExtResource("4_pjpao")
 
 [node name="DialogueUI" type="CanvasLayer" parent="." unique_id=2101510460]
 script = ExtResource("6_ovnvk")
+typewriter_sfx = ExtResource("7_pjpao")
 
 [node name="TextboxPanel" type="PanelContainer" parent="DialogueUI" unique_id=933285374]
 custom_minimum_size = Vector2(0, 180)
