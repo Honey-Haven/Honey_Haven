@@ -7,7 +7,7 @@
   "creatorVersion": "2.12.0",
   "schemaName": "Twine to JSON",
   "schemaVersion": "0.0.6",
-  "createdAtMs": 1776367590808,
+  "createdAtMs": 1776448115082,
   "passages": [
     {
       "name": "6.1",
@@ -95,7 +95,7 @@
     },
     {
       "name": "6.7",
-      "tags": "Narrator marty-neutral",
+      "tags": "Narrator",
       "id": "7",
       "text": "//We can’t let anybody know how we do it.// [[6.7.5]]",
       "links": [
@@ -235,7 +235,7 @@
     },
     {
       "name": "6.16",
-      "tags": "casserole_avenue marty-neutral",
+      "tags": "casserole_avenue marty-sad",
       "id": "17",
       "text": "You are outside now. [[6.16.5]]",
       "links": [
@@ -279,7 +279,7 @@
     },
     {
       "name": "6.20",
-      "tags": "marty-neutral",
+      "tags": "",
       "id": "21",
       "text": "But surely there s someone you can talk to... [[6.21]]",
       "links": [
@@ -349,7 +349,7 @@
     },
     {
       "name": "6.25",
-      "tags": "marty-sad marty-speaker",
+      "tags": "marty-speaker marty-angry",
       "id": "26",
       "text": "They've been keeping secrets from us. They've been lying to us! [[6.26]]",
       "links": [
@@ -363,7 +363,7 @@
     },
     {
       "name": "6.26",
-      "tags": "marty-angry marty-speaker",
+      "tags": "marty-speaker",
       "id": "27",
       "text": "And when I start asking questions, they get mad! [[6.27]]",
       "links": [
@@ -377,7 +377,7 @@
     },
     {
       "name": "6.27",
-      "tags": "matthew-speaker matthew-sad marty-neutral",
+      "tags": "matthew-speaker matthew-sad",
       "id": "28",
       "text": "I don't understand, Marty. We should go home and- [[6.28]]",
       "links": [
@@ -461,7 +461,7 @@
     },
     {
       "name": "6.33",
-      "tags": "marty-neutral matthew-speaker",
+      "tags": "matthew-speaker marty-sad",
       "id": "34",
       "text": "... [[6.34]]",
       "links": [
@@ -559,7 +559,7 @@
     },
     {
       "name": "6.40",
-      "tags": "marty-scared marty-speaker",
+      "tags": "marty-speaker marty-angry",
       "id": "41",
       "text": "//Now//, Matthew We need to //GO//! [[6.41]]",
       "links": [
@@ -587,7 +587,7 @@
     },
     {
       "name": "6.42",
-      "tags": "matthew-speaker",
+      "tags": "matthew-speaker marty-sad",
       "id": "43",
       "text": "I.. I'm sorry. [[6.43]]",
       "links": [
@@ -643,7 +643,7 @@
     },
     {
       "name": "6.46",
-      "tags": "matthew-neutral matthew-speaker",
+      "tags": "matthew-neutral matthew-speaker demonic-sympathy",
       "id": "47",
       "text": "I need to take you to a doctor because... [[6.47]]",
       "links": [
@@ -657,7 +657,7 @@
     },
     {
       "name": "6.47",
-      "tags": "matthew-leave wolf-enter-right wolf-speaker wolf-angry demonic-sympathy",
+      "tags": "matthew-leave wolf-enter-right wolf-speaker wolf-angry",
       "id": "48",
       "text": "I'm one of them. [[6.48]]",
       "links": [
@@ -811,7 +811,7 @@
     },
     {
       "name": "6.58",
-      "tags": "wolf-leave",
+      "tags": "wolf-leave marty-leave",
       "id": "59",
       "text": "You run. [[6.59]]",
       "links": [
@@ -825,7 +825,7 @@
     },
     {
       "name": "6.59",
-      "tags": "marty-sad",
+      "tags": "marty-sad marty-enter",
       "id": "60",
       "text": "Suddenly you're at Peaches house. [[6.60]]",
       "links": [
@@ -895,7 +895,7 @@
     },
     {
       "name": "6.64",
-      "tags": "peaches-baby marty-leave peaches-leave",
+      "tags": "marty-leave peaches-leave white-screen peaches-baby-enter-middle",
       "id": "65",
       "text": "The child's skin is not the soft fur you would expect, but smooth, sticky flesh. [[6.65]]",
       "links": [
@@ -951,7 +951,7 @@
     },
     {
       "name": "6.68",
-      "tags": "peaches-speaker marty-enter peaches-enter-right peaches-angry marty-scared",
+      "tags": "peaches-speaker marty-enter peaches-enter-right peaches-angry marty-scared casserole_avenue peaches-baby-leave",
       "id": "69",
       "text": "GET YOUR PAWS AWAY FROM THEM! [[6.69]]",
       "links": [
@@ -1091,9 +1091,9 @@
     },
     {
       "name": "6.79",
-      "tags": "hand-scene barnaby-leave wolf-leave",
+      "tags": "barnaby-leave wolf-leave hand-beckon",
       "id": "79",
-      "text": "Just when it seems you won't be able to hold out any longer, the sky splits. [[6.80]]",
+      "text": "Just when it seems you won't be able to hold out any longer, the world splits. [[6.80]]",
       "links": [
         {
           "linkText": "6.80",
@@ -1101,7 +1101,7 @@
           "original": "[[6.80]]"
         }
       ],
-      "cleanText": "Just when it seems you won't be able to hold out any longer, the sky splits."
+      "cleanText": "Just when it seems you won't be able to hold out any longer, the world splits."
     },
     {
       "name": "6.80",
@@ -1135,7 +1135,7 @@
       "name": "6.82",
       "tags": "",
       "id": "82",
-      "text": "An enormous hand blots out the sun. [[6.83]]",
+      "text": "An enormous hand blots out of the tear in Honey Haven. [[6.83]]",
       "links": [
         {
           "linkText": "6.83",
@@ -1143,13 +1143,13 @@
           "original": "[[6.83]]"
         }
       ],
-      "cleanText": "An enormous hand blots out the sun."
+      "cleanText": "An enormous hand blots out of the tear in Honey Haven."
     },
     {
       "name": "6.83",
-      "tags": "",
+      "tags": "hand-outstretched",
       "id": "83",
-      "text": "It reaches across the town, it's palm open. [[6.84]]",
+      "text": "It reaches across to you, it's palm open. [[6.84]]",
       "links": [
         {
           "linkText": "6.84",
@@ -1157,7 +1157,7 @@
           "original": "[[6.84]]"
         }
       ],
-      "cleanText": "It reaches across the town, it's palm open."
+      "cleanText": "It reaches across to you, it's palm open."
     },
     {
       "name": "6.84",
@@ -1194,7 +1194,7 @@
     },
     {
       "name": " 6.85b",
-      "tags": "",
+      "tags": "hand-beckon",
       "id": "86",
       "text": "The hand gently beckons you. [[6.86b]]",
       "links": [
@@ -1208,9 +1208,9 @@
     },
     {
       "name": "6.86a",
-      "tags": "birds-eye",
+      "tags": "",
       "id": "87",
-      "text": "You see the town from above, as if it's a picture in a storybook. [[6.87a]]",
+      "text": "It pulls you into the tear. It feels.. comforting. [[6.87a]]",
       "links": [
         {
           "linkText": "6.87a",
@@ -1218,7 +1218,7 @@
           "original": "[[6.87a]]"
         }
       ],
-      "cleanText": "You see the town from above, as if it's a picture in a storybook."
+      "cleanText": "It pulls you into the tear. It feels.. comforting."
     },
     {
       "name": "6.87a",
@@ -1236,7 +1236,7 @@
     },
     {
       "name": "6.86b",
-      "tags": "",
+      "tags": "hand-outstretched",
       "id": "89",
       "text": "Step into the hand? \n[[Yes -> 6.85a]]\n[[No -> 6.85c]]",
       "links": [
@@ -1255,7 +1255,7 @@
     },
     {
       "name": " 6.85c",
-      "tags": "",
+      "tags": "hand-beckon",
       "id": "90",
       "text": "The hand beckons you once more. [[6.86c]]",
       "links": [
@@ -1269,7 +1269,7 @@
     },
     {
       "name": "6.86c",
-      "tags": "",
+      "tags": "hand-grab",
       "id": "91",
       "text": "You start backing away. Why are you backing away? [[6.87c]]",
       "links": [
@@ -1297,7 +1297,7 @@
     },
     {
       "name": "6.88",
-      "tags": "white-sreen marty-speaker",
+      "tags": "marty-speaker white-screen",
       "id": "93",
       "text": "Why.. can't I move my head? Where's.. my body? [[6.88.5]]",
       "links": [

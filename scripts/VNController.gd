@@ -195,8 +195,8 @@ func _register_backgrounds() -> void:
 	TwineParser.register_background("towncenter",  "res://backgrounds/TEMPtowncenter.jpg")
 
 func _register_audio() -> void:
-	TwineParser.register_bgm("honey-haven-title", "res://audio/bgm/Honey-Haven-Title.mp3", -20.0);
-	TwineParser.register_bgm("demonic-sympathy", "res://audio/bgm/Demonic-Sympathy.mp3", -20.0);
+	TwineParser.register_bgm("honey-haven-title", "res://audio/bgm/Honey-Haven-Title.mp3", -5.0);
+	TwineParser.register_bgm("demonic-sympathy", "res://audio/bgm/Demonic-Sympathy.mp3", 10.0);
 
 	
 func _on_minigame_start(minigame_id: String, data: Dictionary) -> void:
