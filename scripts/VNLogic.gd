@@ -11,14 +11,15 @@ var _choice_pending: bool = false
 var _in_minigame: bool = false
 var _history: Array = [] # Stores: {"type": string, "id": string, "idx": int}
 var _current_stage_state: Dictionary = {} # Stores: { "actor_id": {"expression": "...", "pos": "..."} }
+var _current_overlay_active: bool = false  # tracks whether an overlay sprite is currently showing
 
 # must_visit tracking: hub_id → Array of unvisited passage names
-# Populated when TwineParser emits a "must_visit_hub" packet.
 var _must_visit_remaining: Dictionary = {}
-# Stores the continuation label for each hub (the passage after all branches done).
 var _must_visit_continuation: Dictionary = {}
-# The hub packet currently being managed (so we can re-show the menu).
 var _active_hub: Dictionary = {}
+
+# Reference to DialogueUI for screen flash calls
+var _dialogue_ui: Node = null
 
 func load_script(json_array: Array) -> void:
 	_packets = ScriptParser.parse(json_array)
@@ -26,9 +27,6 @@ func load_script(json_array: Array) -> void:
 	_labels = _build_label_map(_packets)
 	_history.clear()
 
-## Use this instead of load_script() when feeding TwineParser output.
-## Twine packets are already fully formed — ScriptParser would strip
-## any type it doesn't recognise (e.g. must_visit_hub), so we skip it.
 func load_twine_script(packets: Array) -> void:
 	_packets = packets
 	_index = 0
@@ -37,9 +35,21 @@ func load_twine_script(packets: Array) -> void:
 	_must_visit_remaining.clear()
 	_must_visit_continuation.clear()
 	_active_hub = {}
+	_current_overlay_active = false
 
 func start() -> void:
+	# Try to find DialogueUI in the scene tree
+	_dialogue_ui = _find_dialogue_ui(get_tree().root)
 	_process_next()
+
+func _find_dialogue_ui(node: Node) -> Node:
+	if node.get_script() and node.get_script().resource_path.ends_with("DialogueUI.gd"):
+		return node
+	for child in node.get_children():
+		var result = _find_dialogue_ui(child)
+		if result:
+			return result
+	return null
 
 func _ready() -> void:
 	SignalBus.choice_selected.connect(_on_choice_selected)
@@ -77,7 +87,7 @@ func _process_next() -> void:
 			SignalBus.actor_appear.emit(packet["actor_id"], _current_stage_state[packet["actor_id"]]["expression"], appear_pos)
 			_process_next()
 		"dialogue":
-			_history.append({"idx": current_idx, "stage_snapshot": _current_stage_state.duplicate(true)})
+			_history.append({"idx": current_idx, "stage_snapshot": _current_stage_state.duplicate(true), "overlay_active": _current_overlay_active})
 			_handle_dialogue(packet)
 		"actor_hide":
 			_current_stage_state.erase(packet["actor_id"])
@@ -116,6 +126,23 @@ func _process_next() -> void:
 		"sfx":
 			SignalBus.sfx_play.emit(packet["path"])
 			_process_next()
+		"screen_flash":
+			# Trigger screen flash in DialogueUI, then continue immediately
+			if _dialogue_ui and _dialogue_ui.has_method("play_screen_flash"):
+				_dialogue_ui.play_screen_flash()
+			_process_next()
+		"overlay_sprite":
+			# Show or hide a sprite layered above the textbox (e.g. hands)
+			if _dialogue_ui:
+				if packet.get("show", false):
+					_current_overlay_active = true
+					if _dialogue_ui.has_method("show_overlay_sprite"):
+						_dialogue_ui.show_overlay_sprite(packet.get("path", ""))
+				else:
+					_current_overlay_active = false
+					if _dialogue_ui.has_method("hide_overlay_sprite"):
+						_dialogue_ui.hide_overlay_sprite()
+			_process_next()
 		"minigame":
 			_in_minigame = true
 			SignalBus.minigame_start.emit(packet["id"], packet.get("data", {}))
@@ -130,7 +157,6 @@ func _handle_must_visit_hub(packet: Dictionary) -> void:
 	var all_branches: Array = packet.get("must_visit", [])
 	var continuation: String = packet.get("continuation", "")
 
-	# First time we see this hub – register it.
 	if not _must_visit_remaining.has(hub_id):
 		_must_visit_remaining[hub_id] = all_branches.duplicate()
 		_must_visit_continuation[hub_id] = continuation
@@ -157,11 +183,9 @@ func _show_must_visit_menu(hub_id: String) -> void:
 		choices.append({
 			"label":        display,
 			"goto":         TwineParser._label_for(branch_name),
-			"passage_name": branch_name,   # needed to erase from remaining
+			"passage_name": branch_name,
 		})
 
-	# Store on instance so _on_choice_selected reads it directly,
-	# without touching _packets (which would corrupt _index).
 	_active_hub = {
 		"type":             "choice",
 		"prompt":           "Where to?",
@@ -175,19 +199,29 @@ func _show_must_visit_menu(hub_id: String) -> void:
 func go_back() -> void:
 	if _history.size() < 2: return
 	
-	_history.pop_back() # Discard current line
-	var prev_state = _history.pop_back() # Get the snapshot
+	_history.pop_back()
+	var prev_state = _history.pop_back()
 	
-	# 1. Clear everyone
 	SignalBus.clear_visual_state.emit()
 	
-	# 2. Restore the stage from the snapshot
+	# Restore overlay sprite state to what it was at that point in history
+	var was_overlay_active: bool = prev_state.get("overlay_active", false)
+	_current_overlay_active = was_overlay_active
+	if _dialogue_ui:
+		if was_overlay_active:
+			# We'll let _process_next re-emit the show packet naturally,
+			# but for instant restore we hide it first (clear_visual_state
+			# doesn't touch the overlay).
+			pass
+		else:
+			if _dialogue_ui.has_method("hide_overlay_sprite"):
+				_dialogue_ui.hide_overlay_sprite()
+	
 	_current_stage_state = prev_state.get("stage_snapshot", {}).duplicate(true)
 	for actor_id in _current_stage_state:
 		var data = _current_stage_state[actor_id]
 		SignalBus.actor_appear.emit(actor_id, data["expression"], data["position"], true)
 		
-	# 3. Resume the script
 	_index = prev_state["idx"]
 	_waiting_for_input = false
 	_process_next()
@@ -212,9 +246,6 @@ func _on_choice_selected(choice_index: int) -> void:
 		return
 	_choice_pending = false
 
-	# ── must_visit hub path ──────────────────────────────────────────────────
-	# _active_hub is set by _show_must_visit_menu and holds the live packet,
-	# so we never need to read _packets[_index-1] for hub choices.
 	if not _active_hub.is_empty() and _active_hub.has("__must_visit_hub"):
 		var hub_id: String  = _active_hub["__must_visit_hub"]
 		var choices: Array  = _active_hub.get("choices", [])
@@ -223,17 +254,13 @@ func _on_choice_selected(choice_index: int) -> void:
 			var remaining: Array = _must_visit_remaining.get(hub_id, [])
 			remaining.erase(chosen_passage)
 			_must_visit_remaining[hub_id] = remaining
-			# Clear history and hide back button — no going back after a hub choice.
 			_history.clear()
 			SignalBus.back_button_visibility_changed.emit(false)
-			# Clear _active_hub BEFORE jumping so that normal choices inside
-			# the branch are not mistaken for must_visit hub choices.
 			var goto_label: String = choices[choice_index].get("goto", "")
 			_active_hub = {}
 			_jump_to_label(goto_label)
 		return
 
-	# ── Normal choice path ────────────────────────────────────────────────────
 	var prev: Dictionary = _packets[_index - 1]
 	var choices: Array   = prev.get("choices", [])
 	_history.clear()
@@ -243,7 +270,6 @@ func _on_choice_selected(choice_index: int) -> void:
 		if goto_label != "":
 			_jump_to_label(goto_label)
 			return
-	# Fall back to silent continuation ([[PassageName]] with no arrow)
 	var continuation: String = prev.get("continuation", "")
 	if continuation != "":
 		_jump_to_label(continuation)

@@ -6,7 +6,8 @@
 [ext_resource type="Script" uid="uid://dr1uyr3yybsyn" path="res://scripts/ActorManager.gd" id="3_ovnvk"]
 [ext_resource type="Script" uid="uid://c7cyqi6fm0apa" path="res://scripts/VNLogic.gd" id="4_pjpao"]
 [ext_resource type="Script" uid="uid://cvl6wig0ix7w0" path="res://scripts/DialogueUI.gd" id="6_ovnvk"]
-[ext_resource type="AudioStream" uid="uid://dcf5tlxmcjhbv" path="res://audio/sfx/freesound_community-typewriter-typing-68696 (mp3cut.net)(1).mp3" id="7_pjpao"]
+[ext_resource type="AudioStream" uid="uid://eux08sdk27ps" path="res://audio/sfx/Chipmunk Voice Honey Haven (mp3cut.net)(2).mp3" id="7_pjpao"]
+[ext_resource type="AudioStream" uid="uid://dcf5tlxmcjhbv" path="res://audio/sfx/freesound_community-typewriter-typing-68696 (mp3cut.net)(1).mp3" id="8_2qy2b"]
 
 [node name="VNScene" type="Node" unique_id=1892691119]
 script = ExtResource("1_xunwx")
@@ -30,6 +31,7 @@ script = ExtResource("4_pjpao")
 [node name="DialogueUI" type="CanvasLayer" parent="." unique_id=2101510460]
 script = ExtResource("6_ovnvk")
 typewriter_sfx = ExtResource("7_pjpao")
+narrator_sfx = ExtResource("8_2qy2b")
 
 [node name="TextboxPanel" type="PanelContainer" parent="DialogueUI" unique_id=933285374]
 custom_minimum_size = Vector2(0, 180)

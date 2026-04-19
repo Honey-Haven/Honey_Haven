@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://btun8mb4madut"
+path="res://.godot/imported/My Song.mp3-d292e1ffe189b6373b1630da69fc0a26.mp3str"
+
+[deps]
+
+source_file="res://audio/sfx/My Song.mp3"
+dest_files=["res://.godot/imported/My Song.mp3-d292e1ffe189b6373b1630da69fc0a26.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

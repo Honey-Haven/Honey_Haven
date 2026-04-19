@@ -1,26 +1,45 @@
 extends CanvasLayer
 
 @export var vn_theme: Resource
-@export var typewriter_sfx: AudioStream
+@export var typewriter_sfx: AudioStream   # used for characters (blip)
+@export var narrator_sfx: AudioStream     # used for narrator (typewriter tick)
 var _type_player: AudioStreamPlayer
+var _narrator_type_player: AudioStreamPlayer
+var _is_narrator_line: bool = false
 # ══════════════════════════════════════════════════════════════
 #  DEMON TUNING — adjust these to taste
 # ══════════════════════════════════════════════════════════════
-const DEMON_LINGER_TIME:    float = 1.2   # seconds to pause AFTER last char lands before advancing
+const DEMON_LINGER_TIME:    float = 1.2
 const DEMON_SCREEN_W:       float = 1280.0
 const DEMON_SCREEN_H:       float = 720.0
-const DEMON_PADDING:        float = 80.0  # inset from screen edges
+const DEMON_PADDING:        float = 80.0
 const DEMON_FONT_SIZE_MAX:  int   = 120
 const DEMON_FONT_SIZE_MIN:  int   = 28
-const DEMON_CHAR_DELAY:     float = 0.002 # seconds between each character starting its slam
-const DEMON_CHAR_SLAM_DUR:  float = 0.1 # how long each individual character's slam animation takes
+const DEMON_CHAR_DELAY:     float = 0.002
+const DEMON_CHAR_SLAM_DUR:  float = 0.1
 const DEMON_COLOR: Color = Color(0.88, 0.55, 1.0, 1.0)
 
 # ── BUTTON TUNING
-const BTN_FONT_SIZE_DEFAULT: int   = 20    # starting (max) font size for choice buttons
-const BTN_FONT_SIZE_MIN:     int   = 11    # smallest we'll go before giving up
-const BTN_H_PADDING:         float = 24.0  # horizontal cushion on each side inside button
-const BTN_V_PADDING:         float = 10.0  # vertical cushion top+bottom inside button
+const BTN_FONT_SIZE_DEFAULT: int   = 20
+const BTN_FONT_SIZE_MIN:     int   = 11
+const BTN_H_PADDING:         float = 24.0
+const BTN_V_PADDING:         float = 10.0
+
+# ══════════════════════════════════════════════════════════════
+#  NARRATOR OVERLAY TUNING
+# ══════════════════════════════════════════════════════════════
+# Opacity of the darkening overlay shown when the Narrator speaks.
+# 0.0 = invisible, 1.0 = fully black
+const NARRATOR_OVERLAY_ALPHA: float = 0.3   # ← ADJUST: narrator overlay darkness
+const NARRATOR_OVERLAY_FADE_DUR: float = 0.25  # ← ADJUST: how quickly it fades in/out
+
+# ══════════════════════════════════════════════════════════════
+#  SCREEN FLASH TUNING  (used by the [flash] tag in passages)
+# ══════════════════════════════════════════════════════════════
+const SCREEN_FLASH_COLOR:     Color = Color(0, 0, 0, 1)  # ← ADJUST: flash colour (default black)
+const SCREEN_FLASH_IN_DUR:    float = 0.05               # ← ADJUST: seconds to flash to peak
+const SCREEN_FLASH_PEAK_ALPHA: float = 0.75              # ← ADJUST: peak opacity of the flash (0-1)
+const SCREEN_FLASH_OUT_DUR:   float = 0.25               # ← ADJUST: seconds to fade back to clear
 
 # ══════════════════════════════════════════════════════════════
 
@@ -42,11 +61,23 @@ var _click_catcher: Button
 var _theme_applied: bool = false
 
 # ── Demon overlay state
-var _demon_overlay: ColorRect      # solid black full-screen cover
-var _demon_char_root: Control      # parent node for per-character labels
-var _demon_growl_tween: Tween      # drives the character slam-in sequence
-var _demon_linger_tween: Tween     # brief pause after last char before advancing
+var _demon_overlay: ColorRect
+var _demon_char_root: Control
+var _demon_growl_tween: Tween
+var _demon_linger_tween: Tween
 var _demon_active: bool = false
+
+# ── Narrator overlay state
+var _narrator_overlay: ColorRect     # semi-transparent black behind the textbox
+var _narrator_overlay_tween: Tween
+
+# ── Screen flash overlay state
+var _flash_overlay: ColorRect
+var _flash_tween: Tween
+
+# ── Hands / overlay sprite state
+var _overlay_sprite: TextureRect
+var _overlay_sprite_tween: Tween
 
 # ══════════════════════════════════════════════════════════════
 #  READY
@@ -89,7 +120,7 @@ func _ready() -> void:
 	_back_button.pressed.connect(_on_back_pressed)
 	_back_button.hide()
 
-	# ── Demon overlay: solid black cover, then a Control to hold char labels ─
+	# ── Demon overlay ─────────────────────────────────────────
 	_demon_overlay = ColorRect.new()
 	_demon_overlay.color = Color(0, 0, 0, 1)
 	_demon_overlay.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -102,16 +133,71 @@ func _ready() -> void:
 	_demon_char_root.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_demon_char_root.visible = false
 	add_child(_demon_char_root)
-	
+
+	# ── Narrator overlay ──────────────────────────────────────
+	# Sits below the textbox and back button; darkens actors + bg.
+	# z_index -1 keeps it behind the textbox panel.
+	_narrator_overlay = ColorRect.new()
+	_narrator_overlay.color = Color(0, 0, 0, 0)
+	_narrator_overlay.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	_narrator_overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_narrator_overlay.z_index = -1
+	_narrator_overlay.visible = false
+	add_child(_narrator_overlay)
+
+	# ── Screen flash overlay ──────────────────────────────────
+	# Fully above everything; invisible by default.
+	_flash_overlay = ColorRect.new()
+	_flash_overlay.color = Color(SCREEN_FLASH_COLOR.r, SCREEN_FLASH_COLOR.g, SCREEN_FLASH_COLOR.b, 0.0)
+	_flash_overlay.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	_flash_overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_flash_overlay.z_index = 100
+	_flash_overlay.visible = false
+	add_child(_flash_overlay)
+
+	# ── Hands / overlay sprite ────────────────────────────────
+	# Sits above the textbox (z_index 10) so it renders over the dialogue box.
+	# Anchored to bottom-centre so hands appear rising from below over the box.
+	_overlay_sprite = TextureRect.new()
+	_overlay_sprite.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	_overlay_sprite.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	_overlay_sprite.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_overlay_sprite.z_index = 10
+	_overlay_sprite.modulate.a = 0.0
+	_overlay_sprite.visible = false
+	# Centre-bottom anchor so the sprite sits at the bottom of the screen,
+	# overlapping the textbox from below
+	_overlay_sprite.anchor_left   = 0.0
+	_overlay_sprite.anchor_right  = 1.0
+	_overlay_sprite.anchor_top    = 0.0
+	_overlay_sprite.anchor_bottom = 1.0
+	_overlay_sprite.offset_left   = 0
+	_overlay_sprite.offset_right  = 0
+	_overlay_sprite.offset_top    = 0
+	_overlay_sprite.offset_bottom = 0
+	add_child(_overlay_sprite)
+
 	_type_player = AudioStreamPlayer.new()
 	_type_player.name = "TypewriterAudioPlayer"
 	add_child(_type_player)
-	_type_player.bus = "Master" 
-	_type_player.volume_db = -6.0 # Adjust volume here
+	_type_player.bus = "Master"
+	_type_player.volume_db = -6.0
 	if typewriter_sfx:
 		_type_player.stream = typewriter_sfx
 	else:
-		print("DEBUG: No typewriter sound assigned in Inspector!")# ══════════════════════════════════════════════════════════════
+		print("DEBUG: No character blip sound assigned in Inspector!")
+
+	_narrator_type_player = AudioStreamPlayer.new()
+	_narrator_type_player.name = "NarratorAudioPlayer"
+	add_child(_narrator_type_player)
+	_narrator_type_player.bus = "Master"
+	_narrator_type_player.volume_db = -6.0
+	if narrator_sfx:
+		_narrator_type_player.stream = narrator_sfx
+	else:
+		print("DEBUG: No narrator typewriter sound assigned in Inspector!")
+
+# ══════════════════════════════════════════════════════════════
 #  THEME
 # ══════════════════════════════════════════════════════════════
 func _get_theme() -> Resource:
@@ -166,14 +252,12 @@ func _apply_theme() -> void:
 	tbs.content_margin_right  = tb.padding.z if tb else 20
 	tbs.content_margin_bottom = tb.padding.w if tb else 12
 	textbox_panel.add_theme_stylebox_override("panel", tbs)
-	
-	# --- FONT SIZE FIX APPLIED HERE ---
+
 	var f_size = tb.font_size if tb else 22
 	dialogue_label.add_theme_font_size_override("normal_font_size", f_size)
 	dialogue_label.add_theme_font_size_override("italics_font_size", f_size)
 	dialogue_label.add_theme_font_size_override("bold_font_size", f_size)
 	dialogue_label.add_theme_font_size_override("bold_italics_font_size", f_size)
-	# ----------------------------------
 
 	dialogue_label.add_theme_color_override("default_color", tb.font_color if tb else Color.WHITE)
 	if tb and tb.get("font") and tb.font:
@@ -197,6 +281,7 @@ func _apply_theme() -> void:
 	if np and np.get("font") and np.font:
 		name_label.add_theme_font_override("normal_font", np.font)
 	print("Theme done! textbox bg=", tbs.bg_color)
+
 # ══════════════════════════════════════════════════════════════
 #  INPUT
 # ══════════════════════════════════════════════════════════════
@@ -265,17 +350,47 @@ func _show_dialogue(packet: Dictionary) -> void:
 	if speaker == "":
 		nameplate_panel.hide()
 		_set_textbox_narrator_style()
+		_show_narrator_overlay()
 	else:
 		name_label.text = speaker
 		nameplate_panel.show()
 		_set_textbox_normal_style()
+		_hide_narrator_overlay()
 
 	var effect: String = packet.get("textbox_effect", "none")
 	if effect != "none":
 		_play_textbox_effect(effect)
 
-	_start_typewriter(packet.get("text", ""), packet.get("word_shake", false))
+	var is_narrator: bool = (speaker == "")
+	_start_typewriter(packet.get("text", ""), packet.get("word_shake", false), is_narrator)
 	_back_button.show()
+
+# ══════════════════════════════════════════════════════════════
+#  NARRATOR OVERLAY
+# ══════════════════════════════════════════════════════════════
+func _show_narrator_overlay() -> void:
+	if _narrator_overlay_tween:
+		_narrator_overlay_tween.kill()
+	_narrator_overlay.visible = true
+	_narrator_overlay_tween = create_tween()
+	_narrator_overlay_tween.tween_property(
+		_narrator_overlay, "color",
+		Color(0, 0, 0, NARRATOR_OVERLAY_ALPHA),
+		NARRATOR_OVERLAY_FADE_DUR
+	)
+
+func _hide_narrator_overlay() -> void:
+	if not _narrator_overlay.visible:
+		return
+	if _narrator_overlay_tween:
+		_narrator_overlay_tween.kill()
+	_narrator_overlay_tween = create_tween()
+	_narrator_overlay_tween.tween_property(
+		_narrator_overlay, "color",
+		Color(0, 0, 0, 0),
+		NARRATOR_OVERLAY_FADE_DUR
+	)
+	_narrator_overlay_tween.tween_callback(func(): _narrator_overlay.visible = false)
 
 # ══════════════════════════════════════════════════════════════
 #  DEMON DIALOGUE
@@ -292,7 +407,6 @@ func _show_demon_dialogue(packet: Dictionary) -> void:
 	_demon_overlay.visible = true
 	_demon_char_root.visible = true
 
-	# Clear any leftover char labels from a previous demon line
 	for child in _demon_char_root.get_children():
 		child.queue_free()
 	if _demon_growl_tween:
@@ -304,7 +418,6 @@ func _show_demon_dialogue(packet: Dictionary) -> void:
 
 
 # ── Font-size binary search ───────────────────────────────────
-# Finds the largest font size where the text fits inside the usable area.
 func _find_demon_font_size(text: String) -> int:
 	var tb := _tb()
 	var font: Font
@@ -331,7 +444,6 @@ func _find_demon_font_size(text: String) -> int:
 
 
 func _text_fits(text: String, font: Font, size: int, max_w: float, max_h: float) -> bool:
-	# Manually word-wrap and measure total height.
 	var words: Array = text.split(" ")
 	var line_h: float = font.get_height(size)
 	var space_w: float = font.get_string_size(" ", HORIZONTAL_ALIGNMENT_LEFT, -1, size).x
@@ -357,9 +469,6 @@ func _text_fits(text: String, font: Font, size: int, max_w: float, max_h: float)
 	return total_h <= max_h
 
 
-# ── Build per-character label nodes and lay them out ─────────
-# Uses a simple manual word-wrap pass to position each char label,
-# then animates them in with a growl slam.
 func _demon_growl_animate(text: String) -> void:
 	var tb := _tb()
 	var font: Font
@@ -377,15 +486,12 @@ func _demon_growl_animate(text: String) -> void:
 	var line_h: float = font.get_height(font_size)
 	var space_w: float = font.get_string_size(" ", HORIZONTAL_ALIGNMENT_LEFT, -1, font_size).x
 
-	# ── First pass: measure line widths for centering ─────────
-	var lines_chars: Array  = []   # Array of Arrays of {char, x_offset}
+	var lines_chars: Array  = []
 	var lines_widths: Array = []
 
 	var current_line_chars: Array = []
 	var current_line_w: float = 0.0
-	var words_in_line: Array  = []
 
-	# split into words, track per-char positions
 	var words: Array = text.split(" ")
 	for wi in words.size():
 		var word: String = words[wi]
@@ -395,20 +501,17 @@ func _demon_growl_animate(text: String) -> void:
 		var gap: float    = space_w if current_line_chars.size() > 0 else 0.0
 
 		if current_line_chars.size() > 0 and current_line_w + gap + word_w > max_w:
-			# Flush current line
 			lines_chars.append(current_line_chars.duplicate())
 			lines_widths.append(current_line_w)
 			current_line_chars = []
 			current_line_w = 0.0
 			gap = 0.0
 
-		# Append space chars if not first word on line
 		if gap > 0.0:
 			for _s in " ":
 				current_line_chars.append({"char": " ", "x": current_line_w})
 				current_line_w += space_w
 
-		# Append each char of the word
 		for ci in word.length():
 			var ch: String = word[ci]
 			var ch_w: float = font.get_string_size(ch, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size).x
@@ -419,7 +522,6 @@ func _demon_growl_animate(text: String) -> void:
 		lines_chars.append(current_line_chars.duplicate())
 		lines_widths.append(current_line_w)
 
-	# ── Second pass: create Label nodes centred on screen ────
 	var total_h: float = lines_chars.size() * line_h
 	var start_y: float = (DEMON_SCREEN_H - total_h) * 0.5
 	var char_labels: Array = []
@@ -430,7 +532,7 @@ func _demon_growl_animate(text: String) -> void:
 
 		for entry in lines_chars[li]:
 			if entry["char"] == " ":
-				continue   # spaces are baked into x offsets; skip visual node
+				continue
 
 			var lbl := Label.new()
 			lbl.text = entry["char"]
@@ -439,13 +541,11 @@ func _demon_growl_animate(text: String) -> void:
 			if tb and tb.get("demon_font") and tb.demon_font:
 				lbl.add_theme_font_override("font", tb.demon_font)
 			lbl.position = Vector2(line_x_start + entry["x"], line_y)
-			# Start invisible, scaled to 0 (slams in via tween)
 			lbl.modulate.a = 0.0
 			lbl.pivot_offset = Vector2(lbl.size.x * 0.5, lbl.size.y * 0.5)
 			_demon_char_root.add_child(lbl)
 			char_labels.append(lbl)
 
-	# ── Third pass: animate each character in with growl slam ─
 	_demon_growl_tween = create_tween()
 	for i in char_labels.size():
 		var lbl: Label = char_labels[i]
@@ -455,9 +555,8 @@ func _demon_growl_animate(text: String) -> void:
 			randf_range(-6.0, 6.0)
 		)
 		var base_pos: Vector2 = lbl.position
-		var slam_pos: Vector2 = base_pos + Vector2(0, -30)   # start above
+		var slam_pos: Vector2 = base_pos + Vector2(0, -30)
 
-		# Appear + drop from above + overshoot + settle
 		_demon_growl_tween.tween_callback(
 			func():
 				lbl.position = slam_pos + jitter
@@ -471,13 +570,11 @@ func _demon_growl_animate(text: String) -> void:
 					.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
 		).set_delay(delay)
 
-	# After last character finishes, linger briefly then auto-advance
 	var total_growl_time: float = (char_labels.size() - 1) * DEMON_CHAR_DELAY + DEMON_CHAR_SLAM_DUR * 1.3
 	_demon_growl_tween.tween_callback(_on_demon_growl_done).set_delay(total_growl_time)
 
 
 func _on_demon_growl_done() -> void:
-	# Growl finished — linger briefly then advance
 	if not _demon_active:
 		return
 	_demon_linger_tween = create_tween()
@@ -558,34 +655,32 @@ func _set_textbox_narrator_style() -> void:
 # ══════════════════════════════════════════════════════════════
 #  TYPEWRITER
 # ══════════════════════════════════════════════════════════════
-## Convert lightweight markup to BBCode before display.
-## Supported:  //italic//   **bold**   __underline__
 static func _to_bbcode(text: String) -> String:
 	var result: String = text
-	# //italic//
 	var re_italic := RegEx.new()
 	re_italic.compile("//(.+?)//")
 	result = re_italic.sub(result, "[i]$1[/i]", true)
-	# **bold**
 	var re_bold := RegEx.new()
 	re_bold.compile("\\*\\*(.+?)\\*\\*")
 	result = re_bold.sub(result, "[b]$1[/b]", true)
-	# __underline__
 	var re_ul := RegEx.new()
 	re_ul.compile("__(.+?)__")
 	result = re_ul.sub(result, "[u]$1[/u]", true)
 	return result
 
-func _start_typewriter(text: String, word_shake: bool) -> void:
+func _start_typewriter(text: String, word_shake: bool, is_narrator: bool = false) -> void:
 	dialogue_label.bbcode_enabled = true
+	_is_narrator_line = is_narrator
 	var bbtext: String = _to_bbcode(text)
+	# Narrator lines are always italicised; font size overrides keep the size correct.
+	if is_narrator:
+		bbtext = "[i]%s[/i]" % bbtext
 	_full_text = bbtext
 	_typewriting = true
 
 	if _typewriter_tween:
 		_typewriter_tween.kill()
 
-	# Set the full BBCode text upfront; reveal via visible_characters so tags are never split
 	if word_shake:
 		dialogue_label.text = "[shake rate=20 level=3]%s[/shake]" % bbtext
 	else:
@@ -596,8 +691,6 @@ func _start_typewriter(text: String, word_shake: bool) -> void:
 	var speed: float = tw_res.speed if tw_res else 0.04
 	var punct: float = tw_res.punctuation_pause if tw_res else 0.15
 
-	# Count how many *visible* characters are in the plain original text
-	# (BBCode tags don't add visible chars, so we drive by original length)
 	var total_visible: int = text.length()
 
 	_typewriter_tween = create_tween()
@@ -609,26 +702,26 @@ func _start_typewriter(text: String, word_shake: bool) -> void:
 
 func _reveal_char(visible_count: int, _is_last: bool = false) -> void:
 	dialogue_label.visible_characters = visible_count
-	
-	if _type_player and typewriter_sfx and visible_count > 0:
-		# We use the text length to ensure we don't out-of-bounds
-		if visible_count <= _full_text.length():
-			var current_char = _full_text[visible_count - 1]
-			
-			# Don't play for spaces, newlines, or BBCode brackets
-			if current_char != " " and current_char != "\n" and current_char != "[" and current_char != "]":
-				_type_player.play()
-				
+	if visible_count > 0 and visible_count <= _full_text.length():
+		var current_char = _full_text[visible_count - 1]
+		if current_char != " " and current_char != "\n" and current_char != "[" and current_char != "]":
+			if _is_narrator_line:
+				if _narrator_type_player and narrator_sfx:
+					_narrator_type_player.play()
+			else:
+				if _type_player and typewriter_sfx:
+					_type_player.play()
+
 func _on_typewriter_done() -> void:
 	_typewriting = false
-	dialogue_label.visible_characters = -1   # show all
+	dialogue_label.visible_characters = -1
 	continue_arrow.show()
 
 func _finish_typewriter_instant() -> void:
 	if _typewriter_tween:
 		_typewriter_tween.kill()
 	_typewriting = false
-	dialogue_label.visible_characters = -1   # show all
+	dialogue_label.visible_characters = -1
 	continue_arrow.show()
 
 func _on_line_finish_signal() -> void:
@@ -674,7 +767,6 @@ func _show_choices(packet: Dictionary) -> void:
 	choice_container.show()
 
 func _fit_btn_font_size(btn: Button, text: String, ch: Resource) -> void:
-	# Find the button font and its default size
 	var font: Font
 	if ch and ch.get("font") and ch.font:
 		font = ch.font
@@ -687,13 +779,11 @@ func _fit_btn_font_size(btn: Button, text: String, ch: Resource) -> void:
 	if ch and ch.get("font_size"):
 		base_size = ch.font_size
 
-	# Available text area inside button (button min size minus padding)
 	var btn_w: float = btn.custom_minimum_size.x
 	var btn_h: float = btn.custom_minimum_size.y
 	var avail_w: float = btn_w - BTN_H_PADDING * 2
 	var avail_h: float = btn_h - BTN_V_PADDING * 2
 
-	# Walk down from base_size until text fits in one line within avail_w and avail_h
 	var size: int = base_size
 	while size >= BTN_FONT_SIZE_MIN:
 		var text_w: float = font.get_string_size(text, HORIZONTAL_ALIGNMENT_LEFT, -1, size).x
@@ -743,6 +833,7 @@ func _play_textbox_effect(effect: String) -> void:
 	var fx := _fx()
 	match effect:
 		"flash":
+			# Original textbox flash (brightens the panel)
 			var dur: float = fx.flash_duration if fx else 0.5
 			var tw := create_tween()
 			tw.tween_property(textbox_panel, "modulate", Color(2,2,2,1), dur * 0.15).set_ease(Tween.EASE_OUT)
@@ -758,3 +849,54 @@ func _play_textbox_effect(effect: String) -> void:
 					origin + Vector2(randf_range(-strength, strength), randf_range(-strength, strength)),
 					dur / 12.0)
 			tw.tween_property(textbox_panel, "position", origin, 0.05)
+
+# ── Screen flash (passage tag: flash) ────────────────────────
+# Call this to flash the entire screen black.
+# Triggered by TwineParser when a passage has the "flash" tag.
+func play_screen_flash() -> void:
+	if _flash_tween:
+		_flash_tween.kill()
+	_flash_overlay.color = Color(SCREEN_FLASH_COLOR.r, SCREEN_FLASH_COLOR.g, SCREEN_FLASH_COLOR.b, 0.0)
+	_flash_overlay.visible = true
+	_flash_tween = create_tween()
+	# Flash in
+	_flash_tween.tween_property(
+		_flash_overlay, "color",
+		Color(SCREEN_FLASH_COLOR.r, SCREEN_FLASH_COLOR.g, SCREEN_FLASH_COLOR.b, SCREEN_FLASH_PEAK_ALPHA),
+		SCREEN_FLASH_IN_DUR
+	)
+	# Flash out
+	_flash_tween.tween_property(
+		_flash_overlay, "color",
+		Color(SCREEN_FLASH_COLOR.r, SCREEN_FLASH_COLOR.g, SCREEN_FLASH_COLOR.b, 0.0),
+		SCREEN_FLASH_OUT_DUR
+	)
+	_flash_tween.tween_callback(func(): _flash_overlay.visible = false)
+
+# ══════════════════════════════════════════════════════════════
+#  OVERLAY SPRITE  (hands etc. — rendered above the textbox)
+# ══════════════════════════════════════════════════════════════
+func show_overlay_sprite(path: String) -> void:
+	if path == "":
+		return
+	if not ResourceLoader.exists(path):
+		push_warning("DialogueUI: overlay sprite not found at '%s'" % path)
+		return
+	var tex: Texture2D = load(path)
+	if not tex:
+		return
+	_overlay_sprite.texture = tex
+	_overlay_sprite.visible = true
+	if _overlay_sprite_tween:
+		_overlay_sprite_tween.kill()
+	_overlay_sprite_tween = create_tween()
+	_overlay_sprite_tween.tween_property(_overlay_sprite, "modulate:a", 1.0, 0.2)
+
+func hide_overlay_sprite() -> void:
+	if not _overlay_sprite.visible:
+		return
+	if _overlay_sprite_tween:
+		_overlay_sprite_tween.kill()
+	_overlay_sprite_tween = create_tween()
+	_overlay_sprite_tween.tween_property(_overlay_sprite, "modulate:a", 0.0, 0.2)
+	_overlay_sprite_tween.tween_callback(func(): _overlay_sprite.visible = false)

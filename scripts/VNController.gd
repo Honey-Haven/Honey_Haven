@@ -102,7 +102,8 @@ func _register_actors() -> void:
 		"id": "Barnaby",
 		"scale": 1.0,
 		"expressions": {
-			"neutral": preload("res://actors/barnaby/barnaby_happy.png")
+			"neutral": preload("res://actors/barnaby/barnaby_normal.png"),
+			"angry": preload("res://actors/barnaby/barnaby_angry.png")
 		}
 	})
 
@@ -193,10 +194,21 @@ func _register_backgrounds() -> void:
 	TwineParser.register_background("casserole_avenue",  "res://backgrounds/casserole_carrots.PNG")
 	TwineParser.register_background("truffle",  "res://backgrounds/TEMPtruffle.jpg")
 	TwineParser.register_background("towncenter",  "res://backgrounds/TEMPtowncenter.jpg")
+	TwineParser.register_background("casserole_tear",  "res://backgrounds/tear.png")
+	TwineParser.register_background("black_screen",  "res://backgrounds/black-screen.png")
+	TwineParser.register_background("white_screen",  "res://backgrounds/white-screen.jpg")
+	TwineParser.register_background("baby",  "res://backgrounds/baby.png")
 
 func _register_audio() -> void:
 	TwineParser.register_bgm("honey-haven-title", "res://audio/bgm/Honey-Haven-Title.mp3", -5.0);
 	TwineParser.register_bgm("demonic-sympathy", "res://audio/bgm/Demonic-Sympathy.mp3", 10.0);
+
+	# ── Overlay sprites (hands etc.) ──────────────────────────────────────────
+	# Tag used in Twine:  hand-outstretched-sprite
+	# Path to your sprite: adjust if the file lives elsewhere
+	TwineParser.register_overlay_sprite("hand-beckon-sprite", "res://hands/Hand-beckon-sprite(1).png")
+	TwineParser.register_overlay_sprite("hand-grab-sprite", "res://hands/Hand-grab-sprite(1).png")
+	TwineParser.register_overlay_sprite("hand-outstretched-sprite", "res://hands/Hand-outstretched-sprite.png")
 
 	
 func _on_minigame_start(minigame_id: String, data: Dictionary) -> void:

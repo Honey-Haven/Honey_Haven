@@ -6,6 +6,53 @@ const BOB_IDLE_SPEED   := 0.9
 const BOB_TALK_HEIGHT  := 14.0
 const BOB_TALK_SPEED   := 0.35
 
+# ── Pop-in tuning ─────────────────────────────────────────────
+# How much bigger the character starts on entry (1.0 = normal size, 1.2 = 20% bigger)
+const POPIN_OVERSHOOT_SCALE: float = 1.20  # ← ADJUST: entry overshoot scale multiplier
+const POPIN_DURATION:        float = 0.7  # ← ADJUST: seconds for pop-in animation
+const POPIN_SETTLE_DURATION: float = 0.10  # ← ADJUST: seconds for settle to normal
+
+# ── Talking scale tuning ──────────────────────────────────────
+const TALK_SCALE_MULTIPLIER: float = 1.2  # ← ADJUST: how much bigger the speaker gets (e.g. 1.07 = 7% bigger)
+
+# ── Bobbing toggle ────────────────────────────────────────────
+var BOBBING_ENABLED: bool = false           # ← ADJUST: set false to disable all bobbing
+
+# ── Emoticon config ───────────────────────────────────────────
+# Folder where your 800x800 emoticons live. Filenames must be: <emotion>.png
+# e.g. res://emoticons/sad.png, res://emoticons/happy.png, etc.
+const EMOTICON_PATH_PREFIX: String = "res://emoticons/"
+const EMOTICON_DISPLAY_SIZE: float = 80.0   # ← ADJUST: rendered size of the emoticon bubble
+
+# Per-character emoticon offsets at BASE (non-talking) scale.
+# Offset is in pixels from the character's base_pos (screen anchor point).
+# x = horizontal (positive = right), y = vertical (negative = up).
+# If a character isn't listed here, EMOTICON_OFFSET_DEFAULT is used.
+const EMOTICON_OFFSET_DEFAULT: Vector2 = Vector2(80, -230)
+const EMOTICON_OFFSETS: Dictionary = {
+	"Marty":    Vector2(80,  -260),
+	"Matthew":  Vector2(80,  -220),
+	"Chester":  Vector2(80,  -220),
+	"Barnaby":  Vector2(80,  -220),
+	"Peanut":   Vector2(80,  -220),
+	"Peaches":  Vector2(80,  -220),
+	"Buttons":  Vector2(80,  -220),
+	"Scotch":   Vector2(80,  -220),
+	"Tofu":     Vector2(80,  -220),
+	"Jane":     Vector2(80,  -220),
+	"Smith":    Vector2(80,  -220),
+	"Wolf":     Vector2(80,  -260),
+}
+
+const EMOTICON_FADE_DUR:  float    = 0.25   # ← ADJUST: fade-out duration when hiding emoticon
+
+# Supported emotion names (must match filenames in EMOTICON_PATH_PREFIX folder)
+const EMOTICON_EMOTIONS: Array = ["angry", "sad", "scared", "happy"]
+
+# ── Enter SFX ─────────────────────────────────────────────────
+# Path to the sound played when any character enters the scene.
+const ENTER_SFX_PATH: String = "res://audio/sfx/actor_enter.wav"  # ← SET THIS to your SFX file path
+
 # Adjusted positions to fit standard 1280x720 and 1152x648 windows
 const POSITIONS: Dictionary = {
 	"left":         Vector2(280,  400),
@@ -14,52 +61,44 @@ const POSITIONS: Dictionary = {
 }
 
 # ── Paired-actor config ───────────────────────────────────────
-# Actors in a pair always appear together on one side, standing next to each other.
-#
-# PAIRED_OFFSET controls how far apart the two characters stand.
-# The pair's anchor point is the slot position (e.g. POSITIONS["right"] = x:1000).
-# Left-of-pair lands at anchor - PAIRED_OFFSET/2, right-of-pair at anchor + PAIRED_OFFSET/2.
-# So with offset 160: left member is at x=920, right member at x=1080.
-# Increase this number to spread them further apart.
-const PAIRED_OFFSET := Vector2(160, 0)   # ← ADJUST THIS to tune spacing between pair members
+const PAIRED_OFFSET := Vector2(160, 0)
+const SAME_SIDE_STAGGER := 90.0
 
-# How far the second (and subsequent) character on the same side is offset
-# inward from the first.  Positive X = toward screen centre.
-# e.g. 90 means the second actor on the right appears 90px to the left of slot.
-const SAME_SIDE_STAGGER := 90.0          # ← ADJUST THIS to tune same-side stacking distance
-
-# Map: any actor_id in a pair → the canonical "pair id" (first member's id).
-# Both members share the same slot. The pair_id is also the actor registered
-# in VNController for the shared sprite (or you can register both individually).
 const PAIRED_ACTORS: Dictionary = {
-	"Scotch": "Scotch",   # canonical id — registered in VNController
-	"Tofu":   "Scotch",   # alias that resolves to the same pair slot
+	"Scotch": "Scotch",
+	"Tofu":   "Scotch",
 }
-# For each pair, which actor sits left vs right within the pair.
-# Format: pair_id → [left_member_id, right_member_id]
 const PAIRED_LAYOUT: Dictionary = {
 	"Scotch": ["Scotch", "Tofu"],
 }
 
-# Actor IDs that should always go to the LEFT slot when no explicit position given.
 const PREFER_LEFT_ACTORS: Array = ["Marty"]
 
 @export var vn_theme: Resource
 
 # ── Expression synonyms ───────────────────────────────────────
-# Map any alias → the real expression key on the actor.
-# e.g. { "sneeze": "sad", "grin": "happy", "beam": "happy" }
 const EXPRESSION_SYNONYMS: Dictionary = {
-	"sneeze": "sad",   
-	"startled" : "sad",
-	"worried" : "sad"
-	
-	
+	"sneeze":    "sad",
+	"startled":  "sad",
+	"worried":   "sad"
 }
 
 var _actors: Dictionary = {}
 var _current_speaker: String = ""
-var _active_slots: Array = ["", ""] # [0]=Left, [1]=Right
+var _active_slots: Array = ["", ""]
+
+# Emoticon sprites — one per actor
+var _emoticon_sprites: Dictionary = {}   # actor_id → Sprite2D
+
+# Preloaded emoticon textures (loaded on first use)
+var _emoticon_textures: Dictionary = {}  # emotion_name → Texture2D
+
+# Emoticon run tracking — only show for first 2 consecutive identical emotions
+var _emoticon_last_emotion: Dictionary = {}   # actor_id → last emotion shown
+var _emoticon_run_count: Dictionary    = {}   # actor_id → consecutive count
+
+# Enter SFX player
+var _enter_sfx_player: AudioStreamPlayer = null
 
 func _ready() -> void:
 	SignalBus.actor_show.connect(_on_actor_show)
@@ -68,9 +107,58 @@ func _ready() -> void:
 	SignalBus.actor_expression.connect(_on_actor_expression)
 	SignalBus.actor_animate.connect(_on_actor_animate)
 	SignalBus.dialogue_line_started.connect(_on_dialogue_started)
-	
 	SignalBus.actor_appear.connect(_on_actor_appear)
 	SignalBus.clear_visual_state.connect(_on_clear_visual_state)
+
+	# ── Set up enter SFX player ───────────────────────────────
+	_enter_sfx_player = AudioStreamPlayer.new()
+	_enter_sfx_player.name = "EnterSFXPlayer"
+	add_child(_enter_sfx_player)
+	if ResourceLoader.exists(ENTER_SFX_PATH):
+		_enter_sfx_player.stream = load(ENTER_SFX_PATH)
+	else:
+		push_warning("ActorManager: Enter SFX not found at '%s' — set ENTER_SFX_PATH" % ENTER_SFX_PATH)
+
+	# ── Preload emoticon textures ─────────────────────────────
+	for emo in EMOTICON_EMOTIONS:
+		var path: String = EMOTICON_PATH_PREFIX + emo + ".png"
+		if ResourceLoader.exists(path):
+			_emoticon_textures[emo] = load(path)
+		else:
+			# Also try .webp
+			var alt: String = EMOTICON_PATH_PREFIX + emo + ".webp"
+			if ResourceLoader.exists(alt):
+				_emoticon_textures[emo] = load(alt)
+			else:
+				push_warning("ActorManager: emoticon not found for '%s' (tried %s and %s)" % [emo, path, alt])
+
+# ── Per-frame emoticon tracking ───────────────────────────────
+# Keeps each visible emoticon glued to its character at the correct
+# scaled position, even while talk-scale tweens are running.
+func _process(_delta: float) -> void:
+	for actor_id in _emoticon_sprites:
+		var emo_sprite: Sprite2D = _emoticon_sprites[actor_id]
+		if not emo_sprite.visible:
+			continue
+		if not _actors.has(actor_id):
+			continue
+		var data          = _actors[actor_id]
+		var char_sprite: Sprite2D = data["node"]
+		var base_scale_x: float   = data.get("base_scale", char_sprite.scale).x
+		if base_scale_x <= 0.0:
+			continue
+		# How much is the character scaled right now vs its resting size?
+		var live_ratio: float = char_sprite.scale.x / base_scale_x
+		# Base offset for this specific character (at rest scale = 1.0)
+		var base_offset: Vector2 = EMOTICON_OFFSETS.get(actor_id, EMOTICON_OFFSET_DEFAULT)
+		# Scale the offset proportionally so the emoticon stays at the same
+		# visual spot on the character regardless of the current scale.
+		emo_sprite.position = data["base_pos"] + base_offset * live_ratio
+		# Also rescale the emoticon itself to match.
+		var tex: Texture2D = emo_sprite.texture
+		if tex and tex.get_width() > 0:
+			var base_emo_scale: float = EMOTICON_DISPLAY_SIZE / float(tex.get_width())
+			emo_sprite.scale = Vector2.ONE * base_emo_scale * live_ratio
 
 func register_actor(actor_cfg: Dictionary) -> void:
 	var actor_id: String = actor_cfg["id"]
@@ -80,36 +168,43 @@ func register_actor(actor_cfg: Dictionary) -> void:
 	sprite.position   = POSITIONS["center"]
 	add_child(sprite)
 
-	var custom_scale: float = actor_cfg.get("scale", 1.0) # Grab the scale from the config
+	var custom_scale: float = actor_cfg.get("scale", 1.0)
 
 	_actors[actor_id] = {
-		"node":        sprite,
-		"expressions": actor_cfg.get("expressions", {}),
-		"base_pos":    POSITIONS["center"],
-		"bob_tween":   null,
-		"talking":     false,
-		"custom_scale": custom_scale # Store it so we can use it later
+		"node":         sprite,
+		"expressions":  actor_cfg.get("expressions", {}),
+		"base_pos":     POSITIONS["center"],
+		"bob_tween":    null,
+		"talking":      false,
+		"custom_scale": custom_scale,
+		"base_scale":   Vector2.ONE,   # set properly after first _set_expression
 	}
-	# Pass the custom scale into the initial setup
 	_apply_scale(sprite, _actors[actor_id]["expressions"], custom_scale)
+
+	# ── Create the emoticon sprite for this actor ─────────────
+	var emo_sprite: Sprite2D = Sprite2D.new()
+	emo_sprite.visible = false
+	emo_sprite.modulate.a = 0.0
+	emo_sprite.z_index = 10
+	add_child(emo_sprite)
+	_emoticon_sprites[actor_id] = emo_sprite
 
 func _on_clear_visual_state() -> void:
 	_active_slots = ["", ""]
 	_pair_slots.clear()
 	_pair_expressions.clear()
+	_emoticon_last_emotion.clear()
+	_emoticon_run_count.clear()
 	for actor_id in _actors:
 		var sprite = _actors[actor_id]["node"]
 		sprite.visible = false
 		sprite.modulate.a = 0.0
 		_stop_bob(actor_id)
+		_hide_emoticon(actor_id, true)
 
 func _on_actor_appear(actor_id: String, expression: String, position: String, instant: bool = false) -> void:
 	if not _actors.has(actor_id): return
 
-	# ── Marty gets a one-frame head start so he always claims left first ──────
-	# All other actors (including pairs) are deferred by one frame. This means
-	# even when Marty and another character enter on the same passage, Marty's
-	# slot assignment runs first regardless of tag order.
 	if not PREFER_LEFT_ACTORS.has(actor_id) and not PAIRED_ACTORS.has(actor_id):
 		call_deferred("_on_actor_appear_deferred", actor_id, expression, position, instant)
 		return
@@ -117,7 +212,6 @@ func _on_actor_appear(actor_id: String, expression: String, position: String, in
 		call_deferred("_on_paired_appear", actor_id, expression, position, instant)
 		return
 
-	# ── Marty (or any PREFER_LEFT actor) — runs immediately ──────────────────
 	var final_pos = position
 	if position == "center" or position == "":
 		if _active_slots[0] == "" or _active_slots[0] == actor_id:
@@ -143,7 +237,6 @@ func _on_actor_appear(actor_id: String, expression: String, position: String, in
 func _on_actor_appear_deferred(actor_id: String, expression: String, position: String, instant: bool) -> void:
 	if not _actors.has(actor_id): return
 
-	# All non-Marty, non-paired actors prefer RIGHT slot.
 	var final_pos = position
 	if position == "center" or position == "":
 		if _active_slots[1] == "" or _active_slots[1] == actor_id:
@@ -167,43 +260,35 @@ func _on_actor_appear_deferred(actor_id: String, expression: String, position: S
 
 
 # ── Paired-actor appear ───────────────────────────────────────
-# Both members of a pair are placed on the same side, offset from each other.
-# _pair_slot tracks which screen-side the pair occupies ("left" or "right").
-var _pair_slots: Dictionary = {}          # pair_id → slot key ("left"/"right")
-var _pair_expressions: Dictionary = {}    # pair_id → { member_id: expression }
+var _pair_slots: Dictionary = {}
+var _pair_expressions: Dictionary = {}
 
 func _on_paired_appear(actor_id: String, expression: String, position: String, instant: bool) -> void:
 	var pair_id: String = PAIRED_ACTORS[actor_id]
 	var layout: Array   = PAIRED_LAYOUT.get(pair_id, [pair_id, actor_id])
 
-	# Decide which slot the pair uses
 	var slot_key: String = _pair_slots.get(pair_id, "")
 	if slot_key == "" or position != "":
 		if position != "" and position != "center":
 			slot_key = position
 		else:
-			# Pairs prefer the RIGHT slot so they don't clash with Marty (who prefers left).
-			# Only fall back to left if right is already taken by someone else.
 			if _active_slots[1] == "" or _active_slots[1] == pair_id:
 				slot_key = "right"
 			elif _active_slots[0] == "" or _active_slots[0] == pair_id:
 				slot_key = "left"
 			else:
-				slot_key = "right"   # fallback
+				slot_key = "right"
 		_pair_slots[pair_id] = slot_key
 
-	# Reserve the slot
 	if slot_key == "left":
 		_active_slots[0] = pair_id
 	else:
 		_active_slots[1] = pair_id
 
-	# Store this member's expression
 	if not _pair_expressions.has(pair_id):
 		_pair_expressions[pair_id] = {}
 	_pair_expressions[pair_id][actor_id] = expression
 
-	# Place both members (if both are registered) side by side
 	var base_pos: Vector2 = POSITIONS.get(slot_key, POSITIONS["right"])
 	var left_member:  String = layout[0]
 	var right_member: String = layout[1]
@@ -225,11 +310,9 @@ func _on_paired_appear(actor_id: String, expression: String, position: String, i
 			data["node"].position = member_pos
 		else:
 			data["node"].position = member_pos
-			data["node"].modulate.a = 0.0
-			var tw = create_tween()
-			tw.tween_property(data["node"], "modulate:a", 1.0, 0.4)
+			_play_enter_sfx()
+			_do_popin(member_id)
 
-	# Bob only the active speaker; the other idles
 	for member_id in [left_member, right_member]:
 		if not _actors.has(member_id):
 			continue
@@ -243,6 +326,7 @@ func _on_paired_hide(pair_id: String) -> void:
 	for member_id in layout:
 		if _actors.has(member_id):
 			_stop_bob(member_id)
+			_hide_emoticon(member_id, false)
 			var tw = create_tween()
 			tw.tween_property(_actors[member_id]["node"], "modulate:a", 0.0, 0.3)
 			tw.tween_callback(func(): _actors[member_id]["node"].visible = false)
@@ -256,16 +340,12 @@ func _do_appear_at(actor_id: String, expression: String, pos_key: String, instan
 	var sprite = data["node"]
 	var base = POSITIONS.get(pos_key, POSITIONS["center"])
 
-	# ── Same-side stagger: if another actor already owns this slot, push this
-	# actor inward by SAME_SIDE_STAGGER so they don't perfectly overlap.
 	var slot_index: int = 0 if pos_key == "left" else (1 if pos_key == "right" else -1)
 	if slot_index >= 0 and _active_slots[slot_index] != "" and _active_slots[slot_index] != actor_id:
-		# Direction toward screen centre: right-side actors shift left, left-side shift right
 		var inward: float = -1.0 if pos_key == "right" else 1.0
 		base = base + Vector2(inward * SAME_SIDE_STAGGER, 0.0)
 
 	data["base_pos"] = base
-	# Stop any running bob/move tween so it can't fight the new position
 	_stop_bob(actor_id)
 	sprite.position = base
 	sprite.visible = true
@@ -275,32 +355,43 @@ func _do_appear_at(actor_id: String, expression: String, pos_key: String, instan
 		sprite.modulate.a = 1.0
 		_start_bob(actor_id, false)
 	else:
-		sprite.modulate.a = 0.0
-		var tw = create_tween()
-		tw.tween_property(sprite, "modulate:a", 1.0, 0.4)
-		tw.tween_callback(func(): _start_bob(actor_id, false))
+		_play_enter_sfx()
+		_do_popin(actor_id)
+
+
+# ── Pop-in animation ─────────────────────────────────────────
+func _do_popin(actor_id: String) -> void:
+	var data = _actors[actor_id]
+	var sprite: Sprite2D = data["node"]
+	var base_scale: Vector2 = data.get("base_scale", sprite.scale)
+	data["base_scale"] = base_scale
+
+	sprite.modulate.a = 1.0
+	sprite.scale = base_scale * POPIN_OVERSHOOT_SCALE
+
+	var tw: Tween = create_tween()
+	tw.set_trans(Tween.TRANS_BACK)
+	tw.set_ease(Tween.EASE_OUT)
+	tw.tween_property(sprite, "scale", base_scale, POPIN_DURATION)
+	tw.tween_callback(func(): _start_bob(actor_id, false))
 
 func _on_actor_hide(actor_id: String) -> void:
 	if not _actors.has(actor_id):
-		# Check if it's a pair_id
 		if PAIRED_LAYOUT.has(actor_id):
 			_on_paired_hide(actor_id)
 		return
 	if _active_slots[0] == actor_id: _active_slots[0] = ""
 	if _active_slots[1] == actor_id: _active_slots[1] = ""
-	
+
 	var data = _actors[actor_id]
 	_stop_bob(actor_id)
+	_hide_emoticon(actor_id, false)
 	var tw = create_tween()
 	tw.tween_property(data["node"], "modulate:a", 0.0, 0.3)
 	tw.tween_callback(func(): data["node"].visible = false)
 
-# ... (Rest of ActorManager helper functions: _on_actor_move, _start_bob, etc. remain the same)
 
-
-
-
-# ── SHOW (already appeared, just swap expression/position) ────
+# ── SHOW ──────────────────────────────────────────────────────
 func _on_actor_show(actor_id: String, expression: String, position: String) -> void:
 	if not _actors.has(actor_id):
 		push_warning("ActorManager: unknown actor '%s'" % actor_id)
@@ -324,6 +415,11 @@ func _on_actor_move(actor_id: String, position: String, anim: String) -> void:
 	var target: Vector2  = POSITIONS.get(position, POSITIONS["center"])
 	data["base_pos"]     = target
 	_stop_bob(actor_id)
+	# Update emoticon position too — _process will correct it next frame anyway,
+	# but snap it here immediately so there's no one-frame lag on slide moves.
+	if _emoticon_sprites.has(actor_id) and _emoticon_sprites[actor_id].visible:
+		var base_offset: Vector2 = EMOTICON_OFFSETS.get(actor_id, EMOTICON_OFFSET_DEFAULT)
+		_emoticon_sprites[actor_id].position = target + base_offset
 	match anim:
 		"slide":
 			var dur: float = vn_theme.sprites.slide_duration if vn_theme and vn_theme.sprites else 0.4
@@ -341,6 +437,8 @@ func _on_actor_expression(actor_id: String, expression: String) -> void:
 	if not _actors.has(actor_id):
 		return
 	_set_expression(_actors[actor_id], expression)
+	# Show emoticon if the expression is one of the emotion types
+	_update_emoticon_for_expression(actor_id, expression)
 
 # ── ANIMATE ───────────────────────────────────────────────────
 func _on_actor_animate(actor_id: String, anim: String) -> void:
@@ -359,7 +457,6 @@ func _on_actor_animate(actor_id: String, anim: String) -> void:
 func _on_dialogue_started(packet: Dictionary) -> void:
 	var speaker: String = packet.get("speaker", "").strip_edges()
 
-	# ── Stop old speaker if it changed ───────────────────────────
 	if _current_speaker != "" and _current_speaker != speaker:
 		if PAIRED_ACTORS.has(_current_speaker):
 			var old_pair_id: String = PAIRED_ACTORS[_current_speaker]
@@ -367,14 +464,14 @@ func _on_dialogue_started(packet: Dictionary) -> void:
 				if _actors.has(member_id):
 					_actors[member_id]["talking"] = false
 					_start_bob(member_id, false)
+					_restore_base_scale(member_id)
 		elif _actors.has(_current_speaker):
 			_actors[_current_speaker]["talking"] = false
 			_start_bob(_current_speaker, false)
+			_restore_base_scale(_current_speaker)
 
 	_current_speaker = speaker
 
-	# ── Always (re)start bob for the new/current speaker ─────────
-	# This handles consecutive lines from the same actor correctly.
 	if speaker == "":
 		return
 	if PAIRED_ACTORS.has(speaker):
@@ -384,15 +481,41 @@ func _on_dialogue_started(packet: Dictionary) -> void:
 				var is_speaker: bool = (member_id == speaker)
 				_actors[member_id]["talking"] = is_speaker
 				_start_bob(member_id, is_speaker)
+				if is_speaker:
+					_apply_talk_scale(member_id)
+				else:
+					_restore_base_scale(member_id)
 	elif _actors.has(speaker):
 		_actors[speaker]["talking"] = true
 		_start_bob(speaker, true)
+		_apply_talk_scale(speaker)
+
+# ── Talking scale helpers ─────────────────────────────────────
+func _apply_talk_scale(actor_id: String) -> void:
+	if not _actors.has(actor_id): return
+	var data = _actors[actor_id]
+	var sprite: Sprite2D = data["node"]
+	var base_scale: Vector2 = data.get("base_scale", sprite.scale)
+	var tw: Tween = create_tween()
+	tw.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tw.tween_property(sprite, "scale", base_scale * TALK_SCALE_MULTIPLIER, 0.12)
+
+func _restore_base_scale(actor_id: String) -> void:
+	if not _actors.has(actor_id): return
+	var data = _actors[actor_id]
+	var sprite: Sprite2D = data["node"]
+	var base_scale: Vector2 = data.get("base_scale", sprite.scale)
+	var tw: Tween = create_tween()
+	tw.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tw.tween_property(sprite, "scale", base_scale, 0.12)
 
 # ── BOB ───────────────────────────────────────────────────────
 func _start_bob(actor_id: String, talking: bool) -> void:
 	if not _actors.has(actor_id):
 		return
 	_stop_bob(actor_id)
+	if not BOBBING_ENABLED:
+		return
 	var data: Dictionary = _actors[actor_id]
 	var sprite: Sprite2D = data["node"]
 	var base: Vector2    = data["base_pos"]
@@ -411,12 +534,10 @@ func _stop_bob(actor_id: String) -> void:
 	if data["bob_tween"] != null:
 		data["bob_tween"].kill()
 		data["bob_tween"] = null
-	# Snap back to base position
 	data["node"].position = data["base_pos"]
 
-# ── Expression swap (auto-resize on swap) ─────────────────────
+# ── Expression swap ───────────────────────────────────────────
 func _set_expression(data: Dictionary, expression: String) -> void:
-	# Resolve synonym first (e.g. "sneeze" → "sad")
 	if EXPRESSION_SYNONYMS.has(expression):
 		expression = EXPRESSION_SYNONYMS[expression]
 	var exprs: Dictionary = data["expressions"]
@@ -427,14 +548,95 @@ func _set_expression(data: Dictionary, expression: String) -> void:
 	var tex: Texture2D   = exprs[expression]
 	var sprite: Sprite2D = data["node"]
 	sprite.texture = tex
-	# Resize to TARGET_SIZE maintaining aspect ratio
 	if tex and tex.get_width() > 0:
 		var tex_size := Vector2(tex.get_width(), tex.get_height())
 		var fit: float = minf(TARGET_SIZE.x / tex_size.x, TARGET_SIZE.y / tex_size.y)
-		
-		# Grab the stored scale and apply it to the final calculation
 		var custom_scale: float = data.get("custom_scale", 1.0)
-		sprite.scale = (Vector2.ONE * fit) * custom_scale
+		var new_scale: Vector2 = (Vector2.ONE * fit) * custom_scale
+		sprite.scale = new_scale
+		data["base_scale"] = new_scale   # keep base_scale in sync
+
+# ── Emoticon system ───────────────────────────────────────────
+# expression → emoticon emotion mapping
+const EXPRESSION_TO_EMOTICON: Dictionary = {
+	"angry":    "angry",
+	"sad":      "sad",
+	"scared":   "scared",
+	"happy":    "happy",
+	"worried":  "sad",
+	"startled": "scared",
+	"sneeze":   "sad",
+}
+
+func _update_emoticon_for_expression(actor_id: String, expression: String) -> void:
+	# Resolve synonym first
+	var resolved: String = EXPRESSION_SYNONYMS.get(expression, expression)
+	var emo_name: String = EXPRESSION_TO_EMOTICON.get(resolved, "")
+	if emo_name == "" or not _emoticon_textures.has(emo_name):
+		# No emoticon for this expression — reset run tracking
+		_emoticon_last_emotion.erase(actor_id)
+		_emoticon_run_count.erase(actor_id)
+		_hide_emoticon(actor_id, false)
+		return
+
+	# Run-length tracking: count consecutive identical emotions
+	var last: String = _emoticon_last_emotion.get(actor_id, "")
+	var run: int     = _emoticon_run_count.get(actor_id, 0)
+
+	if emo_name == last:
+		run += 1
+	else:
+		run = 1
+		_emoticon_last_emotion[actor_id] = emo_name
+
+	_emoticon_run_count[actor_id] = run
+
+	if run <= 2:
+		_show_emoticon(actor_id, emo_name)
+	else:
+		# More than 2 in a row — hide if it was showing
+		_hide_emoticon(actor_id, false)
+
+func _show_emoticon(actor_id: String, emo_name: String) -> void:
+	if not _emoticon_sprites.has(actor_id): return
+	if not _emoticon_textures.has(emo_name): return
+	if not _actors.has(actor_id): return
+
+	var emo_sprite: Sprite2D  = _emoticon_sprites[actor_id]
+	var actor_data            = _actors[actor_id]
+	var char_sprite: Sprite2D = actor_data["node"]
+	var base_scale_x: float   = actor_data.get("base_scale", char_sprite.scale).x
+	var live_ratio: float     = char_sprite.scale.x / base_scale_x if base_scale_x > 0.0 else 1.0
+	var base_offset: Vector2  = EMOTICON_OFFSETS.get(actor_id, EMOTICON_OFFSET_DEFAULT)
+
+	emo_sprite.texture = _emoticon_textures[emo_name]
+	var tex: Texture2D = _emoticon_textures[emo_name]
+	if tex and tex.get_width() > 0:
+		var base_emo_scale: float = EMOTICON_DISPLAY_SIZE / float(tex.get_width())
+		emo_sprite.scale = Vector2.ONE * base_emo_scale * live_ratio
+
+	emo_sprite.position  = actor_data["base_pos"] + base_offset * live_ratio
+	emo_sprite.modulate.a = 1.0
+	emo_sprite.visible   = true
+	# _process() will keep position/scale updated every frame from here on.
+
+func _hide_emoticon(actor_id: String, instant: bool) -> void:
+	if not _emoticon_sprites.has(actor_id): return
+	var emo_sprite: Sprite2D = _emoticon_sprites[actor_id]
+	if not emo_sprite.visible: return
+	if instant:
+		emo_sprite.visible = false
+		emo_sprite.modulate.a = 0.0
+	else:
+		var tw: Tween = create_tween()
+		tw.tween_property(emo_sprite, "modulate:a", 0.0, EMOTICON_FADE_DUR)
+		tw.tween_callback(func(): emo_sprite.visible = false)
+
+# ── Enter SFX ─────────────────────────────────────────────────
+func _play_enter_sfx() -> void:
+	if _enter_sfx_player and _enter_sfx_player.stream:
+		_enter_sfx_player.play()
+
 # ── Movement helpers ──────────────────────────────────────────
 func _hop_to(sprite: Sprite2D, target: Vector2, on_done: Callable) -> void:
 	var hop_h: float = 30.0
@@ -478,38 +680,26 @@ func _spin_sprite(sprite: Sprite2D) -> void:
 	tw.tween_callback(func(): sprite.rotation_degrees = 0)
 
 
-
 # ── Auto-scale helper ─────────────────────────────────────────
-# This function calculates the uniform scale needed to fit the sprite 
-# within TARGET_SIZE (500x500) while maintaining aspect ratio. 
 func _apply_scale(sprite: Sprite2D, expressions: Dictionary, custom_multiplier: float = 1.0) -> void:
-	# 1. Safety check: If no expressions exist, we can't determine the texture size. 
 	if expressions.is_empty():
 		return
-	
-	# 2. Use the first available expression texture as the reference for size. 
 	var first_tex: Texture2D = expressions[expressions.keys()[0]]
-	
 	if first_tex and first_tex.get_width() > 0:
 		var tex_size := Vector2(first_tex.get_width(), first_tex.get_height())
-		
-		# 3. Calculate the scale factor required to fit inside the TARGET_SIZE. 
-		# We use minf to ensure the largest dimension is what limits the scale.
 		var fit: float = minf(TARGET_SIZE.x / tex_size.x, TARGET_SIZE.y / tex_size.y)
-		
-		# 4. Apply the calculated fit multiplied by any custom scale provided.
-		# Note: We use Vector2.ONE * fit to keep the aspect ratio uniform. 
 		sprite.scale = (Vector2.ONE * fit) * custom_multiplier
-		
-		# 5. Assign the texture so the sprite has immediate visual data. 
 		sprite.texture = first_tex
 
 func reset_all_actors() -> void:
-	_active_slots = ["", ""] 
+	_active_slots = ["", ""]
 	_current_speaker = ""
+	_emoticon_last_emotion.clear()
+	_emoticon_run_count.clear()
 	for actor_id in _actors:
 		var data = _actors[actor_id]
 		_stop_bob(actor_id)
+		_hide_emoticon(actor_id, true)
 		data["node"].visible = false
 		data["node"].modulate.a = 0.0
 		data["talking"] = false

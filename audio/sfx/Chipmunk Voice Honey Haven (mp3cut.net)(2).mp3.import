@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://eux08sdk27ps"
+path="res://.godot/imported/Chipmunk Voice Honey Haven (mp3cut.net)(2).mp3-65ea95b5547a97b6e54913c3119d360b.mp3str"
+
+[deps]
+
+source_file="res://audio/sfx/Chipmunk Voice Honey Haven (mp3cut.net)(2).mp3"
+dest_files=["res://.godot/imported/Chipmunk Voice Honey Haven (mp3cut.net)(2).mp3-65ea95b5547a97b6e54913c3119d360b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

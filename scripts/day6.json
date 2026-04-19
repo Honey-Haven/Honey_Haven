@@ -7,7 +7,7 @@
   "creatorVersion": "2.12.0",
   "schemaName": "Twine to JSON",
   "schemaVersion": "0.0.6",
-  "createdAtMs": 1776448115082,
+  "createdAtMs": 1776455784522,
   "passages": [
     {
       "name": "6.1",
@@ -391,7 +391,7 @@
     },
     {
       "name": "6.28",
-      "tags": "marty-angry marty-speaker",
+      "tags": "marty-angry marty-speaker demonic-sympathy",
       "id": "29",
       "text": "DON'T YOU GET IT? HOME ISN'T REAL NONE OF THIS IS REAL, MATTHEW! [[6.29]]",
       "links": [
@@ -643,7 +643,7 @@
     },
     {
       "name": "6.46",
-      "tags": "matthew-neutral matthew-speaker demonic-sympathy",
+      "tags": "matthew-neutral matthew-speaker",
       "id": "47",
       "text": "I need to take you to a doctor because... [[6.47]]",
       "links": [
@@ -657,7 +657,7 @@
     },
     {
       "name": "6.47",
-      "tags": "matthew-leave wolf-enter-right wolf-speaker wolf-angry",
+      "tags": "matthew-leave wolf-enter-right wolf-speaker wolf-angry flash",
       "id": "48",
       "text": "I'm one of them. [[6.48]]",
       "links": [
@@ -895,7 +895,7 @@
     },
     {
       "name": "6.64",
-      "tags": "marty-leave peaches-leave white-screen peaches-baby-enter-middle",
+      "tags": "marty-leave peaches-leave flash baby",
       "id": "65",
       "text": "The child's skin is not the soft fur you would expect, but smooth, sticky flesh. [[6.65]]",
       "links": [
@@ -1091,7 +1091,7 @@
     },
     {
       "name": "6.79",
-      "tags": "barnaby-leave wolf-leave hand-beckon",
+      "tags": "barnaby-leave wolf-leave casserole_tear",
       "id": "79",
       "text": "Just when it seems you won't be able to hold out any longer, the world splits. [[6.80]]",
       "links": [
@@ -1133,23 +1133,23 @@
     },
     {
       "name": "6.82",
-      "tags": "",
+      "tags": "hand-enter-middle hand-grab-sprite",
       "id": "82",
-      "text": "An enormous hand blots out of the tear in Honey Haven. [[6.83]]",
+      "text": "... [[6.83.5]]",
       "links": [
         {
-          "linkText": "6.83",
-          "passageName": "6.83",
-          "original": "[[6.83]]"
+          "linkText": "6.83.5",
+          "passageName": "6.83.5",
+          "original": "[[6.83.5]]"
         }
       ],
-      "cleanText": "An enormous hand blots out of the tear in Honey Haven."
+      "cleanText": "..."
     },
     {
       "name": "6.83",
-      "tags": "hand-outstretched",
+      "tags": "hand-outstretched-sprite",
       "id": "83",
-      "text": "It reaches across to you, it's palm open. [[6.84]]",
+      "text": "...[[6.84]]",
       "links": [
         {
           "linkText": "6.84",
@@ -1157,11 +1157,11 @@
           "original": "[[6.84]]"
         }
       ],
-      "cleanText": "It reaches across to you, it's palm open."
+      "cleanText": "..."
     },
     {
       "name": "6.84",
-      "tags": "",
+      "tags": "hand-leave",
       "id": "84",
       "text": "Step into the hand? \n[[Yes -> 6.85a]]\n[[No -> 6.85b]]",
       "links": [
@@ -1180,7 +1180,7 @@
     },
     {
       "name": " 6.85a",
-      "tags": "",
+      "tags": "hand-enter-middle hand-outstretched-sprite",
       "id": "85",
       "text": "You step into the hand. [[6.86a]]",
       "links": [
@@ -1194,7 +1194,7 @@
     },
     {
       "name": " 6.85b",
-      "tags": "hand-beckon",
+      "tags": "hand-beckon-sprite hand-enter-middle",
       "id": "86",
       "text": "The hand gently beckons you. [[6.86b]]",
       "links": [
@@ -1208,7 +1208,7 @@
     },
     {
       "name": "6.86a",
-      "tags": "",
+      "tags": "hand-leave",
       "id": "87",
       "text": "It pulls you into the tear. It feels.. comforting. [[6.87a]]",
       "links": [
@@ -1222,7 +1222,7 @@
     },
     {
       "name": "6.87a",
-      "tags": "black-screen",
+      "tags": "black_screen",
       "id": "88",
       "text": "Your vision fades to black. [[6.88]]",
       "links": [
@@ -1236,7 +1236,7 @@
     },
     {
       "name": "6.86b",
-      "tags": "hand-outstretched",
+      "tags": "hand-leave",
       "id": "89",
       "text": "Step into the hand? \n[[Yes -> 6.85a]]\n[[No -> 6.85c]]",
       "links": [
@@ -1255,7 +1255,7 @@
     },
     {
       "name": " 6.85c",
-      "tags": "hand-beckon",
+      "tags": "hand-beckon-sprite hand-enter-middle",
       "id": "90",
       "text": "The hand beckons you once more. [[6.86c]]",
       "links": [
@@ -1269,21 +1269,21 @@
     },
     {
       "name": "6.86c",
-      "tags": "hand-grab",
+      "tags": "",
       "id": "91",
-      "text": "You start backing away. Why are you backing away? [[6.87c]]",
+      "text": "You start backing away. [[6.86.5]]",
       "links": [
         {
-          "linkText": "6.87c",
-          "passageName": "6.87c",
-          "original": "[[6.87c]]"
+          "linkText": "6.86.5",
+          "passageName": "6.86.5",
+          "original": "[[6.86.5]]"
         }
       ],
-      "cleanText": "You start backing away. Why are you backing away?"
+      "cleanText": "You start backing away."
     },
     {
       "name": "6.87c",
-      "tags": "black-screen",
+      "tags": "black_screen hand-leave",
       "id": "92",
       "text": "The hand covers you with its palm, then slowly and softly presses you into the blackness of the earth. [[6.88]]",
       "links": [
@@ -1297,7 +1297,7 @@
     },
     {
       "name": "6.88",
-      "tags": "marty-speaker white-screen",
+      "tags": "marty-speaker white_screen",
       "id": "93",
       "text": "Why.. can't I move my head? Where's.. my body? [[6.88.5]]",
       "links": [
@@ -1907,7 +1907,7 @@
     },
     {
       "name": "6.88.5",
-      "tags": "stranger-enter-middle stranger-speaker stranger-smile",
+      "tags": "stranger-enter-middle stranger-speaker stranger-smile flash",
       "id": "137",
       "text": "Hello Marty. [[6.89]]",
       "links": [
@@ -1932,6 +1932,34 @@
         }
       ],
       "cleanText": "You feel... different. You see things. You're starting to understand things."
+    },
+    {
+      "name": "6.83.5",
+      "tags": "hand-beckon-sprite",
+      "id": "139",
+      "text": "... [[6.83]]",
+      "links": [
+        {
+          "linkText": "6.83",
+          "passageName": "6.83",
+          "original": "[[6.83]]"
+        }
+      ],
+      "cleanText": "..."
+    },
+    {
+      "name": "6.86.5",
+      "tags": "hand-grab-sprite",
+      "id": "140",
+      "text": "Why are you backing away? [[6.87c]]",
+      "links": [
+        {
+          "linkText": "6.87c",
+          "passageName": "6.87c",
+          "original": "[[6.87c]]"
+        }
+      ],
+      "cleanText": "Why are you backing away?"
     }
   ]
 }
