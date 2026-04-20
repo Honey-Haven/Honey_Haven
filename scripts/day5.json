@@ -1,0 +1,1480 @@
+
+
+{
+  "uuid": "C663ADA9-4CC0-462B-A43B-6A687DDCDD5F",
+  "name": "Honey Haven Day 5",
+  "creator": "Twine",
+  "creatorVersion": "2.12.0",
+  "schemaName": "Twine to JSON",
+  "schemaVersion": "0.0.6",
+  "createdAtMs": 1776640848878,
+  "passages": [
+    {
+      "name": "5.1",
+      "tags": "",
+      "id": "1",
+      "text": "Day 5 [[5.2]]",
+      "links": [
+        {
+          "linkText": "5.2",
+          "passageName": "5.2",
+          "original": "[[5.2]]"
+        }
+      ],
+      "cleanText": "Day 5"
+    },
+    {
+      "name": "5.2",
+      "tags": "sunny_bedroom marty_enter marty-neutral",
+      "id": "2",
+      "text": "You wake up with a pounding headache. You barely got any sleep last night. [[5.3]]",
+      "links": [
+        {
+          "linkText": "5.3",
+          "passageName": "5.3",
+          "original": "[[5.3]]"
+        }
+      ],
+      "cleanText": "You wake up with a pounding headache. You barely got any sleep last night."
+    },
+    {
+      "name": "5.3",
+      "tags": "",
+      "id": "3",
+      "text": "You boil water without thinking about it and pour yourself a cup. You stare at the pouch of honey tea. [[5.4]]",
+      "links": [
+        {
+          "linkText": "5.4",
+          "passageName": "5.4",
+          "original": "[[5.4]]"
+        }
+      ],
+      "cleanText": "You boil water without thinking about it and pour yourself a cup. You stare at the pouch of honey tea."
+    },
+    {
+      "name": "5.4",
+      "tags": "demon",
+      "id": "4",
+      "text": "*Do you want to end up like the fox? He was trying to warn you, you know?* [[5.5]]",
+      "links": [
+        {
+          "linkText": "5.5",
+          "passageName": "5.5",
+          "original": "[[5.5]]"
+        }
+      ],
+      "cleanText": "*Do you want to end up like the fox? He was trying to warn you, you know?*"
+    },
+    {
+      "name": "5.5",
+      "tags": "marty-angry",
+      "id": "5",
+      "text": "You push the cup of water off the table. The porcelain shatters on the floor. [[5.6]]",
+      "links": [
+        {
+          "linkText": "5.6",
+          "passageName": "5.6",
+          "original": "[[5.6]]"
+        }
+      ],
+      "cleanText": "You push the cup of water off the table. The porcelain shatters on the floor."
+    },
+    {
+      "name": "5.6",
+      "tags": "marty-speaker",
+      "id": "6",
+      "text": "I'm fine. I'll be just fine without the tea. [[5.7]]",
+      "links": [
+        {
+          "linkText": "5.7",
+          "passageName": "5.7",
+          "original": "[[5.7]]"
+        }
+      ],
+      "cleanText": "I'm fine. I'll be just fine without the tea."
+    },
+    {
+      "name": "5.7",
+      "tags": "",
+      "id": "7",
+      "text": "You take the pouch of tea leaves and shove it in your closet. [[5.8]]",
+      "links": [
+        {
+          "linkText": "5.8",
+          "passageName": "5.8",
+          "original": "[[5.8]]"
+        }
+      ],
+      "cleanText": "You take the pouch of tea leaves and shove it in your closet."
+    },
+    {
+      "name": "5.8",
+      "tags": "marty-speaker marty-neutral",
+      "id": "8",
+      "text": "I need to find out why they've been giving it to me. [[5.9]]",
+      "links": [
+        {
+          "linkText": "5.9",
+          "passageName": "5.9",
+          "original": "[[5.9]]"
+        }
+      ],
+      "cleanText": "I need to find out why they've been giving it to me."
+    },
+    {
+      "name": "5.9",
+      "tags": "marty_leave",
+      "id": "9",
+      "text": "You hastily put on your clothes and head out the door. It's 8:30am and you are definitely late. [[5.10]]",
+      "links": [
+        {
+          "linkText": "5.10",
+          "passageName": "5.10",
+          "original": "[[5.10]]"
+        }
+      ],
+      "cleanText": "You hastily put on your clothes and head out the door. It's 8:30am and you are definitely late."
+    },
+    {
+      "name": "5.10",
+      "tags": "casserole_avenue",
+      "id": "10",
+      "text": "You almost forget to pick up the mail. There are letters to Peaches, Ms. Buttons, and Jane D. You head to Casserole Avenue first. [[5.11]]",
+      "links": [
+        {
+          "linkText": "5.11",
+          "passageName": "5.11",
+          "original": "[[5.11]]"
+        }
+      ],
+      "cleanText": "You almost forget to pick up the mail. There are letters to Peaches, Ms. Buttons, and Jane D. You head to Casserole Avenue first."
+    },
+    {
+      "name": "5.11",
+      "tags": "buttons-enter-left peaches-enter-right buttons-neutral peaches-neutral",
+      "id": "11",
+      "text": "When you arrive, you see Peaches and Ms. Buttons talking on the line between their yards. [[5.12]]",
+      "links": [
+        {
+          "linkText": "5.12",
+          "passageName": "5.12",
+          "original": "[[5.12]]"
+        }
+      ],
+      "cleanText": "When you arrive, you see Peaches and Ms. Buttons talking on the line between their yards."
+    },
+    {
+      "name": "5.12",
+      "tags": "",
+      "id": "12",
+      "text": "Instead of delivering the mail right away, you hide behind a bush to listen in on the conversation. [[5.13]]",
+      "links": [
+        {
+          "linkText": "5.13",
+          "passageName": "5.13",
+          "original": "[[5.13]]"
+        }
+      ],
+      "cleanText": "Instead of delivering the mail right away, you hide behind a bush to listen in on the conversation."
+    },
+    {
+      "name": "5.13",
+      "tags": "peaches-speaker peaches-sad",
+      "id": "13",
+      "text": "What should I do? He's so close to figuring it out. [[5.14]]",
+      "links": [
+        {
+          "linkText": "5.14",
+          "passageName": "5.14",
+          "original": "[[5.14]]"
+        }
+      ],
+      "cleanText": "What should I do? He's so close to figuring it out."
+    },
+    {
+      "name": "5.14",
+      "tags": "buttons-speaker small",
+      "id": "14",
+      "text": "Just distract him. What I always do is.. [[5.15]]",
+      "links": [
+        {
+          "linkText": "5.15",
+          "passageName": "5.15",
+          "original": "[[5.15]]"
+        }
+      ],
+      "cleanText": "Just distract him. What I always do is.."
+    },
+    {
+      "name": "5.15",
+      "tags": "peaches-speaker peaches-angry",
+      "id": "15",
+      "text": "But he's suspicious of everything. I can't even let him talk to my kids... [[5.16]]",
+      "links": [
+        {
+          "linkText": "5.16",
+          "passageName": "5.16",
+          "original": "[[5.16]]"
+        }
+      ],
+      "cleanText": "But he's suspicious of everything. I can't even let him talk to my kids..."
+    },
+    {
+      "name": "5.16",
+      "tags": "buttons-speaker buttons-fake-smile",
+      "id": "16",
+      "text": "Oh there you are Marty! [[5.17]]",
+      "links": [
+        {
+          "linkText": "5.17",
+          "passageName": "5.17",
+          "original": "[[5.17]]"
+        }
+      ],
+      "cleanText": "Oh there you are Marty!"
+    },
+    {
+      "name": "5.17",
+      "tags": "buttons-speaker",
+      "id": "17",
+      "text": "You have the mail for us today? [[5.18]]",
+      "links": [
+        {
+          "linkText": "5.18",
+          "passageName": "5.18",
+          "original": "[[5.18]]"
+        }
+      ],
+      "cleanText": "You have the mail for us today?"
+    },
+    {
+      "name": "5.18",
+      "tags": "peaches_leave marty-neutral marty-enter-right",
+      "id": "18",
+      "text": "You slink out of your hiding spot. How did they notice you were there?? [[5.19]]",
+      "links": [
+        {
+          "linkText": "5.19",
+          "passageName": "5.19",
+          "original": "[[5.19]]"
+        }
+      ],
+      "cleanText": "You slink out of your hiding spot. How did they notice you were there??"
+    },
+    {
+      "name": "5.19",
+      "tags": "marty-angry",
+      "id": "19",
+      "text": "You take the letters out of your pouch and shove them to Peaches and Ms. Buttons. [[5.20]]",
+      "links": [
+        {
+          "linkText": "5.20",
+          "passageName": "5.20",
+          "original": "[[5.20]]"
+        }
+      ],
+      "cleanText": "You take the letters out of your pouch and shove them to Peaches and Ms. Buttons."
+    },
+    {
+      "name": "5.20",
+      "tags": "buttons-speaker buttons-angry",
+      "id": "20",
+      "text": "(Looks like someone's in a mood today.) [[5.21]]",
+      "links": [
+        {
+          "linkText": "5.21",
+          "passageName": "5.21",
+          "original": "[[5.21]]"
+        }
+      ],
+      "cleanText": "(Looks like someone's in a mood today.)"
+    },
+    {
+      "name": "5.21",
+      "tags": "buttons_leave peaches-speaker peaches-enter-left peaches-neutral",
+      "id": "21",
+      "text": "Marty! Thank you for delivering the mail.\n[[\"It's my job to.\" -> 5.22a]]\n[[\"You were talking about me, weren't you? -> 5.22b]]",
+      "links": [
+        {
+          "linkText": "\"It's my job to.\"",
+          "passageName": "5.22a",
+          "original": "[[\"It's my job to.\" -> 5.22a]]"
+        },
+        {
+          "linkText": "\"You were talking about me, weren't you?",
+          "passageName": "5.22b",
+          "original": "[[\"You were talking about me, weren't you? -> 5.22b]]"
+        }
+      ],
+      "cleanText": "Marty! Thank you for delivering the mail."
+    },
+    {
+      "name": " 5.22a",
+      "tags": "peaches-angry peaches-speaker",
+      "id": "22",
+      "text": "(Haven't been doing much of that these days.) [[5.23a]]",
+      "links": [
+        {
+          "linkText": "5.23a",
+          "passageName": "5.23a",
+          "original": "[[5.23a]]"
+        }
+      ],
+      "cleanText": "(Haven't been doing much of that these days.)"
+    },
+    {
+      "name": " 5.22b",
+      "tags": "peaches-happy peaches-speaker excite",
+      "id": "23",
+      "text": "No, no! [[5.23b]]",
+      "links": [
+        {
+          "linkText": "5.23b",
+          "passageName": "5.23b",
+          "original": "[[5.23b]]"
+        }
+      ],
+      "cleanText": "No, no!"
+    },
+    {
+      "name": "5.23a",
+      "tags": "peaches_leave buttons-speaker buttons-enter-left buttons-fake-smile excite",
+      "id": "24",
+      "text": "Maybe you should take a break!  [[5.26]]",
+      "links": [
+        {
+          "linkText": "5.26",
+          "passageName": "5.26",
+          "original": "[[5.26]]"
+        }
+      ],
+      "cleanText": "Maybe you should take a break!"
+    },
+    {
+      "name": "5.23b",
+      "tags": "peaches_leave buttons-speaker buttons-enter-left buttons-fake-smile",
+      "id": "25",
+      "text": "We were just talking about- [[5.24b]]",
+      "links": [
+        {
+          "linkText": "5.24b",
+          "passageName": "5.24b",
+          "original": "[[5.24b]]"
+        }
+      ],
+      "cleanText": "We were just talking about-"
+    },
+    {
+      "name": "5.24b",
+      "tags": "buttons_leave peaches peaches-enter-left peaches-happy peaches-speaker excite",
+      "id": "26",
+      "text": "Our business practices! [[5.25b]]",
+      "links": [
+        {
+          "linkText": "5.25b",
+          "passageName": "5.25b",
+          "original": "[[5.25b]]"
+        }
+      ],
+      "cleanText": "Our business practices!"
+    },
+    {
+      "name": "5.25b",
+      "tags": "marty-speaker marty-serious",
+      "id": "27",
+      "text": "But you don't own- [[5.26]]",
+      "links": [
+        {
+          "linkText": "5.26",
+          "passageName": "5.26",
+          "original": "[[5.26]]"
+        }
+      ],
+      "cleanText": "But you don't own-"
+    },
+    {
+      "name": "5.26",
+      "tags": "peaches_leave buttons-enter-left buttons-speaker buttons-fake-smile",
+      "id": "28",
+      "text": "How would you like a 3% discount for my restaurant?? [[5.27]]",
+      "links": [
+        {
+          "linkText": "5.27",
+          "passageName": "5.27",
+          "original": "[[5.27]]"
+        }
+      ],
+      "cleanText": "How would you like a 3% discount for my restaurant??"
+    },
+    {
+      "name": "5.27",
+      "tags": "marty-speaker marty-angry",
+      "id": "29",
+      "text": "I don't want your artificial food. [[5.28]]",
+      "links": [
+        {
+          "linkText": "5.28",
+          "passageName": "5.28",
+          "original": "[[5.28]]"
+        }
+      ],
+      "cleanText": "I don't want your artificial food."
+    },
+    {
+      "name": "5.28",
+      "tags": "buttons-speaker buttons-happy big",
+      "id": "30",
+      "text": "I can up it to 4%! [[5.29]]",
+      "links": [
+        {
+          "linkText": "5.29",
+          "passageName": "5.29",
+          "original": "[[5.29]]"
+        }
+      ],
+      "cleanText": "I can up it to 4%!"
+    },
+    {
+      "name": "5.29",
+      "tags": "buttons-fake-smile marty-leave peaches-enter-right peaches-happy",
+      "id": "31",
+      "text": "You stare at them for a few moments. Ms. Buttons has a strained smile on her face. Peaches is trying to force herself to smile too. [[5.30]]",
+      "links": [
+        {
+          "linkText": "5.30",
+          "passageName": "5.30",
+          "original": "[[5.30]]"
+        }
+      ],
+      "cleanText": "You stare at them for a few moments. Ms. Buttons has a strained smile on her face. Peaches is trying to force herself to smile too."
+    },
+    {
+      "name": "5.30",
+      "tags": "",
+      "id": "32",
+      "text": "Why are they acting so weird?? [[5.31]]",
+      "links": [
+        {
+          "linkText": "5.31",
+          "passageName": "5.31",
+          "original": "[[5.31]]"
+        }
+      ],
+      "cleanText": "Why are they acting so weird??"
+    },
+    {
+      "name": "5.31",
+      "tags": "",
+      "id": "33",
+      "text": "You recoil in disgust. [[5.32]]",
+      "links": [
+        {
+          "linkText": "5.32",
+          "passageName": "5.32",
+          "original": "[[5.32]]"
+        }
+      ],
+      "cleanText": "You recoil in disgust."
+    },
+    {
+      "name": "5.32",
+      "tags": "marty-enter-right marty-speaker marty-neutral buttons-sad peaches-leave",
+      "id": "34",
+      "text": "I don't take bribes. Goodbye, Ms. Buttons. [[5.33]]",
+      "links": [
+        {
+          "linkText": "5.33",
+          "passageName": "5.33",
+          "original": "[[5.33]]"
+        }
+      ],
+      "cleanText": "I don't take bribes. Goodbye, Ms. Buttons."
+    },
+    {
+      "name": "5.33",
+      "tags": "buttons-leave marty-leave",
+      "id": "35",
+      "text": "Ms. Buttons had built up twenty years of trust with you. [[5.34]]",
+      "links": [
+        {
+          "linkText": "5.34",
+          "passageName": "5.34",
+          "original": "[[5.34]]"
+        }
+      ],
+      "cleanText": "Ms. Buttons had built up twenty years of trust with you."
+    },
+    {
+      "name": "5.34",
+      "tags": "",
+      "id": "36",
+      "text": "Brutal honesty, straightforwardness, and hard truths nobody else would tell you. [[5.35]]",
+      "links": [
+        {
+          "linkText": "5.35",
+          "passageName": "5.35",
+          "original": "[[5.35]]"
+        }
+      ],
+      "cleanText": "Brutal honesty, straightforwardness, and hard truths nobody else would tell you."
+    },
+    {
+      "name": "5.35",
+      "tags": "",
+      "id": "37",
+      "text": "Now, she's conspiring against you. [[5.36]]",
+      "links": [
+        {
+          "linkText": "5.36",
+          "passageName": "5.36",
+          "original": "[[5.36]]"
+        }
+      ],
+      "cleanText": "Now, she's conspiring against you."
+    },
+    {
+      "name": "5.36",
+      "tags": "",
+      "id": "38",
+      "text": "Twenty years of trust was just broken. But, there's more. [[5.37]]",
+      "links": [
+        {
+          "linkText": "5.37",
+          "passageName": "5.37",
+          "original": "[[5.37]]"
+        }
+      ],
+      "cleanText": "Twenty years of trust was just broken. But, there's more."
+    },
+    {
+      "name": "5.37",
+      "tags": "",
+      "id": "39",
+      "text": "All this in just the past few days... clearly there is something greater at play. [[5.38]]",
+      "links": [
+        {
+          "linkText": "5.38",
+          "passageName": "5.38",
+          "original": "[[5.38]]"
+        }
+      ],
+      "cleanText": "All this in just the past few days... clearly there is something greater at play."
+    },
+    {
+      "name": "5.38",
+      "tags": "",
+      "id": "40",
+      "text": "You need answers. And you think you know where to find them. [[5.39]]",
+      "links": [
+        {
+          "linkText": "5.39",
+          "passageName": "5.39",
+          "original": "[[5.39]]"
+        }
+      ],
+      "cleanText": "You need answers. And you think you know where to find them."
+    },
+    {
+      "name": "5.39",
+      "tags": "",
+      "id": "41",
+      "text": "With the two people running the whole thing. [[5.40]]",
+      "links": [
+        {
+          "linkText": "5.40",
+          "passageName": "5.40",
+          "original": "[[5.40]]"
+        }
+      ],
+      "cleanText": "With the two people running the whole thing."
+    },
+    {
+      "name": "5.40",
+      "tags": "marty_enter outside_town_square marty-speaker marty-neutral",
+      "id": "42",
+      "text": "Hello, Honeybee Center. [[5.41]]",
+      "links": [
+        {
+          "linkText": "5.41",
+          "passageName": "5.41",
+          "original": "[[5.41]]"
+        }
+      ],
+      "cleanText": "Hello, Honeybee Center."
+    },
+    {
+      "name": "5.41",
+      "tags": "marty_leave",
+      "id": "43",
+      "text": "You walk through the town square and head to the town center. [[5.42]]",
+      "links": [
+        {
+          "linkText": "5.42",
+          "passageName": "5.42",
+          "original": "[[5.42]]"
+        }
+      ],
+      "cleanText": "You walk through the town square and head to the town center."
+    },
+    {
+      "name": "5.42",
+      "tags": "",
+      "id": "44",
+      "text": "It's quiet today, with only a few animals walking around. You step inside the building. [[5.43]]",
+      "links": [
+        {
+          "linkText": "5.43",
+          "passageName": "5.43",
+          "original": "[[5.43]]"
+        }
+      ],
+      "cleanText": "It's quiet today, with only a few animals walking around. You step inside the building."
+    },
+    {
+      "name": "5.43",
+      "tags": "marty_enter inside_town_square marty-speaker marty-happy jane-enter-right jane-neutral",
+      "id": "45",
+      "text": "Jane! Is Barnaby in? [[5.44]]",
+      "links": [
+        {
+          "linkText": "5.44",
+          "passageName": "5.44",
+          "original": "[[5.44]]"
+        }
+      ],
+      "cleanText": "Jane! Is Barnaby in?"
+    },
+    {
+      "name": "5.44",
+      "tags": "jane-speaker jane-angry",
+      "id": "46",
+      "text": "No, Marty. He's in a meeting. [[5.45]]",
+      "links": [
+        {
+          "linkText": "5.45",
+          "passageName": "5.45",
+          "original": "[[5.45]]"
+        }
+      ],
+      "cleanText": "No, Marty. He's in a meeting."
+    },
+    {
+      "name": "5.45",
+      "tags": "jane-speaker jane-neutral",
+      "id": "47",
+      "text": "But I can pass on a message if you need. [[5.46]]",
+      "links": [
+        {
+          "linkText": "5.46",
+          "passageName": "5.46",
+          "original": "[[5.46]]"
+        }
+      ],
+      "cleanText": "But I can pass on a message if you need."
+    },
+    {
+      "name": "5.46",
+      "tags": "marty-speaker",
+      "id": "48",
+      "text": "Oh, it's nothing urgent. I'll just leave this fragile mail in his office. [[5.47]]",
+      "links": [
+        {
+          "linkText": "5.47",
+          "passageName": "5.47",
+          "original": "[[5.47]]"
+        }
+      ],
+      "cleanText": "Oh, it's nothing urgent. I'll just leave this fragile mail in his office."
+    },
+    {
+      "name": "5.47",
+      "tags": "jane-speaker",
+      "id": "49",
+      "text": "Suit yourself. [[5.48]]",
+      "links": [
+        {
+          "linkText": "5.48",
+          "passageName": "5.48",
+          "original": "[[5.48]]"
+        }
+      ],
+      "cleanText": "Suit yourself."
+    },
+    {
+      "name": "5.48",
+      "tags": "jane_leave marty-neutral",
+      "id": "50",
+      "text": "Perfect. You've been meaning to do some investigating. If anybody would know what's going on, it's Barnaby. [[5.49]]",
+      "links": [
+        {
+          "linkText": "5.49",
+          "passageName": "5.49",
+          "original": "[[5.49]]"
+        }
+      ],
+      "cleanText": "Perfect. You've been meaning to do some investigating. If anybody would know what's going on, it's Barnaby."
+    },
+    {
+      "name": "5.49",
+      "tags": "",
+      "id": "51",
+      "text": "You go to deliver the mail, and take a peek inside his office. [[5.50]]",
+      "links": [
+        {
+          "linkText": "5.50",
+          "passageName": "5.50",
+          "original": "[[5.50]]"
+        }
+      ],
+      "cleanText": "You go to deliver the mail, and take a peek inside his office."
+    },
+    {
+      "name": "5.50",
+      "tags": "marty-leave",
+      "id": "52",
+      "text": "Inside there is a desk, a schedule, and a wall of plans for the city. \n[[Investigate the schedule. -> 5.51a]]\n[[Investigate the plans. -> 5.51b]]",
+      "links": [
+        {
+          "linkText": "Investigate the schedule.",
+          "passageName": "5.51a",
+          "original": "[[Investigate the schedule. -> 5.51a]]"
+        },
+        {
+          "linkText": "Investigate the plans.",
+          "passageName": "5.51b",
+          "original": "[[Investigate the plans. -> 5.51b]]"
+        }
+      ],
+      "cleanText": "Inside there is a desk, a schedule, and a wall of plans for the city."
+    },
+    {
+      "name": " 5.51a",
+      "tags": "",
+      "id": "53",
+      "text": "8:00AM: Wake up. [[5.52a]]",
+      "links": [
+        {
+          "linkText": "5.52a",
+          "passageName": "5.52a",
+          "original": "[[5.52a]]"
+        }
+      ],
+      "cleanText": "8:00AM: Wake up."
+    },
+    {
+      "name": " 5.51b",
+      "tags": "blueprint_chosen",
+      "id": "54",
+      "text": "You look down at the massive blueprint on the center table. [[5.52b]]",
+      "links": [
+        {
+          "linkText": "5.52b",
+          "passageName": "5.52b",
+          "original": "[[5.52b]]"
+        }
+      ],
+      "cleanText": "You look down at the massive blueprint on the center table."
+    },
+    {
+      "name": "5.52a",
+      "tags": "",
+      "id": "55",
+      "text": "9:00AM: Get the mail. [[5.53a]]",
+      "links": [
+        {
+          "linkText": "5.53a",
+          "passageName": "5.53a",
+          "original": "[[5.53a]]"
+        }
+      ],
+      "cleanText": "9:00AM: Get the mail."
+    },
+    {
+      "name": "5.53a",
+      "tags": "",
+      "id": "56",
+      "text": "12:00PM: Break for lunch. [[5.54a]]",
+      "links": [
+        {
+          "linkText": "5.54a",
+          "passageName": "5.54a",
+          "original": "[[5.54a]]"
+        }
+      ],
+      "cleanText": "12:00PM: Break for lunch."
+    },
+    {
+      "name": "5.54a",
+      "tags": "",
+      "id": "57",
+      "text": "1:00PM: Second round... [[5.55a]]",
+      "links": [
+        {
+          "linkText": "5.55a",
+          "passageName": "5.55a",
+          "original": "[[5.55a]]"
+        }
+      ],
+      "cleanText": "1:00PM: Second round..."
+    },
+    {
+      "name": "5.55a",
+      "tags": "",
+      "id": "58",
+      "text": "Wait... this is YOUR schedule! [[5.56a]]",
+      "links": [
+        {
+          "linkText": "5.56a",
+          "passageName": "5.56a",
+          "original": "[[5.56a]]"
+        }
+      ],
+      "cleanText": "Wait... this is YOUR schedule!"
+    },
+    {
+      "name": "5.56a",
+      "tags": "marty-enter marty-serious",
+      "id": "59",
+      "text": "You look around the room. There are no other schedules pinned up. [[5.57a]]",
+      "links": [
+        {
+          "linkText": "5.57a",
+          "passageName": "5.57a",
+          "original": "[[5.57a]]"
+        }
+      ],
+      "cleanText": "You look around the room. There are no other schedules pinned up."
+    },
+    {
+      "name": "5.57a",
+      "tags": "",
+      "id": "60",
+      "text": "Why does he have yours?! \n[[\"He knows I'm figuring something out!\" -> 5.58c]]\n[[\"He wants to know where I am, 24/7!\" -> 5.58d]]",
+      "links": [
+        {
+          "linkText": "\"He knows I'm figuring something out!\"",
+          "passageName": "5.58c",
+          "original": "[[\"He knows I'm figuring something out!\" -> 5.58c]]"
+        },
+        {
+          "linkText": "\"He wants to know where I am, 24/7!\"",
+          "passageName": "5.58d",
+          "original": "[[\"He wants to know where I am, 24/7!\" -> 5.58d]]"
+        }
+      ],
+      "cleanText": "Why does he have yours?!"
+    },
+    {
+      "name": " 5.58c",
+      "tags": "",
+      "id": "61",
+      "text": "But how? And why would he need to know your schedule? [[5.59e]]",
+      "links": [
+        {
+          "linkText": "5.59e",
+          "passageName": "5.59e",
+          "original": "[[5.59e]]"
+        }
+      ],
+      "cleanText": "But how? And why would he need to know your schedule?"
+    },
+    {
+      "name": " 5.58d",
+      "tags": "marty-speaker marty-scared excite big",
+      "id": "62",
+      "text": "He's stalking me! [[5.59e]]",
+      "links": [
+        {
+          "linkText": "5.59e",
+          "passageName": "5.59e",
+          "original": "[[5.59e]]"
+        }
+      ],
+      "cleanText": "He's stalking me!"
+    },
+    {
+      "name": "5.59e",
+      "tags": "marty-scared flash",
+      "id": "63",
+      "text": "Someone puts their hand on your shoulder. You spin around only to find that it's Barnaby. [[5.60]]",
+      "links": [
+        {
+          "linkText": "5.60",
+          "passageName": "5.60",
+          "original": "[[5.60]]"
+        }
+      ],
+      "cleanText": "Someone puts their hand on your shoulder. You spin around only to find that it's Barnaby."
+    },
+    {
+      "name": "5.52b",
+      "tags": "",
+      "id": "64",
+      "text": "It covers the entire thing from edge to edge, notes scrawled in the margins. [[5.53b]]",
+      "links": [
+        {
+          "linkText": "5.53b",
+          "passageName": "5.53b",
+          "original": "[[5.53b]]"
+        }
+      ],
+      "cleanText": "It covers the entire thing from edge to edge, notes scrawled in the margins."
+    },
+    {
+      "name": "5.53b",
+      "tags": "",
+      "id": "65",
+      "text": "Notes containing those those same symbols you found in the mail... [[5.54b]]",
+      "links": [
+        {
+          "linkText": "5.54b",
+          "passageName": "5.54b",
+          "original": "[[5.54b]]"
+        }
+      ],
+      "cleanText": "Notes containing those those same symbols you found in the mail..."
+    },
+    {
+      "name": "5.54b",
+      "tags": "",
+      "id": "66",
+      "text": "They seem to be written as some sort of code, a language you do not understand. [[5.55b]]",
+      "links": [
+        {
+          "linkText": "5.55b",
+          "passageName": "5.55b",
+          "original": "[[5.55b]]"
+        }
+      ],
+      "cleanText": "They seem to be written as some sort of code, a language you do not understand."
+    },
+    {
+      "name": "5.55b",
+      "tags": "",
+      "id": "67",
+      "text": "At the very top is a logo. A very familiar one. [[5.56b]]",
+      "links": [
+        {
+          "linkText": "5.56b",
+          "passageName": "5.56b",
+          "original": "[[5.56b]]"
+        }
+      ],
+      "cleanText": "At the very top is a logo. A very familiar one."
+    },
+    {
+      "name": "5.56b",
+      "tags": "",
+      "id": "68",
+      "text": "It's the eye you saw two nights ago, crossed out. [[5.57b]]",
+      "links": [
+        {
+          "linkText": "5.57b",
+          "passageName": "5.57b",
+          "original": "[[5.57b]]"
+        }
+      ],
+      "cleanText": "It's the eye you saw two nights ago, crossed out."
+    },
+    {
+      "name": "5.57b",
+      "tags": "",
+      "id": "69",
+      "text": "Beside it, text reads \"Oversight Industries. For the buyer's eyes only.\" [[5.58b]]",
+      "links": [
+        {
+          "linkText": "5.58b",
+          "passageName": "5.58b",
+          "original": "[[5.58b]]"
+        }
+      ],
+      "cleanText": "Beside it, text reads \"Oversight Industries. For the buyer's eyes only.\""
+    },
+    {
+      "name": "5.58b",
+      "tags": "",
+      "id": "70",
+      "text": "Below it, an absolutely massive budget for a covert project on the edge of town. [[5.59b]]",
+      "links": [
+        {
+          "linkText": "5.59b",
+          "passageName": "5.59b",
+          "original": "[[5.59b]]"
+        }
+      ],
+      "cleanText": "Below it, an absolutely massive budget for a covert project on the edge of town."
+    },
+    {
+      "name": "5.59b",
+      "tags": "marty-enter marty-speaker marty-serious shake quiver",
+      "id": "71",
+      "text": "What in the Honey Haven?! [[5.59e]]",
+      "links": [
+        {
+          "linkText": "5.59e",
+          "passageName": "5.59e",
+          "original": "[[5.59e]]"
+        }
+      ],
+      "cleanText": "What in the Honey Haven?!"
+    },
+    {
+      "name": "5.60",
+      "tags": "barnaby-enter-right barnaby-speaker barnaby-sad big",
+      "id": "72",
+      "text": "You've been working so hard recently. Why don't you take a few days off? \n[[Accuse Him -> 5.61a]]\n[[Shove Him -> 5.61b]]",
+      "links": [
+        {
+          "linkText": "Accuse Him",
+          "passageName": "5.61a",
+          "original": "[[Accuse Him -> 5.61a]]"
+        },
+        {
+          "linkText": "Shove Him",
+          "passageName": "5.61b",
+          "original": "[[Shove Him -> 5.61b]]"
+        }
+      ],
+      "cleanText": "You've been working so hard recently. Why don't you take a few days off?"
+    },
+    {
+      "name": " 5.61a",
+      "tags": "marty-speaker marty-angry excite",
+      "id": "73",
+      "text": "What!? Are you trying to get rid of me? [[5.62a]]",
+      "links": [
+        {
+          "linkText": "5.62a",
+          "passageName": "5.62a",
+          "original": "[[5.62a]]"
+        }
+      ],
+      "cleanText": "What!? Are you trying to get rid of me?"
+    },
+    {
+      "name": " 5.61b",
+      "tags": "marty-angry flash",
+      "id": "74",
+      "text": "You shove Barnaby with all your might. [[5.62b]]",
+      "links": [
+        {
+          "linkText": "5.62b",
+          "passageName": "5.62b",
+          "original": "[[5.62b]]"
+        }
+      ],
+      "cleanText": "You shove Barnaby with all your might."
+    },
+    {
+      "name": "5.62b",
+      "tags": "marty-speaker excite big",
+      "id": "75",
+      "text": "Get your paws off of me! [[5.63b]]",
+      "links": [
+        {
+          "linkText": "5.63b",
+          "passageName": "5.63b",
+          "original": "[[5.63b]]"
+        }
+      ],
+      "cleanText": "Get your paws off of me!"
+    },
+    {
+      "name": "5.62a",
+      "tags": "barnaby-neutral barnaby-speaker",
+      "id": "76",
+      "text": "No, I'm just trying to get you out of my *office*. [[5.63a]]",
+      "links": [
+        {
+          "linkText": "5.63a",
+          "passageName": "5.63a",
+          "original": "[[5.63a]]"
+        }
+      ],
+      "cleanText": "No, I'm just trying to get you out of my *office*."
+    },
+    {
+      "name": "5.63a",
+      "tags": "barnaby-speaker",
+      "id": "77",
+      "text": "We've noticed that you're a little off recently. You should rest. [[5.64a]]",
+      "links": [
+        {
+          "linkText": "5.64a",
+          "passageName": "5.64a",
+          "original": "[[5.64a]]"
+        }
+      ],
+      "cleanText": "We've noticed that you're a little off recently. You should rest."
+    },
+    {
+      "name": "5.64a",
+      "tags": "marty-angry marty-speaker excite",
+      "id": "78",
+      "text": "I don't need rest! I need *answers*! [[5.65c1]]",
+      "links": [
+        {
+          "linkText": "5.65c1",
+          "passageName": "5.65c1",
+          "original": "[[5.65c1]]"
+        }
+      ],
+      "cleanText": "I don't need rest! I need *answers*!"
+    },
+    {
+      "name": "5.65c1",
+      "tags": "barnaby-angry",
+      "id": "79",
+      "text": "Barnaby fixes you with an intense stare. [[5.66c]]",
+      "links": [
+        {
+          "linkText": "5.66c",
+          "passageName": "5.66c",
+          "original": "[[5.66c]]"
+        }
+      ],
+      "cleanText": "Barnaby fixes you with an intense stare."
+    },
+    {
+      "name": "5.63b",
+      "tags": "barnaby-leave flash",
+      "id": "80",
+      "text": "Barnaby stumbles back and puts up his paws to block. [[5.64b]]",
+      "links": [
+        {
+          "linkText": "5.64b",
+          "passageName": "5.64b",
+          "original": "[[5.64b]]"
+        }
+      ],
+      "cleanText": "Barnaby stumbles back and puts up his paws to block."
+    },
+    {
+      "name": "5.64b",
+      "tags": "blueprint_chosen barnaby-speaker barnaby-enter-right barnaby-angry",
+      "id": "81",
+      "text": "You're making a huge mistake, Marty! \n[[\"WHY DO YOU HAVE MY SCHEDULE?!\" -> 5.65c2]]\n[[\"WHAT ARE YOU BUILDING?!\" -> 5.65c2]]\n[[Punch him in the stomach! -> 5.65b1]]",
+      "links": [
+        {
+          "linkText": "\"WHY DO YOU HAVE MY SCHEDULE?!\"",
+          "passageName": "5.65c2",
+          "original": "[[\"WHY DO YOU HAVE MY SCHEDULE?!\" -> 5.65c2]]"
+        },
+        {
+          "linkText": "\"WHAT ARE YOU BUILDING?!\"",
+          "passageName": "5.65c2",
+          "original": "[[\"WHAT ARE YOU BUILDING?!\" -> 5.65c2]]"
+        },
+        {
+          "linkText": "Punch him in the stomach!",
+          "passageName": "5.65b1",
+          "original": "[[Punch him in the stomach! -> 5.65b1]]"
+        }
+      ],
+      "cleanText": "You're making a huge mistake, Marty!"
+    },
+    {
+      "name": " 5.65c2",
+      "tags": "",
+      "id": "82",
+      "text": "Barnaby fixes you with an intense stare. [[5.66c]]",
+      "links": [
+        {
+          "linkText": "5.66c",
+          "passageName": "5.66c",
+          "original": "[[5.66c]]"
+        }
+      ],
+      "cleanText": "Barnaby fixes you with an intense stare."
+    },
+    {
+      "name": " 5.65b1",
+      "tags": "marty-leave barnaby-leave flash",
+      "id": "83",
+      "text": "You attempt to punch him in the gut. [[5.66b1]]",
+      "links": [
+        {
+          "linkText": "5.66b1",
+          "passageName": "5.66b1",
+          "original": "[[5.66b1]]"
+        }
+      ],
+      "cleanText": "You attempt to punch him in the gut."
+    },
+    {
+      "name": "5.66c",
+      "tags": "barnaby-speaker",
+      "id": "84",
+      "text": "Don't come to work tomorrow. [[5.67c]]",
+      "links": [
+        {
+          "linkText": "5.67c",
+          "passageName": "5.67c",
+          "original": "[[5.67c]]"
+        }
+      ],
+      "cleanText": "Don't come to work tomorrow."
+    },
+    {
+      "name": "5.67c",
+      "tags": "barnaby_leave",
+      "id": "85",
+      "text": "He walks away before you can continue. [[5.74]]",
+      "links": [
+        {
+          "linkText": "5.74",
+          "passageName": "5.74",
+          "original": "[[5.74]]"
+        }
+      ],
+      "cleanText": "He walks away before you can continue."
+    },
+    {
+      "name": "5.66b1",
+      "tags": "shake",
+      "id": "86",
+      "text": "Barnaby catches you by the hand and slams you to the ground. [[5.67b1]]",
+      "links": [
+        {
+          "linkText": "5.67b1",
+          "passageName": "5.67b1",
+          "original": "[[5.67b1]]"
+        }
+      ],
+      "cleanText": "Barnaby catches you by the hand and slams you to the ground."
+    },
+    {
+      "name": "5.67b1",
+      "tags": "",
+      "id": "87",
+      "text": "The marble is cold and hard, Barnaby's weight pressing you into it. [[5.68b1]]",
+      "links": [
+        {
+          "linkText": "5.68b1",
+          "passageName": "5.68b1",
+          "original": "[[5.68b1]]"
+        }
+      ],
+      "cleanText": "The marble is cold and hard, Barnaby's weight pressing you into it."
+    },
+    {
+      "name": "5.68b1",
+      "tags": "barnaby-enter-right barnaby-speaker barnaby-angry shake",
+      "id": "88",
+      "text": "I highly suggest you don't try anything. I'm a whole lot bigger than you are, and I have training. [[5.69b1]]",
+      "links": [
+        {
+          "linkText": "5.69b1",
+          "passageName": "5.69b1",
+          "original": "[[5.69b1]]"
+        }
+      ],
+      "cleanText": "I highly suggest you don't try anything. I'm a whole lot bigger than you are, and I have training."
+    },
+    {
+      "name": "5.69b1",
+      "tags": "barnaby-speaker shake",
+      "id": "89",
+      "text": "If I were you, I'd make sure not to look me in the eyes for the next week. [[5.70b1]]",
+      "links": [
+        {
+          "linkText": "5.70b1",
+          "passageName": "5.70b1",
+          "original": "[[5.70b1]]"
+        }
+      ],
+      "cleanText": "If I were you, I'd make sure not to look me in the eyes for the next week."
+    },
+    {
+      "name": "5.70b1",
+      "tags": "barnaby-speaker shake",
+      "id": "90",
+      "text": "I don't know what's gotten into you, but whatever it is, it's a danger not just to you, but the whole town. [[5.71b1]]",
+      "links": [
+        {
+          "linkText": "5.71b1",
+          "passageName": "5.71b1",
+          "original": "[[5.71b1]]"
+        }
+      ],
+      "cleanText": "I don't know what's gotten into you, but whatever it is, it's a danger not just to you, but the whole town."
+    },
+    {
+      "name": "5.71b1",
+      "tags": "barnaby-speaker big",
+      "id": "91",
+      "text": "Drop it, Marty. [[5.72b1]]",
+      "links": [
+        {
+          "linkText": "5.72b1",
+          "passageName": "5.72b1",
+          "original": "[[5.72b1]]"
+        }
+      ],
+      "cleanText": "Drop it, Marty."
+    },
+    {
+      "name": "5.72b1",
+      "tags": "barnaby-speaker barnaby-neutral",
+      "id": "92",
+      "text": "Oh, and one last thing.. [[5.73b1]]",
+      "links": [
+        {
+          "linkText": "5.73b1",
+          "passageName": "5.73b1",
+          "original": "[[5.73b1]]"
+        }
+      ],
+      "cleanText": "Oh, and one last thing.."
+    },
+    {
+      "name": "5.73b1",
+      "tags": "barnaby-speaker barnaby-angry",
+      "id": "93",
+      "text": "Don't come to work tomorrow. [[5.74]]",
+      "links": [
+        {
+          "linkText": "5.74",
+          "passageName": "5.74",
+          "original": "[[5.74]]"
+        }
+      ],
+      "cleanText": "Don't come to work tomorrow."
+    },
+    {
+      "name": "5.74",
+      "tags": "barnaby_leave marty_leave night_closed_bedroom",
+      "id": "94",
+      "text": "Time passed faster than it felt like, and soon it is night. You pace around your room. [[5.75]]",
+      "links": [
+        {
+          "linkText": "5.75",
+          "passageName": "5.75",
+          "original": "[[5.75]]"
+        }
+      ],
+      "cleanText": "Time passed faster than it felt like, and soon it is night. You pace around your room."
+    },
+    {
+      "name": "5.75",
+      "tags": "marty_enter marty-speaker marty-angry excite",
+      "id": "95",
+      "text": "I knew it! They're all hiding something from me. [[5.76]]",
+      "links": [
+        {
+          "linkText": "5.76",
+          "passageName": "5.76",
+          "original": "[[5.76]]"
+        }
+      ],
+      "cleanText": "I knew it! They're all hiding something from me."
+    },
+    {
+      "name": "5.76",
+      "tags": "marty-serious shake",
+      "id": "96",
+      "text": "The city plans, the schedule, the looks everyone gave you.. it doesn't paint a very good picture now does it? [[5.77]]",
+      "links": [
+        {
+          "linkText": "5.77",
+          "passageName": "5.77",
+          "original": "[[5.77]]"
+        }
+      ],
+      "cleanText": "The city plans, the schedule, the looks everyone gave you.. it doesn't paint a very good picture now does it?"
+    },
+    {
+      "name": "5.77",
+      "tags": "",
+      "id": "97",
+      "text": "You feel a bumbling energy within you, completely opposite to the deadness you've felt the last few days. [[5.78]]",
+      "links": [
+        {
+          "linkText": "5.78",
+          "passageName": "5.78",
+          "original": "[[5.78]]"
+        }
+      ],
+      "cleanText": "You feel a bumbling energy within you, completely opposite to the deadness you've felt the last few days."
+    },
+    {
+      "name": "5.78",
+      "tags": "marty_leave closet_letter flash",
+      "id": "98",
+      "text": "As you prepare to sleep, you see a weirdly shaped paw slowly reach out from inside your closet. It beckons you closer. [[5.79]]",
+      "links": [
+        {
+          "linkText": "5.79",
+          "passageName": "5.79",
+          "original": "[[5.79]]"
+        }
+      ],
+      "cleanText": "As you prepare to sleep, you see a weirdly shaped paw slowly reach out from inside your closet. It beckons you closer."
+    },
+    {
+      "name": "5.79",
+      "tags": "",
+      "id": "99",
+      "text": "You stare at it, not budging. [[5.80]]",
+      "links": [
+        {
+          "linkText": "5.80",
+          "passageName": "5.80",
+          "original": "[[5.80]]"
+        }
+      ],
+      "cleanText": "You stare at it, not budging."
+    },
+    {
+      "name": "5.80",
+      "tags": "",
+      "id": "100",
+      "text": "The paw pulls a letter out from your closet and drops it on your nightstand. [[5.81]]",
+      "links": [
+        {
+          "linkText": "5.81",
+          "passageName": "5.81",
+          "original": "[[5.81]]"
+        }
+      ],
+      "cleanText": "The paw pulls a letter out from your closet and drops it on your nightstand."
+    },
+    {
+      "name": "5.81",
+      "tags": "night_closed_bedroom",
+      "id": "101",
+      "text": "You scramble to pick up the letter. [[5.82]]",
+      "links": [
+        {
+          "linkText": "5.82",
+          "passageName": "5.82",
+          "original": "[[5.82]]"
+        }
+      ],
+      "cleanText": "You scramble to pick up the letter."
+    },
+    {
+      "name": "5.82",
+      "tags": "flash",
+      "id": "102",
+      "text": "\"You're so close to the truth. Tomorrow it will all become clear.\" [[5.83]]",
+      "links": [
+        {
+          "linkText": "5.83",
+          "passageName": "5.83",
+          "original": "[[5.83]]"
+        }
+      ],
+      "cleanText": "\"You're so close to the truth. Tomorrow it will all become clear.\""
+    },
+    {
+      "name": "5.83",
+      "tags": "",
+      "id": "103",
+      "text": "End of Day 5.",
+      "links": [],
+      "cleanText": "End of Day 5."
+    }
+  ]
+}
+

@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://bqy0jyn6kt6xx"]
+
+[ext_resource type="Script" uid="uid://4poea7ke0fq0" path="res://scenes/summary_screen.gd" id="1_q3quu"]
+[ext_resource type="Texture2D" uid="uid://dfh02vcusrypg" path="res://sprites/result screen.png" id="1_v7ujm"]
+[ext_resource type="Texture2D" uid="uid://dmmkaldwlhb5e" path="res://sprites/buttonsFakeSmile.webp" id="2_inait"]
+[ext_resource type="Texture2D" uid="uid://c50d1slig3vb6" path="res://sprites/buttonsneutral.webp" id="4_21q6l"]
+[ext_resource type="Texture2D" uid="uid://ddsfwoxeolep5" path="res://sprites/staricon_black.png" id="4_q3quu"]
+[ext_resource type="AudioStream" uid="uid://uf4lcd74q4lf" path="res://sounds/good.mp3" id="6_21q6l"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_owmjg"]
+font_size = 80
+
+[sub_resource type="LabelSettings" id="LabelSettings_bjsgy"]
+font_size = 40
+font_color = Color(0, 0, 0, 1)
+
+[node name="SummaryScreen" type="Node2D" unique_id=1505409169]
+script = ExtResource("1_q3quu")
+
+[node name="bg" type="Sprite2D" parent="." unique_id=219538983]
+position = Vector2(626, 375.99997)
+scale = Vector2(0.55, 0.55)
+texture = ExtResource("1_v7ujm")
+
+[node name="buny" type="Sprite2D" parent="." unique_id=796919818]
+position = Vector2(288.00003, 518.00006)
+scale = Vector2(-0.7424878, 0.7424878)
+texture = ExtResource("2_inait")
+
+[node name="buny2" type="Sprite2D" parent="." unique_id=645786985]
+visible = false
+position = Vector2(288.00003, 518.00006)
+scale = Vector2(-0.5, 0.5)
+texture = ExtResource("4_21q6l")
+
+[node name="Label" type="Label" parent="." unique_id=1592342913]
+offset_left = 794.0
+offset_top = 203.0
+offset_right = 969.0
+offset_bottom = 313.0
+text = "0"
+label_settings = SubResource("LabelSettings_owmjg")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="." unique_id=1402330550]
+offset_left = 155.0
+offset_top = 79.0
+offset_right = 573.0
+offset_bottom = 192.0
+text = "hmmm..."
+label_settings = SubResource("LabelSettings_bjsgy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="star1" type="Sprite2D" parent="." unique_id=1704035657]
+position = Vector2(768, 471)
+scale = Vector2(0.25520825, 0.25520825)
+texture = ExtResource("4_q3quu")
+
+[node name="star2" type="Sprite2D" parent="." unique_id=1049390460]
+position = Vector2(872, 474)
+scale = Vector2(0.25520825, 0.25520825)
+texture = ExtResource("4_q3quu")
+
+[node name="star3" type="Sprite2D" parent="." unique_id=216930736]
+position = Vector2(979, 474)
+scale = Vector2(0.25520825, 0.25520825)
+texture = ExtResource("4_q3quu")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2083866781]
+stream = ExtResource("6_21q6l")

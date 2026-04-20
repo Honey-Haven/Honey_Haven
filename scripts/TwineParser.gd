@@ -22,6 +22,9 @@ class_name TwineParser
 #  minigame_end             → emits a minigame_end packet (no-op marker)
 #  flash                    → flashes the screen black before this passage's dialogue
 #
+#  NOTE: Both - and _ are accepted as the separator between actor name and
+#  suffix, so marty-enter and marty_enter are treated identically.
+#
 #  DEFAULT POSITIONS
 #  ─────────────────
 #  Marty always defaults to LEFT (see ActorManager.PREFER_LEFT_ACTORS).
@@ -63,7 +66,15 @@ const ACTOR_ALIASES: Dictionary = {}
 const STRUCTURAL_TAGS: Array = [
 	"must_visit", "minigame_start", "minigame_end", "flash",
 	"hand-outstretched-sprite",
+	"minigame_carrots", "minigame_gameee",
 ]
+
+# All tags that should trigger a minigame (prefix-matched against "minigame_")
+static func _get_minigame_tag(tags: Array) -> String:
+	for t in tags:
+		if t.begins_with("minigame_") and t != "minigame_start" and t != "minigame_end":
+			return t
+	return ""
 
 # Populated at runtime via register_background() in VNController.
 static var BACKGROUND_MAP: Dictionary = {}
@@ -214,14 +225,16 @@ static func _walk(name: String, ctx: _ParseContext) -> void:
 		var enter_expr: String = enter_info["expression"]
 		if enter_expr == "":
 			enter_expr = "neutral"
-		if not ctx.on_stage.has(actor_id):
-			ctx.packets.append({
-				"type":       "appear",
-				"actor_id":   actor_id,
-				"expression": enter_expr,
-				"position":   position,
-			})
-			ctx.on_stage[actor_id] = true
+		# Always emit the appear packet. Branches that converge may have
+		# different on_stage histories, so we can't suppress based on ctx.on_stage.
+		# VNLogic deduplicates at runtime using _current_stage_state.
+		ctx.packets.append({
+			"type":       "appear",
+			"actor_id":   actor_id,
+			"expression": enter_expr,
+			"position":   position,
+		})
+		ctx.on_stage[actor_id] = true
 
 	# ── Expression update for actors already on stage ─────────────────────────
 	for actor_lower in parsed["expressions"]:
@@ -256,8 +269,16 @@ static func _walk(name: String, ctx: _ParseContext) -> void:
 			"word_shake": false,
 		})
 
-	# ── minigame_start tag ────────────────────────────────────────────────────
-	if raw_tags.has("minigame_start"):
+	# ── minigame tag (e.g. minigame_carrots, minigame_gameee) ─────────────────
+	var mg_tag: String = _get_minigame_tag(raw_tags)
+	if mg_tag != "":
+		ctx.packets.append({
+			"type": "minigame",
+			"id":   mg_tag,
+			"data": {},
+		})
+	elif raw_tags.has("minigame_start"):
+		# Legacy fallback: passage name used as id
 		ctx.packets.append({
 			"type": "minigame",
 			"id":   clean_name,
@@ -381,12 +402,17 @@ static func _parse_actor_tags(tags: Array) -> Dictionary:
 		if t == "narrator":
 			continue
 
-		if not "-" in t:
+		# Accept both - and _ as the separator between actor name and suffix.
+		var sep_pos: int = -1
+		for i in t.length():
+			if t[i] == "-" or t[i] == "_":
+				sep_pos = i
+				break
+		if sep_pos == -1:
 			continue
 
-		var hyphen_pos:  int    = t.find("-")
-		var actor_part:  String = t.substr(0, hyphen_pos)
-		var suffix:      String = t.substr(hyphen_pos + 1)
+		var actor_part:  String = t.substr(0, sep_pos)
+		var suffix:      String = t.substr(sep_pos + 1)
 
 		if not KNOWN_ACTORS.has(actor_part):
 			continue
@@ -406,11 +432,11 @@ static func _parse_actor_tags(tags: Array) -> Dictionary:
 				leaves.append(actor_id)
 			continue
 
-		if suffix == "enter" or suffix.begins_with("enter-"):
+		if suffix == "enter" or suffix.begins_with("enter-") or suffix.begins_with("enter_"):
 			var position: String = ""
-			if   suffix == "enter-left":                              position = "left"
-			elif suffix == "enter-right":                             position = "right"
-			elif suffix == "enter-middle" or suffix == "enter-center": position = "center"
+			if   suffix == "enter-left"   or suffix == "enter_left":                                      position = "left"
+			elif suffix == "enter-right"  or suffix == "enter_right":                                     position = "right"
+			elif suffix == "enter-middle" or suffix == "enter_middle" or suffix == "enter-center" or suffix == "enter_center": position = "center"
 
 			var already: bool = false
 			for e in enters:
@@ -477,6 +503,8 @@ static func _links_are_choices(links: Array) -> bool:
 
 static func _is_structural_only(tags: Array, text: String) -> bool:
 	if tags.has("minigame_start") or tags.has("minigame_end"):
+		return true
+	if _get_minigame_tag(tags) != "":
 		return true
 	if text.begins_with("[[") and text.ends_with("]]"):
 		return true

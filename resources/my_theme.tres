@@ -27,7 +27,7 @@ metadata/_custom_type_script = "uid://bjidwmwu4h6ak"
 
 [sub_resource type="Resource" id="Resource_t3fuo"]
 script = ExtResource("3_7evcc")
-bg_color = Color(0.49411765, 0.32941177, 0.2509804, 1)
+bg_color = Color(0.3647059, 0.24313726, 0.21960784, 1)
 border_color = Color(0.98039216, 0.85882354, 0.7607843, 1)
 font_color = Color(0.99215686, 0.8980392, 0.8509804, 1)
 metadata/_custom_type_script = "uid://cacl4te26q5q2"
@@ -39,11 +39,11 @@ metadata/_custom_type_script = "uid://bxgr1pbwt8map"
 [sub_resource type="Resource" id="Resource_b5efn"]
 script = ExtResource("6_y6r7j")
 bg_color = Color(0.9785531, 0.8606543, 0.7588572, 1)
-border_color = Color(0.49388444, 0.32972452, 0.25028974, 1)
-font_color = Color(0.49411765, 0.32941177, 0.2509804, 1)
+border_color = Color(0.36524293, 0.24167445, 0.2211226, 1)
+font_color = Color(0.3647059, 0.24313726, 0.21960784, 1)
 narrator_bg_color = Color(1, 1, 1, 1)
-narrator_border_color = Color(0.49411765, 0.32941177, 0.2509804, 1)
-narrator_font_color = Color(0.49411765, 0.32941177, 0.2509804, 1)
+narrator_border_color = Color(1, 1, 1, 1)
+narrator_font_color = Color(0, 0, 0, 1)
 demon_bg_color = Color(0.05647122, 0.0015289565, 0.0015969181, 0.92941177)
 demon_border_color = Color(0.05490196, 0, 0, 0.92941177)
 demon_font_color = Color(1, 1, 1, 1)

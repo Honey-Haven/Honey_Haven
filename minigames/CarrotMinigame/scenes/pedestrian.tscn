@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://chp7qvgjkpig1"]
+
+[ext_resource type="Script" uid="uid://di4opqtflv3jp" path="res://pedestrian.gd" id="1_ccstn"]
+[ext_resource type="Texture2D" uid="uid://cj6obt1ul2r7p" path="res://sprites/sheep1.webp" id="2_4t8nm"]
+[ext_resource type="Texture2D" uid="uid://kn0agn82kdo2" path="res://sprites/sheep.png" id="2_55wug"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bixwg"]
+size = Vector2(13.666667, 20)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ccstn"]
+radius = 40.0
+
+[node name="Pedestrian" type="Area2D" unique_id=1160570583 groups=["pedestrian"]]
+collision_layer = 8
+collision_mask = 3
+script = ExtResource("1_ccstn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=32661752]
+position = Vector2(-0.99999905, 0)
+scale = Vector2(6, 4)
+shape = SubResource("RectangleShape2D_bixwg")
+debug_color = Color(0.90685093, 0.00012860536, 0.7436982, 0.41960785)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1840034529]
+position = Vector2(-3.9999995, -0.9999999)
+scale = Vector2(0.17, 0.17)
+texture = ExtResource("2_4t8nm")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=434972164]
+visible = false
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_55wug")
+
+[node name="ShapeCast2D" type="ShapeCast2D" parent="." unique_id=767955316]
+shape = SubResource("CircleShape2D_ccstn")
+target_position = Vector2(0, 100)
+collision_mask = 4

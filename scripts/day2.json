@@ -4,16 +4,16 @@
   "uuid": "38865261-6FD1-4C45-9F9A-E436CD21062B",
   "name": "Honey Haven Day 2",
   "creator": "Twine",
-  "creatorVersion": "2.11.1",
+  "creatorVersion": "2.12.0",
   "schemaName": "Twine to JSON",
   "schemaVersion": "0.0.6",
-  "createdAtMs": 1774216185733,
+  "createdAtMs": 1776640767943,
   "passages": [
     {
       "name": "2.1",
       "tags": "",
       "id": "1",
-      "text": "Day 2 Starts [[2.2]]",
+      "text": "Day 2 [[2.2]]",
       "links": [
         {
           "linkText": "2.2",
@@ -21,11 +21,11 @@
           "original": "[[2.2]]"
         }
       ],
-      "cleanText": "Day 2 Starts"
+      "cleanText": "Day 2"
     },
     {
       "name": "2.2",
-      "tags": "",
+      "tags": "sunny_bedroom",
       "id": "2",
       "text": "You wake up feeling heavier than usual. With bleary eyes, you start your morning routine. [[2.3]]",
       "links": [
@@ -39,7 +39,7 @@
     },
     {
       "name": "2.3",
-      "tags": "marty_enter marty",
+      "tags": "marty_enter marty_neutral marty_speaker",
       "id": "3",
       "text": "Yaaaawnn. I feel like I slept nothing. Oh well. I better going so I'm not late. [[2.4]]",
       "links": [
@@ -67,7 +67,7 @@
     },
     {
       "name": "2.5",
-      "tags": "",
+      "tags": "casserole_avenue",
       "id": "5",
       "text": "You head out to deliver mail, first stopping by Cassrole Avenue. [[2.6]]",
       "links": [
@@ -81,7 +81,7 @@
     },
     {
       "name": "2.6",
-      "tags": "marty_enter buttons_enter buttons",
+      "tags": "marty_enter buttons_neutral marty_neutral buttons_enter_right buttons_speaker",
       "id": "6",
       "text": "Hi Marty! Thanks for taking that carrot delivery for me! And thanks for the mail! [[2.7]]",
       "links": [
@@ -95,7 +95,7 @@
     },
     {
       "name": "2.7",
-      "tags": "marty",
+      "tags": "marty_happy marty_speaker",
       "id": "7",
       "text": "No problem! Garden looks great by the way! So many carrots. See you later! [[2.8]]",
       "links": [
@@ -109,7 +109,7 @@
     },
     {
       "name": "2.8",
-      "tags": "buttons_leave peaches_enter peaches",
+      "tags": "buttons_leave peaches_enter_right peaches_neutral peaches_speaker",
       "id": "8",
       "text": "Thank you Marty. [[2.9]]",
       "links": [
@@ -123,7 +123,7 @@
     },
     {
       "name": "2.9",
-      "tags": "peaches_leave matthew_enter matthew",
+      "tags": "peaches_leave matthew_enter_right matthew_neutral matthew_speaker",
       "id": "9",
       "text": "Thanks Marty. Wow, you're yawning a lot today. [[2.10]]",
       "links": [
@@ -137,7 +137,7 @@
     },
     {
       "name": "2.10",
-      "tags": "marty",
+      "tags": "marty_neutral marty_speaker",
       "id": "10",
       "text": "Yeah.. didn't sleep too good. [[2.11]]",
       "links": [
@@ -151,7 +151,7 @@
     },
     {
       "name": "2.11",
-      "tags": "marty",
+      "tags": "marty_neutral marty_speaker",
       "id": "11",
       "text": "Oh yeah! Something weird happened yesterday... \n[[Tell him about the letter -> 2.12a]]\n[[Don't tell him about the letter -> 2.12b]]",
       "links": [
@@ -170,7 +170,7 @@
     },
     {
       "name": " 2.12a",
-      "tags": "marty",
+      "tags": "marty_scared marty_speaker",
       "id": "12",
       "text": "There was this letter in my paws.. and it just disappeared. [[2.13a]]",
       "links": [
@@ -184,7 +184,7 @@
     },
     {
       "name": " 2.12b",
-      "tags": "matthew",
+      "tags": "matthew_neutral matthew_speaker",
       "id": "13",
       "text": "Yes? [[2.13b]]",
       "links": [
@@ -198,7 +198,7 @@
     },
     {
       "name": "2.13b",
-      "tags": "marty",
+      "tags": "marty_neutral marty_speaker",
       "id": "14",
       "text": "It's nothing. Just saw an odd letter yesterday with some weird writing. [[2.14b]]",
       "links": [
@@ -212,7 +212,7 @@
     },
     {
       "name": "2.13a",
-      "tags": "matthew",
+      "tags": "matthew_sad matthew_speaker",
       "id": "15",
       "text": "... [[2.15]]",
       "links": [
@@ -226,7 +226,7 @@
     },
     {
       "name": "2.14b",
-      "tags": "matthew",
+      "tags": "matthew_sad matthew_speaker",
       "id": "16",
       "text": "... [[2.15]]",
       "links": [
@@ -240,7 +240,7 @@
     },
     {
       "name": "2.15",
-      "tags": "matthew",
+      "tags": "matthew_sad matthew_speaker",
       "id": "17",
       "text": "Marty.. you're tired. [[2.16]]",
       "links": [
@@ -254,7 +254,7 @@
     },
     {
       "name": "2.16",
-      "tags": "marty",
+      "tags": "marty_scared marty_speaker",
       "id": "18",
       "text": "I know, I know. But I just feel odd, you know? Do you believe me? [[2.17]]",
       "links": [
@@ -268,7 +268,7 @@
     },
     {
       "name": "2.17",
-      "tags": "matthew",
+      "tags": "matthew_neutral matthew_speaker",
       "id": "19",
       "text": "Of course I do. You know I'm always on your side. Just get more rest. [[2.18]]",
       "links": [
@@ -282,7 +282,7 @@
     },
     {
       "name": "2.18",
-      "tags": "marty",
+      "tags": "marty_neutral marty_speaker",
       "id": "20",
       "text": "You're right. See you tomorrow. [[2.19]]",
       "links": [
@@ -296,7 +296,7 @@
     },
     {
       "name": "2.19",
-      "tags": "marty_leave matthew_leave",
+      "tags": "marty_leave matthew_leave truffle_corner",
       "id": "21",
       "text": "You stop by Truffle Corner and knock on Mr. Smith's door again. [[2.20]]",
       "links": [
@@ -310,7 +310,7 @@
     },
     {
       "name": "2.20",
-      "tags": "marty_enter marty",
+      "tags": "marty_enter marty_neutral marty_speaker",
       "id": "22",
       "text": "Mr. Smith? [[2.21]]",
       "links": [
@@ -324,7 +324,7 @@
     },
     {
       "name": "2.21",
-      "tags": "smith",
+      "tags": "smith_speaker",
       "id": "23",
       "text": "... \n[[Give up -> 2.22a]]\n[[Try again -> 2.22b]]",
       "links": [
@@ -357,7 +357,7 @@
     },
     {
       "name": " 2.22b",
-      "tags": "marty",
+      "tags": "marty_scared marty_speaker",
       "id": "25",
       "text": "Mr. Smith? Are you home? [[2.23b]]",
       "links": [
@@ -371,7 +371,7 @@
     },
     {
       "name": "2.23b",
-      "tags": "smith",
+      "tags": "smith_speaker",
       "id": "26",
       "text": "... [[2.24b]]",
       "links": [
@@ -399,7 +399,7 @@
     },
     {
       "name": "2.25",
-      "tags": "",
+      "tags": "pepper_lane",
       "id": "28",
       "text": "You go to Pepper Lane and see Mrs. Tofu and Mr. Scotch. [[2.26]]",
       "links": [
@@ -413,7 +413,7 @@
     },
     {
       "name": "2.26",
-      "tags": "marty_enter tofu/scotch_enter tofu",
+      "tags": "marty_enter tofu_neutral marty_neutral sloth_neutral tofu_enter_right scotch_enter_right tofu_speaker",
       "id": "29",
       "text": "Marty! Good morning! [[2.27]]",
       "links": [
@@ -427,7 +427,7 @@
     },
     {
       "name": "2.27",
-      "tags": "scotch",
+      "tags": "scotch_speaker scotch_neutral",
       "id": "30",
       "text": "Thanks Marty! [[2.28]]",
       "links": [
@@ -441,7 +441,7 @@
     },
     {
       "name": "2.28",
-      "tags": "tofu/scotch_leave",
+      "tags": "tofu_leave scotch_leave",
       "id": "31",
       "text": "You walk up the street to see a familiar purple cat. [[2.29]]",
       "links": [
@@ -455,7 +455,7 @@
     },
     {
       "name": "2.29",
-      "tags": "chester_enter chester",
+      "tags": "chester_enter chester_neutral chester_speaker",
       "id": "32",
       "text": "Sir, did you see the big scary monster under your bed last night? [[2.30]]",
       "links": [
@@ -469,7 +469,7 @@
     },
     {
       "name": "2.30",
-      "tags": "marty",
+      "tags": "marty_neutral marty_speaker",
       "id": "33",
       "text": "Chester, there's nothing there. Now give these letters to your mom. [[2.30.1]]",
       "links": [
@@ -483,7 +483,7 @@
     },
     {
       "name": "2.31",
-      "tags": "chester",
+      "tags": "chester_happy chester_speaker excite",
       "id": "34",
       "text": "Hee hee, but I know it's watching you! [[2.32]]",
       "links": [
@@ -497,7 +497,7 @@
     },
     {
       "name": "2.32",
-      "tags": "chester",
+      "tags": "chester_happy chester_speaker excite",
       "id": "35",
       "text": "You're gonna end up just like those people who went missing! \n[[\"What do you mean?\" -> 2.33a]]\n[[\"That's not funny.\" -> 2.33b]]",
       "links": [
@@ -516,7 +516,7 @@
     },
     {
       "name": " 2.33a",
-      "tags": "chester",
+      "tags": "chester_happy chester_speaker",
       "id": "36",
       "text": "Like the mister who got taken away by the scary monsters under his bed! You're nex- [[2.34]]",
       "links": [
@@ -530,7 +530,7 @@
     },
     {
       "name": " 2.33b",
-      "tags": "chester",
+      "tags": "chester_happy chester_speaker",
       "id": "37",
       "text": "Hehehehehehe well you won't be laughing when the big scary monster under your bed takes you awa- [[2.34]]",
       "links": [
@@ -544,7 +544,7 @@
     },
     {
       "name": "2.34",
-      "tags": "chester mochi_enter",
+      "tags": "mochi_enter chester_angry mochi_angry chester_speaker shake",
       "id": "38",
       "text": "Yow! [[2.35]]",
       "links": [
@@ -558,7 +558,7 @@
     },
     {
       "name": "2.35",
-      "tags": "mochi",
+      "tags": "mochi_stern mochi_speaker",
       "id": "39",
       "text": "Sorry about that Marty. This one needs a spanking to learn his lesson. [[2.36]]",
       "links": [
@@ -586,7 +586,7 @@
     },
     {
       "name": "2.37",
-      "tags": "chester",
+      "tags": "chester_angry chester_speaker quiver",
       "id": "41",
       "text": "THEY'RE LYING! HAAHAHAHAHA BUT I KNOW THE TRUTH! [[2.38]]",
       "links": [
@@ -600,7 +600,7 @@
     },
     {
       "name": "2.38",
-      "tags": "mochi_leave chester_leave marty",
+      "tags": "mochi_leave chester_leave marty_scared marty_speaker",
       "id": "42",
       "text": "What the.... \n[[Shrug it off -> 2.39a]]\n[[Keep it in mind -> 2.39b]]",
       "links": [
@@ -619,7 +619,7 @@
     },
     {
       "name": " 2.39a",
-      "tags": "marty",
+      "tags": "marty_neutral marty_speaker",
       "id": "43",
       "text": "Sigh.. kids will be kids. Now I know why Mrs. Tofu and Mr. Scotch don't have any. [[2.40]]",
       "links": [
@@ -647,7 +647,7 @@
     },
     {
       "name": "2.40",
-      "tags": "peanut_enter",
+      "tags": "peanut_enter peanut_neutral",
       "id": "45",
       "text": "You get to Mr. Schlawg's house and see his son, Peanut, sticking his head out from behind the door. His snout is quivering. [[2.41]] \n[[2.41 alt]]",
       "links": [
@@ -680,7 +680,7 @@
     },
     {
       "name": "2.51",
-      "tags": "marty",
+      "tags": "marty_neutral marty_speaker",
       "id": "47",
       "text": "I think.. kids are not for me. [[2.52]]",
       "links": [
@@ -694,7 +694,7 @@
     },
     {
       "name": "2.52",
-      "tags": "marty_leave",
+      "tags": "marty_leave inside_town_square",
       "id": "48",
       "text": "You make your way to Honeybee Center. [[2.53]]",
       "links": [
@@ -736,7 +736,7 @@
     },
     {
       "name": " 2.55",
-      "tags": "barnaby_enter jane_enter jane",
+      "tags": "barnaby_neutral jane_neutral barnaby_enter_left jane_enter_right jane_speaker",
       "id": "51",
       "text": "I can't believe my eyes... [[2.56]]",
       "links": [
@@ -750,7 +750,7 @@
     },
     {
       "name": "2.56",
-      "tags": "barnaby",
+      "tags": "barnaby_speaker barnaby_neutral",
       "id": "52",
       "text": "Shhhh. No one needs to know. [[2.57]]",
       "links": [
@@ -778,7 +778,7 @@
     },
     {
       "name": "2.58",
-      "tags": "barnaby",
+      "tags": "barnaby_angry barnaby_speaker",
       "id": "54",
       "text": "The truth can never get out. \n[[Confront them -> 2.60a]]\n[[Quietly sneak away -> 2.60b]]",
       "links": [
@@ -825,7 +825,7 @@
     },
     {
       "name": "2.61a",
-      "tags": "marty marty_enter jane_enter",
+      "tags": "marty_enter marty_happy jane_neutral jane_enter_right marty_speaker",
       "id": "57",
       "text": "Hey Jane! [[2.62a]]",
       "links": [
@@ -839,7 +839,7 @@
     },
     {
       "name": "2.62a",
-      "tags": "jane",
+      "tags": "jane_neutral jane_speaker",
       "id": "58",
       "text": "Ah! Marty! Um, great to see you. [[2.63a]]",
       "links": [
@@ -853,7 +853,7 @@
     },
     {
       "name": "2.63a",
-      "tags": "jane",
+      "tags": "jane_neutral jane_speaker",
       "id": "59",
       "text": "Did you just get here? [[2.64a]]",
       "links": [
@@ -867,7 +867,7 @@
     },
     {
       "name": "2.64a",
-      "tags": "marty",
+      "tags": "marty_neutral marty_speaker",
       "id": "60",
       "text": "Yup, just arrived. I was slow at walking so I was little late today. Was something going on? [[2.65a]]",
       "links": [
@@ -881,7 +881,7 @@
     },
     {
       "name": "2.65a",
-      "tags": "jane",
+      "tags": "jane_neutral jane_speaker",
       "id": "61",
       "text": "Oh no, of course not. You know nothing ever happens in Honey Haven. Can I have my mail? [[2.66a]]",
       "links": [
@@ -895,7 +895,7 @@
     },
     {
       "name": "2.66a",
-      "tags": "marty",
+      "tags": "marty_neutral marty_speaker",
       "id": "62",
       "text": "Here. [[2.67a]]",
       "links": [
@@ -923,7 +923,7 @@
     },
     {
       "name": "2.68",
-      "tags": "jane_leave marty_leave",
+      "tags": "jane_leave marty_leave night_moon_bedroom",
       "id": "64",
       "text": "You bid Jane farewell and return home. It's dark out when you arrive. [[2.68.5]]",
       "links": [
@@ -951,7 +951,7 @@
     },
     {
       "name": "2.70",
-      "tags": "marty_enter marty",
+      "tags": "marty_enter marty_scared marty_speaker",
       "id": "66",
       "text": "What does this mean.. and what truth were Jane and Barnaby talking about? [[2.70.5]]",
       "links": [
@@ -965,7 +965,7 @@
     },
     {
       "name": "2.71",
-      "tags": "marty",
+      "tags": "marty_neutral marty_speaker",
       "id": "67",
       "text": "I have to know the truth... yaawn. [[2.72]]",
       "links": [
@@ -979,7 +979,7 @@
     },
     {
       "name": "2.72",
-      "tags": "marty",
+      "tags": "marty_neutral marty_speaker",
       "id": "68",
       "text": "Maybe tomorrow. I think I'll sleep early tonight. [[2.73]]",
       "links": [
@@ -1007,7 +1007,7 @@
     },
     {
       "name": "2.75 cutscene",
-      "tags": "",
+      "tags": "night_eye_bedroom",
       "id": "70",
       "text": "moon cutscene [[2.76]]",
       "links": [
@@ -1021,7 +1021,7 @@
     },
     {
       "name": "2.76",
-      "tags": "marty_enter marty",
+      "tags": "marty_enter marty_scared marty_speaker quiver shake",
       "id": "71",
       "text": "AHG@12!3$88&&@!! [[2.77]]",
       "links": [
@@ -1035,7 +1035,7 @@
     },
     {
       "name": "2.77",
-      "tags": "marty_leave",
+      "tags": "marty_leave night_moon_bedroom",
       "id": "72",
       "text": "You blink and it disappears. The moon looks the same. Everything is quiet. [[2.78]]",
       "links": [
@@ -1049,7 +1049,7 @@
     },
     {
       "name": "2.78",
-      "tags": "",
+      "tags": "night_closed_bedroom",
       "id": "73",
       "text": "You close your windows and turn on a lamp. That night, you sleep facing the wall. [[2.79]]",
       "links": [
@@ -1065,13 +1065,13 @@
       "name": "2.79",
       "tags": "",
       "id": "74",
-      "text": "--End of day 2--",
+      "text": "End of Day 2.",
       "links": [],
-      "cleanText": "--End of day 2--"
+      "cleanText": "End of Day 2."
     },
     {
       "name": "2.41 alt",
-      "tags": "",
+      "tags": "peanut_neutral peanut_speaker",
       "id": "75",
       "text": "H-h-hi Marty. You have a letter for me?? \n[[\"Yes, right here. -> 2.42a alt]] \n[[\"I don't know, do I?\" -> 2.42b alt]]",
       "links": [
@@ -1090,7 +1090,7 @@
     },
     {
       "name": " 2.42a alt",
-      "tags": "",
+      "tags": "peanut_open peanut_speaker",
       "id": "76",
       "text": "W-w-woah! Do you think it could be from.. a secret admirer?\n[[\"Who knows? Maybe!\" -> 2.43a1 alt]]\n[[\"Umm.. I wouldn't get your hopes up, kiddo.\" -> 2.43a2 alt]]",
       "links": [
@@ -1109,7 +1109,7 @@
     },
     {
       "name": " 2.42b alt",
-      "tags": "",
+      "tags": "peanut_cry peanut_speaker",
       "id": "77",
       "text": "Don't tease me! It's mean. You're just like Chester! [[2.45 alt]]",
       "links": [
@@ -1123,7 +1123,7 @@
     },
     {
       "name": " 2.43a1 alt",
-      "tags": "",
+      "tags": "peanut_open peanut_speaker",
       "id": "78",
       "text": "Yeah, maybe! [[2.44a1 alt]]",
       "links": [
@@ -1137,7 +1137,7 @@
     },
     {
       "name": " 2.43a2 alt",
-      "tags": "",
+      "tags": "peanut_neutral peanut_speaker",
       "id": "79",
       "text": "Yeah, you're right. [[2.44a2 alt]]",
       "links": [
@@ -1151,7 +1151,7 @@
     },
     {
       "name": "2.44a1 alt",
-      "tags": "",
+      "tags": "peanut_cry peanut_speaker",
       "id": "80",
       "text": "... or maybe it's just another \"prank\" from Chester. [[2.45 alt]]",
       "links": [
@@ -1165,7 +1165,7 @@
     },
     {
       "name": "2.45 alt",
-      "tags": "",
+      "tags": "marty_neutral marty_speaker",
       "id": "81",
       "text": "Uh, is everything okay, kiddo? I just saw Chester down the street. [[2.46 alt]]",
       "links": [
@@ -1179,7 +1179,7 @@
     },
     {
       "name": "2.44a2 alt",
-      "tags": "",
+      "tags": "peanut_cry peanut_speaker",
       "id": "82",
       "text": "It's probably just another \"prank\" from Chester. [[2.45 alt]]",
       "links": [
@@ -1193,7 +1193,7 @@
     },
     {
       "name": "2.46 alt",
-      "tags": "",
+      "tags": "peanut_open peanut_speaker quiver",
       "id": "83",
       "text": "You talked to him?! [[2.47 alt]]",
       "links": [
@@ -1207,7 +1207,7 @@
     },
     {
       "name": "2.47 alt",
-      "tags": "",
+      "tags": "peanut_open peanut_speaker quiver",
       "id": "84",
       "text": "Don't EVER trust a word out of his mouth. [[2.48 alt]]",
       "links": [
@@ -1221,7 +1221,7 @@
     },
     {
       "name": "2.48 alt",
-      "tags": "",
+      "tags": "peanut_open peanut_speaker quiver",
       "id": "85",
       "text": "He's always trying to get you. [[2.49 alt]]",
       "links": [
@@ -1235,7 +1235,7 @@
     },
     {
       "name": "2.49 alt",
-      "tags": "",
+      "tags": "peanut_cry peanut_speaker quiver",
       "id": "86",
       "text": "L-like that time he spritzed me with a spray bottle when I said something \"dorkish.\" [[2.50 alt]]",
       "links": [
@@ -1249,7 +1249,7 @@
     },
     {
       "name": "2.50 alt",
-      "tags": "",
+      "tags": "peanut_cry peanut_speaker quiver",
       "id": "87",
       "text": "Or that time he wrote \"Pissnut\" on my forehead! [[2.51 alt]]",
       "links": [
@@ -1263,7 +1263,7 @@
     },
     {
       "name": "2.51 alt",
-      "tags": "",
+      "tags": "peanut_cry peanut_speaker quiver",
       "id": "88",
       "text": "And then when you finally trust him... [[2.52 alt]]",
       "links": [
@@ -1277,7 +1277,7 @@
     },
     {
       "name": "2.52 alt",
-      "tags": "",
+      "tags": "peanut_cry peanut_speaker quiver",
       "id": "89",
       "text": "He tells the whole school that you have a crush on your best friend Julian and calls you \"Homeo\" for a week! [[2.53 alt]]",
       "links": [
@@ -1291,7 +1291,7 @@
     },
     {
       "name": "2.53 alt",
-      "tags": "",
+      "tags": "peanut_cry peanut_speaker quiver",
       "id": "90",
       "text": "Homeo and Juliet, sitting in a tree... [[2.54 alt]]",
       "links": [
@@ -1305,7 +1305,7 @@
     },
     {
       "name": "2.54 alt",
-      "tags": "",
+      "tags": "peanut_cry peanut_speaker quiver shake",
       "id": "91",
       "text": "AHHHH I CAN'T UNHEAR IT! [[2.50]]",
       "links": [
@@ -1319,7 +1319,7 @@
     },
     {
       "name": "2.68b",
-      "tags": "",
+      "tags": "night_moon_bedroom",
       "id": "92",
       "text": "You leave the building and head home. When you arrive, it's already dark out. [[2.68.5]]",
       "links": [
@@ -1333,7 +1333,7 @@
     },
     {
       "name": "2.70.5",
-      "tags": "marty",
+      "tags": "marty_scared marty_speaker",
       "id": "93",
       "text": "Are they hiding something from the rest of Honey Haven? But if they are, why does Barnaby sound so afraid? [[2.71]]",
       "links": [
@@ -1361,7 +1361,7 @@
     },
     {
       "name": "2.30.1",
-      "tags": "chester",
+      "tags": "chester_happy chester_speaker excite",
       "id": "95",
       "text": "Only if you can outrun me! [[2.30.2]]",
       "links": [
@@ -1375,7 +1375,7 @@
     },
     {
       "name": "2.30.2",
-      "tags": "marty",
+      "tags": "marty_scared marty_speaker",
       "id": "96",
       "text": "What- [[2.30.3]]",
       "links": [
@@ -1403,7 +1403,7 @@
     },
     {
       "name": "2.30.4 minigame",
-      "tags": "minigame_start",
+      "tags": "minigame_carrots black_screen",
       "id": "98",
       "text": "start of chester chase minigame [[2.30.5]]",
       "links": [
@@ -1417,7 +1417,7 @@
     },
     {
       "name": "2.30.5",
-      "tags": "minigame_end marty_enter marty chester_enter",
+      "tags": "marty_enter chester_enter marty_angry chester_happy marty_speaker",
       "id": "99",
       "text": "Chester! Enough playing. Give these letters to your mom. [[2.30.6]]",
       "links": [
@@ -1431,7 +1431,7 @@
     },
     {
       "name": "2.30.6",
-      "tags": "marty",
+      "tags": "marty_angry marty_speaker",
       "id": "100",
       "text": "And stop chasing me and saying you're the monster. It's a little bit odd, frankly. [[2.31]]",
       "links": [

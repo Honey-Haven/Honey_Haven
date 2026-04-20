@@ -61,7 +61,7 @@ const POSITIONS: Dictionary = {
 }
 
 # ── Paired-actor config ───────────────────────────────────────
-const PAIRED_OFFSET := Vector2(160, 0)
+const PAIRED_OFFSET := Vector2(240, 0)
 const SAME_SIDE_STAGGER := 90.0
 
 const PAIRED_ACTORS: Dictionary = {
@@ -86,6 +86,9 @@ const EXPRESSION_SYNONYMS: Dictionary = {
 var _actors: Dictionary = {}
 var _current_speaker: String = ""
 var _active_slots: Array = ["", ""]
+
+# Tracks any in-progress hide tween per slot (0=left, 1=right) so enter can wait for it.
+var _hide_tweens: Dictionary = {}  # slot_index (int) → Tween
 
 # Emoticon sprites — one per actor
 var _emoticon_sprites: Dictionary = {}   # actor_id → Sprite2D
@@ -195,6 +198,9 @@ func _on_clear_visual_state() -> void:
 	_pair_expressions.clear()
 	_emoticon_last_emotion.clear()
 	_emoticon_run_count.clear()
+	for slot_i in _hide_tweens:
+		_hide_tweens[slot_i].kill()
+	_hide_tweens.clear()
 	for actor_id in _actors:
 		var sprite = _actors[actor_id]["node"]
 		sprite.visible = false
@@ -327,24 +333,50 @@ func _on_paired_hide(pair_id: String) -> void:
 		if _actors.has(member_id):
 			_stop_bob(member_id)
 			_hide_emoticon(member_id, false)
+			var sprite: Sprite2D = _actors[member_id]["node"]
+			var home_pos: Vector2 = _actors[member_id]["base_pos"]
+			var cur_x: float = sprite.position.x
+			var slide_offset: float = 380.0
+			var slide_target: Vector2
+			if cur_x <= 640.0:
+				slide_target = sprite.position + Vector2(-slide_offset, 0)
+			else:
+				slide_target = sprite.position + Vector2(slide_offset, 0)
 			var tw = create_tween()
-			tw.tween_property(_actors[member_id]["node"], "modulate:a", 0.0, 0.3)
-			tw.tween_callback(func(): _actors[member_id]["node"].visible = false)
+			tw.set_parallel(true)
+			tw.tween_property(sprite, "position", slide_target, 0.35).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
+			tw.tween_property(sprite, "modulate:a", 0.0, 0.3)
+			tw.chain().tween_callback(func():
+				sprite.visible = false
+				sprite.position = home_pos
+			)
 	_pair_slots.erase(pair_id)
 	_pair_expressions.erase(pair_id)
 	if _active_slots[0] == pair_id: _active_slots[0] = ""
 	if _active_slots[1] == pair_id: _active_slots[1] = ""
 
 func _do_appear_at(actor_id: String, expression: String, pos_key: String, instant: bool):
-	var data = _actors[actor_id]
-	var sprite = data["node"]
 	var base = POSITIONS.get(pos_key, POSITIONS["center"])
-
 	var slot_index: int = 0 if pos_key == "left" else (1 if pos_key == "right" else -1)
+
+	# Stagger if another actor is already occupying this slot (shouldn't normally happen,
+	# but keep the safety offset).
 	if slot_index >= 0 and _active_slots[slot_index] != "" and _active_slots[slot_index] != actor_id:
 		var inward: float = -1.0 if pos_key == "right" else 1.0
 		base = base + Vector2(inward * SAME_SIDE_STAGGER, 0.0)
 
+	# If a hide tween is still running for this slot, chain our appear after it.
+	if slot_index >= 0 and _hide_tweens.has(slot_index) and not instant:
+		_hide_tweens[slot_index].tween_callback(func():
+			_do_appear_at_immediate(actor_id, expression, pos_key, base, false)
+		)
+		return
+
+	_do_appear_at_immediate(actor_id, expression, pos_key, base, instant)
+
+func _do_appear_at_immediate(actor_id: String, expression: String, pos_key: String, base: Vector2, instant: bool):
+	var data = _actors[actor_id]
+	var sprite = data["node"]
 	data["base_pos"] = base
 	_stop_bob(actor_id)
 	sprite.position = base
@@ -373,22 +405,64 @@ func _do_popin(actor_id: String) -> void:
 	tw.set_trans(Tween.TRANS_BACK)
 	tw.set_ease(Tween.EASE_OUT)
 	tw.tween_property(sprite, "scale", base_scale, POPIN_DURATION)
-	tw.tween_callback(func(): _start_bob(actor_id, false))
+	tw.tween_callback(func():
+		_start_bob(actor_id, false)
+		# If this actor is already the current speaker (entered on the same line
+		# they speak), apply the talk scale now that popin has settled.
+		if _current_speaker == actor_id:
+			_apply_talk_scale(actor_id)
+	)
 
 func _on_actor_hide(actor_id: String) -> void:
 	if not _actors.has(actor_id):
 		if PAIRED_LAYOUT.has(actor_id):
 			_on_paired_hide(actor_id)
 		return
-	if _active_slots[0] == actor_id: _active_slots[0] = ""
-	if _active_slots[1] == actor_id: _active_slots[1] = ""
+
+	# Determine which slot this actor occupies so we can key the tween by slot.
+	var slot_index: int = -1
+	if _active_slots[0] == actor_id:
+		slot_index = 0
+	elif _active_slots[1] == actor_id:
+		slot_index = 1
+	# Don't clear the slot yet — keep it blocked until the slide-out finishes.
 
 	var data = _actors[actor_id]
 	_stop_bob(actor_id)
 	_hide_emoticon(actor_id, false)
+
+	# Slide off toward the edge the actor is closest to.
+	var sprite: Sprite2D = data["node"]
+	var cur_x: float = sprite.position.x
+	var slide_offset: float = 380.0
+	var slide_target: Vector2
+	if cur_x <= 640.0:
+		slide_target = sprite.position + Vector2(-slide_offset, 0)
+	else:
+		slide_target = sprite.position + Vector2(slide_offset, 0)
+
+	var home_pos: Vector2 = data["base_pos"]
+
+	# Kill any previous hide tween on this slot.
+	if slot_index >= 0 and _hide_tweens.has(slot_index):
+		_hide_tweens[slot_index].kill()
+
 	var tw = create_tween()
-	tw.tween_property(data["node"], "modulate:a", 0.0, 0.3)
-	tw.tween_callback(func(): data["node"].visible = false)
+	tw.set_parallel(true)
+	tw.tween_property(sprite, "position", slide_target, 0.35).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
+	tw.tween_property(sprite, "modulate:a", 0.0, 0.3)
+	tw.chain().tween_callback(func():
+		sprite.visible = false
+		sprite.position = home_pos
+		# Now clear the slot and the tween entry.
+		if slot_index >= 0:
+			if _active_slots[slot_index] == actor_id:
+				_active_slots[slot_index] = ""
+			_hide_tweens.erase(slot_index)
+	)
+
+	if slot_index >= 0:
+		_hide_tweens[slot_index] = tw
 
 
 # ── SHOW ──────────────────────────────────────────────────────
@@ -696,6 +770,9 @@ func reset_all_actors() -> void:
 	_current_speaker = ""
 	_emoticon_last_emotion.clear()
 	_emoticon_run_count.clear()
+	for slot_i in _hide_tweens:
+		_hide_tweens[slot_i].kill()
+	_hide_tweens.clear()
 	for actor_id in _actors:
 		var data = _actors[actor_id]
 		_stop_bob(actor_id)

@@ -12,6 +12,8 @@ var _in_minigame: bool = false
 var _history: Array = [] # Stores: {"type": string, "id": string, "idx": int}
 var _current_stage_state: Dictionary = {} # Stores: { "actor_id": {"expression": "...", "pos": "..."} }
 var _current_overlay_active: bool = false  # tracks whether an overlay sprite is currently showing
+var _current_bg: String = ""               # path of the currently displayed background
+var _current_overlay_path: String = ""     # path of the currently displayed overlay sprite (if any)
 
 # must_visit tracking: hub_id → Array of unvisited passage names
 var _must_visit_remaining: Dictionary = {}
@@ -36,6 +38,8 @@ func load_twine_script(packets: Array) -> void:
 	_must_visit_continuation.clear()
 	_active_hub = {}
 	_current_overlay_active = false
+	_current_bg = ""
+	_current_overlay_path = ""
 
 func start() -> void:
 	# Try to find DialogueUI in the scene tree
@@ -83,17 +87,32 @@ func _process_next() -> void:
 					appear_pos = "right"
 				else:
 					appear_pos = "left"
-			_current_stage_state[packet["actor_id"]] = {"expression": packet.get("expression", "neutral"), "position": appear_pos}
-			SignalBus.actor_appear.emit(packet["actor_id"], _current_stage_state[packet["actor_id"]]["expression"], appear_pos)
-			_process_next()
+			var actor_id: String = packet["actor_id"]
+			var enter_expr: String = packet.get("expression", "neutral")
+			# If already on stage at the same position, just update expression — don't re-appear.
+			if _current_stage_state.has(actor_id) and _current_stage_state[actor_id].get("position", "") == appear_pos:
+				_current_stage_state[actor_id]["expression"] = enter_expr
+				SignalBus.actor_expression.emit(actor_id, enter_expr)
+				_process_next()
+			else:
+				_current_stage_state[actor_id] = {"expression": enter_expr, "position": appear_pos}
+				SignalBus.actor_appear.emit(actor_id, enter_expr, appear_pos)
+				_process_next()
 		"dialogue":
-			_history.append({"idx": current_idx, "stage_snapshot": _current_stage_state.duplicate(true), "overlay_active": _current_overlay_active})
+			_history.append({
+				"idx": current_idx,
+				"stage_snapshot": _current_stage_state.duplicate(true),
+				"overlay_active": _current_overlay_active,
+				"overlay_path": _current_overlay_path,
+				"bg": _current_bg,
+			})
 			_handle_dialogue(packet)
 		"actor_hide":
 			_current_stage_state.erase(packet["actor_id"])
 			SignalBus.actor_hide.emit(packet["actor_id"])
 			_process_next()
 		"background":
+			_current_bg = packet["path"]
 			SignalBus.background_change.emit(packet["path"], packet.get("transition", "fade"))
 			_process_next()
 		"choice":
@@ -136,10 +155,12 @@ func _process_next() -> void:
 			if _dialogue_ui:
 				if packet.get("show", false):
 					_current_overlay_active = true
+					_current_overlay_path = packet.get("path", "")
 					if _dialogue_ui.has_method("show_overlay_sprite"):
-						_dialogue_ui.show_overlay_sprite(packet.get("path", ""))
+						_dialogue_ui.show_overlay_sprite(_current_overlay_path)
 				else:
 					_current_overlay_active = false
+					_current_overlay_path = ""
 					if _dialogue_ui.has_method("hide_overlay_sprite"):
 						_dialogue_ui.hide_overlay_sprite()
 			_process_next()
@@ -204,24 +225,33 @@ func go_back() -> void:
 	
 	SignalBus.clear_visual_state.emit()
 	
-	# Restore overlay sprite state to what it was at that point in history
+	# ── Restore background ────────────────────────────────────────────────────
+	var prev_bg: String = prev_state.get("bg", "")
+	if prev_bg != "":
+		_current_bg = prev_bg
+		SignalBus.background_change.emit(prev_bg, "cut")
+	
+	# ── Restore overlay sprite ────────────────────────────────────────────────
 	var was_overlay_active: bool = prev_state.get("overlay_active", false)
+	var prev_overlay_path: String = prev_state.get("overlay_path", "")
 	_current_overlay_active = was_overlay_active
+	_current_overlay_path = prev_overlay_path
 	if _dialogue_ui:
-		if was_overlay_active:
-			# We'll let _process_next re-emit the show packet naturally,
-			# but for instant restore we hide it first (clear_visual_state
-			# doesn't touch the overlay).
-			pass
+		if was_overlay_active and prev_overlay_path != "":
+			if _dialogue_ui.has_method("show_overlay_sprite"):
+				_dialogue_ui.show_overlay_sprite(prev_overlay_path)
 		else:
 			if _dialogue_ui.has_method("hide_overlay_sprite"):
 				_dialogue_ui.hide_overlay_sprite()
 	
+	# ── Restore actors (including emoticons via expression signals) ───────────
 	_current_stage_state = prev_state.get("stage_snapshot", {}).duplicate(true)
 	for actor_id in _current_stage_state:
 		var data = _current_stage_state[actor_id]
 		SignalBus.actor_appear.emit(actor_id, data["expression"], data["position"], true)
-		
+		# Re-emit expression so emoticons are restored correctly
+		SignalBus.actor_expression.emit(actor_id, data["expression"])
+	
 	_index = prev_state["idx"]
 	_waiting_for_input = false
 	_process_next()
@@ -275,6 +305,26 @@ func _on_choice_selected(choice_index: int) -> void:
 		_jump_to_label(continuation)
 		return
 	_process_next()
+
+
+## Returns the label of the passage immediately after the current minigame packet.
+## VNController stores this before switching scenes, so we can jump back to it on return.
+func get_resume_label() -> String:
+	# _index was already incremented past the minigame packet in _process_next,
+	# so _index now points at the next packet. Walk forward to find the next label.
+	for i in range(_index, _packets.size()):
+		if _packets[i].get("type") == "label":
+			return _packets[i].get("name", "")
+	return ""
+
+## Called by VNController when returning from a minigame scene switch.
+## Jumps directly to `label` so the story resumes at the right passage.
+func resume_after_minigame(label: String) -> void:
+	_in_minigame = false
+	if label != "":
+		_jump_to_label(label)
+	else:
+		_process_next()
 
 func _on_minigame_end(_result: Dictionary) -> void:
 	_in_minigame = false

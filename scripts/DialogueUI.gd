@@ -655,19 +655,33 @@ func _set_textbox_narrator_style() -> void:
 # ══════════════════════════════════════════════════════════════
 #  TYPEWRITER
 # ══════════════════════════════════════════════════════════════
+# ── PATCH: replace _to_bbcode in DialogueUI.gd with this version ──
+# Supports: *bold*, **bold**, //italic//, __underline__
+
 static func _to_bbcode(text: String) -> String:
 	var result: String = text
+
+	# Bold: **text** or *text*  (double-star first so it takes priority)
+	var re_bold2 := RegEx.new()
+	re_bold2.compile("\\*\\*(.+?)\\*\\*")
+	result = re_bold2.sub(result, "[b]$1[/b]", true)
+
+	var re_bold1 := RegEx.new()
+	re_bold1.compile("\\*([^*]+?)\\*")
+	result = re_bold1.sub(result, "[b]$1[/b]", true)
+
+	# Italic: //text//
 	var re_italic := RegEx.new()
 	re_italic.compile("//(.+?)//")
 	result = re_italic.sub(result, "[i]$1[/i]", true)
-	var re_bold := RegEx.new()
-	re_bold.compile("\\*\\*(.+?)\\*\\*")
-	result = re_bold.sub(result, "[b]$1[/b]", true)
+
+	# Underline: __text__
 	var re_ul := RegEx.new()
 	re_ul.compile("__(.+?)__")
 	result = re_ul.sub(result, "[u]$1[/u]", true)
-	return result
 
+	return result
+	
 func _start_typewriter(text: String, word_shake: bool, is_narrator: bool = false) -> void:
 	dialogue_label.bbcode_enabled = true
 	_is_narrator_line = is_narrator

@@ -18,6 +18,8 @@ config/features=PackedStringArray("4.6", "Forward Plus")
 
 SignalBus="*uid://c7wyrpllepb3b"
 AudioManager="*uid://dc0awv3v2n06m"
+CarrotsResults="*uid://bu8tkv0wvwok1"
+MinigameReturn="*uid://duyejpe1fgyo1"
 
 [display]
 

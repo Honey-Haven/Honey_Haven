@@ -77,7 +77,7 @@ offset_left = 1187.0
 offset_top = 630.0
 offset_right = 1223.0
 offset_bottom = 685.0
-theme_override_colors/font_color = Color(0.49411765, 0.32941177, 0.2509804, 1)
+theme_override_colors/font_color = Color(0.7644882, 0.65176994, 0.5816974, 1)
 theme_override_font_sizes/font_size = 20
 text = "▼"
 
@@ -107,5 +107,5 @@ offset_bottom = 40.0
 [node name="BackButton" type="Button" parent="DialogueUI/ButtonContainer" unique_id=726434497]
 layout_mode = 2
 focus_mode = 0
-theme_override_colors/font_color = Color(0.49411765, 0.32941177, 0.2509804, 1)
+theme_override_colors/font_color = Color(0.7647059, 0.6509804, 0.5803922, 1)
 text = "◀"

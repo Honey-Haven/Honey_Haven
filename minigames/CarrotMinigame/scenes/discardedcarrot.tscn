@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://b1oxdhl0myqqs"]
+
+[ext_resource type="Texture2D" uid="uid://dumt50dfnseoa" path="res://sprites/carrots1.webp" id="1_tycld"]
+[ext_resource type="Script" uid="uid://whm3b477fo6c" path="res://discardedcarrot.gd" id="2_7lm7c"]
+
+[node name="Carrots1" type="Sprite2D" unique_id=1224475190]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("1_tycld")
+script = ExtResource("2_7lm7c")

@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://3se08wwejf3v"]
+
+[ext_resource type="Script" uid="uid://cyiefergwpiui" path="res://mailboxscript.gd" id="1_gfmmx"]
+[ext_resource type="Texture2D" uid="uid://cedp1nyouy02j" path="res://sprites/mail.png" id="2_15j57"]
+[ext_resource type="Texture2D" uid="uid://bjx31ckv3l5i2" path="res://sprites/mailboxAempty.webp" id="2_276df"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fqaqs"]
+size = Vector2(90.5, 72.5)
+
+[node name="Mailbox" type="Area2D" unique_id=80308431 groups=["mailbox"]]
+z_index = 1
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_gfmmx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=438576499]
+position = Vector2(-2.999999, 9.000002)
+scale = Vector2(0.261875, 0.261875)
+texture = ExtResource("2_276df")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1952713871]
+visible = false
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_15j57")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=493404610]
+shape = SubResource("RectangleShape2D_fqaqs")
