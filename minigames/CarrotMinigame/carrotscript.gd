@@ -43,7 +43,6 @@ func _ready():
 	dist = get_distance_to_mailbox()
 	vertdist = dist * (Y_SPEED / sqrt((X_SPEED+BG_SPEED)*(X_SPEED+BG_SPEED) + Y_SPEED * Y_SPEED))
 	time = vertdist / speed
-	#print("vertical distance " + str(vertdist) + " time " + str(time))
 	timer = 0
 
 func _process(delta):
@@ -51,7 +50,6 @@ func _process(delta):
 	if squished:
 		position.x -= BG_SPEED * delta
 		return
-	#position.x += 0  # carrots fly vertically relative to car lane
 	if (disappeartimer < 0):
 		position.x += (X_SPEED - BG_SPEED) * delta
 		position.y += direction * Y_SPEED * delta
@@ -82,17 +80,16 @@ func _on_area_entered(area):
 	if (disappeartimer < 0):
 		if area.is_in_group("mailbox"):
 			# Scored! Signal main to increment counter
-			play_sound("res://sounds/good.mp3")
+			play_sound("res://minigames/CarrotMinigame/sounds/good.mp3")
 			var prevtexture = area.get_node("Sprite2D").texture
 			if (prevtexture == preload("res://minigames/CarrotMinigame/sprites/mailboxAempty.webp")):
 				area.get_node("Sprite2D").texture = preload("res://minigames/CarrotMinigame/sprites/mailboxAfull.webp")
-				get_tree().get_root().get_node("Main").score_point()
+				get_tree().get_root().find_child("Main", true, false).score_point()
 				disappeartimer = 0.25
 			elif (prevtexture == preload("res://minigames/CarrotMinigame/sprites/mailboxBempty.webp")):
 				area.get_node("Sprite2D").texture = preload("res://minigames/CarrotMinigame/sprites/mailboxBfull.webp")
-				get_tree().get_root().get_node("Main").score_point()
+				get_tree().get_root().find_child("Main", true, false).score_point()
 				disappeartimer = 0.25
-			#queue_free()
 		else:
 			squish()
 
@@ -100,7 +97,7 @@ func squish():
 	if squished:
 		return
 	squished = true
-	play_sound("res://sounds/fail.mp3")
+	play_sound("res://minigames/CarrotMinigame/sounds/fail.mp3")
 	$Sprite2D.texture = preload("res://minigames/CarrotMinigame/sprites/damagedcarrots.webp")
 	# Stop movement, auto-delete after a moment
 	await get_tree().create_timer(1.0).timeout

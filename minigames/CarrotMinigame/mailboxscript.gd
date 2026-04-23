@@ -8,7 +8,7 @@ func _ready():
 		rotation = PI
 		
 	#if (randi_range(0,1) == 1):
-	#	$Sprite2D.texture = preload("res://sprites/mailboxBempty.webp")
+	#	$Sprite2D.texture = preload("res://minigames/CarrotMinigame/sprites/mailboxBempty.webp")
 
 func _process(delta):
 	position.x -= SCROLL_SPEED * delta

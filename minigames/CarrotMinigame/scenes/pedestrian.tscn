@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://chp7qvgjkpig1"]
 
-[ext_resource type="Script" uid="uid://di4opqtflv3jp" path="res://pedestrian.gd" id="1_ccstn"]
-[ext_resource type="Texture2D" uid="uid://cj6obt1ul2r7p" path="res://sprites/sheep1.webp" id="2_4t8nm"]
-[ext_resource type="Texture2D" uid="uid://kn0agn82kdo2" path="res://sprites/sheep.png" id="2_55wug"]
+[ext_resource type="Script" uid="uid://di4opqtflv3jp" path="res://minigames/CarrotMinigame/pedestrian.gd" id="1_ccstn"]
+[ext_resource type="Texture2D" uid="uid://cj6obt1ul2r7p" path="res://minigames/CarrotMinigame/sprites/sheep1.webp" id="2_4t8nm"]
+[ext_resource type="Texture2D" uid="uid://kn0agn82kdo2" path="res://minigames/CarrotMinigame/sprites/sheep.png" id="2_55wug"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bixwg"]
 size = Vector2(13.666667, 20)

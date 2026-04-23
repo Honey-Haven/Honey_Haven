@@ -41,7 +41,7 @@ func _on_area_entered(area):
 	if area.is_in_group("carrot"):
 		# Scored! Signal main to increment counter
 		$Sprite2D.texture = preload("res://minigames/CarrotMinigame/sprites/sheep2.webp")
-		get_tree().get_root().get_node("Main").lose_point(false)
+		get_tree().get_root().find_child("Main", true, false).lose_point(false)
 		shaky = true
 		targX = global_position.x
 		targY = global_position.y
@@ -51,7 +51,7 @@ func _on_body_entered(body):
 	if shaky:
 		return
 	$Sprite2D.texture = preload("res://minigames/CarrotMinigame/sprites/sheep2.webp")
-	get_tree().get_root().get_node("Main").lose_point(true)
+	get_tree().get_root().find_child("Main", true, false).lose_point(true)
 	targX = global_position.x
 	if global_position.y > (screen_height / 2):
 		targY = global_position.y - 120.0
@@ -59,7 +59,7 @@ func _on_body_entered(body):
 		targY = global_position.y + 120.0
 	print("we going to (" + str(targX) + ", " + str(targY) + ")")
 	shaky = true
-	play_sound("res://sounds/BWAUGH.wav")
+	play_sound("res://minigames/CarrotMinigame/sounds/BWAUGH.wav")
 
 func _process(delta):
 	if (delaytime != 0):

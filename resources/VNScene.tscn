@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://bv1en25vpoxmj"]
 
-[ext_resource type="Script" uid="uid://b1m8ikkugo35x" path="res://scripts/VNController.gd" id="1_xunwx"]
+[ext_resource type="Script" uid="uid://bdvctli063a1h" path="res://scripts/VNController.gd" id="1_xunwx"]
 [ext_resource type="Resource" uid="uid://cgeon6stjg2n8" path="res://resources/my_theme.tres" id="2_ovnvk"]
 [ext_resource type="Script" uid="uid://xamk3rp5acka" path="res://scripts/BackgroundManager.gd" id="2_qiym0"]
 [ext_resource type="Script" uid="uid://dr1uyr3yybsyn" path="res://scripts/ActorManager.gd" id="3_ovnvk"]
-[ext_resource type="Script" uid="uid://c7cyqi6fm0apa" path="res://scripts/VNLogic.gd" id="4_pjpao"]
+[ext_resource type="Script" uid="uid://4wynu0e2w18s" path="res://scripts/VNLogic.gd" id="4_pjpao"]
 [ext_resource type="Script" uid="uid://cvl6wig0ix7w0" path="res://scripts/DialogueUI.gd" id="6_ovnvk"]
 [ext_resource type="AudioStream" uid="uid://eux08sdk27ps" path="res://audio/sfx/Chipmunk Voice Honey Haven (mp3cut.net)(2).mp3" id="7_pjpao"]
 [ext_resource type="AudioStream" uid="uid://dcf5tlxmcjhbv" path="res://audio/sfx/freesound_community-typewriter-typing-68696 (mp3cut.net)(1).mp3" id="8_2qy2b"]
 
-[node name="VNScene" type="Node" unique_id=1892691119]
+[node name="VNScene" type="Node" unique_id=153324785]
 script = ExtResource("1_xunwx")
 vn_theme = ExtResource("2_ovnvk")
 
@@ -25,7 +25,7 @@ position = Vector2(640, 360)
 [node name="ActorManager" type="Node2D" parent="." unique_id=2034830135]
 script = ExtResource("3_ovnvk")
 
-[node name="VNLogic" type="Node" parent="." unique_id=935076725]
+[node name="VNLogic" type="Node" parent="." unique_id=329947561]
 script = ExtResource("4_pjpao")
 
 [node name="DialogueUI" type="CanvasLayer" parent="." unique_id=2101510460]

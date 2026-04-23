@@ -12,16 +12,17 @@ func _ready():
 	screen_height = get_viewport_rect().size.y
 
 func _physics_process(delta):
-	var direction = 0
-	if Input.is_action_pressed("move_down") and lane < max_lane and doneMoving:   # S key — map this in Project Settings
-		#direction = 1
+	var move_down = Input.is_key_pressed(KEY_S)
+	var move_up   = Input.is_key_pressed(KEY_W)
+
+	if move_down and lane < max_lane and doneMoving:
 		lane += 1
 		doneMoving = false
-	elif Input.is_action_pressed("move_up") and lane > min_lane and doneMoving:   # W key
-		#direction = -1
+	elif move_up and lane > min_lane and doneMoving:
 		lane -= 1
 		doneMoving = false
-	if not (Input.is_action_pressed("move_down") or Input.is_action_pressed("move_up")):
+
+	if not (move_down or move_up):
 		doneMoving = true
 
 	var targetY = screen_height * 0.5 + (lane * LANE_WIDTH)
@@ -32,10 +33,8 @@ func _physics_process(delta):
 		global_position.y = targetY
 		doneMoving = true
 	else:
-		velocity.y = (discrepancyY) * SPEED
+		velocity.y = discrepancyY * SPEED
 		rotation = discrepancyY * 0.002
 	velocity.x = 0
 	move_and_slide()
-
-	# Clamp to screen
 	position.y = clamp(position.y, 0, screen_height)

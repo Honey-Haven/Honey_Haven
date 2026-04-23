@@ -1,0 +1,2195 @@
+{
+  "uuid": "DDD9AA2E-5AAE-43A1-92D7-B0BA14CD1AC0",
+  "name": "Honey Haven Day 4",
+  "creator": "Twine",
+  "creatorVersion": "2.11.1",
+  "schemaName": "Twine to JSON",
+  "schemaVersion": "0.0.6",
+  "createdAtMs": 1776831247331,
+  "passages": [
+    {
+      "name": "4.1",
+      "tags": "",
+      "id": "1",
+      "text": "Day 4 [[4.2]]",
+      "links": [
+        {
+          "linkText": "4.2",
+          "passageName": "4.2",
+          "original": "[[4.2]]"
+        }
+      ],
+      "cleanText": "Day 4"
+    },
+    {
+      "name": "4.2",
+      "tags": "flash sunny_bedroom",
+      "id": "2",
+      "text": "You wake up in a cold sweat. You hear the words reverberating in your brain. [[4.3]]",
+      "links": [
+        {
+          "linkText": "4.3",
+          "passageName": "4.3",
+          "original": "[[4.3]]"
+        }
+      ],
+      "cleanText": "You wake up in a cold sweat. You hear the words reverberating in your brain."
+    },
+    {
+      "name": "4.3",
+      "tags": "marty-serious marty-speaker marty_enter",
+      "id": "3",
+      "text": "*See through Honey Haven? What am I supposed to see? Am I already seeing it?* [[4.4]]",
+      "links": [
+        {
+          "linkText": "4.4",
+          "passageName": "4.4",
+          "original": "[[4.4]]"
+        }
+      ],
+      "cleanText": "*See through Honey Haven? What am I supposed to see? Am I already seeing it?*"
+    },
+    {
+      "name": "4.4",
+      "tags": "marty-speaker shake",
+      "id": "4",
+      "text": "Arghhhhhh [[4.5]]",
+      "links": [
+        {
+          "linkText": "4.5",
+          "passageName": "4.5",
+          "original": "[[4.5]]"
+        }
+      ],
+      "cleanText": "Arghhhhhh"
+    },
+    {
+      "name": "4.5",
+      "tags": "marty_leave",
+      "id": "5",
+      "text": "Too many thoughts. Not much time to think about it. [[4.6]]",
+      "links": [
+        {
+          "linkText": "4.6",
+          "passageName": "4.6",
+          "original": "[[4.6]]"
+        }
+      ],
+      "cleanText": "Too many thoughts. Not much time to think about it."
+    },
+    {
+      "name": "4.6",
+      "tags": "",
+      "id": "6",
+      "text": "You get ready for the day, taking longer than you normally do. Every movement you make feels heavy. It's like you've been mouse-trapped. [[4.7]]",
+      "links": [
+        {
+          "linkText": "4.7",
+          "passageName": "4.7",
+          "original": "[[4.7]]"
+        }
+      ],
+      "cleanText": "You get ready for the day, taking longer than you normally do. Every movement you make feels heavy. It's like you've been mouse-trapped."
+    },
+    {
+      "name": "4.7",
+      "tags": "",
+      "id": "7",
+      "text": "The tea is hot. You're not looking forward to the taste. [[4.8]]",
+      "links": [
+        {
+          "linkText": "4.8",
+          "passageName": "4.8",
+          "original": "[[4.8]]"
+        }
+      ],
+      "cleanText": "The tea is hot. You're not looking forward to the taste."
+    },
+    {
+      "name": "4.8",
+      "tags": "marty-sad marty-speaker marty_enter",
+      "id": "8",
+      "text": "How long will I have to keep this up? [[4.9]]",
+      "links": [
+        {
+          "linkText": "4.9",
+          "passageName": "4.9",
+          "original": "[[4.9]]"
+        }
+      ],
+      "cleanText": "How long will I have to keep this up?"
+    },
+    {
+      "name": "4.9",
+      "tags": "",
+      "id": "9",
+      "text": "The tea does not respond. It's just tea, after all. [[4.10]]",
+      "links": [
+        {
+          "linkText": "4.10",
+          "passageName": "4.10",
+          "original": "[[4.10]]"
+        }
+      ],
+      "cleanText": "The tea does not respond. It's just tea, after all."
+    },
+    {
+      "name": "4.10",
+      "tags": "marty-serious marty-speaker quiver",
+      "id": "10",
+      "text": "...Is this really just tea? [[4.11]]",
+      "links": [
+        {
+          "linkText": "4.11",
+          "passageName": "4.11",
+          "original": "[[4.11]]"
+        }
+      ],
+      "cleanText": "...Is this really just tea?"
+    },
+    {
+      "name": "4.11",
+      "tags": "marty-speaker quiver",
+      "id": "11",
+      "text": "Well, Dr. Muffins knows what he's talking about.. right? [[4.12]]",
+      "links": [
+        {
+          "linkText": "4.12",
+          "passageName": "4.12",
+          "original": "[[4.12]]"
+        }
+      ],
+      "cleanText": "Well, Dr. Muffins knows what he's talking about.. right?"
+    },
+    {
+      "name": "4.12",
+      "tags": "marty_leave",
+      "id": "12",
+      "text": "You pick up the mail. There is a letter for Mochi and Peaches. [[4.13]]",
+      "links": [
+        {
+          "linkText": "4.13",
+          "passageName": "4.13",
+          "original": "[[4.13]]"
+        }
+      ],
+      "cleanText": "You pick up the mail. There is a letter for Mochi and Peaches."
+    },
+    {
+      "name": "4.13",
+      "tags": "pepper_lane",
+      "id": "13",
+      "text": "You decide to go to Pepper Lane first. [[4.14]]",
+      "links": [
+        {
+          "linkText": "4.14",
+          "passageName": "4.14",
+          "original": "[[4.14]]"
+        }
+      ],
+      "cleanText": "You decide to go to Pepper Lane first."
+    },
+    {
+      "name": "4.14",
+      "tags": "",
+      "id": "14",
+      "text": "You expect to see a little purple cat waiting to jump your tail, but it's unexpectedly quiet today. [[4.14.5]]",
+      "links": [
+        {
+          "linkText": "4.14.5",
+          "passageName": "4.14.5",
+          "original": "[[4.14.5]]"
+        }
+      ],
+      "cleanText": "You expect to see a little purple cat waiting to jump your tail, but it's unexpectedly quiet today."
+    },
+    {
+      "name": "4.15",
+      "tags": "excite marty-happy marty-speaker mochi-enter-right mochi-neutral mochi_enter",
+      "id": "15",
+      "text": "Good morning, Mochi. [[4.16]]",
+      "links": [
+        {
+          "linkText": "4.16",
+          "passageName": "4.16",
+          "original": "[[4.16]]"
+        }
+      ],
+      "cleanText": "Good morning, Mochi."
+    },
+    {
+      "name": "4.16",
+      "tags": "excite mochi-happy mochi-speaker",
+      "id": "16",
+      "text": "Hi Marty. Package for me? It must be Chester's new backpack. [[4.17]]",
+      "links": [
+        {
+          "linkText": "4.17",
+          "passageName": "4.17",
+          "original": "[[4.17]]"
+        }
+      ],
+      "cleanText": "Hi Marty. Package for me? It must be Chester's new backpack."
+    },
+    {
+      "name": "4.14.5",
+      "tags": "marty-neutral marty_enter",
+      "id": "17",
+      "text": "You knock on the door. [[4.15]]",
+      "links": [
+        {
+          "linkText": "4.15",
+          "passageName": "4.15",
+          "original": "[[4.15]]"
+        }
+      ],
+      "cleanText": "You knock on the door."
+    },
+    {
+      "name": "4.17",
+      "tags": "marty-speaker",
+      "id": "18",
+      "text": "Careful, it's heavy. [[4.18]]",
+      "links": [
+        {
+          "linkText": "4.18",
+          "passageName": "4.18",
+          "original": "[[4.18]]"
+        }
+      ],
+      "cleanText": "Careful, it's heavy."
+    },
+    {
+      "name": "4.18",
+      "tags": "mochi-neutral mochi-speaker",
+      "id": "19",
+      "text": "I got it, thanks. That kid needs something to burn his energy, or he'll be back in the principal's office before the end of the week. [[4.19]]",
+      "links": [
+        {
+          "linkText": "4.19",
+          "passageName": "4.19",
+          "original": "[[4.19]]"
+        }
+      ],
+      "cleanText": "I got it, thanks. That kid needs something to burn his energy, or he'll be back in the principal's office before the end of the week."
+    },
+    {
+      "name": "4.19",
+      "tags": "marty marty-serious marty-speaker quiver",
+      "id": "20",
+      "text": "He... isn't around, is he? [[4.20]]",
+      "links": [
+        {
+          "linkText": "4.20",
+          "passageName": "4.20",
+          "original": "[[4.20]]"
+        }
+      ],
+      "cleanText": "He... isn't around, is he?"
+    },
+    {
+      "name": "4.20",
+      "tags": "mochi-speaker",
+      "id": "21",
+      "text": "Oh no, no. [[4.21]]",
+      "links": [
+        {
+          "linkText": "4.21",
+          "passageName": "4.21",
+          "original": "[[4.21]]"
+        }
+      ],
+      "cleanText": "Oh no, no."
+    },
+    {
+      "name": "4.21",
+      "tags": "marty-neutral marty-speaker",
+      "id": "22",
+      "text": "Doesn't he always play around here after school? I usually see him. [[4.22]]",
+      "links": [
+        {
+          "linkText": "4.22",
+          "passageName": "4.22",
+          "original": "[[4.22]]"
+        }
+      ],
+      "cleanText": "Doesn't he always play around here after school? I usually see him."
+    },
+    {
+      "name": "4.22",
+      "tags": "mochi-speaker mochi-stern",
+      "id": "23",
+      "text": "Not anymore, he doesn't. [[4.23]]",
+      "links": [
+        {
+          "linkText": "4.23",
+          "passageName": "4.23",
+          "original": "[[4.23]]"
+        }
+      ],
+      "cleanText": "Not anymore, he doesn't."
+    },
+    {
+      "name": "4.23",
+      "tags": "flash mochi-speaker",
+      "id": "24",
+      "text": "Not since he kept telling you things he shouldn't. [[4.24]]",
+      "links": [
+        {
+          "linkText": "4.24",
+          "passageName": "4.24",
+          "original": "[[4.24]]"
+        }
+      ],
+      "cleanText": "Not since he kept telling you things he shouldn't."
+    },
+    {
+      "name": "4.24",
+      "tags": "marty-serious marty-speaker quiver",
+      "id": "25",
+      "text": "Wait, what? What do you mea- [[4.25]]",
+      "links": [
+        {
+          "linkText": "4.25",
+          "passageName": "4.25",
+          "original": "[[4.25]]"
+        }
+      ],
+      "cleanText": "Wait, what? What do you mea-"
+    },
+    {
+      "name": "4.25",
+      "tags": "excite mochi mochi-angry mochi-speaker",
+      "id": "26",
+      "text": "Listen, Marty. I'd love to say and talk, but I have to help my other kid with her math homework. Bye now. [[4.26]]",
+      "links": [
+        {
+          "linkText": "4.26",
+          "passageName": "4.26",
+          "original": "[[4.26]]"
+        }
+      ],
+      "cleanText": "Listen, Marty. I'd love to say and talk, but I have to help my other kid with her math homework. Bye now."
+    },
+    {
+      "name": "4.26",
+      "tags": "marty-scared mochi_leave shake",
+      "id": "27",
+      "text": "She turns away and slams the door. [[4.27]]",
+      "links": [
+        {
+          "linkText": "4.27",
+          "passageName": "4.27",
+          "original": "[[4.27]]"
+        }
+      ],
+      "cleanText": "She turns away and slams the door."
+    },
+    {
+      "name": "4.27",
+      "tags": "marty-serious quiver",
+      "id": "28",
+      "text": "Ouch. That was.. abrupt. [[4.28]]",
+      "links": [
+        {
+          "linkText": "4.28",
+          "passageName": "4.28",
+          "original": "[[4.28]]"
+        }
+      ],
+      "cleanText": "Ouch. That was.. abrupt."
+    },
+    {
+      "name": "4.28",
+      "tags": "marty-sad marty-speaker quiver small",
+      "id": "29",
+      "text": "...oh no. What happened to Chester? What did he say that he shouldn't have? [[4.29]]",
+      "links": [
+        {
+          "linkText": "4.29",
+          "passageName": "4.29",
+          "original": "[[4.29]]"
+        }
+      ],
+      "cleanText": "...oh no. What happened to Chester? What did he say that he shouldn't have?"
+    },
+    {
+      "name": "4.29",
+      "tags": "marty-serious marty-speaker quiver",
+      "id": "30",
+      "text": "Let me see.. the only thing he said was about the monster... [[4.30]]",
+      "links": [
+        {
+          "linkText": "4.30",
+          "passageName": "4.30",
+          "original": "[[4.30]]"
+        }
+      ],
+      "cleanText": "Let me see.. the only thing he said was about the monster..."
+    },
+    {
+      "name": "4.30",
+      "tags": "big marty-scared marty-speaker quiver shake",
+      "id": "31",
+      "text": "WAIT- is the monster Chester keeps talking about real? If it is... why are they pretending nothing's wrong... \n\n[[\"It's a monster!\" -> 4.31a]]\n[[\"It must be something else.\" -> 4.31b]]",
+      "links": [
+        {
+          "linkText": "\"It's a monster!\"",
+          "passageName": "4.31a",
+          "original": "[[\"It's a monster!\" -> 4.31a]]"
+        },
+        {
+          "linkText": "\"It must be something else.\"",
+          "passageName": "4.31b",
+          "original": "[[\"It must be something else.\" -> 4.31b]]"
+        }
+      ],
+      "cleanText": "WAIT- is the monster Chester keeps talking about real? If it is... why are they pretending nothing's wrong..."
+    },
+    {
+      "name": " 4.31a",
+      "tags": "big excite marty-speaker shake",
+      "id": "32",
+      "text": "THAT WOULD MAKE SENSE! [[4.32a]]",
+      "links": [
+        {
+          "linkText": "4.32a",
+          "passageName": "4.32a",
+          "original": "[[4.32a]]"
+        }
+      ],
+      "cleanText": "THAT WOULD MAKE SENSE!"
+    },
+    {
+      "name": " 4.31b",
+      "tags": "excite marty-speaker",
+      "id": "33",
+      "text": "That makes sense. If the \"monster\" Chester talks about it real, Honey Haven would be in a lot of trouble. [[4.32b]]",
+      "links": [
+        {
+          "linkText": "4.32b",
+          "passageName": "4.32b",
+          "original": "[[4.32b]]"
+        }
+      ],
+      "cleanText": "That makes sense. If the \"monster\" Chester talks about is real, Honey Haven would be in a lot of trouble."
+    },
+    {
+      "name": "4.32b",
+      "tags": "flash marty-serious marty-speaker quiver",
+      "id": "34",
+      "text": "But the fact that they know there's something wrong... why are they hiding it? [[4.33b]]",
+      "links": [
+        {
+          "linkText": "4.33b",
+          "passageName": "4.33b",
+          "original": "[[4.33b]]"
+        }
+      ],
+      "cleanText": "But the fact that they know there's something wrong... why are they hiding it?"
+    },
+    {
+      "name": "4.33b",
+      "tags": "marty-speaker quiver",
+      "id": "35",
+      "text": "Could it be that there's a secret.. even worse than a monster? [[4.34b]]",
+      "links": [
+        {
+          "linkText": "4.34b",
+          "passageName": "4.34b",
+          "original": "[[4.34b]]"
+        }
+      ],
+      "cleanText": "Could it be that there's a secret.. even worse than a monster?"
+    },
+    {
+      "name": "4.34b",
+      "tags": "excite marty-happy marty-speaker",
+      "id": "36",
+      "text": "No, that's impossible. It would have to be something crazy like the entirety of Honey Haven is just an illusion or something. [[4.35b]]",
+      "links": [
+        {
+          "linkText": "4.35b",
+          "passageName": "4.35b",
+          "original": "[[4.35b]]"
+        }
+      ],
+      "cleanText": "No, that's impossible. It would have to be something crazy like the entirety of Honey Haven is just an illusion or something."
+    },
+    {
+      "name": "4.35b",
+      "tags": "marty-neutral marty-speaker quiver small",
+      "id": "37",
+      "text": "... [[4.36b]]",
+      "links": [
+        {
+          "linkText": "4.36b",
+          "passageName": "4.36b",
+          "original": "[[4.36b]]"
+        }
+      ],
+      "cleanText": "..."
+    },
+    {
+      "name": "4.36b",
+      "tags": "marty-serious marty-speaker shake",
+      "id": "38",
+      "text": "No, no. Surely not. But why was an eye staring at me the other day? And why did it feel so *foreign*. [[4.35a]]",
+      "links": [
+        {
+          "linkText": "4.35a",
+          "passageName": "4.35a",
+          "original": "[[4.35a]]"
+        }
+      ],
+      "cleanText": "No, no. Surely not. But why was an eye staring at me the other day? And why did it feel so *foreign*."
+    },
+    {
+      "name": "4.32a",
+      "tags": "marty-neutral marty-speaker",
+      "id": "39",
+      "text": "Why else would there be an eye staring at me while I'm sleeping, or something talking to my in the darkness? [[4.33a]]",
+      "links": [
+        {
+          "linkText": "4.33a",
+          "passageName": "4.33a",
+          "original": "[[4.33a]]"
+        }
+      ],
+      "cleanText": "Why else would there be an eye staring at me while I'm sleeping, or something talking to my in the darkness?"
+    },
+    {
+      "name": "4.33a",
+      "tags": "marty-serious marty-speaker quiver",
+      "id": "40",
+      "text": "But... it just doesn't feel right. [[4.34a]]",
+      "links": [
+        {
+          "linkText": "4.34a",
+          "passageName": "4.34a",
+          "original": "[[4.34a]]"
+        }
+      ],
+      "cleanText": "But... it just doesn't feel right."
+    },
+    {
+      "name": "4.34a",
+      "tags": "marty-speaker quiver shake",
+      "id": "41",
+      "text": "Whatever is watching... it doesn't feel like a monster. It feels *foreign*.  Otherworldly. [[4.35a]]",
+      "links": [
+        {
+          "linkText": "4.35a",
+          "passageName": "4.35a",
+          "original": "[[4.35a]]"
+        }
+      ],
+      "cleanText": "Whatever is watching... it doesn't feel like a monster. It feels *foreign*.  Otherworldly."
+    },
+    {
+      "name": "4.35a",
+      "tags": "marty-speaker quiver",
+      "id": "42",
+      "text": "It feels... like it's trying to tell me something. Like it's trying to help. [[4.36a]]",
+      "links": [
+        {
+          "linkText": "4.36a",
+          "passageName": "4.36a",
+          "original": "[[4.36a]]"
+        }
+      ],
+      "cleanText": "It feels... like it's trying to tell me something. Like it's trying to help."
+    },
+    {
+      "name": "4.36a",
+      "tags": "marty-speaker",
+      "id": "43",
+      "text": "What did it say yesterday? \"See through the illusion?\" [[4.37a]]",
+      "links": [
+        {
+          "linkText": "4.37a",
+          "passageName": "4.37a",
+          "original": "[[4.37a]]"
+        }
+      ],
+      "cleanText": "What did it say yesterday? \"See through the illusion?\""
+    },
+    {
+      "name": "4.37a",
+      "tags": "big excite marty-angry marty-speaker shake",
+      "id": "44",
+      "text": "AGH I just don't understand. What illusion? [[4.38a]]",
+      "links": [
+        {
+          "linkText": "4.38a",
+          "passageName": "4.38a",
+          "original": "[[4.38a]]"
+        }
+      ],
+      "cleanText": "AGH I just don't understand. What illusion?"
+    },
+    {
+      "name": "4.38a",
+      "tags": "marty-sad marty-speaker",
+      "id": "45",
+      "text": "Maybe, maybe I am becoming like those animals. Like Mr. Smith. [[4.39]]",
+      "links": [
+        {
+          "linkText": "4.39",
+          "passageName": "4.39",
+          "original": "[[4.39]]"
+        }
+      ],
+      "cleanText": "Maybe, maybe I am becoming like those animals. Like Mr. Smith."
+    },
+    {
+      "name": "4.39",
+      "tags": "big marty-serious marty-speaker quiver shake",
+      "id": "46",
+      "text": "I think... I NEED to talk to him. Only he can help me. [[4.40]]",
+      "links": [
+        {
+          "linkText": "4.40",
+          "passageName": "4.40",
+          "original": "[[4.40]]"
+        }
+      ],
+      "cleanText": "I think... I NEED to talk to him. Only he can help me."
+    },
+    {
+      "name": "4.40",
+      "tags": "casserole_avenue marty_leave",
+      "id": "47",
+      "text": "Unfortunately, you still have a job to do. You take the backroads to Casserole Avenue to deliver the mail to Peaches. [[4.41]]",
+      "links": [
+        {
+          "linkText": "4.41",
+          "passageName": "4.41",
+          "original": "[[4.41]]"
+        }
+      ],
+      "cleanText": "Unfortunately, you still have a job to do. You take the backroads to Casserole Avenue to deliver the mail to Peaches."
+    },
+    {
+      "name": "4.41",
+      "tags": "excite marty-neutral marty_enter peaches-enter-right peaches-happy peaches-speaker",
+      "id": "48",
+      "text": "A letter for me, darling? (Quit squirming, Pip! The nice mouse is here.) [[4.42]]",
+      "links": [
+        {
+          "linkText": "4.42",
+          "passageName": "4.42",
+          "original": "[[4.42]]"
+        }
+      ],
+      "cleanText": "A letter for me, darling? (Quit squirming, Pip! The nice mouse is here.)"
+    },
+    {
+      "name": "4.42",
+      "tags": "excite marty-happy marty-speaker quiver",
+      "id": "49",
+      "text": "You sure get a lot of letters... [[4.43]]",
+      "links": [
+        {
+          "linkText": "4.43",
+          "passageName": "4.43",
+          "original": "[[4.43]]"
+        }
+      ],
+      "cleanText": "You sure get a lot of letters..."
+    },
+    {
+      "name": "4.43",
+      "tags": "big excite peaches-angry peaches-speaker quiver",
+      "id": "50",
+      "text": "Wha-what's that supposed to mean? [[4.44]]",
+      "links": [
+        {
+          "linkText": "4.44",
+          "passageName": "4.44",
+          "original": "[[4.44]]"
+        }
+      ],
+      "cleanText": "Wha-what's that supposed to mean?"
+    },
+    {
+      "name": "4.44",
+      "tags": "marty-scared marty-speaker quiver",
+      "id": "51",
+      "text": "Oh I just meant- [[4.45]]",
+      "links": [
+        {
+          "linkText": "4.45",
+          "passageName": "4.45",
+          "original": "[[4.45]]"
+        }
+      ],
+      "cleanText": "Oh I just meant-"
+    },
+    {
+      "name": "4.45",
+      "tags": "excite peaches-speaker",
+      "id": "52",
+      "text": "I just have a lot of friends, darling! [[4.46]]",
+      "links": [
+        {
+          "linkText": "4.46",
+          "passageName": "4.46",
+          "original": "[[4.46]]"
+        }
+      ],
+      "cleanText": "I just have a lot of friends, darling!"
+    },
+    {
+      "name": "4.46",
+      "tags": "marty-serious marty-speaker",
+      "id": "53",
+      "text": "(Well, that's odd. Seems like she really doesn't want to talk about it.) [[4.47]]",
+      "links": [
+        {
+          "linkText": "4.47",
+          "passageName": "4.47",
+          "original": "[[4.47]]"
+        }
+      ],
+      "cleanText": "(Well, that's odd. Seems like she really doesn't want to talk about it.)"
+    },
+    {
+      "name": "4.47",
+      "tags": "marty-speaker quiver",
+      "id": "54",
+      "text": "Um.. how are your kids? [[4.48]]",
+      "links": [
+        {
+          "linkText": "4.48",
+          "passageName": "4.48",
+          "original": "[[4.48]]"
+        }
+      ],
+      "cleanText": "Um.. how are your kids?"
+    },
+    {
+      "name": "4.48",
+      "tags": "peaches-neutral peaches-speaker",
+      "id": "55",
+      "text": "Oh, they are exhausting me today. I am simply overwhelmed. [[4.49]]",
+      "links": [
+        {
+          "linkText": "4.49",
+          "passageName": "4.49",
+          "original": "[[4.49]]"
+        }
+      ],
+      "cleanText": "Oh, they are exhausting me today. I am simply overwhelmed."
+    },
+    {
+      "name": "4.49",
+      "tags": "excite peaches-happy peaches-speaker",
+      "id": "56",
+      "text": "Ah, but they loved the new toys you delivered the other day. Thank you, Marty. [[4.50]]",
+      "links": [
+        {
+          "linkText": "4.50",
+          "passageName": "4.50",
+          "original": "[[4.50]]"
+        }
+      ],
+      "cleanText": "Ah, but they loved the new toys you delivered the other day. Thank you, Marty."
+    },
+    {
+      "name": "4.50",
+      "tags": "excite marty-happy marty-speaker",
+      "id": "57",
+      "text": "That's great to hear! Could I say hi to them? [[4.51]]",
+      "links": [
+        {
+          "linkText": "4.51",
+          "passageName": "4.51",
+          "original": "[[4.51]]"
+        }
+      ],
+      "cleanText": "That's great to hear! Could I say hi to them?"
+    },
+    {
+      "name": "4.51",
+      "tags": "excite peaches-speaker quiver",
+      "id": "58",
+      "text": "Oh, no no no. I'm afraid they're much too shy. [[4.52]]",
+      "links": [
+        {
+          "linkText": "4.52",
+          "passageName": "4.52",
+          "original": "[[4.52]]"
+        }
+      ],
+      "cleanText": "Oh, no no no. I'm afraid they're much too shy."
+    },
+    {
+      "name": "4.52",
+      "tags": "marty-serious marty-speaker quiver small",
+      "id": "59",
+      "text": "..shy? [[4.53]]",
+      "links": [
+        {
+          "linkText": "4.53",
+          "passageName": "4.53",
+          "original": "[[4.53]]"
+        }
+      ],
+      "cleanText": "..shy?"
+    },
+    {
+      "name": "4.53",
+      "tags": "peaches-speaker quiver",
+      "id": "60",
+      "text": "Yes, shy! You know, they're at that age when they're afraid of strangers. [[4.54]]",
+      "links": [
+        {
+          "linkText": "4.54",
+          "passageName": "4.54",
+          "original": "[[4.54]]"
+        }
+      ],
+      "cleanText": "Yes, shy! You know, they're at that age when they're afraid of strangers."
+    },
+    {
+      "name": "4.54",
+      "tags": "excite peaches-happy peaches-speaker",
+      "id": "61",
+      "text": "Now, if you'll excuse me, I need to go feed my babies. So lovely to see you, darling. [[4.55]]",
+      "links": [
+        {
+          "linkText": "4.55",
+          "passageName": "4.55",
+          "original": "[[4.55]]"
+        }
+      ],
+      "cleanText": "Now, if you'll excuse me, I need to go feed my babies. So lovely to see you, darling."
+    },
+    {
+      "name": "4.55",
+      "tags": "marty-speaker peaches_leave quiver",
+      "id": "62",
+      "text": "Peaches.. is quite an odd one. Most possums love showing off their newborns. Maybe her babies came out a little funny looking? [[4.56]]",
+      "links": [
+        {
+          "linkText": "4.56",
+          "passageName": "4.56",
+          "original": "[[4.56]]"
+        }
+      ],
+      "cleanText": "Peaches.. is quite an odd one. Most possums love showing off their newborns. Maybe her babies came out a little funny looking?"
+    },
+    {
+      "name": "4.56",
+      "tags": "casserole_avenue marty_leave quiver",
+      "id": "63",
+      "text": "You walk by the rest of Casserole Avenue when you notice... orange. [[4.57]]",
+      "links": [
+        {
+          "linkText": "4.57",
+          "passageName": "4.57",
+          "original": "[[4.57]]"
+        }
+      ],
+      "cleanText": "You walk by the rest of Casserole Avenue when you notice... orange."
+    },
+    {
+      "name": "4.57",
+      "tags": "",
+      "id": "64",
+      "text": "Ms. Button's carrot enclosure is sprouting with vibrant orange carrots with thick green leaves. [[4.58]]",
+      "links": [
+        {
+          "linkText": "4.58",
+          "passageName": "4.58",
+          "original": "[[4.58]]"
+        }
+      ],
+      "cleanText": "Ms. Button's carrot enclosure is sprouting with vibrant orange carrots with thick green leaves."
+    },
+    {
+      "name": "4.58",
+      "tags": "",
+      "id": "65",
+      "text": "You almost can't see any dirt with the fresh greenery filling the enclosure. [[4.59]]",
+      "links": [
+        {
+          "linkText": "4.59",
+          "passageName": "4.59",
+          "original": "[[4.59]]"
+        }
+      ],
+      "cleanText": "You almost can't see any dirt with the fresh greenery filling the enclosure."
+    },
+    {
+      "name": "4.59",
+      "tags": "excite marty-angry marty-speaker marty_enter",
+      "id": "66",
+      "text": "Sly rabbit! [[4.60]]",
+      "links": [
+        {
+          "linkText": "4.60",
+          "passageName": "4.60",
+          "original": "[[4.60]]"
+        }
+      ],
+      "cleanText": "Sly rabbit!"
+    },
+    {
+      "name": "4.60",
+      "tags": "excite marty-speaker shake",
+      "id": "67",
+      "text": "She was telling me I was crazy!! I should've trusted what I saw. [[4.61]]",
+      "links": [
+        {
+          "linkText": "4.61",
+          "passageName": "4.61",
+          "original": "[[4.61]]"
+        }
+      ],
+      "cleanText": "She was telling me I was crazy!! I should've trusted what I saw."
+    },
+    {
+      "name": "4.61",
+      "tags": "marty-speaker",
+      "id": "68",
+      "text": "Something's wrong and I'm going to get to the bottom of this. [[4.62]]",
+      "links": [
+        {
+          "linkText": "4.62",
+          "passageName": "4.62",
+          "original": "[[4.62]]"
+        }
+      ],
+      "cleanText": "Something's wrong and I'm going to get to the bottom of this."
+    },
+    {
+      "name": "4.62",
+      "tags": "marty_leave outside_town_square",
+      "id": "69",
+      "text": "You head to Bunalicious, where you see Ms. Buttons put on a fake, overly large smile while dishing plates out to customers. [[4.63]]",
+      "links": [
+        {
+          "linkText": "4.63",
+          "passageName": "4.63",
+          "original": "[[4.63]]"
+        }
+      ],
+      "cleanText": "You head to Bunalicious, where you see Ms. Buttons put on a fake, overly large smile while dishing plates out to customers."
+    },
+    {
+      "name": "4.63",
+      "tags": "big buttons-enter-right buttons-happy buttons-speaker excite marty-neutral marty_enter shake",
+      "id": "70",
+      "text": "Here's your carrot fritters that you ordered. And after you eat this I'm telling you that you NEED to try some of our carrot cake. [[4.64]]",
+      "links": [
+        {
+          "linkText": "4.64",
+          "passageName": "4.64",
+          "original": "[[4.64]]"
+        }
+      ],
+      "cleanText": "Here's your carrot fritters that you ordered. And after you eat this I'm telling you that you NEED to try some of our carrot cake."
+    },
+    {
+      "name": "4.64",
+      "tags": "buttons-speaker quiver",
+      "id": "71",
+      "text": "You just can't leave without! Oo and you should try some- [[4.65]]",
+      "links": [
+        {
+          "linkText": "4.65",
+          "passageName": "4.65",
+          "original": "[[4.65]]"
+        }
+      ],
+      "cleanText": "You just can't leave without! Oo and you should try some-"
+    },
+    {
+      "name": "4.65",
+      "tags": "buttons-neutral",
+      "id": "72",
+      "text": "She notices you watching. [[4.66]]",
+      "links": [
+        {
+          "linkText": "4.66",
+          "passageName": "4.66",
+          "original": "[[4.66]]"
+        }
+      ],
+      "cleanText": "She notices you watching."
+    },
+    {
+      "name": "4.66",
+      "tags": "buttons-angry buttons-speaker excite",
+      "id": "73",
+      "text": "Oh. Hello Marty. [[4.67]]",
+      "links": [
+        {
+          "linkText": "4.67",
+          "passageName": "4.67",
+          "original": "[[4.67]]"
+        }
+      ],
+      "cleanText": "Oh. Hello Marty."
+    },
+    {
+      "name": "4.67",
+      "tags": "buttons-happy buttons-speaker excite flash shake",
+      "id": "74",
+      "text": "You blink and her face now wears a beaming smile. The change is so sudden it feels like a blip or a recalibration. [[4.68]]",
+      "links": [
+        {
+          "linkText": "4.68",
+          "passageName": "4.68",
+          "original": "[[4.68]]"
+        }
+      ],
+      "cleanText": "You blink and her face now wears a beaming smile. The change is so sudden it feels like a blip or a recalibration."
+    },
+    {
+      "name": "4.68",
+      "tags": "buttons-speaker excite",
+      "id": "75",
+      "text": "So you finally decided to stop by for once! (I guess that 2% discount was really effective, I should offer those more.) [[4.69]]",
+      "links": [
+        {
+          "linkText": "4.69",
+          "passageName": "4.69",
+          "original": "[[4.69]]"
+        }
+      ],
+      "cleanText": "So you finally decided to stop by for once! (I guess that 2% discount was really effective, I should offer those more.)"
+    },
+    {
+      "name": "4.69",
+      "tags": "buttons-fake-smile buttons-speaker quiver",
+      "id": "76",
+      "text": "Take a seat, you look real tired. I'm sure some nice carrot soup will do you some good. Oh and you can't have carrot soup by itself! You gotta add- [[4.70]]",
+      "links": [
+        {
+          "linkText": "4.70",
+          "passageName": "4.70",
+          "original": "[[4.70]]"
+        }
+      ],
+      "cleanText": "Take a seat, you look real tired. I'm sure some nice carrot soup will do you some good. Oh and you can't have carrot soup by itself! You gotta add-"
+    },
+    {
+      "name": "4.70",
+      "tags": "marty-speaker shake",
+      "id": "77",
+      "text": "Enough, Ms. Buttons. With the advertising. With the games. [[4.71]]",
+      "links": [
+        {
+          "linkText": "4.71",
+          "passageName": "4.71",
+          "original": "[[4.71]]"
+        }
+      ],
+      "cleanText": "Enough, Ms. Buttons. With the advertising. With the games."
+    },
+    {
+      "name": "4.71",
+      "tags": "",
+      "id": "78",
+      "text": "The restaurant goes silent. [[4.72]]",
+      "links": [
+        {
+          "linkText": "4.72",
+          "passageName": "4.72",
+          "original": "[[4.72]]"
+        }
+      ],
+      "cleanText": "The restaurant goes silent."
+    },
+    {
+      "name": "4.72",
+      "tags": "marty-speaker",
+      "id": "79",
+      "text": "I've already accepted that you're a liar, but your customers here should know the truth. What are you doing to your carrots? [[4.73]]",
+      "links": [
+        {
+          "linkText": "4.73",
+          "passageName": "4.73",
+          "original": "[[4.73]]"
+        }
+      ],
+      "cleanText": "I've already accepted that you're a liar, but your customers here should know the truth. What are you doing to your carrots?"
+    },
+    {
+      "name": "4.73",
+      "tags": "buttons-angry buttons-speaker excite quiver shake",
+      "id": "80",
+      "text": "Wha-what? Nothing! I'm not doing anything to my carrots, and like I've told you before, they're homegrown and natural! [[4.74]]",
+      "links": [
+        {
+          "linkText": "4.74",
+          "passageName": "4.74",
+          "original": "[[4.74]]"
+        }
+      ],
+      "cleanText": "Wha-what? Nothing! I'm not doing anything to my carrots, and like I've told you before, they're homegrown and natural!"
+    },
+    {
+      "name": "4.74",
+      "tags": "buttons-fake-smile",
+      "id": "81",
+      "text": "She looks around at her customers frantically. They look befuddled. [[4.75]]",
+      "links": [
+        {
+          "linkText": "4.75",
+          "passageName": "4.75",
+          "original": "[[4.75]]"
+        }
+      ],
+      "cleanText": "She looks around at her customers frantically. They look befuddled."
+    },
+    {
+      "name": "4.75",
+      "tags": "big excite marty-speaker shake",
+      "id": "82",
+      "text": "I know what I saw. Your carrots ARE growing back everyday. Carrots don't do that. How is your garden resetting like that everyday?! [[4.76]]",
+      "links": [
+        {
+          "linkText": "4.76",
+          "passageName": "4.76",
+          "original": "[[4.76]]"
+        }
+      ],
+      "cleanText": "I know what I saw. Your carrots ARE growing back everyday. Carrots don't do that. How is your garden resetting like that everyday?!"
+    },
+    {
+      "name": "4.76",
+      "tags": "buttons-angry excite shake",
+      "id": "83",
+      "text": "The fur on her face begins to flush. [[4.77]]",
+      "links": [
+        {
+          "linkText": "4.77",
+          "passageName": "4.77",
+          "original": "[[4.77]]"
+        }
+      ],
+      "cleanText": "The fur on her face begins to flush."
+    },
+    {
+      "name": "4.77",
+      "tags": "buttons-speaker excite shake",
+      "id": "84",
+      "text": "I don't like your tone! How dare you come into my restaurant and accuse me of such a thing. [[4.78]]",
+      "links": [
+        {
+          "linkText": "4.78",
+          "passageName": "4.78",
+          "original": "[[4.78]]"
+        }
+      ],
+      "cleanText": "I don't like your tone! How dare you come into my restaurant and accuse me of such a thing."
+    },
+    {
+      "name": "4.78",
+      "tags": "buttons-speaker",
+      "id": "85",
+      "text": "I work long and hard to replant my garden everynight and tend to it so everything that comes to table is fresh and delicious. [[4.79]]",
+      "links": [
+        {
+          "linkText": "4.79",
+          "passageName": "4.79",
+          "original": "[[4.79]]"
+        }
+      ],
+      "cleanText": "I work long and hard to replant my garden everynight and tend to it so everything that comes to table is fresh and delicious."
+    },
+    {
+      "name": "4.79",
+      "tags": "buttons-speaker",
+      "id": "86",
+      "text": "Before you accuse me, you should look at yourself, Marty. [[4.80]]",
+      "links": [
+        {
+          "linkText": "4.80",
+          "passageName": "4.80",
+          "original": "[[4.80]]"
+        }
+      ],
+      "cleanText": "Before you accuse me, you should look at yourself, Marty."
+    },
+    {
+      "name": "4.80",
+      "tags": "buttons-sad buttons-speaker",
+      "id": "87",
+      "text": "Are you sure you're not delusional? Because it looks to me like you haven't slept in days. [[4.81]]",
+      "links": [
+        {
+          "linkText": "4.81",
+          "passageName": "4.81",
+          "original": "[[4.81]]"
+        }
+      ],
+      "cleanText": "Are you sure you're not delusional? Because it looks to me like you haven't slept in days."
+    },
+    {
+      "name": "4.81",
+      "tags": "buttons-angry buttons-speaker excite",
+      "id": "88",
+      "text": "Maybe before marching into my restaurant and disturbing my customers, you figure out if you're still dreaming. [[4.82]]",
+      "links": [
+        {
+          "linkText": "4.82",
+          "passageName": "4.82",
+          "original": "[[4.82]]"
+        }
+      ],
+      "cleanText": "Maybe before marching into my restaurant and disturbing my customers, you figure out if you're still dreaming."
+    },
+    {
+      "name": "4.83",
+      "tags": "marty-neutral marty-speaker quiver small",
+      "id": "89",
+      "text": "... [[4.84]]",
+      "links": [
+        {
+          "linkText": "4.84",
+          "passageName": "4.84",
+          "original": "[[4.84]]"
+        }
+      ],
+      "cleanText": "..."
+    },
+    {
+      "name": "4.84",
+      "tags": "button-speaker",
+      "id": "90",
+      "text": "I didn't think so. You can leave, now. [[4.85]]",
+      "links": [
+        {
+          "linkText": "4.85",
+          "passageName": "4.85",
+          "original": "[[4.85]]"
+        }
+      ],
+      "cleanText": "I didn't think so. You can leave, now."
+    },
+    {
+      "name": "4.86",
+      "tags": "marty-sad marty-speaker",
+      "id": "91",
+      "text": "Was Ms. Buttons right? Have I been so sleep deprived, that I'm deluding myself? [[4.87]]",
+      "links": [
+        {
+          "linkText": "4.87",
+          "passageName": "4.87",
+          "original": "[[4.87]]"
+        }
+      ],
+      "cleanText": "Was Ms. Buttons right? Have I been so sleep deprived, that I'm deluding myself?"
+    },
+    {
+      "name": "4.87",
+      "tags": "marty-speaker shake",
+      "id": "92",
+      "text": "That I can't tell what's real? [[4.88]]",
+      "links": [
+        {
+          "linkText": "4.88",
+          "passageName": "4.88",
+          "original": "[[4.88]]"
+        }
+      ],
+      "cleanText": "That I can't tell what's real?"
+    },
+    {
+      "name": "4.88",
+      "tags": "",
+      "id": "93",
+      "text": "You look down at your paws. [[4.89]]",
+      "links": [
+        {
+          "linkText": "4.89",
+          "passageName": "4.89",
+          "original": "[[4.89]]"
+        }
+      ],
+      "cleanText": "You look down at your paws."
+    },
+    {
+      "name": "4.89",
+      "tags": "marty-serious marty-speaker",
+      "id": "94",
+      "text": "These days, my mind feels detached from my body. [[4.90]]",
+      "links": [
+        {
+          "linkText": "4.90",
+          "passageName": "4.90",
+          "original": "[[4.90]]"
+        }
+      ],
+      "cleanText": "These days, my mind feels detached from my body."
+    },
+    {
+      "name": "4.90",
+      "tags": "marty-neutral marty-speaker quiver",
+      "id": "95",
+      "text": "I think.. I think I need to find the truth. [[4.91]]",
+      "links": [
+        {
+          "linkText": "4.91",
+          "passageName": "4.91",
+          "original": "[[4.91]]"
+        }
+      ],
+      "cleanText": "I think.. I think I need to find the truth."
+    },
+    {
+      "name": "4.91",
+      "tags": "marty_leave truffle_corner",
+      "id": "96",
+      "text": "You take a silent walk to Truffle Corner. [[4.92]]",
+      "links": [
+        {
+          "linkText": "4.92",
+          "passageName": "4.92",
+          "original": "[[4.92]]"
+        }
+      ],
+      "cleanText": "You take a silent walk to Truffle Corner."
+    },
+    {
+      "name": "4.92",
+      "tags": "",
+      "id": "97",
+      "text": "You approach the door of the fox's house. The windows are dark, but surely he is home. It's now or never. [[4.93]]",
+      "links": [
+        {
+          "linkText": "4.93",
+          "passageName": "4.93",
+          "original": "[[4.93]]"
+        }
+      ],
+      "cleanText": "You approach the door of the fox's house. The windows are dark, but surely he is home. It's now or never."
+    },
+    {
+      "name": "4.93",
+      "tags": "marty-neutral marty-speaker marty_enter",
+      "id": "98",
+      "text": "Hello? Is anyone home? [[4.94]]",
+      "links": [
+        {
+          "linkText": "4.94",
+          "passageName": "4.94",
+          "original": "[[4.94]]"
+        }
+      ],
+      "cleanText": "Hello? Is anyone home?"
+    },
+    {
+      "name": "4.94",
+      "tags": "",
+      "id": "99",
+      "text": "There is no reply from the fox's house. Perhaps you should knock again. \n[[Knock once more. -> 4.95]]",
+      "links": [
+        {
+          "linkText": "Knock once more.",
+          "passageName": "4.95",
+          "original": "[[Knock once more. -> 4.95]]"
+        }
+      ],
+      "cleanText": "There is no reply from the fox's house. Perhaps you should knock again."
+    },
+    {
+      "name": " 4.95",
+      "tags": "",
+      "id": "100",
+      "text": "Silence again. One more time? \n[[Knock -> 4.96]]",
+      "links": [
+        {
+          "linkText": "Knock",
+          "passageName": "4.96",
+          "original": "[[Knock -> 4.96]]"
+        }
+      ],
+      "cleanText": "Silence again. One more time?"
+    },
+    {
+      "name": " 4.96",
+      "tags": "big excite shake smith-speaker",
+      "id": "101",
+      "text": "Nobody's home! Nobody! [[4.97]]",
+      "links": [
+        {
+          "linkText": "4.97",
+          "passageName": "4.97",
+          "original": "[[4.97]]"
+        }
+      ],
+      "cleanText": "Nobody's home! Nobody!"
+    },
+    {
+      "name": "4.97",
+      "tags": "excite marty-sad marty-speaker quiver",
+      "id": "102",
+      "text": "But I just want to talk to you! [[4.98]]",
+      "links": [
+        {
+          "linkText": "4.98",
+          "passageName": "4.98",
+          "original": "[[4.98]]"
+        }
+      ],
+      "cleanText": "But I just want to talk to you!"
+    },
+    {
+      "name": "4.98",
+      "tags": "smith-speaker",
+      "id": "103",
+      "text": "Talk, mock, tick, tock. Knock. Don't keep knocking. It disturbs the peace. [[4.99]]",
+      "links": [
+        {
+          "linkText": "4.99",
+          "passageName": "4.99",
+          "original": "[[4.99]]"
+        }
+      ],
+      "cleanText": "Talk, mock, tick, tock. Knock. Don't keep knocking. It disturbs the peace."
+    },
+    {
+      "name": "4.99",
+      "tags": "marty-speaker quiver",
+      "id": "104",
+      "text": "But you're the only one who can help me. Please. I don't know what to do. [[4.100]]",
+      "links": [
+        {
+          "linkText": "4.100",
+          "passageName": "4.100",
+          "original": "[[4.100]]"
+        }
+      ],
+      "cleanText": "But you're the only one who can help me. Please. I don't know what to do."
+    },
+    {
+      "name": "4.100",
+      "tags": "quiver small smith-speaker",
+      "id": "105",
+      "text": "..do, true, blue.. Is the sky still blue? [[4.101]]",
+      "links": [
+        {
+          "linkText": "4.101",
+          "passageName": "4.101",
+          "original": "[[4.101]]"
+        }
+      ],
+      "cleanText": "..do, true, blue.. Is the sky still blue?"
+    },
+    {
+      "name": "4.101",
+      "tags": "marty-serious marty-speaker",
+      "id": "106",
+      "text": "That's what I'm hoping you can tell me. You've seen it too, haven't you? The truth. [[4.102]]",
+      "links": [
+        {
+          "linkText": "4.102",
+          "passageName": "4.102",
+          "original": "[[4.102]]"
+        }
+      ],
+      "cleanText": "That's what I'm hoping you can tell me. You've seen it too, haven't you? The truth."
+    },
+    {
+      "name": "4.102",
+      "tags": "smith-enter-right smith-neutral",
+      "id": "107",
+      "text": "Finally, the fox opens the door. Up close, he looks even more gaunt, and more than a little frightened. [[4.103]]",
+      "links": [
+        {
+          "linkText": "4.103",
+          "passageName": "4.103",
+          "original": "[[4.103]]"
+        }
+      ],
+      "cleanText": "Finally, the fox opens the door. Up close, he looks even more gaunt, and more than a little frightened."
+    },
+    {
+      "name": "4.103",
+      "tags": "marty-neutral marty-speaker quiver small",
+      "id": "108",
+      "text": "...Hello. I'm Marty. I'm the mailmouse. Are you Jonathan F. Smith? [[4.104]]",
+      "links": [
+        {
+          "linkText": "4.104",
+          "passageName": "4.104",
+          "original": "[[4.104]]"
+        }
+      ],
+      "cleanText": "...Hello. I'm Marty. I'm the mailmouse. Are you Jonathan F. Smith?"
+    },
+    {
+      "name": "4.104",
+      "tags": "smith-speaker",
+      "id": "109",
+      "text": "Yes, that's my name. Everyone has a name, at least down here. Your name is Marty. I read a very good book about a male mouse with big ears. Ears are how you hear, eyes are how you see. [[4.105]]",
+      "links": [
+        {
+          "linkText": "4.105",
+          "passageName": "4.105",
+          "original": "[[4.105]]"
+        }
+      ],
+      "cleanText": "Yes, that's my name. Everyone has a name, at least down here. Your name is Marty. I read a very good book about a male mouse with big ears. Ears are how you hear, eyes are how you see."
+    },
+    {
+      "name": "4.105",
+      "tags": "marty-speaker quiver",
+      "id": "110",
+      "text": "That's right, I suppose. May.. may I come in? [[4.106]]",
+      "links": [
+        {
+          "linkText": "4.106",
+          "passageName": "4.106",
+          "original": "[[4.106]]"
+        }
+      ],
+      "cleanText": "That's right, I suppose. May.. may I come in?"
+    },
+    {
+      "name": "4.106",
+      "tags": "smith-speaker",
+      "id": "111",
+      "text": "There are people who come in, and do bad things to you. It started during the World War. [[4.107]]",
+      "links": [
+        {
+          "linkText": "4.107",
+          "passageName": "4.107",
+          "original": "[[4.107]]"
+        }
+      ],
+      "cleanText": "There are people who come in, and do bad things to you. It started during the World War."
+    },
+    {
+      "name": "4.107",
+      "tags": "marty-serious marty-speaker",
+      "id": "112",
+      "text": "What's a \"World War?\" \n[[\"And what do you mean, 'people'?\" -> 4.108a]]\n[[\"And I won't do bad things to you.\" -> 4.108b]]",
+      "links": [
+        {
+          "linkText": "\"And what do you mean, 'people'?\"",
+          "passageName": "4.108a",
+          "original": "[[\"And what do you mean, 'people'?\" -> 4.108a]]"
+        },
+        {
+          "linkText": "\"And I won't do bad things to you.\"",
+          "passageName": "4.108b",
+          "original": "[[\"And I won't do bad things to you.\" -> 4.108b]]"
+        }
+      ],
+      "cleanText": "What's a \"World War?\""
+    },
+    {
+      "name": " 4.108a",
+      "tags": "smith-speaker",
+      "id": "113",
+      "text": "You would know if you knew the truth. That's the truth of it, truth being that the tooth is rotten. Worm came from outside of the apple, and it keeps the doctor away. [[4.110]]",
+      "links": [
+        {
+          "linkText": "4.110",
+          "passageName": "4.110",
+          "original": "[[4.110]]"
+        }
+      ],
+      "cleanText": "You would know if you knew the truth. That's the truth of it, truth being that the tooth is rotten. Worm came from outside of the apple, and it keeps the doctor away."
+    },
+    {
+      "name": " 4.108b",
+      "tags": "marty-sad marty-speaker quiver",
+      "id": "114",
+      "text": "I promise. But I'm worried someone will overhear us. They already think I'm crazy. [[4.109b]]",
+      "links": [
+        {
+          "linkText": "4.109b",
+          "passageName": "4.109b",
+          "original": "[[4.109b]]"
+        }
+      ],
+      "cleanText": "I promise. But I'm worried someone will overhear us. They already think I'm crazy."
+    },
+    {
+      "name": "4.109b",
+      "tags": "smith-speaker",
+      "id": "115",
+      "text": "The truth doth shown me the answer to your first question. But think I'm crazy. No, I don't think I'm crazy. [[4.110]]",
+      "links": [
+        {
+          "linkText": "4.110",
+          "passageName": "4.110",
+          "original": "[[4.110]]"
+        }
+      ],
+      "cleanText": "The truth doth shown me the answer to your first question. But think I'm crazy. No, I don't think I'm crazy."
+    },
+    {
+      "name": "4.110",
+      "tags": "marty-serious marty-speaker",
+      "id": "116",
+      "text": "Me neither. Can we go inside now, please, and close the door, too? [[4.111]]",
+      "links": [
+        {
+          "linkText": "4.111",
+          "passageName": "4.111",
+          "original": "[[4.111]]"
+        }
+      ],
+      "cleanText": "Me neither. Can we go inside now, please, and close the door, too?"
+    },
+    {
+      "name": "4.111",
+      "tags": "smith-speaker",
+      "id": "117",
+      "text": "Sure, close the door too. [[4.112]]",
+      "links": [
+        {
+          "linkText": "4.112",
+          "passageName": "4.112",
+          "original": "[[4.112]]"
+        }
+      ],
+      "cleanText": "Sure, close the door too."
+    },
+    {
+      "name": "4.112",
+      "tags": "foxs_house",
+      "id": "118",
+      "text": "The inside of the fox's house smells like dead fish and rotten apples. There's a broom on the floor, like he was in the middle of cleaning. It's certainly unlike any home you've been in. [[4.113]]",
+      "links": [
+        {
+          "linkText": "4.113",
+          "passageName": "4.113",
+          "original": "[[4.113]]"
+        }
+      ],
+      "cleanText": "The inside of the fox's house smells like dead fish and rotten apples. There's a broom on the floor, like he was in the middle of cleaning. It's certainly unlike any home you've been in."
+    },
+    {
+      "name": "4.113",
+      "tags": "flash marty-sad marty-speaker quiver",
+      "id": "119",
+      "text": "So, I've been seeing these.. things. Visions, I guess, or something. I don't know. [[4.114]]",
+      "links": [
+        {
+          "linkText": "4.114",
+          "passageName": "4.114",
+          "original": "[[4.114]]"
+        }
+      ],
+      "cleanText": "So, I've been seeing these.. things. Visions, I guess, or something. I don't know."
+    },
+    {
+      "name": "4.114",
+      "tags": "flash smith-speaker",
+      "id": "120",
+      "text": "Sure, vision helps you to see the truth. [[4.115]]",
+      "links": [
+        {
+          "linkText": "4.115",
+          "passageName": "4.115",
+          "original": "[[4.115]]"
+        }
+      ],
+      "cleanText": "Sure, vision helps you to see the truth."
+    },
+    {
+      "name": "4.115",
+      "tags": "big marty-scared marty-speaker quiver shake",
+      "id": "121",
+      "text": "But I don't know what's real anymore! The other night, I saw an eye in the sky.. I SAW it. I know I saw it. [[4.116]]",
+      "links": [
+        {
+          "linkText": "4.116",
+          "passageName": "4.116",
+          "original": "[[4.116]]"
+        }
+      ],
+      "cleanText": "But I don't know what's real anymore! The other night, I saw an eye in the sky.. I SAW it. I know I saw it."
+    },
+    {
+      "name": "4.116",
+      "tags": "smith-speaker",
+      "id": "122",
+      "text": "Eye, sky, spy. Why? Because it came from outside the apple. \n[[\"You're saying weird things..\" -> 4.117a]]\n[[\"What do you mean by 'apple'?\" -> 4.117b]]",
+      "links": [
+        {
+          "linkText": "\"You're saying weird things..\"",
+          "passageName": "4.117a",
+          "original": "[[\"You're saying weird things..\" -> 4.117a]]"
+        },
+        {
+          "linkText": "\"What do you mean by 'apple'?\"",
+          "passageName": "4.117b",
+          "original": "[[\"What do you mean by 'apple'?\" -> 4.117b]]"
+        }
+      ],
+      "cleanText": "Eye, sky, spy. Why? Because it came from outside the apple."
+    },
+    {
+      "name": " 4.117a",
+      "tags": "smith-speaker",
+      "id": "123",
+      "text": "Because I'm sick. I got sick of the doctor, Muffins, and she cured me. [[4.118]]",
+      "links": [
+        {
+          "linkText": "4.118",
+          "passageName": "4.118",
+          "original": "[[4.118]]"
+        }
+      ],
+      "cleanText": "Because I'm sick. I got sick of the doctor, Muffins, and she cured me."
+    },
+    {
+      "name": " 4.117b",
+      "tags": "smith-speaker",
+      "id": "124",
+      "text": "Well, apples are chiefly for Doctor Muffins. Jane Doe likes to bake apple muffins. [[4.118]]",
+      "links": [
+        {
+          "linkText": "4.118",
+          "passageName": "4.118",
+          "original": "[[4.118]]"
+        }
+      ],
+      "cleanText": "Well, apples are chiefly for Doctor Muffins. Jane Doe likes to bake apple muffins."
+    },
+    {
+      "name": "4.118",
+      "tags": "marty-sad marty-speaker quiver",
+      "id": "125",
+      "text": "Never mind. Is there anything you can tell me about your experience? I know you... were sick for a long time. What was that like? [[4.119]]",
+      "links": [
+        {
+          "linkText": "4.119",
+          "passageName": "4.119",
+          "original": "[[4.119]]"
+        }
+      ],
+      "cleanText": "Never mind. Is there anything you can tell me about your experience? I know you... were sick for a long time. What was that like?"
+    },
+    {
+      "name": "4.119",
+      "tags": "shake smith smith-speaker",
+      "id": "126",
+      "text": "Well, it was a long time. It does take a long time for muffins to bake, and I once made a pie which took even longer. Four and twenty blackbirds were baked in a pie. [[4.120]]",
+      "links": [
+        {
+          "linkText": "4.120",
+          "passageName": "4.120",
+          "original": "[[4.120]]"
+        }
+      ],
+      "cleanText": "Well, it was a long time. It does take a long time for muffins to bake, and I once made a pie which took even longer. Four and twenty blackbirds were baked in a pie."
+    },
+    {
+      "name": "4.120",
+      "tags": "marty-serious marty-speaker quiver",
+      "id": "127",
+      "text": "That sounds.. great. But can you tell me more about your sickness? [[4.121]]",
+      "links": [
+        {
+          "linkText": "4.121",
+          "passageName": "4.121",
+          "original": "[[4.121]]"
+        }
+      ],
+      "cleanText": "That sounds.. great. But can you tell me more about your sickness?"
+    },
+    {
+      "name": "4.121",
+      "tags": "excite smith-happy smith-speaker",
+      "id": "128",
+      "text": "My sickness? I had a sickness of thought, Doctor Muffins said. But you can add honey to the pie. It was chiefly an issue of sweetness. [[4.122]]",
+      "links": [
+        {
+          "linkText": "4.122",
+          "passageName": "4.122",
+          "original": "[[4.122]]"
+        }
+      ],
+      "cleanText": "My sickness? I had a sickness of thought, Doctor Muffins said. But you can add honey to the pie. It was chiefly an issue of sweetness."
+    },
+    {
+      "name": "4.122",
+      "tags": "excite marty-happy marty-speaker",
+      "id": "129",
+      "text": "Yes, the honey tea! Did she give you the honey tea, too? [[4.123]]",
+      "links": [
+        {
+          "linkText": "4.123",
+          "passageName": "4.123",
+          "original": "[[4.123]]"
+        }
+      ],
+      "cleanText": "Yes, the honey tea! Did she give you the honey tea, too?"
+    },
+    {
+      "name": "4.123",
+      "tags": "smith-speaker",
+      "id": "130",
+      "text": "Sure, I drank the honey tea. Apple pies aren't as sweet without a little honey. Sometimes you want to avoid honey, but not me, no, never. [[4.124]]",
+      "links": [
+        {
+          "linkText": "4.124",
+          "passageName": "4.124",
+          "original": "[[4.124]]"
+        }
+      ],
+      "cleanText": "Sure, I drank the honey tea. Apple pies aren't as sweet without a little honey. Sometimes you want to avoid honey, but not me, no, never."
+    },
+    {
+      "name": "4.124",
+      "tags": "marty-serious marty-speaker",
+      "id": "131",
+      "text": "So what are you saying? Are you saying I should drink the honey tea? It tastes so bad, though, and I've been thinking. What's even in it? [[4.125]]",
+      "links": [
+        {
+          "linkText": "4.125",
+          "passageName": "4.125",
+          "original": "[[4.125]]"
+        }
+      ],
+      "cleanText": "So what are you saying? Are you saying I should drink the honey tea? It tastes so bad, though, and I've been thinking. What's even in it?"
+    },
+    {
+      "name": "4.125",
+      "tags": "smith-neutral smith-speaker",
+      "id": "132",
+      "text": "It's in a cup. [[4.126]]",
+      "links": [
+        {
+          "linkText": "4.126",
+          "passageName": "4.126",
+          "original": "[[4.126]]"
+        }
+      ],
+      "cleanText": "It's in a cup."
+    },
+    {
+      "name": "4.126",
+      "tags": "marty-speaker quiver",
+      "id": "133",
+      "text": "Yeah, I know that. But.. what does it do? I mean, what would happen if I just.. stopped drinking it? [[4.127]]",
+      "links": [
+        {
+          "linkText": "4.127",
+          "passageName": "4.127",
+          "original": "[[4.127]]"
+        }
+      ],
+      "cleanText": "Yeah, I know that. But.. what does it do? I mean, what would happen if I just.. stopped drinking it?"
+    },
+    {
+      "name": "4.127",
+      "tags": "excite flash smith-speaker",
+      "id": "134",
+      "text": "Drink it, think it, blink and you won't see it. You don't know the truth! [[4.128]]",
+      "links": [
+        {
+          "linkText": "4.128",
+          "passageName": "4.128",
+          "original": "[[4.128]]"
+        }
+      ],
+      "cleanText": "Drink it, think it, blink and you won't see it. You don't know the truth!"
+    },
+    {
+      "name": "4.128",
+      "tags": "marty-scared marty-speaker quiver",
+      "id": "135",
+      "text": "Then what IS the truth? I've been trying to ask you that, but you can't even- [[4.129]]",
+      "links": [
+        {
+          "linkText": "4.129",
+          "passageName": "4.129",
+          "original": "[[4.129]]"
+        }
+      ],
+      "cleanText": "Then what IS the truth? I've been trying to ask you that, but you can't even-"
+    },
+    {
+      "name": "4.129",
+      "tags": "excite flash shake smith-scared smith-speaker",
+      "id": "136",
+      "text": "You can't believe the truth! Don't believe what you see! Your vision, it helps you always, it's eyes in the skies, it's the blue sky. [[4.130]]",
+      "links": [
+        {
+          "linkText": "4.130",
+          "passageName": "4.130",
+          "original": "[[4.130]]"
+        }
+      ],
+      "cleanText": "You can't believe the truth! Don't believe what you see! Your vision, it helps you always, it's eyes in the skies, it's the blue sky."
+    },
+    {
+      "name": "4.130",
+      "tags": "excite quiver shake smith-speaker",
+      "id": "137",
+      "text": "Don't believe what they tell you! It's not real! None of it is real! I know because I saw it too, true, blue. [[4.131]]",
+      "links": [
+        {
+          "linkText": "4.131",
+          "passageName": "4.131",
+          "original": "[[4.131]]"
+        }
+      ],
+      "cleanText": "Don't believe what they tell you! It's not real! None of it is real! I know because I saw it too, true, blue."
+    },
+    {
+      "name": "4.131",
+      "tags": "quiver shake smith-speaker",
+      "id": "138",
+      "text": "Blue like the sea, blue like the fishes. Fishes drink in the sea, they think in the sea, they come to the surface to break. [[4.132]]",
+      "links": [
+        {
+          "linkText": "4.132",
+          "passageName": "4.132",
+          "original": "[[4.132]]"
+        }
+      ],
+      "cleanText": "Blue like the sea, blue like the fishes. Fishes drink in the sea, they think in the sea, they come to the surface to break."
+    },
+    {
+      "name": "4.132",
+      "tags": "quiver shake smith-scared smith-speaker",
+      "id": "139",
+      "text": "What does the earth have such an effect to break their backs? And rot them like apples? It makes them sick in thought. I was never crazy. I never thought crazy. \n[[\"S-stay away! Please calm down!\" -> 4.133a]]\n[[Run away -> 4.133b]]",
+      "links": [
+        {
+          "linkText": "\"S-stay away! Please calm down!\"",
+          "passageName": "4.133a",
+          "original": "[[\"S-stay away! Please calm down!\" -> 4.133a]]"
+        },
+        {
+          "linkText": "Run away",
+          "passageName": "4.133b",
+          "original": "[[Run away -> 4.133b]]"
+        }
+      ],
+      "cleanText": "What does the earth have such an effect to break their backs? And rot them like apples? It makes them sick in thought. I was never crazy. I never thought crazy."
+    },
+    {
+      "name": " 4.133a",
+      "tags": "big excite quiver shake smith-speaker",
+      "id": "140",
+      "text": "I promise! I promise! [[4.134a]]",
+      "links": [
+        {
+          "linkText": "4.134a",
+          "passageName": "4.134a",
+          "original": "[[4.134a]]"
+        }
+      ],
+      "cleanText": "I promise! I promise!"
+    },
+    {
+      "name": " 4.133b",
+      "tags": "truffle_corner",
+      "id": "141",
+      "text": "You scurry out of Mr. Smith's house and onto the street. You turn around to see Mr. Smith looking at you sadly. [[4.134b]]",
+      "links": [
+        {
+          "linkText": "4.134b",
+          "passageName": "4.134b",
+          "original": "[[4.134b]]"
+        }
+      ],
+      "cleanText": "You scurry out of Mr. Smith's house and onto the street. You turn around to see Mr. Smith looking at you sadly."
+    },
+    {
+      "name": "4.134a",
+      "tags": "marty-serious marty-speaker quiver",
+      "id": "142",
+      "text": "I need to go now. But.. thank you. [[4.135a]]",
+      "links": [
+        {
+          "linkText": "4.135a",
+          "passageName": "4.135a",
+          "original": "[[4.135a]]"
+        }
+      ],
+      "cleanText": "I need to go now. But.. thank you."
+    },
+    {
+      "name": "4.135a",
+      "tags": "smith-neutral smith-speaker",
+      "id": "143",
+      "text": "You're welcome. [[4.136a]]",
+      "links": [
+        {
+          "linkText": "4.136a",
+          "passageName": "4.136a",
+          "original": "[[4.136a]]"
+        }
+      ],
+      "cleanText": "You're welcome."
+    },
+    {
+      "name": "4.136a",
+      "tags": "marty-sad marty-speaker quiver",
+      "id": "144",
+      "text": "And.. take care of yourself. [[4.137a]]",
+      "links": [
+        {
+          "linkText": "4.137a",
+          "passageName": "4.137a",
+          "original": "[[4.137a]]"
+        }
+      ],
+      "cleanText": "And.. take care of yourself."
+    },
+    {
+      "name": "4.137a",
+      "tags": "excite smith-happy smith-speaker",
+      "id": "145",
+      "text": "Thank you. You're welcome. Take care. [[4.138]]",
+      "links": [
+        {
+          "linkText": "4.138",
+          "passageName": "4.138",
+          "original": "[[4.138]]"
+        }
+      ],
+      "cleanText": "Thank you. You're welcome. Take care."
+    },
+    {
+      "name": "4.134b",
+      "tags": "marty-serious",
+      "id": "146",
+      "text": "You turn around and walk a few steps closer. [[4.134a]]",
+      "links": [
+        {
+          "linkText": "4.134a",
+          "passageName": "4.134a",
+          "original": "[[4.134a]]"
+        }
+      ],
+      "cleanText": "You turn around and walk a few steps closer."
+    },
+    {
+      "name": "4.138",
+      "tags": "marty-leave night_closed_bedroom smith_leave",
+      "id": "147",
+      "text": "You go home and get ready for bed, trying (and failing) to process the day's events. [[4.139]]",
+      "links": [
+        {
+          "linkText": "4.139",
+          "passageName": "4.139",
+          "original": "[[4.139]]"
+        }
+      ],
+      "cleanText": "You go home and get ready for bed, trying (and failing) to process the day's events."
+    },
+    {
+      "name": "4.139",
+      "tags": "flash quiver",
+      "id": "148",
+      "text": "You look in the mirror to comb your fur, when.. [[4.140]]",
+      "links": [
+        {
+          "linkText": "4.140",
+          "passageName": "4.140",
+          "original": "[[4.140]]"
+        }
+      ],
+      "cleanText": "You look in the mirror to comb your fur, when.."
+    },
+    {
+      "name": "4.140",
+      "tags": "flash mirror",
+      "id": "149",
+      "text": "mirror cutscene [[4.141]]",
+      "links": [
+        {
+          "linkText": "4.141",
+          "passageName": "4.141",
+          "original": "[[4.141]]"
+        }
+      ],
+      "cleanText": "mirror cutscene"
+    },
+    {
+      "name": "4.141",
+      "tags": "",
+      "id": "150",
+      "text": "You feel a paralysis overtake your body. You can't move. [[4.142]]",
+      "links": [
+        {
+          "linkText": "4.142",
+          "passageName": "4.142",
+          "original": "[[4.142]]"
+        }
+      ],
+      "cleanText": "You feel a paralysis overtake your body. You can't move."
+    },
+    {
+      "name": "4.142",
+      "tags": "shake stanger-speaker",
+      "id": "151",
+      "text": "I could not save the fox, but you still have a chance. Stop drinking in their lies. [[4.143]]",
+      "links": [
+        {
+          "linkText": "4.143",
+          "passageName": "4.143",
+          "original": "[[4.143]]"
+        }
+      ],
+      "cleanText": "I could not save the fox, but you still have a chance. Stop drinking in their lies."
+    },
+    {
+      "name": "4.143",
+      "tags": "flash night_closed_bedroom",
+      "id": "152",
+      "text": "You pass out on the floor. That night, it's your bed. [[4.144]]",
+      "links": [
+        {
+          "linkText": "4.144",
+          "passageName": "4.144",
+          "original": "[[4.144]]"
+        }
+      ],
+      "cleanText": "You pass out on the floor. That night, it's your bed."
+    },
+    {
+      "name": "4.144",
+      "tags": "flash",
+      "id": "153",
+      "text": "End of Day 4.",
+      "links": [],
+      "cleanText": "End of Day 4."
+    },
+    {
+      "name": "4.82",
+      "tags": "buttons buttons-speaker flash",
+      "id": "154",
+      "text": "Can you even tell what's real and what's your delusions? [[4.83]]",
+      "links": [
+        {
+          "linkText": "4.83",
+          "passageName": "4.83",
+          "original": "[[4.83]]"
+        }
+      ],
+      "cleanText": "Can you even tell what's real and what's your delusions?"
+    },
+    {
+      "name": "4.85",
+      "tags": "buttons_leave",
+      "id": "155",
+      "text": "All the customers stare at you judgmentally as you exit the restaurant. [[4.86]]",
+      "links": [
+        {
+          "linkText": "4.86",
+          "passageName": "4.86",
+          "original": "[[4.86]]"
+        }
+      ],
+      "cleanText": "All the customers stare at you judgmentally as you exit the restaurant."
+    }
+  ]
+}

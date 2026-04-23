@@ -1,13 +1,11 @@
-
-
 {
   "uuid": "C663ADA9-4CC0-462B-A43B-6A687DDCDD5F",
   "name": "Honey Haven Day 5",
   "creator": "Twine",
-  "creatorVersion": "2.12.0",
+  "creatorVersion": "2.11.1",
   "schemaName": "Twine to JSON",
   "schemaVersion": "0.0.6",
-  "createdAtMs": 1776640848878,
+  "createdAtMs": 1776832404876,
   "passages": [
     {
       "name": "5.1",
@@ -25,7 +23,7 @@
     },
     {
       "name": "5.2",
-      "tags": "sunny_bedroom marty_enter marty-neutral",
+      "tags": "marty-neutral marty_enter sunny_bedroom",
       "id": "2",
       "text": "You wake up with a pounding headache. You barely got any sleep last night. [[5.3]]",
       "links": [
@@ -67,7 +65,7 @@
     },
     {
       "name": "5.5",
-      "tags": "marty-angry",
+      "tags": "excite marty-angry shake",
       "id": "5",
       "text": "You push the cup of water off the table. The porcelain shatters on the floor. [[5.6]]",
       "links": [
@@ -109,7 +107,7 @@
     },
     {
       "name": "5.8",
-      "tags": "marty-speaker marty-neutral",
+      "tags": "marty-neutral marty-speaker",
       "id": "8",
       "text": "I need to find out why they've been giving it to me. [[5.9]]",
       "links": [
@@ -151,7 +149,7 @@
     },
     {
       "name": "5.11",
-      "tags": "buttons-enter-left peaches-enter-right buttons-neutral peaches-neutral",
+      "tags": "buttons-enter-left buttons-neutral peaches-enter-right peaches-neutral",
       "id": "11",
       "text": "When you arrive, you see Peaches and Ms. Buttons talking on the line between their yards. [[5.12]]",
       "links": [
@@ -179,7 +177,7 @@
     },
     {
       "name": "5.13",
-      "tags": "peaches-speaker peaches-sad",
+      "tags": "peaches-sad peaches-speaker",
       "id": "13",
       "text": "What should I do? He's so close to figuring it out. [[5.14]]",
       "links": [
@@ -193,21 +191,21 @@
     },
     {
       "name": "5.14",
-      "tags": "buttons-speaker small",
+      "tags": "buttons-speaker quiver small",
       "id": "14",
-      "text": "Just distract him. What I always do is.. [[5.15]]",
+      "text": "Just distract him. What I always do is.. [[5.15.5]]",
       "links": [
         {
-          "linkText": "5.15",
-          "passageName": "5.15",
-          "original": "[[5.15]]"
+          "linkText": "5.15.5",
+          "passageName": "5.15.5",
+          "original": "[[5.15.5]]"
         }
       ],
       "cleanText": "Just distract him. What I always do is.."
     },
     {
       "name": "5.15",
-      "tags": "peaches-speaker peaches-angry",
+      "tags": "excite peaches-angry peaches-speaker quiver small",
       "id": "15",
       "text": "But he's suspicious of everything. I can't even let him talk to my kids... [[5.16]]",
       "links": [
@@ -221,7 +219,7 @@
     },
     {
       "name": "5.16",
-      "tags": "buttons-speaker buttons-fake-smile",
+      "tags": "buttons-fake-smile buttons-speaker",
       "id": "16",
       "text": "Oh there you are Marty! [[5.17]]",
       "links": [
@@ -249,7 +247,7 @@
     },
     {
       "name": "5.18",
-      "tags": "peaches_leave marty-neutral marty-enter-right",
+      "tags": "marty-enter-right marty-neutral peaches-enter-left peaches-neutral peaches_leave",
       "id": "18",
       "text": "You slink out of your hiding spot. How did they notice you were there?? [[5.19]]",
       "links": [
@@ -263,7 +261,7 @@
     },
     {
       "name": "5.19",
-      "tags": "marty-angry",
+      "tags": "excite marty-angry",
       "id": "19",
       "text": "You take the letters out of your pouch and shove them to Peaches and Ms. Buttons. [[5.20]]",
       "links": [
@@ -277,7 +275,7 @@
     },
     {
       "name": "5.20",
-      "tags": "buttons-speaker buttons-angry",
+      "tags": "buttons-angry buttons-speaker excite small",
       "id": "20",
       "text": "(Looks like someone's in a mood today.) [[5.21]]",
       "links": [
@@ -291,7 +289,7 @@
     },
     {
       "name": "5.21",
-      "tags": "buttons_leave peaches-speaker peaches-enter-left peaches-neutral",
+      "tags": "peaches-neutral peaches-speaker",
       "id": "21",
       "text": "Marty! Thank you for delivering the mail.\n[[\"It's my job to.\" -> 5.22a]]\n[[\"You were talking about me, weren't you? -> 5.22b]]",
       "links": [
@@ -310,7 +308,7 @@
     },
     {
       "name": " 5.22a",
-      "tags": "peaches-angry peaches-speaker",
+      "tags": "excite peaches-angry peaches-speaker",
       "id": "22",
       "text": "(Haven't been doing much of that these days.) [[5.23a]]",
       "links": [
@@ -324,7 +322,7 @@
     },
     {
       "name": " 5.22b",
-      "tags": "peaches-happy peaches-speaker excite",
+      "tags": "excite peaches-happy peaches-speaker",
       "id": "23",
       "text": "No, no! [[5.23b]]",
       "links": [
@@ -338,7 +336,7 @@
     },
     {
       "name": "5.23a",
-      "tags": "peaches_leave buttons-speaker buttons-enter-left buttons-fake-smile excite",
+      "tags": "buttons-fake-smile buttons-speaker excite",
       "id": "24",
       "text": "Maybe you should take a break!  [[5.26]]",
       "links": [
@@ -352,7 +350,7 @@
     },
     {
       "name": "5.23b",
-      "tags": "peaches_leave buttons-speaker buttons-enter-left buttons-fake-smile",
+      "tags": "buttons-fake-smile buttons-speaker quiver",
       "id": "25",
       "text": "We were just talking about- [[5.24b]]",
       "links": [
@@ -366,7 +364,7 @@
     },
     {
       "name": "5.24b",
-      "tags": "buttons_leave peaches peaches-enter-left peaches-happy peaches-speaker excite",
+      "tags": "excite peaches-happy peaches-speaker",
       "id": "26",
       "text": "Our business practices! [[5.25b]]",
       "links": [
@@ -380,7 +378,7 @@
     },
     {
       "name": "5.25b",
-      "tags": "marty-speaker marty-serious",
+      "tags": "marty-serious marty-speaker quiver",
       "id": "27",
       "text": "But you don't own- [[5.26]]",
       "links": [
@@ -394,7 +392,7 @@
     },
     {
       "name": "5.26",
-      "tags": "peaches_leave buttons-enter-left buttons-speaker buttons-fake-smile",
+      "tags": "buttons-fake-smile buttons-speaker shake",
       "id": "28",
       "text": "How would you like a 3% discount for my restaurant?? [[5.27]]",
       "links": [
@@ -408,7 +406,7 @@
     },
     {
       "name": "5.27",
-      "tags": "marty-speaker marty-angry",
+      "tags": "big excite marty-angry marty-speaker",
       "id": "29",
       "text": "I don't want your artificial food. [[5.28]]",
       "links": [
@@ -422,7 +420,7 @@
     },
     {
       "name": "5.28",
-      "tags": "buttons-speaker buttons-happy big",
+      "tags": "big buttons-happy buttons-speaker excite",
       "id": "30",
       "text": "I can up it to 4%! [[5.29]]",
       "links": [
@@ -436,7 +434,7 @@
     },
     {
       "name": "5.29",
-      "tags": "buttons-fake-smile marty-leave peaches-enter-right peaches-happy",
+      "tags": "buttons-fake-smile excite peaches-happy",
       "id": "31",
       "text": "You stare at them for a few moments. Ms. Buttons has a strained smile on her face. Peaches is trying to force herself to smile too. [[5.30]]",
       "links": [
@@ -450,7 +448,7 @@
     },
     {
       "name": "5.30",
-      "tags": "",
+      "tags": "quiver",
       "id": "32",
       "text": "Why are they acting so weird?? [[5.31]]",
       "links": [
@@ -478,7 +476,7 @@
     },
     {
       "name": "5.32",
-      "tags": "marty-enter-right marty-speaker marty-neutral buttons-sad peaches-leave",
+      "tags": "buttons-sad marty-neutral marty-speaker shake",
       "id": "34",
       "text": "I don't take bribes. Goodbye, Ms. Buttons. [[5.33]]",
       "links": [
@@ -492,7 +490,7 @@
     },
     {
       "name": "5.33",
-      "tags": "buttons-leave marty-leave",
+      "tags": "buttons-leave marty-leave peaches-leave",
       "id": "35",
       "text": "Ms. Buttons had built up twenty years of trust with you. [[5.34]]",
       "links": [
@@ -548,7 +546,7 @@
     },
     {
       "name": "5.37",
-      "tags": "",
+      "tags": "quiver",
       "id": "39",
       "text": "All this in just the past few days... clearly there is something greater at play. [[5.38]]",
       "links": [
@@ -590,7 +588,7 @@
     },
     {
       "name": "5.40",
-      "tags": "marty_enter outside_town_square marty-speaker marty-neutral",
+      "tags": "marty-neutral marty-speaker marty_enter outside_town_square",
       "id": "42",
       "text": "Hello, Honeybee Center. [[5.41]]",
       "links": [
@@ -632,7 +630,7 @@
     },
     {
       "name": "5.43",
-      "tags": "marty_enter inside_town_square marty-speaker marty-happy jane-enter-right jane-neutral",
+      "tags": "excite inside_town_square jane-enter-right jane-neutral marty-happy marty-speaker marty_enter",
       "id": "45",
       "text": "Jane! Is Barnaby in? [[5.44]]",
       "links": [
@@ -646,7 +644,7 @@
     },
     {
       "name": "5.44",
-      "tags": "jane-speaker jane-angry",
+      "tags": "excite jane-angry jane-speaker",
       "id": "46",
       "text": "No, Marty. He's in a meeting. [[5.45]]",
       "links": [
@@ -660,7 +658,7 @@
     },
     {
       "name": "5.45",
-      "tags": "jane-speaker jane-neutral",
+      "tags": "jane-neutral jane-speaker",
       "id": "47",
       "text": "But I can pass on a message if you need. [[5.46]]",
       "links": [
@@ -805,7 +803,7 @@
     },
     {
       "name": "5.54a",
-      "tags": "",
+      "tags": "quiver small",
       "id": "57",
       "text": "1:00PM: Second round... [[5.55a]]",
       "links": [
@@ -819,7 +817,7 @@
     },
     {
       "name": "5.55a",
-      "tags": "",
+      "tags": "big quiver shake",
       "id": "58",
       "text": "Wait... this is YOUR schedule! [[5.56a]]",
       "links": [
@@ -847,7 +845,7 @@
     },
     {
       "name": "5.57a",
-      "tags": "",
+      "tags": "big",
       "id": "60",
       "text": "Why does he have yours?! \n[[\"He knows I'm figuring something out!\" -> 5.58c]]\n[[\"He wants to know where I am, 24/7!\" -> 5.58d]]",
       "links": [
@@ -880,7 +878,7 @@
     },
     {
       "name": " 5.58d",
-      "tags": "marty-speaker marty-scared excite big",
+      "tags": "big excite marty-scared marty-speaker",
       "id": "62",
       "text": "He's stalking me! [[5.59e]]",
       "links": [
@@ -894,7 +892,7 @@
     },
     {
       "name": "5.59e",
-      "tags": "marty-scared flash",
+      "tags": "flash marty-scared",
       "id": "63",
       "text": "Someone puts their hand on your shoulder. You spin around only to find that it's Barnaby. [[5.60]]",
       "links": [
@@ -922,9 +920,9 @@
     },
     {
       "name": "5.53b",
-      "tags": "",
+      "tags": "quiver small",
       "id": "65",
-      "text": "Notes containing those those same symbols you found in the mail... [[5.54b]]",
+      "text": "Notes containing those same symbols you found in the mail... [[5.54b]]",
       "links": [
         {
           "linkText": "5.54b",
@@ -932,7 +930,7 @@
           "original": "[[5.54b]]"
         }
       ],
-      "cleanText": "Notes containing those those same symbols you found in the mail..."
+      "cleanText": "Notes containing those same symbols you found in the mail..."
     },
     {
       "name": "5.54b",
@@ -1006,7 +1004,7 @@
     },
     {
       "name": "5.59b",
-      "tags": "marty-enter marty-speaker marty-serious shake quiver",
+      "tags": "big marty-enter marty-serious marty-speaker quiver shake",
       "id": "71",
       "text": "What in the Honey Haven?! [[5.59e]]",
       "links": [
@@ -1020,7 +1018,7 @@
     },
     {
       "name": "5.60",
-      "tags": "barnaby-enter-right barnaby-speaker barnaby-sad big",
+      "tags": "barnaby-enter-right barnaby-sad barnaby-speaker big",
       "id": "72",
       "text": "You've been working so hard recently. Why don't you take a few days off? \n[[Accuse Him -> 5.61a]]\n[[Shove Him -> 5.61b]]",
       "links": [
@@ -1039,7 +1037,7 @@
     },
     {
       "name": " 5.61a",
-      "tags": "marty-speaker marty-angry excite",
+      "tags": "big excite marty-angry marty-speaker",
       "id": "73",
       "text": "What!? Are you trying to get rid of me? [[5.62a]]",
       "links": [
@@ -1053,7 +1051,7 @@
     },
     {
       "name": " 5.61b",
-      "tags": "marty-angry flash",
+      "tags": "excite flash marty-angry",
       "id": "74",
       "text": "You shove Barnaby with all your might. [[5.62b]]",
       "links": [
@@ -1067,7 +1065,7 @@
     },
     {
       "name": "5.62b",
-      "tags": "marty-speaker excite big",
+      "tags": "big excite marty-speaker shake",
       "id": "75",
       "text": "Get your paws off of me! [[5.63b]]",
       "links": [
@@ -1109,7 +1107,7 @@
     },
     {
       "name": "5.64a",
-      "tags": "marty-angry marty-speaker excite",
+      "tags": "excite marty-angry marty-speaker shake",
       "id": "78",
       "text": "I don't need rest! I need *answers*! [[5.65c1]]",
       "links": [
@@ -1123,7 +1121,7 @@
     },
     {
       "name": "5.65c1",
-      "tags": "barnaby-angry",
+      "tags": "barnaby-angry excite",
       "id": "79",
       "text": "Barnaby fixes you with an intense stare. [[5.66c]]",
       "links": [
@@ -1151,7 +1149,7 @@
     },
     {
       "name": "5.64b",
-      "tags": "blueprint_chosen barnaby-speaker barnaby-enter-right barnaby-angry",
+      "tags": "barnaby-angry barnaby-enter-right barnaby-speaker blueprint_chosen excite",
       "id": "81",
       "text": "You're making a huge mistake, Marty! \n[[\"WHY DO YOU HAVE MY SCHEDULE?!\" -> 5.65c2]]\n[[\"WHAT ARE YOU BUILDING?!\" -> 5.65c2]]\n[[Punch him in the stomach! -> 5.65b1]]",
       "links": [
@@ -1189,7 +1187,7 @@
     },
     {
       "name": " 5.65b1",
-      "tags": "marty-leave barnaby-leave flash",
+      "tags": "barnaby-leave flash marty-leave",
       "id": "83",
       "text": "You attempt to punch him in the gut. [[5.66b1]]",
       "links": [
@@ -1259,7 +1257,7 @@
     },
     {
       "name": "5.68b1",
-      "tags": "barnaby-enter-right barnaby-speaker barnaby-angry shake",
+      "tags": "barnaby-angry barnaby-enter-right barnaby-speaker excite shake",
       "id": "88",
       "text": "I highly suggest you don't try anything. I'm a whole lot bigger than you are, and I have training. [[5.69b1]]",
       "links": [
@@ -1315,7 +1313,7 @@
     },
     {
       "name": "5.72b1",
-      "tags": "barnaby-speaker barnaby-neutral",
+      "tags": "barnaby-neutral barnaby-speaker quiver small",
       "id": "92",
       "text": "Oh, and one last thing.. [[5.73b1]]",
       "links": [
@@ -1329,7 +1327,7 @@
     },
     {
       "name": "5.73b1",
-      "tags": "barnaby-speaker barnaby-angry",
+      "tags": "barnaby-angry barnaby-speaker excite",
       "id": "93",
       "text": "Don't come to work tomorrow. [[5.74]]",
       "links": [
@@ -1357,7 +1355,7 @@
     },
     {
       "name": "5.75",
-      "tags": "marty_enter marty-speaker marty-angry excite",
+      "tags": "excite marty-angry marty-speaker marty_enter",
       "id": "95",
       "text": "I knew it! They're all hiding something from me. [[5.76]]",
       "links": [
@@ -1371,7 +1369,7 @@
     },
     {
       "name": "5.76",
-      "tags": "marty-serious shake",
+      "tags": "marty-serious quiver shake",
       "id": "96",
       "text": "The city plans, the schedule, the looks everyone gave you.. it doesn't paint a very good picture now does it? [[5.77]]",
       "links": [
@@ -1399,7 +1397,7 @@
     },
     {
       "name": "5.78",
-      "tags": "marty_leave closet_letter flash",
+      "tags": "closet_letter flash marty_leave quiver",
       "id": "98",
       "text": "As you prepare to sleep, you see a weirdly shaped paw slowly reach out from inside your closet. It beckons you closer. [[5.79]]",
       "links": [
@@ -1469,12 +1467,25 @@
     },
     {
       "name": "5.83",
-      "tags": "",
+      "tags": "flash",
       "id": "103",
       "text": "End of Day 5.",
       "links": [],
       "cleanText": "End of Day 5."
+    },
+    {
+      "name": "5.15.5",
+      "tags": "buttons-speaker quiver small",
+      "id": "104",
+      "text": "What I always do is... [[5.15]]",
+      "links": [
+        {
+          "linkText": "5.15",
+          "passageName": "5.15",
+          "original": "[[5.15]]"
+        }
+      ],
+      "cleanText": "What I always do is..."
     }
   ]
 }
-

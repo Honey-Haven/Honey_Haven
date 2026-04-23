@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://7irim6fci6yx"]
 
-[ext_resource type="Texture2D" uid="uid://kbtd0i1s4m7q" path="res://sprites/car.png" id="1_7822p"]
-[ext_resource type="Script" uid="uid://dxgibl1qjn1qw" path="res://carscript.gd" id="1_uoj53"]
-[ext_resource type="Texture2D" uid="uid://c6i3n6cmp68wv" path="res://sprites/truck.webp" id="2_50v30"]
+[ext_resource type="Texture2D" uid="uid://kbtd0i1s4m7q" path="res://minigames/CarrotMinigame/sprites/car.png" id="1_7822p"]
+[ext_resource type="Script" uid="uid://dxgibl1qjn1qw" path="res://minigames/CarrotMinigame/carscript.gd" id="1_uoj53"]
+[ext_resource type="Texture2D" uid="uid://c6i3n6cmp68wv" path="res://minigames/CarrotMinigame/sprites/truck.webp" id="2_50v30"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
 size = Vector2(147, 90)

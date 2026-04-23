@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dcojn4tankhtw"]
 
-[ext_resource type="Script" uid="uid://dy858pqg5wqcg" path="res://carrotscript.gd" id="1_l7vel"]
-[ext_resource type="Texture2D" uid="uid://dumt50dfnseoa" path="res://sprites/carrots1.webp" id="2_elckd"]
+[ext_resource type="Script" uid="uid://dy858pqg5wqcg" path="res://minigames/CarrotMinigame/carrotscript.gd" id="1_l7vel"]
+[ext_resource type="Texture2D" uid="uid://dumt50dfnseoa" path="res://minigames/CarrotMinigame/sprites/carrots1.webp" id="2_elckd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7ucno"]
 radius = 25.0

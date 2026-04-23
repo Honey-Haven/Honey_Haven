@@ -1,74 +1,30 @@
 
-
 {
-  "uuid": "8f8283d8-f0e2-4684-8854-e19774ec097e",
-  "name": "Honey Haven Day 1 1",
+  "uuid": "D1513AE4-C7FB-4740-AAD7-C61BE2AEA55F",
+  "name": "Honey Haven Day 1",
   "creator": "Twine",
   "creatorVersion": "2.11.1",
   "schemaName": "Twine to JSON",
   "schemaVersion": "0.0.6",
-  "createdAtMs": 1774622915268,
+  "createdAtMs": 1776836018997,
   "passages": [
     {
-      "name": "1.1.1",
-      "tags": "Demon",
-      "id": "138",
-      "text": "You ever feel like you're in a dream so real [[1.1.2]]",
+      "name": "1.0",
+      "tags": "day_start black_screen",
+      "id": "136",
+      "text": "Day 1 [[1.1.1]]",
       "links": [
         {
-          "linkText": "1.1.2",
-          "passageName": "1.1.2",
-          "original": "[[1.1.2]]"
+          "linkText": "1.1.1",
+          "passageName": "1.1.1",
+          "original": "[[1.1.1]]"
         }
       ],
-      "cleanText": "You ever feel like you're in a dream so real"
+      "cleanText": "Day 1"
     },
-    {
-      "name": "1.1.2",
-      "tags": "Demon",
-      "id": "139",
-      "text": "that you think it is? [[1.1.3]]",
-      "links": [
-        {
-          "linkText": "1.1.3",
-          "passageName": "1.1.3",
-          "original": "[[1.1.3]]"
-        }
-      ],
-      "cleanText": "that you think it is?"
-    },
-    {
-      "name": "1.1.3",
-      "tags": "Demon",
-      "id": "140",
-      "text": "When that's the case, do you want to wake up? [[1.1.4]]",
-      "links": [
-        {
-          "linkText": "1.1.4",
-          "passageName": "1.1.4",
-          "original": "[[1.1.4]]"
-        }
-      ],
-      "cleanText": "When that's the case, do you want to wake up?"
-    },
-    {
-      "name": "1.1.4",
-      "tags": "Demon sunny_bedroom",
-      "id": "141",
-      "text": "Too bad, you don't get a choice. [[1.1]]",
-      "links": [
-        {
-          "linkText": "1.1",
-          "passageName": "1.1",
-          "original": "[[1.1]]"
-        }
-      ],
-      "cleanText": "Too bad, you don't get a choice."
-    },
-
     {
       "name": "1.1",
-      "tags": "Demon",
+      "tags": "black_screen stranger-speaker",
       "id": "1",
       "text": "It's time to wake up~ [[1.2]]",
       "links": [
@@ -82,7 +38,7 @@
     },
     {
       "name": "1.2",
-      "tags": "Marty startled Marty_enter",
+      "tags": "big marty-enter marty-scared marty-speaker quiver shake sunny_bedroom",
       "id": "2",
       "text": "AH- [[1.3]]",
       "links": [
@@ -96,7 +52,7 @@
     },
     {
       "name": "1.3",
-      "tags": "Marty",
+      "tags": "marty-serious marty-speaker quiver",
       "id": "3",
       "text": "Woah- what a weird dream. 4th night in a row, whew. [[1.4]]",
       "links": [
@@ -110,7 +66,7 @@
     },
     {
       "name": "1.4",
-      "tags": "Marty worried",
+      "tags": "marty-speaker quiver",
       "id": "4",
       "text": "Maybe I should get a check up from Dr. Muffins... \n[[\"I'll call him now...\" -> 1.5]] \n[[\"Well he might be busy... maybe I'll ask later.\" -> 1.5]]",
       "links": [
@@ -129,7 +85,7 @@
     },
     {
       "name": "1.6",
-      "tags": "Narrator Marty_leave",
+      "tags": "marty-leave quiver",
       "id": "5",
       "text": "You are Marty R, Honey Haven's mailmouse. Every morning you brush your teeth, pack your satchel, and enjoy a filling breakfast. Today's is a simple stew with boiled potatoes, carrots, and sunflower seeds. The chilly autumn months are rapidly approaching... [[1.7]]",
       "links": [
@@ -143,7 +99,7 @@
     },
     {
       "name": "1.7",
-      "tags": "Marty sneezing Marty_enter",
+      "tags": "big excite marty-enter marty-scared marty-speaker shake",
       "id": "6",
       "text": "AH- A- ACHOOOOO! \n\n[[\"Oh wow. I better put on a coat before heading out!\" ->1.8]]\n[[\"This weather's got nothing on me!\" ->1.8]]",
       "links": [
@@ -162,7 +118,7 @@
     },
     {
       "name": " 1.5",
-      "tags": "Marty startled",
+      "tags": "excite marty-scared marty-speaker shake",
       "id": "7",
       "text": "7:52!! I'll be late at this rate! [[1.6]]",
       "links": [
@@ -176,7 +132,7 @@
     },
     {
       "name": "1.8",
-      "tags": "Narrator Marty_leave",
+      "tags": "marty-leave",
       "id": "8",
       "text": "You head out to deliver mail across Honey Haven. [[1.8 MAIN]]",
       "links": [
@@ -190,7 +146,7 @@
     },
     {
       "name": " 1.9 pepper lane",
-      "tags": "must_visit pepper",
+      "tags": "must_visit pepper_lane",
       "id": "9",
       "text": "You head northwest and reach Pepper Lane, a street bustling with young children playing on unkempt, wild front lawns and elderly residents in rocking chairs on white porches. [[1.10 pepper]]",
       "links": [
@@ -204,9 +160,9 @@
     },
     {
       "name": " 1.9 casserole avenue",
-      "tags": "must_visit Narrator casserole",
+      "tags": "casserole_avenue must_visit",
       "id": "10",
-      "text": "You turn left onto Casserole Avenue, a beautiful street full of dewey green vegetables. [[1.10]]",
+      "text": "You turn left onto Casserole Avenue, a beautiful street full of dewy green vegetables. [[1.10]]",
       "links": [
         {
           "linkText": "1.10",
@@ -214,11 +170,11 @@
           "original": "[[1.10]]"
         }
       ],
-      "cleanText": "You turn left onto Casserole Avenue, a beautiful street full of dewey green vegetables."
+      "cleanText": "You turn left onto Casserole Avenue, a beautiful street full of dewy green vegetables."
     },
     {
       "name": " 1.9 truffle corner",
-      "tags": "must_visit truffle",
+      "tags": "must_visit truffle_corner",
       "id": "11",
       "text": "You go eastward until you hit Truffle Corner, a small crevice where two streets meet. Only one resident lives in the tiny, rundown, yet cozy shaft. [[1.10 truffle corner]]",
       "links": [
@@ -232,7 +188,7 @@
     },
     {
       "name": " 1.11a casserole",
-      "tags": "Marty_enter Marty buttons_enter",
+      "tags": "big excite marty-enter-right marty-scared marty-speaker shake",
       "id": "12",
       "text": "BOO!!!\n[[1.12a casserole]]",
       "links": [
@@ -246,7 +202,7 @@
     },
     {
       "name": " 1.11b casserole",
-      "tags": "Marty Marty_enter buttons_enter",
+      "tags": "excite marty-enter-right marty-happy marty-speaker",
       "id": "13",
       "text": "Hey Ms. Buttons! Already at it so early, I see. [[1.12b casserole]]",
       "links": [
@@ -260,7 +216,7 @@
     },
     {
       "name": "1.10",
-      "tags": "",
+      "tags": "buttons-enter-left buttons-neutral",
       "id": "14",
       "text": "The first home you see has a wooden enclosure sprouting plump carrots. Ms. Buttons, the restaurant owner of Bunalicious, lives here. She's picking the carrots in her garden when you approach. \n[[Jumpscare Ms. Buttons -> 1.11a casserole]]\n[[Call for her attention -> 1.11b casserole]]",
       "links": [
@@ -279,7 +235,7 @@
     },
     {
       "name": "1.12a casserole",
-      "tags": "buttons",
+      "tags": "big buttons-angry buttons-speaker excite quiver shake",
       "id": "15",
       "text": "AHHHGJDLFpfhuff.. *huff* [[1.12a.1 casserole]]",
       "links": [
@@ -293,7 +249,7 @@
     },
     {
       "name": "1.12b casserole",
-      "tags": "buttons",
+      "tags": "buttons-happy buttons-speaker excite",
       "id": "16",
       "text": "Ah, hello Marty! Well, an old bunny like me needs to get her work done early. [[1.14 casserole]]",
       "links": [
@@ -307,7 +263,7 @@
     },
     {
       "name": "1.13a casserole",
-      "tags": "buttons",
+      "tags": "buttons-speaker",
       "id": "17",
       "text": "Always trying to scare an old bunny. [[1.14 casserole]]",
       "links": [
@@ -321,7 +277,7 @@
     },
     {
       "name": "1.14 casserole",
-      "tags": "Marty",
+      "tags": "marty-speaker",
       "id": "18",
       "text": "Haha, you're no old bunny yet. When you get to Mrs. Tofu's age, then you can start talking. [[1.15 casserole]]",
       "links": [
@@ -335,7 +291,7 @@
     },
     {
       "name": "1.15 casserole",
-      "tags": "buttons",
+      "tags": "buttons-happy buttons-speaker excite",
       "id": "19",
       "text": "You sure know how to make a bunny blush, you lil charmer. Do you have some mail for me? [[1.16 casserole]]",
       "links": [
@@ -349,7 +305,7 @@
     },
     {
       "name": "1.16 casserole",
-      "tags": "Marty",
+      "tags": "excite marty-happy marty-speaker",
       "id": "20",
       "text": "Sure do. I guess Bunalicious is booming, 'cause you have a lottt of interest. [[1.17 casserole]]",
       "links": [
@@ -363,7 +319,7 @@
     },
     {
       "name": "1.17 casserole",
-      "tags": "buttons",
+      "tags": "buttons-happy buttons-speaker excite",
       "id": "21",
       "text": "Thanks sweetie pie! [[1.18 casserole]]",
       "links": [
@@ -377,7 +333,7 @@
     },
     {
       "name": "1.18 casserole",
-      "tags": "marty_leave buttons_leave",
+      "tags": "buttons_leave marty_leave",
       "id": "22",
       "text": "You bid Ms. Buttons farewell and move onto the next home, a hollowed out treehouse. This is the home of Peaches, a vibrant, young possum mother. [[1.19 casserole]]",
       "links": [
@@ -391,7 +347,7 @@
     },
     {
       "name": "1.19 casserole",
-      "tags": "marty_enter peaches_enter marty",
+      "tags": "excite marty-happy marty-speaker marty_enter peaches-enter-right peaches-neutral",
       "id": "23",
       "text": "Hi Peaches! How ya doing?  [[1.20 casserole]]",
       "links": [
@@ -405,7 +361,7 @@
     },
     {
       "name": "1.20 casserole",
-      "tags": "peaches",
+      "tags": "excite peaches-happy peaches-speaker",
       "id": "24",
       "text": "Just wonderful, Marty. I hope you are doing wonderful, too. I just got back from the most amazing vacation at the Rainforest Resort. [[1.21 casserole]]",
       "links": [
@@ -419,7 +375,7 @@
     },
     {
       "name": "1.21 casserole",
-      "tags": "marty",
+      "tags": "excite marty-scared marty-speaker",
       "id": "25",
       "text": "Wow! That's an expensive place. [[1.22 casserole]]",
       "links": [
@@ -433,7 +389,7 @@
     },
     {
       "name": "1.22 casserole",
-      "tags": "peaches",
+      "tags": "peaches-neutral peaches-speaker quiver",
       "id": "26",
       "text": "Yes, it was a nice.. gift. From a lil friend of mine. [[1.23 casserole]]",
       "links": [
@@ -447,23 +403,9 @@
     },
     {
       "name": "1.23 casserole",
-      "tags": "marty",
+      "tags": "excite marty-happy marty-speaker",
       "id": "27",
-      "text": "What a kind (and rich) friend you have! [[1.24 casserole]]",
-      "links": [
-        {
-          "linkText": "1.24 casserole",
-          "passageName": "1.24 casserole",
-          "original": "[[1.24 casserole]]"
-        }
-      ],
-      "cleanText": "What a kind (and rich) friend you have!"
-    },
-    {
-      "name": "1.24 casserole",
-      "tags": "marty",
-      "id": "28",
-      "text": "Oh my GOAT, I haven't met your babies yet. Can I say hi? [[1.25 casserole]]",
+      "text": "What a kind (and rich) friend you have! [[1.25 casserole]]",
       "links": [
         {
           "linkText": "1.25 casserole",
@@ -471,13 +413,13 @@
           "original": "[[1.25 casserole]]"
         }
       ],
-      "cleanText": "Oh my GOAT, I haven't met your babies yet. Can I say hi?"
+      "cleanText": "What a kind (and rich) friend you have!"
     },
     {
       "name": "1.25 casserole",
-      "tags": "peaches",
-      "id": "29",
-      "text": "Aw sorry, they're just a little shy. Maybe next time! Thank you for the mail Marty. [[1.26 casserole]]",
+      "tags": "excite peaches-happy peaches-speaker",
+      "id": "28",
+      "text": "Yes, indeed! Thank you for the mail, darling. [[1.26 casserole]]",
       "links": [
         {
           "linkText": "1.26 casserole",
@@ -485,12 +427,12 @@
           "original": "[[1.26 casserole]]"
         }
       ],
-      "cleanText": "Aw sorry, they're just a little shy. Maybe next time! Thank you for the mail Marty."
+      "cleanText": "Yes, indeed! Thank you for the mail, darling."
     },
     {
       "name": "1.26 casserole",
       "tags": "marty_leave peaches_leave",
-      "id": "30",
+      "id": "29",
       "text": "You move to the end of Casserole Avenue where your best friend, Matthew, lives. He's waiting for you when you arrive. [[1.27 casserole]]",
       "links": [
         {
@@ -503,8 +445,8 @@
     },
     {
       "name": "1.27 casserole",
-      "tags": "marty_enter matthew_enter matthew",
-      "id": "31",
+      "tags": "excite marty-enter marty-neutral matthew-enter-right matthew-happy matthew-speaker",
+      "id": "30",
       "text": "Took you long enough. This mouse might as well be a snail. [[1.28 casserole]]",
       "links": [
         {
@@ -517,8 +459,8 @@
     },
     {
       "name": "1.28 casserole",
-      "tags": "marty",
-      "id": "32",
+      "tags": "excite marty-angry marty-speaker",
+      "id": "31",
       "text": "Bah ba baaa. Whatever, Matthew. Here's your mail. [[1.29 casserole]]",
       "links": [
         {
@@ -531,8 +473,8 @@
     },
     {
       "name": "1.29 casserole",
-      "tags": "matthew",
-      "id": "33",
+      "tags": "matthew-neutral matthew-speaker",
+      "id": "32",
       "text": "You doing alright? You look a lil tired. [[1.30 casserole]]",
       "links": [
         {
@@ -545,8 +487,8 @@
     },
     {
       "name": "1.30 casserole",
-      "tags": "marty",
-      "id": "34",
+      "tags": "marty-neutral marty-speaker",
+      "id": "33",
       "text": "It's nothing big, I just haven't been sleeping well. [[1.31 casserole]]",
       "links": [
         {
@@ -559,8 +501,8 @@
     },
     {
       "name": "1.31 casserole",
-      "tags": "matthew",
-      "id": "35",
+      "tags": "matthew-sad matthew-speaker",
+      "id": "34",
       "text": "Aw rats, that stinks! \n[[\"What did you just call me!?\" -> 1.32 casserole]]\n[[\"That's me!\" -> 1.32 casserole]]",
       "links": [
         {
@@ -578,8 +520,8 @@
     },
     {
       "name": " 1.32 casserole",
-      "tags": "marty",
-      "id": "36",
+      "tags": "excite marty-happy marty-speaker matthew-neutral",
+      "id": "35",
       "text": "Sooo. Who's the lady who keeps sending you mail? I keep having to stop by here everyday. [[1.33 casserole]]",
       "links": [
         {
@@ -592,8 +534,8 @@
     },
     {
       "name": "1.33 casserole",
-      "tags": "matthew",
-      "id": "37",
+      "tags": "matthew-sad matthew-speaker",
+      "id": "36",
       "text": "Sigh, it's just my aunt Susan. She's constantly checking up on me. [[1.34 casserole]]",
       "links": [
         {
@@ -606,8 +548,8 @@
     },
     {
       "name": "1.34 casserole",
-      "tags": "marty",
-      "id": "38",
+      "tags": "excite marty-happy marty-speaker",
+      "id": "37",
       "text": "Haha! Someone's still in grade school. [[1.35 casserole]]",
       "links": [
         {
@@ -620,8 +562,8 @@
     },
     {
       "name": "1.35 casserole",
-      "tags": "marty",
-      "id": "39",
+      "tags": "marty-speaker",
+      "id": "38",
       "text": "I'll be on my way now! Knowing Aunt Susan, I'll be back tomorrow. [[1.36 casserole]]",
       "links": [
         {
@@ -635,7 +577,7 @@
     {
       "name": "1.8 MAIN",
       "tags": "",
-      "id": "40",
+      "id": "39",
       "text": "Where to?\n[[Pepper Lane -> 1.9 pepper lane]]\n[[Casserole Avenue -> 1.9 casserole avenue]]\n[[Truffle Corner -> 1.9 truffle corner]]\n[[1.9 main]]",
       "links": [
         {
@@ -663,8 +605,8 @@
     },
     {
       "name": "1.10 truffle corner",
-      "tags": "marty_enter",
-      "id": "41",
+      "tags": "marty-neutral marty_enter",
+      "id": "40",
       "text": "You knock on the door of the eerily silent home. The doorplate reads, \"Jonathan F. Smith.\" [[1.11 truffle]]",
       "links": [
         {
@@ -677,8 +619,8 @@
     },
     {
       "name": "1.11 truffle",
-      "tags": "marty",
-      "id": "42",
+      "tags": "marty-speaker",
+      "id": "41",
       "text": "Hello? Mr. Smith? Are you home? [[1.11.5 truffle]]",
       "links": [
         {
@@ -691,8 +633,8 @@
     },
     {
       "name": "1.12 truffle",
-      "tags": "marty",
-      "id": "43",
+      "tags": "marty-speaker",
+      "id": "42",
       "text": "I guess not. Sigh, it's been a few years since I've seen Mr. Smith. [[1.13 truffle]]",
       "links": [
         {
@@ -705,8 +647,8 @@
     },
     {
       "name": "1.13 truffle",
-      "tags": "marty",
-      "id": "44",
+      "tags": "marty-serious marty-speaker quiver shake",
+      "id": "43",
       "text": "I wonder why he suddenly became so reclusive... Come to think of it, wasn't it also around this time two years ago? [[1.14 truffle]]",
       "links": [
         {
@@ -719,8 +661,8 @@
     },
     {
       "name": "1.14 truffle",
-      "tags": "marty",
-      "id": "45",
+      "tags": "excite marty-scared marty-speaker shake",
+      "id": "44",
       "text": "Ah- You're getting distracted, me! Gah! I better get on my way. I need to make it in time for Mayor Barnaby's speech tonight. [[1.15 truffle]]",
       "links": [
         {
@@ -733,8 +675,8 @@
     },
     {
       "name": "1.15 truffle",
-      "tags": "",
-      "id": "46",
+      "tags": "marty-leave",
+      "id": "45",
       "text": "You put the letters for Jonathan F. Smith in his mailbox and head out. [[1.8 MAIN]]",
       "links": [
         {
@@ -748,7 +690,7 @@
     {
       "name": "1.11.5 truffle",
       "tags": "",
-      "id": "47",
+      "id": "46",
       "text": "[[1.12 truffle]] You hear soft sounds of tv and static from inside the home. There's some shifting, but no indications of footsteps or movements towards the door.",
       "links": [
         {
@@ -762,7 +704,7 @@
     {
       "name": "1.36 casserole",
       "tags": "marty_leave matthew_leave",
-      "id": "48",
+      "id": "47",
       "text": "You turn to leave Casserole Avenue. [[1.8 MAIN]]",
       "links": [
         {
@@ -776,7 +718,7 @@
     {
       "name": "1.10 pepper",
       "tags": "",
-      "id": "49",
+      "id": "48",
       "text": "You approach the cozy home of Mrs. Tofu and Mr. Scotch, an elderly tortoise and sloth couple who, despite having no kids of their own, delight in having the company of such youthful, racous neighbors. [[1.11 pepper]]",
       "links": [
         {
@@ -789,8 +731,8 @@
     },
     {
       "name": "1.11 pepper",
-      "tags": "marty_enter tofu/scotch_enter tofu_neutral scotch_neutral marty",
-      "id": "50",
+      "tags": "excite marty-happy marty-speaker marty_enter scotch-enter-right scotch-happy shake tofu-enter-right tofu-happy",
+      "id": "49",
       "text": "Mrs. Tofu! Mr. Scotch! Good morning! [[1.12 pepper]]",
       "links": [
         {
@@ -803,8 +745,8 @@
     },
     {
       "name": "1.12 pepper",
-      "tags": "scotch scotch_happy",
-      "id": "51",
+      "tags": "scotch-speaker",
+      "id": "50",
       "text": "Why, good morning Marty! Jolly day, isn't it. [[1.13 pepper]]",
       "links": [
         {
@@ -817,8 +759,8 @@
     },
     {
       "name": "1.13 pepper",
-      "tags": "marty scotch_neutral",
-      "id": "52",
+      "tags": "marty-speaker",
+      "id": "51",
       "text": "Haha, the air is starting to feel like a knife though. [[1.14 pepper]]",
       "links": [
         {
@@ -831,8 +773,8 @@
     },
     {
       "name": "1.14 pepper",
-      "tags": "marty",
-      "id": "53",
+      "tags": "marty-speaker",
+      "id": "52",
       "text": "Here's your mail! [[1.15 pepper]]",
       "links": [
         {
@@ -845,9 +787,9 @@
     },
     {
       "name": "1.15 pepper",
-      "tags": "tofu tofu_happy",
-      "id": "54",
-      "text": "Thank you, Marty! It is always nice to see your face, my dear. [[1.16 pepper]]",
+      "tags": "tofu-speaker",
+      "id": "53",
+      "text": "Thank you, Martin! It is always nice to see your face, my dear. [[1.16 pepper]]",
       "links": [
         {
           "linkText": "1.16 pepper",
@@ -855,12 +797,12 @@
           "original": "[[1.16 pepper]]"
         }
       ],
-      "cleanText": "Thank you, Marty! It is always nice to see your face, my dear."
+      "cleanText": "Thank you, Martin! It is always nice to see your face, my dear."
     },
     {
       "name": "1.16 pepper",
-      "tags": "marty_leave tofu/scotch_leave",
-      "id": "55",
+      "tags": "marty_leave scotch-leave tofu-leave",
+      "id": "54",
       "text": "You bid farewell to Mrs. Tofu and Mr. Scotch, your favorite elderly residents in Honey Haven. [[1.17 pepper]]",
       "links": [
         {
@@ -874,7 +816,7 @@
     {
       "name": "1.17 pepper",
       "tags": "",
-      "id": "56",
+      "id": "55",
       "text": "You approach the next house, where a little purple cat is leaning on the mailbox and smirking at you. [[1.18 pepper]]",
       "links": [
         {
@@ -887,8 +829,8 @@
     },
     {
       "name": "1.18 pepper",
-      "tags": "marty_enter chester_enter chester",
-      "id": "57",
+      "tags": "chester-enter-right chester-neutral chester-speaker marty-neutral marty_enter",
+      "id": "56",
       "text": "Mr. Marty, what's up with the scary monster behind you? [[1.19 pepper]]",
       "links": [
         {
@@ -901,8 +843,8 @@
     },
     {
       "name": "1.19 pepper",
-      "tags": "marty",
-      "id": "58",
+      "tags": "marty-serious marty-speaker",
+      "id": "57",
       "text": "What? [[1.20 pepper]]",
       "links": [
         {
@@ -915,8 +857,8 @@
     },
     {
       "name": "1.20 pepper",
-      "tags": "chester",
-      "id": "59",
+      "tags": "chester-speaker",
+      "id": "58",
       "text": "You heard me. It keeps following you for some reason. [[1.21 pepper]]",
       "links": [
         {
@@ -930,7 +872,7 @@
     {
       "name": "1.21 pepper",
       "tags": "",
-      "id": "60",
+      "id": "59",
       "text": "You turn around and see nothing there. You breathe a sigh of relief. [[1.22 pepper]]",
       "links": [
         {
@@ -943,8 +885,8 @@
     },
     {
       "name": "1.22 pepper",
-      "tags": "marty",
-      "id": "61",
+      "tags": "excite marty-happy marty-speaker",
+      "id": "60",
       "text": "See Chester? Nothing there. [[1.23 pepper]]",
       "links": [
         {
@@ -957,9 +899,9 @@
     },
     {
       "name": "1.23 pepper",
-      "tags": "chester",
-      "id": "62",
-      "text": "\nThat's cuz you can't see him... but he's there. But I can. He really likes you- [[1.24 pepper]]",
+      "tags": "chester-happy chester-speaker excite quiver",
+      "id": "61",
+      "text": "That's cuz you can't see him... but he's there. But I can. He really likes you- [[1.24 pepper]]",
       "links": [
         {
           "linkText": "1.24 pepper",
@@ -967,12 +909,12 @@
           "original": "[[1.24 pepper]]"
         }
       ],
-      "cleanText": "\nThat's cuz you can't see him... but he's there. But I can. He really likes you-"
+      "cleanText": "That's cuz you can't see him... but he's there. But I can. He really likes you-"
     },
     {
       "name": "1.24 pepper",
-      "tags": "mochi_enter chester",
-      "id": "63",
+      "tags": "big chester-angry chester-speaker excite mochi-enter-right mochi-stern shake",
+      "id": "62",
       "text": "AH! [[1.25 pepper]]",
       "links": [
         {
@@ -986,7 +928,7 @@
     {
       "name": "1.25 pepper",
       "tags": "",
-      "id": "64",
+      "id": "63",
       "text": "Ms. Mochi, Chester's mom, picks him up. [[1.26 pepper]]",
       "links": [
         {
@@ -999,8 +941,8 @@
     },
     {
       "name": "1.26 pepper",
-      "tags": "mochi",
-      "id": "65",
+      "tags": "excite mochi-angry mochi-speaker",
+      "id": "64",
       "text": "Oh my, I'm so sorry Marty. Chester likes playing with mice. [[1.27 pepper]]",
       "links": [
         {
@@ -1013,8 +955,8 @@
     },
     {
       "name": "1.27 pepper",
-      "tags": "mochi",
-      "id": "66",
+      "tags": "mochi-speaker mochi-stern",
+      "id": "65",
       "text": "I'll make sure he doesn't misbehave again. [[1.28 pepper]]",
       "links": [
         {
@@ -1027,8 +969,8 @@
     },
     {
       "name": "1.28 pepper",
-      "tags": "mochi",
-      "id": "67",
+      "tags": "mochi mochi-neutral",
+      "id": "66",
       "text": "Thanks for the mail! [[1.29 pepper]]",
       "links": [
         {
@@ -1042,7 +984,7 @@
     {
       "name": "1.30 pepper",
       "tags": "marty_leave",
-      "id": "68",
+      "id": "67",
       "text": "You shrug off the bristling feeling and knock on the door of the final house in the row, belonging to Mr. Schlawg and his son, Peanut. [[1.31 pepper]]",
       "links": [
         {
@@ -1055,8 +997,8 @@
     },
     {
       "name": "1.29 pepper",
-      "tags": "marty chester_leave mochi_leave",
-      "id": "69",
+      "tags": "chester_leave marty-serious marty-speaker mochi_leave quiver",
+      "id": "68",
       "text": "[[1.30 pepper]] That was weird...",
       "links": [
         {
@@ -1069,8 +1011,8 @@
     },
     {
       "name": "1.31 pepper",
-      "tags": "marty_enter",
-      "id": "70",
+      "tags": "marty-scared marty_enter quiver",
+      "id": "69",
       "text": "There's a note on the door. Let's see.. oh, they're at the doctors. [[1.32 pepper]]",
       "links": [
         {
@@ -1083,8 +1025,8 @@
     },
     {
       "name": "1.32 pepper",
-      "tags": "",
-      "id": "71",
+      "tags": "marty-neutral",
+      "id": "70",
       "text": "You leave their letters in the mailbox. [[1.33 pepper]]",
       "links": [
         {
@@ -1097,8 +1039,8 @@
     },
     {
       "name": "1.33 pepper",
-      "tags": "marty",
-      "id": "72",
+      "tags": "marty-neutral marty-speaker",
+      "id": "71",
       "text": "That reminds me, I have to see Dr. Muffins. [[1.34 pepper]]",
       "links": [
         {
@@ -1112,7 +1054,7 @@
     {
       "name": "1.34 pepper",
       "tags": "marty_leave",
-      "id": "73",
+      "id": "72",
       "text": "You leave Pepper Lane. [[1.8 MAIN]]",
       "links": [
         {
@@ -1125,8 +1067,8 @@
     },
     {
       "name": "1.9 main",
-      "tags": "towncenter",
-      "id": "74",
+      "tags": "",
+      "id": "73",
       "text": "You're off to Honeybee Center, the town square, when you see Ms. Buttons running up to you with a cradle of carrots. [[1.10 main]]",
       "links": [
         {
@@ -1139,8 +1081,8 @@
     },
     {
       "name": "1.10 main",
-      "tags": "marty_enter buttons_enter buttons",
-      "id": "75",
+      "tags": "big buttons-enter-right buttons-happy buttons-speaker excite marty-neutral marty_enter shake",
+      "id": "74",
       "text": "Marty! I just finished picking all my carrots and I need these at Bunalicious ASAP. Can you take them for me?\n[[\"Yes, of course!\" -> 1.11a main]]\n[[\"I'm a little busy...\" -> 1.11b main]]",
       "links": [
         {
@@ -1158,8 +1100,8 @@
     },
     {
       "name": " 1.11a main",
-      "tags": "buttons",
-      "id": "76",
+      "tags": "buttons-happy buttons-speaker excite",
+      "id": "75",
       "text": "Thank you sweetie pie! I'll make sure you get some free carrot cake next time you stop by. [[1.12a main]]",
       "links": [
         {
@@ -1172,8 +1114,8 @@
     },
     {
       "name": " 1.11b main",
-      "tags": "buttons",
-      "id": "77",
+      "tags": "buttons-angry buttons-speaker excite",
+      "id": "76",
       "text": "Well surely you can spare a few minutes for this old bunny! [[1.12b main]]",
       "links": [
         {
@@ -1186,8 +1128,8 @@
     },
     {
       "name": "1.12b main",
-      "tags": "buttons",
-      "id": "78",
+      "tags": "buttons-speaker",
+      "id": "77",
       "text": "You're already on your way to Honeybee Center. Just take these with you! [[1.13b main]]",
       "links": [
         {
@@ -1201,7 +1143,7 @@
     {
       "name": "1.13b main",
       "tags": "buttons_leave",
-      "id": "79",
+      "id": "78",
       "text": "She hops off after thrusting the cradle of carrots into your arm, mumbling about how the younger generations are lazy and incapable. [[Deliver carrots and go to Honeybee Center -> 1.14 main]]",
       "links": [
         {
@@ -1214,23 +1156,9 @@
     },
     {
       "name": " 1.14 main",
-      "tags": "minigame_start",
-      "id": "80",
-      "text": "minigame starts [[1.15 main]]",
-      "links": [
-        {
-          "linkText": "1.15 main",
-          "passageName": "1.15 main",
-          "original": "[[1.15 main]]"
-        }
-      ],
-      "cleanText": "minigame starts"
-    },
-    {
-      "name": "1.15 main",
-      "tags": "minigame_end",
-      "id": "81",
-      "text": "minigame ends [[1.16 main]]",
+      "tags": "minigame_carrots",
+      "id": "79",
+      "text": "minigame starts [[1.16 main]]",
       "links": [
         {
           "linkText": "1.16 main",
@@ -1238,12 +1166,12 @@
           "original": "[[1.16 main]]"
         }
       ],
-      "cleanText": "minigame ends"
+      "cleanText": "minigame starts"
     },
     {
       "name": "1.12a main",
       "tags": "buttons_leave",
-      "id": "82",
+      "id": "80",
       "text": "She hands you the carrots and hops off. [[Deliver carrots and go to Honeybee Center -> 1.14 main]]",
       "links": [
         {
@@ -1256,8 +1184,8 @@
     },
     {
       "name": "1.16 main",
-      "tags": "",
-      "id": "83",
+      "tags": "outside_town_square",
+      "id": "81",
       "text": "You've arrived Honeybee Center, Honey Haven's town square. [[1.17 main]]",
       "links": [
         {
@@ -1270,8 +1198,8 @@
     },
     {
       "name": "1.17 main",
-      "tags": "",
-      "id": "84",
+      "tags": "inside_town_square",
+      "id": "82",
       "text": "You enter the brick building and find Jane D, Mayor Barnaby's secretary. [[1.18 main]]",
       "links": [
         {
@@ -1284,8 +1212,8 @@
     },
     {
       "name": "1.18 main",
-      "tags": "jane_enter marty_enter jane",
-      "id": "85",
+      "tags": "jane-enter-right jane-neutral jane-speaker marty-neutral marty_enter",
+      "id": "83",
       "text": "Hello Marty. You have some mail for me? [[1.19 main]]",
       "links": [
         {
@@ -1298,8 +1226,8 @@
     },
     {
       "name": "1.19 main",
-      "tags": "marty",
-      "id": "86",
+      "tags": "excite marty-happy marty-speaker quiver",
+      "id": "84",
       "text": "Sure do. Here's a letter for you... and here's 6 for the mayor. [[1.20 main]]",
       "links": [
         {
@@ -1312,9 +1240,9 @@
     },
     {
       "name": "1.20 main",
-      "tags": "jane",
-      "id": "87",
-      "text": "Thanks. You'll be going to Barnaby's speech tonight, right? \n[[\"I guess...\" -> 1.21a main]]\n[[\"Yes!\" -> 1.21b main]]",
+      "tags": "jane-speaker",
+      "id": "85",
+      "text": "Thanks, I can take them. You'll be going to Barnaby's speech tonight, right? \n[[\"I guess...\" -> 1.21a main]]\n[[\"Yes!\" -> 1.21b main]]",
       "links": [
         {
           "linkText": "\"I guess...\"",
@@ -1327,12 +1255,12 @@
           "original": "[[\"Yes!\" -> 1.21b main]]"
         }
       ],
-      "cleanText": "Thanks. You'll be going to Barnaby's speech tonight, right?"
+      "cleanText": "Thanks, I can take them. You'll be going to Barnaby's speech tonight, right?"
     },
     {
       "name": " 1.21a main",
-      "tags": "jane",
-      "id": "88",
+      "tags": "excite jane-angry jane-speaker",
+      "id": "86",
       "text": "Oh Marty. Quit joking with me, you might actually make me laugh. Barnaby can look a lil shifty, but he's not a bad mayor. [[1.22 main]]",
       "links": [
         {
@@ -1345,8 +1273,8 @@
     },
     {
       "name": " 1.21b main",
-      "tags": "jane",
-      "id": "89",
+      "tags": "jane-speaker",
+      "id": "87",
       "text": "Fantastic. Barnaby's a good mayor. [[1.22 main]]",
       "links": [
         {
@@ -1359,8 +1287,8 @@
     },
     {
       "name": "1.22 main",
-      "tags": "jane",
-      "id": "90",
+      "tags": "jane-neutral jane-speaker",
+      "id": "88",
       "text": "He does what he needs to do. And that's what matters. [[1.23 main]]",
       "links": [
         {
@@ -1373,8 +1301,8 @@
     },
     {
       "name": "1.23 main",
-      "tags": "marty_leave jane_leave",
-      "id": "91",
+      "tags": "jane_leave marty_leave outside_town_square",
+      "id": "89",
       "text": "You nod and start heading back home. On your commute, you realize there's one letter left. [[1.24 main]]",
       "links": [
         {
@@ -1387,8 +1315,8 @@
     },
     {
       "name": "1.24 main",
-      "tags": "marty_enter main",
-      "id": "92",
+      "tags": "marty-serious marty_enter",
+      "id": "90",
       "text": "Hm, what's this? [[1.25 main]]",
       "links": [
         {
@@ -1402,8 +1330,8 @@
     {
       "name": "1.25 main",
       "tags": "",
-      "id": "93",
-      "text": "You turn the letter over to find that there's no stamp or addressment. [[Open the letter -> 1.26 main]]",
+      "id": "91",
+      "text": "You turn the letter over to find that there's no stamp or address. [[Open the letter -> 1.26 main]]",
       "links": [
         {
           "linkText": "Open the letter",
@@ -1411,12 +1339,12 @@
           "original": "[[Open the letter -> 1.26 main]]"
         }
       ],
-      "cleanText": "You turn the letter over to find that there's no stamp or addressment."
+      "cleanText": "You turn the letter over to find that there's no stamp or address."
     },
     {
       "name": " 1.26 main",
       "tags": "",
-      "id": "94",
+      "id": "92",
       "text": "The letter is blank except for one line: [[1.27 main]]",
       "links": [
         {
@@ -1429,9 +1357,9 @@
     },
     {
       "name": "1.27 main",
-      "tags": "marty_leave",
-      "id": "95",
-      "text": "cutscene for they're lying [[1.28 main]]",
+      "tags": "",
+      "id": "93",
+      "text": "\"They're lying.\" [[1.28 main]]",
       "links": [
         {
           "linkText": "1.28 main",
@@ -1439,12 +1367,12 @@
           "original": "[[1.28 main]]"
         }
       ],
-      "cleanText": "cutscene for they're lying"
+      "cleanText": "\"They're lying.\""
     },
     {
       "name": "1.28 main",
-      "tags": "marty_enter",
-      "id": "96",
+      "tags": "flash",
+      "id": "94",
       "text": "You blink and letter disappears from your forepaws like a passing dream. You no longer feel the weight of the paper on your palms. \n[[\"What the ****\" -> 1.29 main]]\n[[\"This day is making less and less sense\" -> 1.29 main]]",
       "links": [
         {
@@ -1462,8 +1390,8 @@
     },
     {
       "name": " 1.29 main",
-      "tags": "marty",
-      "id": "97",
+      "tags": "marty-scared marty-speaker",
+      "id": "95",
       "text": "I should see Dr Muffins. [[1.30 main]]",
       "links": [
         {
@@ -1476,9 +1404,9 @@
     },
     {
       "name": "1.30 main",
-      "tags": "marty_leave",
-      "id": "98",
-      "text": "You meet Dr. Muffins at his private practice. [[1.31 main]]",
+      "tags": "marty_leave night_moon_bedroom",
+      "id": "96",
+      "text": "You call Dr. Muffins. He meets you in your home. [[1.31 main]]",
       "links": [
         {
           "linkText": "1.31 main",
@@ -1486,13 +1414,13 @@
           "original": "[[1.31 main]]"
         }
       ],
-      "cleanText": "You meet Dr. Muffins at his private practice."
+      "cleanText": "You call Dr. Muffins. He meets you in your home."
     },
     {
       "name": "1.31 main",
-      "tags": "marty_enter muffins_enter marty",
-      "id": "99",
-      "text": "Hey there Marty! What brings you in today? [[1.32 main]]",
+      "tags": "marty-neutral marty_enter muffins-enter-right muffins-neutral muffins-speaker",
+      "id": "97",
+      "text": "Hey there Marty! So why'd you call me in? [[1.32 main]]",
       "links": [
         {
           "linkText": "1.32 main",
@@ -1500,12 +1428,12 @@
           "original": "[[1.32 main]]"
         }
       ],
-      "cleanText": "Hey there Marty! What brings you in today?"
+      "cleanText": "Hey there Marty! So why'd you call me in?"
     },
     {
       "name": "1.32 main",
-      "tags": "marty",
-      "id": "100",
+      "tags": "marty-speaker quiver",
+      "id": "98",
       "text": "Doc.. I've been having really weird dreams... hallucinations too. [[1.33 main]]",
       "links": [
         {
@@ -1518,8 +1446,8 @@
     },
     {
       "name": "1.33 main",
-      "tags": "marty",
-      "id": "101",
+      "tags": "marty-serious marty-speaker quiver",
+      "id": "99",
       "text": "But the weirdest thing is that they all feel... so real. [[1.34 main]]",
       "links": [
         {
@@ -1532,9 +1460,9 @@
     },
     {
       "name": "1.34 main",
-      "tags": "marty",
-      "id": "102",
-      "text": "There was a letter in my hand... it said \n[[Tell him -> 1.34a main]]\n[[Don't tell him -> 1.34b main]]",
+      "tags": "marty-speaker quiver",
+      "id": "100",
+      "text": "There was a letter in my hand... it said... \n[[Tell him -> 1.34a main]]\n[[Don't tell him -> 1.34b main]]",
       "links": [
         {
           "linkText": "Tell him",
@@ -1547,12 +1475,12 @@
           "original": "[[Don't tell him -> 1.34b main]]"
         }
       ],
-      "cleanText": "There was a letter in my hand... it said"
+      "cleanText": "There was a letter in my hand... it said..."
     },
     {
       "name": " 1.34a main",
-      "tags": "marty",
-      "id": "103",
+      "tags": "marty marty-scared marty-speaker",
+      "id": "101",
       "text": "It said \"they're lying.\" I don't even know what it meant or who sent it. [[1.35 main]]",
       "links": [
         {
@@ -1565,8 +1493,8 @@
     },
     {
       "name": " 1.34b main",
-      "tags": "marty",
-      "id": "104",
+      "tags": "marty-speaker quiver",
+      "id": "102",
       "text": "Nevermind. But the weirdest thing was... [[1.35 main]]",
       "links": [
         {
@@ -1579,8 +1507,8 @@
     },
     {
       "name": "1.35 main",
-      "tags": "marty",
-      "id": "105",
+      "tags": "flash marty-scared marty-speaker",
+      "id": "103",
       "text": "It disappeared. It just felt like that wasn't real and it didn't happen for a second. [[1.36 main]]",
       "links": [
         {
@@ -1593,8 +1521,8 @@
     },
     {
       "name": "1.36 main",
-      "tags": "muffins",
-      "id": "106",
+      "tags": "marty-neutral muffins-neutral muffins-speaker",
+      "id": "104",
       "text": "That's terribly unfortunate. But let me assure you, those sights are //just// hallucinations. [[1.37 main]]",
       "links": [
         {
@@ -1607,8 +1535,8 @@
     },
     {
       "name": "1.37 main",
-      "tags": "muffins",
-      "id": "107",
+      "tags": "muffins-speaker",
+      "id": "105",
       "text": "They aren't real, and you shouldn't believe they are. \n[[\"Why am I seeing them?\" -> 1.38a main]]\n[[\"Then what are they? -> 1.38b main]]",
       "links": [
         {
@@ -1626,8 +1554,8 @@
     },
     {
       "name": " 1.38a main",
-      "tags": "muffins",
-      "id": "108",
+      "tags": "muffins-sad muffins-speaker",
+      "id": "106",
       "text": "Well, you keep overworking yourself. [[1.39 main]]",
       "links": [
         {
@@ -1640,8 +1568,8 @@
     },
     {
       "name": " 1.38b main",
-      "tags": "muffins",
-      "id": "109",
+      "tags": "excite muffins-happy muffins-speaker quiver",
+      "id": "107",
       "text": "So curious today, aren't you? No need to worry, they're just blips in the brain since you're overworking yourself. [[1.39 main]]",
       "links": [
         {
@@ -1654,8 +1582,8 @@
     },
     {
       "name": "1.39 main",
-      "tags": "muffins",
-      "id": "110",
+      "tags": "muffins-neutral muffins-speaker",
+      "id": "108",
       "text": "Here: my prescription is a cup of honey tea every morning. [[1.40 main]]",
       "links": [
         {
@@ -1668,8 +1596,8 @@
     },
     {
       "name": "1.40 main",
-      "tags": "marty",
-      "id": "111",
+      "tags": "marty-scared marty-speaker",
+      "id": "109",
       "text": "From the magical honey flower? Are those rare? [[1.41 main]]",
       "links": [
         {
@@ -1682,8 +1610,8 @@
     },
     {
       "name": "1.41 main",
-      "tags": "muffins",
-      "id": "112",
+      "tags": "muffins-speaker",
+      "id": "110",
       "text": "Rare everywhere but Honey Haven. Now, you must drink this everyday. [[1.42 main]]",
       "links": [
         {
@@ -1696,8 +1624,8 @@
     },
     {
       "name": "1.42 main",
-      "tags": "muffins",
-      "id": "113",
+      "tags": "muffins-scared muffins-speaker",
+      "id": "111",
       "text": "Do not stop drinking it and do not skip days. Trust me, you really don't want to keep seeing things. [[1.43 main]]",
       "links": [
         {
@@ -1710,8 +1638,8 @@
     },
     {
       "name": "1.43 main",
-      "tags": "marty",
-      "id": "114",
+      "tags": "marty-serious marty-speaker",
+      "id": "112",
       "text": "Oh um, thanks Dr. Muffins. [[1.44 main]]",
       "links": [
         {
@@ -1724,8 +1652,8 @@
     },
     {
       "name": "1.44 main",
-      "tags": "marty_leave muffins_leave",
-      "id": "115",
+      "tags": "marty-neutral muffins-neutral",
+      "id": "113",
       "text": "He hands you a pouch with dried honey flowers. He pushes a cup he just brewed towards you. [[1.45 main]]",
       "links": [
         {
@@ -1738,8 +1666,8 @@
     },
     {
       "name": "1.45 main",
-      "tags": "marty_enter muffins_enter muffins",
-      "id": "116",
+      "tags": "muffins-neutral muffins-speaker",
+      "id": "114",
       "text": "Oh and Marty? [[1.46 main]]",
       "links": [
         {
@@ -1752,8 +1680,8 @@
     },
     {
       "name": "1.46 main",
-      "tags": "marty",
-      "id": "117",
+      "tags": "marty-speaker",
+      "id": "115",
       "text": "Yes? [[1.47 main]]",
       "links": [
         {
@@ -1766,8 +1694,8 @@
     },
     {
       "name": "1.47 main",
-      "tags": "muffins",
-      "id": "118",
+      "tags": "muffins-scared muffins-speaker",
+      "id": "116",
       "text": "Don't tell anyone about this. \n[[Drink the tea -> 1.48a main]]\n[[Question Dr. Muffins -> 1.48b main]]",
       "links": [
         {
@@ -1785,8 +1713,8 @@
     },
     {
       "name": "1.48 main",
-      "tags": "marty_leave muffins_leave",
-      "id": "119",
+      "tags": "marty_leave muffins_leave outside_town_square",
+      "id": "117",
       "text": "You head back to Honeybee Center to hear Barnaby's speech. You only catch the tailwind of it since you're late. [[1.50 main]]",
       "links": [
         {
@@ -1799,8 +1727,8 @@
     },
     {
       "name": "1.50 main",
-      "tags": "barnaby_enter marty_enter",
-      "id": "120",
+      "tags": "barnaby-enter-right barnaby-neutral barnaby-speaker marty-neutral marty_enter",
+      "id": "118",
       "text": "I know you all are tired of hearing me talk, so I'll wrap this up quickly. [[1.51 main]]",
       "links": [
         {
@@ -1813,8 +1741,8 @@
     },
     {
       "name": " 1.48b main",
-      "tags": "marty",
-      "id": "121",
+      "tags": "marty-serious marty-speaker",
+      "id": "119",
       "text": "Why? [[1.49b main]]",
       "links": [
         {
@@ -1828,7 +1756,7 @@
     {
       "name": " 1.48a main",
       "tags": "",
-      "id": "122",
+      "id": "120",
       "text": "You drink the honey tea from the mystical \"honey flower\" plant. It makes you feel a little loopy. [[1.49a main]]",
       "links": [
         {
@@ -1841,8 +1769,8 @@
     },
     {
       "name": "1.49a main",
-      "tags": "marty",
-      "id": "123",
+      "tags": "marty-serious marty-speaker quiver",
+      "id": "121",
       "text": "I feel a little weird... [[1.50a main]]",
       "links": [
         {
@@ -1855,8 +1783,8 @@
     },
     {
       "name": "1.50a main",
-      "tags": "muffins",
-      "id": "124",
+      "tags": "excite muffins-happy muffins-speaker",
+      "id": "122",
       "text": "For now. You'll feel better in no time. [[1.48 main]]",
       "links": [
         {
@@ -1869,8 +1797,8 @@
     },
     {
       "name": "1.49b main",
-      "tags": "muffins",
-      "id": "125",
+      "tags": "muffins-neutral muffins-speaker",
+      "id": "123",
       "text": "It's a beautiful day, Marty. Don't ruin it with questions. I'll be on my way now. Drink your tea and rest up [[1.50b main]]",
       "links": [
         {
@@ -1883,8 +1811,8 @@
     },
     {
       "name": "1.50b main",
-      "tags": "muffins_leave",
-      "id": "126",
+      "tags": "marty-serious muffins_leave",
+      "id": "124",
       "text": "You drink the tea brewed from the mystical \"honey flower\" plant. It makes you feel a little woozy. [[1.48 main]]",
       "links": [
         {
@@ -1897,8 +1825,8 @@
     },
     {
       "name": "1.51 main",
-      "tags": "barnaby",
-      "id": "127",
+      "tags": "barnaby-happy barnaby-speaker excite",
+      "id": "125",
       "text": "Today is the celebration of Honey Haven's 44th anniversary! [[1.52 main]]",
       "links": [
         {
@@ -1911,8 +1839,8 @@
     },
     {
       "name": "1.52 main",
-      "tags": "barnaby",
-      "id": "128",
+      "tags": "barnaby-neutral barnaby-speaker",
+      "id": "126",
       "text": "Honey Haven is the world's first utopia-- a place that knows only kindness. [[1.53 main]]",
       "links": [
         {
@@ -1925,8 +1853,8 @@
     },
     {
       "name": "1.53 main",
-      "tags": "barnaby",
-      "id": "129",
+      "tags": "barnaby-speaker",
+      "id": "127",
       "text": "It doesn't matter where you came from and what you've done. Now that you've chosen to be here, you are in paradise. [[1.54 main]]",
       "links": [
         {
@@ -1939,8 +1867,8 @@
     },
     {
       "name": "1.54 main",
-      "tags": "barnaby",
-      "id": "130",
+      "tags": "barnaby-angry barnaby-speaker excite",
+      "id": "128",
       "text": "Together we shall stand united as a community against anything or anyone who threatens our perfect picture of peace. Those are the only ones not welcomed here. [[1.55 main]]",
       "links": [
         {
@@ -1953,8 +1881,8 @@
     },
     {
       "name": "1.55 main",
-      "tags": "barnaby",
-      "id": "131",
+      "tags": "barnaby-happy barnaby-speaker excite",
+      "id": "129",
       "text": "Stand strong, Honey Haven! [[1.56 main]]",
       "links": [
         {
@@ -1967,8 +1895,8 @@
     },
     {
       "name": "1.56 main",
-      "tags": "",
-      "id": "132",
+      "tags": "barnaby-leave excite marty-happy marty-speaker",
+      "id": "130",
       "text": "The crowd erupts in cheers. You feel immense pride in your home. [[1.57 main]]",
       "links": [
         {
@@ -1981,8 +1909,8 @@
     },
     {
       "name": "1.57 main",
-      "tags": "marty_leave barnaby_leave",
-      "id": "133",
+      "tags": "marty_leave night_moon_bedroom",
+      "id": "131",
       "text": "You eat dinner with a few neighbors and then head home. After tucking yourself into bed, you look at the sky. [[1.58 main]]",
       "links": [
         {
@@ -1995,8 +1923,8 @@
     },
     {
       "name": "1.58 main",
-      "tags": "marty_enter marty",
-      "id": "134",
+      "tags": "excite marty-happy marty-speaker marty_enter quiver",
+      "id": "132",
       "text": "Wow... the stars are so beautiful tonight. [[1.59 main]]",
       "links": [
         {
@@ -2009,8 +1937,8 @@
     },
     {
       "name": "1.59 main",
-      "tags": "marty",
-      "id": "135",
+      "tags": "marty-speaker quiver",
+      "id": "133",
       "text": "I hope things... hoaah.. stay like this forev.... [[1.60 main]]",
       "links": [
         {
@@ -2023,8 +1951,8 @@
     },
     {
       "name": "1.60 main",
-      "tags": "marty",
-      "id": "136",
+      "tags": "marty-leave marty-speaker quiver",
+      "id": "134",
       "text": "zzzz.... zzzzzzzzz... [[1.61 main]]",
       "links": [
         {
@@ -2037,16 +1965,78 @@
     },
     {
       "name": "1.61 main",
-      "tags": "marty_leave",
-      "id": "137",
-      "text": "Goodnight!",
-      "links": [],
+      "tags": "",
+      "id": "135",
+      "text": "Goodnight! [[1.62 main]]",
+      "links": [
+        {
+          "linkText": "1.62 main",
+          "passageName": "1.62 main",
+          "original": "[[1.62 main]]"
+        }
+      ],
       "cleanText": "Goodnight!"
     },
     {
+      "name": "1.1.1",
+      "tags": "stranger-speaker",
+      "id": "137",
+      "text": "You ever feel like you're in a dream so real [[1.1.2]]",
+      "links": [
+        {
+          "linkText": "1.1.2",
+          "passageName": "1.1.2",
+          "original": "[[1.1.2]]"
+        }
+      ],
+      "cleanText": "You ever feel like you're in a dream so real"
+    },
+    {
+      "name": "1.1.2",
+      "tags": "stranger-speaker",
+      "id": "138",
+      "text": "that you think it is? [[1.1.3]]",
+      "links": [
+        {
+          "linkText": "1.1.3",
+          "passageName": "1.1.3",
+          "original": "[[1.1.3]]"
+        }
+      ],
+      "cleanText": "that you think it is?"
+    },
+    {
+      "name": "1.1.3",
+      "tags": "stranger-speaker",
+      "id": "139",
+      "text": "When that's the case, do you wish to wake up? [[1.1.4]]",
+      "links": [
+        {
+          "linkText": "1.1.4",
+          "passageName": "1.1.4",
+          "original": "[[1.1.4]]"
+        }
+      ],
+      "cleanText": "When that's the case, do you wish to wake up?"
+    },
+    {
+      "name": "1.1.4",
+      "tags": "stranger-speaker",
+      "id": "140",
+      "text": "Too bad, you don't get a choice. [[1.1]]",
+      "links": [
+        {
+          "linkText": "1.1",
+          "passageName": "1.1",
+          "original": "[[1.1]]"
+        }
+      ],
+      "cleanText": "Too bad, you don't get a choice."
+    },
+    {
       "name": "1.12a.1 casserole",
-      "tags": "",
-      "id": "142",
+      "tags": "big buttons-neutral buttons-speaker excite marty-happy shake",
+      "id": "141",
       "text": "Oh thank the GOAT that it's just you, Marty. [[1.13a casserole]]",
       "links": [
         {
@@ -2056,6 +2046,14 @@
         }
       ],
       "cleanText": "Oh thank the GOAT that it's just you, Marty."
+    },
+    {
+      "name": "1.62 main",
+      "tags": "flash",
+      "id": "142",
+      "text": "End of Day 1.",
+      "links": [],
+      "cleanText": "End of Day 1."
     }
   ]
 }

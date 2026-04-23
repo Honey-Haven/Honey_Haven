@@ -1,0 +1,1912 @@
+
+
+{
+  "uuid": "0C78958B-B4BE-4AC2-B2B7-A7B0DDEACAC0",
+  "name": "Epilogue",
+  "creator": "Twine",
+  "creatorVersion": "2.12.0",
+  "schemaName": "Twine to JSON",
+  "schemaVersion": "0.0.6",
+  "createdAtMs": 1776894001544,
+  "passages": [
+    {
+      "name": "e1",
+      "tags": "",
+      "id": "1",
+      "text": "Epilogue. [[e1.5]]",
+      "links": [
+        {
+          "linkText": "e1.5",
+          "passageName": "e1.5",
+          "original": "[[e1.5]]"
+        }
+      ],
+      "cleanText": "Epilogue."
+    },
+    {
+      "name": "e2",
+      "tags": "peanut-speaker peanut-enter-left muffins-enter-right muffins-neutral peanut-open",
+      "id": "2",
+      "text": "Oh, Dr. Muffins! I never see you around these parts. How are you doing? [[e3]]",
+      "links": [
+        {
+          "linkText": "e3",
+          "passageName": "e3",
+          "original": "[[e3]]"
+        }
+      ],
+      "cleanText": "Oh, Dr. Muffins! I never see you around these parts. How are you doing?"
+    },
+    {
+      "name": "e3",
+      "tags": "muffins-speaker muffins-happy",
+      "id": "3",
+      "text": "Peanut, son, long time no see! You healthy boy, I'm glad I haven't had to see you. [[e4]]",
+      "links": [
+        {
+          "linkText": "e4",
+          "passageName": "e4",
+          "original": "[[e4]]"
+        }
+      ],
+      "cleanText": "Peanut, son, long time no see! You healthy boy, I'm glad I haven't had to see you."
+    },
+    {
+      "name": "e4",
+      "tags": "muffins-speaker muffins-neutral",
+      "id": "4",
+      "text": "I'm doing alright, just going to Mrs. Tofu's house to check up on her. [[e5]]",
+      "links": [
+        {
+          "linkText": "e5",
+          "passageName": "e5",
+          "original": "[[e5]]"
+        }
+      ],
+      "cleanText": "I'm doing alright, just going to Mrs. Tofu's house to check up on her."
+    },
+    {
+      "name": "e1.5",
+      "tags": "pepper_lane",
+      "id": "5",
+      "text": "4 weeks later. [[e2]]",
+      "links": [
+        {
+          "linkText": "e2",
+          "passageName": "e2",
+          "original": "[[e2]]"
+        }
+      ],
+      "cleanText": "4 weeks later."
+    },
+    {
+      "name": "e5",
+      "tags": "peanut-speaker peanut-neutral",
+      "id": "6",
+      "text": "Oh... [[e6]]",
+      "links": [
+        {
+          "linkText": "e6",
+          "passageName": "e6",
+          "original": "[[e6]]"
+        }
+      ],
+      "cleanText": "Oh..."
+    },
+    {
+      "name": "e6",
+      "tags": "peanut-speaker",
+      "id": "7",
+      "text": "Is.. is she okay? [[e7]]",
+      "links": [
+        {
+          "linkText": "e7",
+          "passageName": "e7",
+          "original": "[[e7]]"
+        }
+      ],
+      "cleanText": "Is.. is she okay?"
+    },
+    {
+      "name": "e7",
+      "tags": "muffins-sad muffins-speaker",
+      "id": "8",
+      "text": "... [[e8]]",
+      "links": [
+        {
+          "linkText": "e8",
+          "passageName": "e8",
+          "original": "[[e8]]"
+        }
+      ],
+      "cleanText": "..."
+    },
+    {
+      "name": "e8",
+      "tags": "muffins-speaker",
+      "id": "9",
+      "text": "Well, son.. she hasn't been taking... recent things well. She's fallen sick. [[e9]]",
+      "links": [
+        {
+          "linkText": "e9",
+          "passageName": "e9",
+          "original": "[[e9]]"
+        }
+      ],
+      "cleanText": "Well, son.. she hasn't been taking... recent things well. She's fallen sick."
+    },
+    {
+      "name": "e9",
+      "tags": "peanut-speaker",
+      "id": "10",
+      "text": "... [[e10]]",
+      "links": [
+        {
+          "linkText": "e10",
+          "passageName": "e10",
+          "original": "[[e10]]"
+        }
+      ],
+      "cleanText": "..."
+    },
+    {
+      "name": "e10",
+      "tags": "peanut-speaker peanut-sad quiver",
+      "id": "11",
+      "text": "Not Mrs. Tofu! [[e11]]",
+      "links": [
+        {
+          "linkText": "e11",
+          "passageName": "e11",
+          "original": "[[e11]]"
+        }
+      ],
+      "cleanText": "Not Mrs. Tofu!"
+    },
+    {
+      "name": "e11",
+      "tags": "muffins-speaker",
+      "id": "12",
+      "text": "I'm.. sorry, Peanut. I have to go now. [[e12]]",
+      "links": [
+        {
+          "linkText": "e12",
+          "passageName": "e12",
+          "original": "[[e12]]"
+        }
+      ],
+      "cleanText": "I'm.. sorry, Peanut. I have to go now."
+    },
+    {
+      "name": "e12",
+      "tags": "muffins-leave peanut-leave",
+      "id": "13",
+      "text": "4 weeks have passed since Honey Haven's mailmouse, Marty R., vanished. [[e13]]",
+      "links": [
+        {
+          "linkText": "e13",
+          "passageName": "e13",
+          "original": "[[e13]]"
+        }
+      ],
+      "cleanText": "4 weeks have passed since Honey Haven's mailmouse, Marty R., vanished."
+    },
+    {
+      "name": "e13",
+      "tags": "",
+      "id": "14",
+      "text": "He had technically committed assault, grabbing one of Peaches's babies from her without asking. [[e14]]",
+      "links": [
+        {
+          "linkText": "e14",
+          "passageName": "e14",
+          "original": "[[e14]]"
+        }
+      ],
+      "cleanText": "He had technically committed assault, grabbing one of Peaches's babies from her without asking."
+    },
+    {
+      "name": "e14",
+      "tags": "",
+      "id": "15",
+      "text": "Other animals had tried to stop him and pin him down. [[e15]]",
+      "links": [
+        {
+          "linkText": "e15",
+          "passageName": "e15",
+          "original": "[[e15]]"
+        }
+      ],
+      "cleanText": "Other animals had tried to stop him and pin him down."
+    },
+    {
+      "name": "e15",
+      "tags": "",
+      "id": "16",
+      "text": "From the outside observer, it seemed like the mailmouse had just lost his mind and needed a harsh lesson. [[e16]]",
+      "links": [
+        {
+          "linkText": "e16",
+          "passageName": "e16",
+          "original": "[[e16]]"
+        }
+      ],
+      "cleanText": "From the outside observer, it seemed like the mailmouse had just lost his mind and needed a harsh lesson."
+    },
+    {
+      "name": "e16",
+      "tags": "",
+      "id": "17",
+      "text": "That's what it seemed like, until he was gone. [[e17]]",
+      "links": [
+        {
+          "linkText": "e17",
+          "passageName": "e17",
+          "original": "[[e17]]"
+        }
+      ],
+      "cleanText": "That's what it seemed like, until he was gone."
+    },
+    {
+      "name": "e17",
+      "tags": "",
+      "id": "18",
+      "text": "Just... gone. [[e17.5]]",
+      "links": [
+        {
+          "linkText": "e17.5",
+          "passageName": "e17.5",
+          "original": "[[e17.5]]"
+        }
+      ],
+      "cleanText": "Just... gone."
+    },
+    {
+      "name": "e18",
+      "tags": "",
+      "id": "19",
+      "text": "Marty R., who had been a constant in the community, someone who everyone knew, was gone. [[e19]]",
+      "links": [
+        {
+          "linkText": "e19",
+          "passageName": "e19",
+          "original": "[[e19]]"
+        }
+      ],
+      "cleanText": "Marty R., who had been a constant in the community, someone who everyone knew, was gone."
+    },
+    {
+      "name": "e19",
+      "tags": "",
+      "id": "20",
+      "text": "No one knew what had happened. Even the animals present couldn't fathom it. [[e20]]",
+      "links": [
+        {
+          "linkText": "e20",
+          "passageName": "e20",
+          "original": "[[e20]]"
+        }
+      ],
+      "cleanText": "No one knew what had happened. Even the animals present couldn't fathom it."
+    },
+    {
+      "name": "e20",
+      "tags": "",
+      "id": "21",
+      "text": "Just before he left, he was completely lifeless. Frozen. Eyes still alert. Mouth open like he was trying to get just one last thing out. [[e21.5]]",
+      "links": [
+        {
+          "linkText": "e21.5",
+          "passageName": "e21.5",
+          "original": "[[e21.5]]"
+        }
+      ],
+      "cleanText": "Just before he left, he was completely lifeless. Frozen. Eyes still alert. Mouth open like he was trying to get just one last thing out."
+    },
+    {
+      "name": "e21",
+      "tags": "",
+      "id": "22",
+      "text": "But not one person saw what Marty did. Not one heard. Not one understood. [[e22]]",
+      "links": [
+        {
+          "linkText": "e22",
+          "passageName": "e22",
+          "original": "[[e22]]"
+        }
+      ],
+      "cleanText": "But not one person saw what Marty did. Not one heard. Not one understood."
+    },
+    {
+      "name": "e22",
+      "tags": "",
+      "id": "23",
+      "text": "All he left behind was a silence that deafened the community. [[e23]]",
+      "links": [
+        {
+          "linkText": "e23",
+          "passageName": "e23",
+          "original": "[[e23]]"
+        }
+      ],
+      "cleanText": "All he left behind was a silence that deafened the community."
+    },
+    {
+      "name": "e23",
+      "tags": "",
+      "id": "24",
+      "text": "They tried to move on and forget. Life in a utopia must carry on, after all. [[e24]]",
+      "links": [
+        {
+          "linkText": "e24",
+          "passageName": "e24",
+          "original": "[[e24]]"
+        }
+      ],
+      "cleanText": "They tried to move on and forget. Life in a utopia must carry on, after all."
+    },
+    {
+      "name": "e21.5",
+      "tags": "",
+      "id": "25",
+      "text": "Perhaps he was uttering one final prayer, knowing what was about to happen. [[e21]]",
+      "links": [
+        {
+          "linkText": "e21",
+          "passageName": "e21",
+          "original": "[[e21]]"
+        }
+      ],
+      "cleanText": "Perhaps he was uttering one final prayer, knowing what was about to happen."
+    },
+    {
+      "name": "e24",
+      "tags": "",
+      "id": "26",
+      "text": "But things were.. different. [[e25]]",
+      "links": [
+        {
+          "linkText": "e25",
+          "passageName": "e25",
+          "original": "[[e25]]"
+        }
+      ],
+      "cleanText": "But things were.. different."
+    },
+    {
+      "name": "e25",
+      "tags": "tofu-enter-left muffins-enter-right muffins-speaker muffins-sad tofu-neutral",
+      "id": "27",
+      "text": "Mrs. Tofu, my goodness. You look so frail.. [[e26]]",
+      "links": [
+        {
+          "linkText": "e26",
+          "passageName": "e26",
+          "original": "[[e26]]"
+        }
+      ],
+      "cleanText": "Mrs. Tofu, my goodness. You look so frail.."
+    },
+    {
+      "name": "e26",
+      "tags": "tofu-happy tofu-speaker",
+      "id": "28",
+      "text": "Oh Muffins, you're not supposed to say that to a lady. [[e27]]",
+      "links": [
+        {
+          "linkText": "e27",
+          "passageName": "e27",
+          "original": "[[e27]]"
+        }
+      ],
+      "cleanText": "Oh Muffins, you're not supposed to say that to a lady."
+    },
+    {
+      "name": "e27",
+      "tags": "tofu-neutral tofu-speaker",
+      "id": "29",
+      "text": "So what's the news? Am I going to get better? [[e28]]",
+      "links": [
+        {
+          "linkText": "e28",
+          "passageName": "e28",
+          "original": "[[e28]]"
+        }
+      ],
+      "cleanText": "So what's the news? Am I going to get better?"
+    },
+    {
+      "name": "e28",
+      "tags": "tofu-speaker",
+      "id": "30",
+      "text": "If there's no good news, I think my husband might just fall over and become bedridden like me. [[e29]]",
+      "links": [
+        {
+          "linkText": "e29",
+          "passageName": "e29",
+          "original": "[[e29]]"
+        }
+      ],
+      "cleanText": "If there's no good news, I think my husband might just fall over and become bedridden like me."
+    },
+    {
+      "name": "e29",
+      "tags": "muffins-speaker muffins-sad",
+      "id": "31",
+      "text": "Mrs. Tofu... it's not something that can be fixed. Even the magic of every plant growing on this island combined can't heal it. [[e30]]",
+      "links": [
+        {
+          "linkText": "e30",
+          "passageName": "e30",
+          "original": "[[e30]]"
+        }
+      ],
+      "cleanText": "Mrs. Tofu... it's not something that can be fixed. Even the magic of every plant growing on this island combined can't heal it."
+    },
+    {
+      "name": "e30",
+      "tags": "tofu-leave scotch-enter-left scotch-sad scotch-speaker",
+      "id": "32",
+      "text": "How is this possible?! [[e31]]",
+      "links": [
+        {
+          "linkText": "e31",
+          "passageName": "e31",
+          "original": "[[e31]]"
+        }
+      ],
+      "cleanText": "How is this possible?!"
+    },
+    {
+      "name": "e31",
+      "tags": "muffins-speaker",
+      "id": "33",
+      "text": "The magic plants, like the honey flower, they're only able to heal what's.. whole. [[e32]]",
+      "links": [
+        {
+          "linkText": "e32",
+          "passageName": "e32",
+          "original": "[[e32]]"
+        }
+      ],
+      "cleanText": "The magic plants, like the honey flower, they're only able to heal what's.. whole."
+    },
+    {
+      "name": "e32",
+      "tags": "scotch-leave tofu-enter-left tofu-neutral tofu-speaker",
+      "id": "34",
+      "text": "Well, doc, all my pieces are here. [[e33]]",
+      "links": [
+        {
+          "linkText": "e33",
+          "passageName": "e33",
+          "original": "[[e33]]"
+        }
+      ],
+      "cleanText": "Well, doc, all my pieces are here."
+    },
+    {
+      "name": "e33",
+      "tags": "muffins-speaker",
+      "id": "35",
+      "text": "...your soul is not. [[e34]]",
+      "links": [
+        {
+          "linkText": "e34",
+          "passageName": "e34",
+          "original": "[[e34]]"
+        }
+      ],
+      "cleanText": "...your soul is not."
+    },
+    {
+      "name": "e34",
+      "tags": "muffins-speaker",
+      "id": "36",
+      "text": "Your heart is too broken. [[e35]]",
+      "links": [
+        {
+          "linkText": "e35",
+          "passageName": "e35",
+          "original": "[[e35]]"
+        }
+      ],
+      "cleanText": "Your heart is too broken."
+    },
+    {
+      "name": "e35",
+      "tags": "tofu-speaker tofu-sad",
+      "id": "37",
+      "text": "Ah. [[e36]]",
+      "links": [
+        {
+          "linkText": "e36",
+          "passageName": "e36",
+          "original": "[[e36]]"
+        }
+      ],
+      "cleanText": "Ah."
+    },
+    {
+      "name": "e36",
+      "tags": "tofu-speaker",
+      "id": "38",
+      "text": "I.. I told him I couldn't lose another one. [[e37]]",
+      "links": [
+        {
+          "linkText": "e37",
+          "passageName": "e37",
+          "original": "[[e37]]"
+        }
+      ],
+      "cleanText": "I.. I told him I couldn't lose another one."
+    },
+    {
+      "name": "e37",
+      "tags": "tofu-speaker quiver",
+      "id": "39",
+      "text": "And.. and he just HAD to go too! [[e38]]",
+      "links": [
+        {
+          "linkText": "e38",
+          "passageName": "e38",
+          "original": "[[e38]]"
+        }
+      ],
+      "cleanText": "And.. and he just HAD to go too!"
+    },
+    {
+      "name": "e38",
+      "tags": "muffins-leave scotch-enter-right scotch-sad scotch-speaker",
+      "id": "40",
+      "text": "Dear... [[e39]]",
+      "links": [
+        {
+          "linkText": "e39",
+          "passageName": "e39",
+          "original": "[[e39]]"
+        }
+      ],
+      "cleanText": "Dear..."
+    },
+    {
+      "name": "e39",
+      "tags": "tofu-speaker quiver",
+      "id": "41",
+      "text": "Wh- why did he have to leave... [[e40]]",
+      "links": [
+        {
+          "linkText": "e40",
+          "passageName": "e40",
+          "original": "[[e40]]"
+        }
+      ],
+      "cleanText": "Wh- why did he have to leave..."
+    },
+    {
+      "name": "e40",
+      "tags": "scotch-leave muffins-enter-right muffins-sad muffins-speaker",
+      "id": "42",
+      "text": "I'm.. I'm sorry. I thought it would be better if he had just shoved down those invading thoughts. [[e41]]",
+      "links": [
+        {
+          "linkText": "e41",
+          "passageName": "e41",
+          "original": "[[e41]]"
+        }
+      ],
+      "cleanText": "I'm.. I'm sorry. I thought it would be better if he had just shoved down those invading thoughts."
+    },
+    {
+      "name": "e41",
+      "tags": "muffins-speaker quiver",
+      "id": "43",
+      "text": "I was too scared of losing another patient... and in my cowardice, I did him in. [[e42]]",
+      "links": [
+        {
+          "linkText": "e42",
+          "passageName": "e42",
+          "original": "[[e42]]"
+        }
+      ],
+      "cleanText": "I was too scared of losing another patient... and in my cowardice, I did him in."
+    },
+    {
+      "name": "e42",
+      "tags": "tofu-speaker",
+      "id": "44",
+      "text": "I-It's this i-island! This community. I thought when we lost the last one, we'd never make the same mistake again. That we'd care for each other enough. [[e43]]",
+      "links": [
+        {
+          "linkText": "e43",
+          "passageName": "e43",
+          "original": "[[e43]]"
+        }
+      ],
+      "cleanText": "I-It's this i-island! This community. I thought when we lost the last one, we'd never make the same mistake again. That we'd care for each other enough."
+    },
+    {
+      "name": "e43",
+      "tags": "tofu-speaker",
+      "id": "45",
+      "text": "Oh, Marty... oh how we have failed you. [[e44]]",
+      "links": [
+        {
+          "linkText": "e44",
+          "passageName": "e44",
+          "original": "[[e44]]"
+        }
+      ],
+      "cleanText": "Oh, Marty... oh how we have failed you."
+    },
+    {
+      "name": "e44",
+      "tags": "tofu-leave muffins-leave",
+      "id": "46",
+      "text": "Mrs. Tofu wasn't the only one broken by the incident. [[e45]]",
+      "links": [
+        {
+          "linkText": "e45",
+          "passageName": "e45",
+          "original": "[[e45]]"
+        }
+      ],
+      "cleanText": "Mrs. Tofu wasn't the only one broken by the incident."
+    },
+    {
+      "name": "e17.5",
+      "tags": "",
+      "id": "47",
+      "text": "Matthew felt it first. One moment Marty was struggling, the next he was nowhere to be found. [[17.6]]",
+      "links": [
+        {
+          "linkText": "17.6",
+          "passageName": "17.6",
+          "original": "[[17.6]]"
+        }
+      ],
+      "cleanText": "Matthew felt it first. One moment Marty was struggling, the next he was nowhere to be found."
+    },
+    {
+      "name": "17.6",
+      "tags": "",
+      "id": "48",
+      "text": "Matthew's best friend vanished in an instant. [[17.7]]",
+      "links": [
+        {
+          "linkText": "17.7",
+          "passageName": "17.7",
+          "original": "[[17.7]]"
+        }
+      ],
+      "cleanText": "Matthew's best friend vanished in an instant."
+    },
+    {
+      "name": "17.7",
+      "tags": "",
+      "id": "49",
+      "text": "Barnaby stood back up and looked for the rogue mouse. He found nothing. [[e18]]",
+      "links": [
+        {
+          "linkText": "e18",
+          "passageName": "e18",
+          "original": "[[e18]]"
+        }
+      ],
+      "cleanText": "Barnaby stood back up and looked for the rogue mouse. He found nothing."
+    },
+    {
+      "name": "e45",
+      "tags": "casserole-avenue buttons-sad buttons-enter-left",
+      "id": "50",
+      "text": "Ms. Buttons closed down Bunalicious. She couldn't bear to be in that space again. Or remember her last conversation with him, turning him away when he was so clearly struggling. [[e46]]",
+      "links": [
+        {
+          "linkText": "e46",
+          "passageName": "e46",
+          "original": "[[e46]]"
+        }
+      ],
+      "cleanText": "Ms. Buttons closed down Bunalicious. She couldn't bear to be in that space again. Or remember her last conversation with him, turning him away when he was so clearly struggling."
+    },
+    {
+      "name": "e46",
+      "tags": "buttons-speaker",
+      "id": "51",
+      "text": "Hi, Marty. [[e47]]",
+      "links": [
+        {
+          "linkText": "e47",
+          "passageName": "e47",
+          "original": "[[e47]]"
+        }
+      ],
+      "cleanText": "Hi, Marty."
+    },
+    {
+      "name": "e47",
+      "tags": "",
+      "id": "52",
+      "text": "She didn't know what they did with his body. He didn't even get proper burial. [[e48]]",
+      "links": [
+        {
+          "linkText": "e48",
+          "passageName": "e48",
+          "original": "[[e48]]"
+        }
+      ],
+      "cleanText": "She didn't know what they did with his body. He didn't even get proper burial."
+    },
+    {
+      "name": "e48",
+      "tags": "",
+      "id": "53",
+      "text": "So, she made a little grave for him in her carrot garden and brought him carrot muffins everyday. [[e49]]",
+      "links": [
+        {
+          "linkText": "e49",
+          "passageName": "e49",
+          "original": "[[e49]]"
+        }
+      ],
+      "cleanText": "So, she made a little grave for him in her carrot garden and brought him carrot muffins everyday."
+    },
+    {
+      "name": "e49",
+      "tags": "buttons-speaker",
+      "id": "54",
+      "text": "I hope you're doing alright.. wherever you are. [[e50]]",
+      "links": [
+        {
+          "linkText": "e50",
+          "passageName": "e50",
+          "original": "[[e50]]"
+        }
+      ],
+      "cleanText": "I hope you're doing alright.. wherever you are."
+    },
+    {
+      "name": "e50",
+      "tags": "buttons-speaker quiver",
+      "id": "55",
+      "text": "I'm here to tell you again.. that I'm sorry. I'm sorry for yelling at you. I didn't even mean it. I-I don't know wh-why I did that. [[e51]]",
+      "links": [
+        {
+          "linkText": "e51",
+          "passageName": "e51",
+          "original": "[[e51]]"
+        }
+      ],
+      "cleanText": "I'm here to tell you again.. that I'm sorry. I'm sorry for yelling at you. I didn't even mean it. I-I don't know wh-why I did that."
+    },
+    {
+      "name": "e51",
+      "tags": "buttons-speaker",
+      "id": "56",
+      "text": "I'm.. I'm so sorry, Marty. Rest in peace, sweetie. [[e52]]",
+      "links": [
+        {
+          "linkText": "e52",
+          "passageName": "e52",
+          "original": "[[e52]]"
+        }
+      ],
+      "cleanText": "I'm.. I'm so sorry, Marty. Rest in peace, sweetie."
+    },
+    {
+      "name": "e52",
+      "tags": "matthew-enter-right matthew-speaker matthew-happy",
+      "id": "57",
+      "text": "Ms. Buttons! [[e53]]",
+      "links": [
+        {
+          "linkText": "e53",
+          "passageName": "e53",
+          "original": "[[e53]]"
+        }
+      ],
+      "cleanText": "Ms. Buttons!"
+    },
+    {
+      "name": "e53",
+      "tags": "buttons-speaker buttons-angry",
+      "id": "58",
+      "text": "GAH! huff...huff.. [[e54]]",
+      "links": [
+        {
+          "linkText": "e54",
+          "passageName": "e54",
+          "original": "[[e54]]"
+        }
+      ],
+      "cleanText": "GAH! huff...huff.."
+    },
+    {
+      "name": "e54",
+      "tags": "buttons-speaker",
+      "id": "59",
+      "text": "Do you HAVE to scare me like that, Matthew? [[e55]]",
+      "links": [
+        {
+          "linkText": "e55",
+          "passageName": "e55",
+          "original": "[[e55]]"
+        }
+      ],
+      "cleanText": "Do you HAVE to scare me like that, Matthew?"
+    },
+    {
+      "name": "e55",
+      "tags": "matthew-speaker",
+      "id": "60",
+      "text": "Sorry about that! I just need to hand you this. Gotta go now! [[e56]]",
+      "links": [
+        {
+          "linkText": "e56",
+          "passageName": "e56",
+          "original": "[[e56]]"
+        }
+      ],
+      "cleanText": "Sorry about that! I just need to hand you this. Gotta go now!"
+    },
+    {
+      "name": "e56",
+      "tags": "matthew-leave",
+      "id": "61",
+      "text": "He shoves a letter into her hands. She sees him run to Peaches house and do the same. Then he runs so far she can't see him anymore. [[e57]]",
+      "links": [
+        {
+          "linkText": "e57",
+          "passageName": "e57",
+          "original": "[[e57]]"
+        }
+      ],
+      "cleanText": "He shoves a letter into her hands. She sees him run to Peaches house and do the same. Then he runs so far she can't see him anymore."
+    },
+    {
+      "name": "e57",
+      "tags": "",
+      "id": "62",
+      "text": "What's gotten into him? [[e58]]",
+      "links": [
+        {
+          "linkText": "e58",
+          "passageName": "e58",
+          "original": "[[e58]]"
+        }
+      ],
+      "cleanText": "What's gotten into him?"
+    },
+    {
+      "name": "e58",
+      "tags": "",
+      "id": "63",
+      "text": "The letter is short. It says, \"Come to Honeybee Center Tomorrow at 8:00!\" [[e59.5]]",
+      "links": [
+        {
+          "linkText": "e59.5",
+          "passageName": "e59.5",
+          "original": "[[e59.5]]"
+        }
+      ],
+      "cleanText": "The letter is short. It says, \"Come to Honeybee Center Tomorrow at 8:00!\""
+    },
+    {
+      "name": "e59",
+      "tags": "buttons-leave outside_town_square",
+      "id": "64",
+      "text": "It's the next day, 8:00am sharp. [[e60]]",
+      "links": [
+        {
+          "linkText": "e60",
+          "passageName": "e60",
+          "original": "[[e60]]"
+        }
+      ],
+      "cleanText": "It's the next day, 8:00am sharp."
+    },
+    {
+      "name": "e60",
+      "tags": "",
+      "id": "65",
+      "text": "Everyone in Honey Haven is waiting, in the square, confused about what's going on. [[e61]]",
+      "links": [
+        {
+          "linkText": "e61",
+          "passageName": "e61",
+          "original": "[[e61]]"
+        }
+      ],
+      "cleanText": "Everyone in Honey Haven is waiting, in the square, confused about what's going on."
+    },
+    {
+      "name": "e59.5",
+      "tags": "buttons-sad buttons-speaker",
+      "id": "66",
+      "text": "Huh..? [[e59]]",
+      "links": [
+        {
+          "linkText": "e59",
+          "passageName": "e59",
+          "original": "[[e59]]"
+        }
+      ],
+      "cleanText": "Huh..?"
+    },
+    {
+      "name": "e61",
+      "tags": "buttons-speaker",
+      "id": "67",
+      "text": "Did Matthew call you here? [[e62]]",
+      "links": [
+        {
+          "linkText": "e62",
+          "passageName": "e62",
+          "original": "[[e62]]"
+        }
+      ],
+      "cleanText": "Did Matthew call you here?"
+    },
+    {
+      "name": "e62",
+      "tags": "jane-speaker",
+      "id": "68",
+      "text": "No, Mr. Scotch did. [[e63]]",
+      "links": [
+        {
+          "linkText": "e63",
+          "passageName": "e63",
+          "original": "[[e63]]"
+        }
+      ],
+      "cleanText": "No, Mr. Scotch did."
+    },
+    {
+      "name": "e63",
+      "tags": "mochi-speaker",
+      "id": "69",
+      "text": "Really? I got a letter on my doorstep with no name! [[e64]]",
+      "links": [
+        {
+          "linkText": "e64",
+          "passageName": "e64",
+          "original": "[[e64]]"
+        }
+      ],
+      "cleanText": "Really? I got a letter on my doorstep with no name!"
+    },
+    {
+      "name": "e64",
+      "tags": "matthew-enter-left matthew-neutral matthew-speaker",
+      "id": "70",
+      "text": "Hello everyone! [[e65]]",
+      "links": [
+        {
+          "linkText": "e65",
+          "passageName": "e65",
+          "original": "[[e65]]"
+        }
+      ],
+      "cleanText": "Hello everyone!"
+    },
+    {
+      "name": "e65",
+      "tags": "matthew-speaker",
+      "id": "71",
+      "text": "I'm sure you're all wondering why you're here. [[e66]]",
+      "links": [
+        {
+          "linkText": "e66",
+          "passageName": "e66",
+          "original": "[[e66]]"
+        }
+      ],
+      "cleanText": "I'm sure you're all wondering why you're here."
+    },
+    {
+      "name": "e66",
+      "tags": "matthew-happy matthew-speaker",
+      "id": "72",
+      "text": "(Mr. Scotch, take it away!) [[e67]]",
+      "links": [
+        {
+          "linkText": "e67",
+          "passageName": "e67",
+          "original": "[[e67]]"
+        }
+      ],
+      "cleanText": "(Mr. Scotch, take it away!)"
+    },
+    {
+      "name": "e67",
+      "tags": "matthew-neutral scotch-enter-right scotch-neutral scotch-speaker",
+      "id": "73",
+      "text": "About 3 weeks after a very special community member passed, I got a knock on my door. [[e68]]",
+      "links": [
+        {
+          "linkText": "e68",
+          "passageName": "e68",
+          "original": "[[e68]]"
+        }
+      ],
+      "cleanText": "About 3 weeks after a very special community member passed, I got a knock on my door."
+    },
+    {
+      "name": "e68",
+      "tags": "scotch-speaker",
+      "id": "74",
+      "text": "It was Jonathan F. Smith, the fox you all pretend doesn't exist. [[e69]]",
+      "links": [
+        {
+          "linkText": "e69",
+          "passageName": "e69",
+          "original": "[[e69]]"
+        }
+      ],
+      "cleanText": "It was Jonathan F. Smith, the fox you all pretend doesn't exist."
+    },
+    {
+      "name": "e69",
+      "tags": "scotch-speaker",
+      "id": "75",
+      "text": "I could see him shaking with fear, but even so, he walked up to me and spoke. He told me... about Marty. [[e70]]",
+      "links": [
+        {
+          "linkText": "e70",
+          "passageName": "e70",
+          "original": "[[e70]]"
+        }
+      ],
+      "cleanText": "I could see him shaking with fear, but even so, he walked up to me and spoke. He told me... about Marty."
+    },
+    {
+      "name": "e70",
+      "tags": "scotch-speaker scotch-sad matthew-sad",
+      "id": "76",
+      "text": "Marty... had been struggling for a while. I'm sure many of you knew. [[e71]]",
+      "links": [
+        {
+          "linkText": "e71",
+          "passageName": "e71",
+          "original": "[[e71]]"
+        }
+      ],
+      "cleanText": "Marty... had been struggling for a while. I'm sure many of you knew."
+    },
+    {
+      "name": "e71",
+      "tags": "scotch-speaker",
+      "id": "77",
+      "text": "We could all see the signs. [[e72]]",
+      "links": [
+        {
+          "linkText": "e72",
+          "passageName": "e72",
+          "original": "[[e72]]"
+        }
+      ],
+      "cleanText": "We could all see the signs."
+    },
+    {
+      "name": "e72",
+      "tags": "scotch-speaker",
+      "id": "78",
+      "text": "But our community turned him away. [[e73]]",
+      "links": [
+        {
+          "linkText": "e73",
+          "passageName": "e73",
+          "original": "[[e73]]"
+        }
+      ],
+      "cleanText": "But our community turned him away."
+    },
+    {
+      "name": "e73",
+      "tags": "scotch-speaker",
+      "id": "79",
+      "text": "We failed him. [[e73.5]]",
+      "links": [
+        {
+          "linkText": "e73.5",
+          "passageName": "e73.5",
+          "original": "[[e73.5]]"
+        }
+      ],
+      "cleanText": "We failed him."
+    },
+    {
+      "name": "e74",
+      "tags": "scotch-speaker",
+      "id": "80",
+      "text": "This wasn't the first time we've lost someone this way. I've seen it far too many times in my many years. [[e75]]",
+      "links": [
+        {
+          "linkText": "e75",
+          "passageName": "e75",
+          "original": "[[e75]]"
+        }
+      ],
+      "cleanText": "This wasn't the first time we've lost someone this way. I've seen it far too many times in my many years."
+    },
+    {
+      "name": "e75",
+      "tags": "scotch-speaker",
+      "id": "81",
+      "text": "But Mrs. Tofu and I, we want it to be the last. [[e76]]",
+      "links": [
+        {
+          "linkText": "e76",
+          "passageName": "e76",
+          "original": "[[e76]]"
+        }
+      ],
+      "cleanText": "But Mrs. Tofu and I, we want it to be the last."
+    },
+    {
+      "name": "e73.5",
+      "tags": "scotch-speaker",
+      "id": "82",
+      "text": "We'll have to live with that. [[e74]]",
+      "links": [
+        {
+          "linkText": "e74",
+          "passageName": "e74",
+          "original": "[[e74]]"
+        }
+      ],
+      "cleanText": "We'll have to live with that."
+    },
+    {
+      "name": "e76",
+      "tags": "scotch-speaker",
+      "id": "83",
+      "text": "We can no longer keep blaming the individual. Something is wrong. There's something horrid present. [[e77]]",
+      "links": [
+        {
+          "linkText": "e77",
+          "passageName": "e77",
+          "original": "[[e77]]"
+        }
+      ],
+      "cleanText": "We can no longer keep blaming the individual. Something is wrong. There's something horrid present."
+    },
+    {
+      "name": "e77",
+      "tags": "scotch-speaker",
+      "id": "84",
+      "text": "Something horrid... in this community. [[e78]]",
+      "links": [
+        {
+          "linkText": "e78",
+          "passageName": "e78",
+          "original": "[[e78]]"
+        }
+      ],
+      "cleanText": "Something horrid... in this community."
+    },
+    {
+      "name": "e78",
+      "tags": "scotch-speaker",
+      "id": "85",
+      "text": "We need to purge it. [[e79]]",
+      "links": [
+        {
+          "linkText": "e79",
+          "passageName": "e79",
+          "original": "[[e79]]"
+        }
+      ],
+      "cleanText": "We need to purge it."
+    },
+    {
+      "name": "e79",
+      "tags": "matthew-leave barnaby-enter-left barnaby-speaker barnaby-happy",
+      "id": "86",
+      "text": "B-but! What are you talking about? This is a utopia, of course there is no evil! [[e80]]",
+      "links": [
+        {
+          "linkText": "e80",
+          "passageName": "e80",
+          "original": "[[e80]]"
+        }
+      ],
+      "cleanText": "B-but! What are you talking about? This is a utopia, of course there is no evil!"
+    },
+    {
+      "name": "e80",
+      "tags": "scotch-speaker barnaby-neutral",
+      "id": "87",
+      "text": "It's true, I can't force you to partake in what I'm going to ask you next. [[e81]]",
+      "links": [
+        {
+          "linkText": "e81",
+          "passageName": "e81",
+          "original": "[[e81]]"
+        }
+      ],
+      "cleanText": "It's true, I can't force you to partake in what I'm going to ask you next."
+    },
+    {
+      "name": "e81",
+      "tags": "scotch-speaker",
+      "id": "88",
+      "text": "But... [[e82]]",
+      "links": [
+        {
+          "linkText": "e82",
+          "passageName": "e82",
+          "original": "[[e82]]"
+        }
+      ],
+      "cleanText": "But..."
+    },
+    {
+      "name": "e82",
+      "tags": "scotch-speaker",
+      "id": "89",
+      "text": "But for the sake of this old sloth, who loves his wife and the son that was never his.. [[e83]]",
+      "links": [
+        {
+          "linkText": "e83",
+          "passageName": "e83",
+          "original": "[[e83]]"
+        }
+      ],
+      "cleanText": "But for the sake of this old sloth, who loves his wife and the son that was never his.."
+    },
+    {
+      "name": "e83",
+      "tags": "barnaby-sad scotch-speaker",
+      "id": "90",
+      "text": "I beg you. [[e84]]",
+      "links": [
+        {
+          "linkText": "e84",
+          "passageName": "e84",
+          "original": "[[e84]]"
+        }
+      ],
+      "cleanText": "I beg you."
+    },
+    {
+      "name": "e84",
+      "tags": "scotch-leave barnaby-leave",
+      "id": "91",
+      "text": "There's a new silence in the town. For the first time, it's one of understanding. [[e85]]",
+      "links": [
+        {
+          "linkText": "e85",
+          "passageName": "e85",
+          "original": "[[e85]]"
+        }
+      ],
+      "cleanText": "There's a new silence in the town. For the first time, it's one of understanding."
+    },
+    {
+      "name": "e85",
+      "tags": "peaches-enter-left peaches-speaker peaches-sad scotch-enter-right scotch-sad",
+      "id": "92",
+      "text": "Oh for goat's sake, you old sloth. You are making me look ugly. [[e86]]",
+      "links": [
+        {
+          "linkText": "e86",
+          "passageName": "e86",
+          "original": "[[e86]]"
+        }
+      ],
+      "cleanText": "Oh for goat's sake, you old sloth. You are making me look ugly."
+    },
+    {
+      "name": "e86",
+      "tags": "peaches-leave peanut-enter-left peanut-speaker peanut-sad",
+      "id": "93",
+      "text": "Y-yea! Get on with it! [[e87]]",
+      "links": [
+        {
+          "linkText": "e87",
+          "passageName": "e87",
+          "original": "[[e87]]"
+        }
+      ],
+      "cleanText": "Y-yea! Get on with it!"
+    },
+    {
+      "name": "e87",
+      "tags": "scotch-happy",
+      "id": "94",
+      "text": "Mr. Scotch laughs. There's tears and broken smiles across the square, but for once their hearts are in a circle. [[e88]]",
+      "links": [
+        {
+          "linkText": "e88",
+          "passageName": "e88",
+          "original": "[[e88]]"
+        }
+      ],
+      "cleanText": "Mr. Scotch laughs. There's tears and broken smiles across the square, but for once their hearts are in a circle."
+    },
+    {
+      "name": "e88",
+      "tags": "peanut-leave",
+      "id": "95",
+      "text": "Mr. Scotch and Matthew have the townsanimals line up behind the center of the square. They ask each one to write and read aloud a letter to Marty, pouring out the truths hidden in their hearts. [[e89]]",
+      "links": [
+        {
+          "linkText": "e89",
+          "passageName": "e89",
+          "original": "[[e89]]"
+        }
+      ],
+      "cleanText": "Mr. Scotch and Matthew have the townsanimals line up behind the center of the square. They ask each one to write and read aloud a letter to Marty, pouring out the truths hidden in their hearts."
+    },
+    {
+      "name": "e89",
+      "tags": "scotch-speaker scotch-neutral",
+      "id": "96",
+      "text": "It doesn't matter if it's shameful, or bad, or stupid. If it doesn't fit Honey Haven's utopia. Marty didn't care about that. He cared about honesty. [[e90]]",
+      "links": [
+        {
+          "linkText": "e90",
+          "passageName": "e90",
+          "original": "[[e90]]"
+        }
+      ],
+      "cleanText": "It doesn't matter if it's shameful, or bad, or stupid. If it doesn't fit Honey Haven's utopia. Marty didn't care about that. He cared about honesty."
+    },
+    {
+      "name": "e90",
+      "tags": "scotch-sad scotch-speaker",
+      "id": "97",
+      "text": "He cared.. about each of you. [[e91]]",
+      "links": [
+        {
+          "linkText": "e91",
+          "passageName": "e91",
+          "original": "[[e91]]"
+        }
+      ],
+      "cleanText": "He cared.. about each of you."
+    },
+    {
+      "name": "e91",
+      "tags": "scotch-speaker scotch-neutral",
+      "id": "98",
+      "text": "Anyone up first? [[e92]]",
+      "links": [
+        {
+          "linkText": "e92",
+          "passageName": "e92",
+          "original": "[[e92]]"
+        }
+      ],
+      "cleanText": "Anyone up first?"
+    },
+    {
+      "name": "e92",
+      "tags": "scotch-leave",
+      "id": "99",
+      "text": "No one raises their hand at first. Ms. Buttons looks around, then steps up. [[e93]]",
+      "links": [
+        {
+          "linkText": "e93",
+          "passageName": "e93",
+          "original": "[[e93]]"
+        }
+      ],
+      "cleanText": "No one raises their hand at first. Ms. Buttons looks around, then steps up."
+    },
+    {
+      "name": "e93",
+      "tags": "buttons-enter-right buttons-sad buttons-speaker",
+      "id": "100",
+      "text": "Marty, the truth is.. my carrots weren't all natural, and you were right. After I'd pick them, I'd used honey syrup from the honey flower to grow them back. [[e94]]",
+      "links": [
+        {
+          "linkText": "e94",
+          "passageName": "e94",
+          "original": "[[e94]]"
+        }
+      ],
+      "cleanText": "Marty, the truth is.. my carrots weren't all natural, and you were right. After I'd pick them, I'd used honey syrup from the honey flower to grow them back."
+    },
+    {
+      "name": "e94",
+      "tags": "buttons-speaker",
+      "id": "101",
+      "text": "I was.. embarrassed that I had to use cheating methods to get ahead. I didn't want people to think of me badly. [[e95]]",
+      "links": [
+        {
+          "linkText": "e95",
+          "passageName": "e95",
+          "original": "[[e95]]"
+        }
+      ],
+      "cleanText": "I was.. embarrassed that I had to use cheating methods to get ahead. I didn't want people to think of me badly."
+    },
+    {
+      "name": "e95",
+      "tags": "buttons-speaker",
+      "id": "102",
+      "text": "But.. I know you wouldn't have thought of me badly. And so I should've just told you. [[e96]]",
+      "links": [
+        {
+          "linkText": "e96",
+          "passageName": "e96",
+          "original": "[[e96]]"
+        }
+      ],
+      "cleanText": "But.. I know you wouldn't have thought of me badly. And so I should've just told you."
+    },
+    {
+      "name": "e96",
+      "tags": "buttons-speaker",
+      "id": "103",
+      "text": "If you've been listening these past few weeks, you probably already know that I regret our last conversation. So I won't say it again. [[e97]]",
+      "links": [
+        {
+          "linkText": "e97",
+          "passageName": "e97",
+          "original": "[[e97]]"
+        }
+      ],
+      "cleanText": "If you've been listening these past few weeks, you probably already know that I regret our last conversation. So I won't say it again."
+    },
+    {
+      "name": "e97",
+      "tags": "buttons-happy buttons-speaker",
+      "id": "104",
+      "text": "Instead... thank you. [[e98]]",
+      "links": [
+        {
+          "linkText": "e98",
+          "passageName": "e98",
+          "original": "[[e98]]"
+        }
+      ],
+      "cleanText": "Instead... thank you."
+    },
+    {
+      "name": "e98",
+      "tags": "buttons-leave chester-enter-right chester-sad",
+      "id": "105",
+      "text": "Chester is next. For once,  he doesn't look like such a brat. [[e99]]",
+      "links": [
+        {
+          "linkText": "e99",
+          "passageName": "e99",
+          "original": "[[e99]]"
+        }
+      ],
+      "cleanText": "Chester is next. For once,  he doesn't look like such a brat."
+    },
+    {
+      "name": "e99",
+      "tags": "chester-speaker",
+      "id": "106",
+      "text": "Mister.. I'm sorry for lying about a monster under your bed. I thought it was funny that you were scared because even I'm not scared of monsters. [[e100]]",
+      "links": [
+        {
+          "linkText": "e100",
+          "passageName": "e100",
+          "original": "[[e100]]"
+        }
+      ],
+      "cleanText": "Mister.. I'm sorry for lying about a monster under your bed. I thought it was funny that you were scared because even I'm not scared of monsters."
+    },
+    {
+      "name": "e100",
+      "tags": "chester-speaker",
+      "id": "107",
+      "text": "Bye bye. I hope there's no monsters where you are. [[e101]]",
+      "links": [
+        {
+          "linkText": "e101",
+          "passageName": "e101",
+          "original": "[[e101]]"
+        }
+      ],
+      "cleanText": "Bye bye. I hope there's no monsters where you are."
+    },
+    {
+      "name": "e101",
+      "tags": "chester-leave barnaby-enter-right peaches-enter-right barnaby-sad peaches-sad",
+      "id": "108",
+      "text": "Up next is Barnaby and Peaches at the same time, which surprises everyone in the town [[e102]]",
+      "links": [
+        {
+          "linkText": "e102",
+          "passageName": "e102",
+          "original": "[[e102]]"
+        }
+      ],
+      "cleanText": "Up next is Barnaby and Peaches at the same time, which surprises everyone in the town"
+    },
+    {
+      "name": "e102",
+      "tags": "barnaby-speaker",
+      "id": "109",
+      "text": "So.. there's a lot to say.[[e103]]",
+      "links": [
+        {
+          "linkText": "e103",
+          "passageName": "e103",
+          "original": "[[e103]]"
+        }
+      ],
+      "cleanText": "So.. there's a lot to say."
+    },
+    {
+      "name": "e103",
+      "tags": "peaches-speaker",
+      "id": "110",
+      "text": "We've been together for quite some time.. that's where all the gifts come from. [[e103.5]]",
+      "links": [
+        {
+          "linkText": "e103.5",
+          "passageName": "e103.5",
+          "original": "[[e103.5]]"
+        }
+      ],
+      "cleanText": "We've been together for quite some time.. that's where all the gifts come from."
+    },
+    {
+      "name": "e104",
+      "tags": "peaches-sad barnaby-sad barnaby-speaker",
+      "id": "111",
+      "text": "I had your schedule in my office because I didn't want you to see us together if she visited. I.. even paid Jane not to say anything. [[e105]]",
+      "links": [
+        {
+          "linkText": "e105",
+          "passageName": "e105",
+          "original": "[[e105]]"
+        }
+      ],
+      "cleanText": "I had your schedule in my office because I didn't want you to see us together if she visited. I.. even paid Jane not to say anything."
+    },
+    {
+      "name": "e105",
+      "tags": "barnaby-speaker",
+      "id": "112",
+      "text": "I wanted to keep being mayor, so we lied and lied and kept lying until one day it felt natural to. [[e106]]",
+      "links": [
+        {
+          "linkText": "e106",
+          "passageName": "e106",
+          "original": "[[e106]]"
+        }
+      ],
+      "cleanText": "I wanted to keep being mayor, so we lied and lied and kept lying until one day it felt natural to."
+    },
+    {
+      "name": "e106",
+      "tags": "barnaby-speaker",
+      "id": "113",
+      "text": "I had made plans for renovating Honey Haven, too. But.. I just can't forget the things I did to you. [[e107]]",
+      "links": [
+        {
+          "linkText": "e107",
+          "passageName": "e107",
+          "original": "[[e107]]"
+        }
+      ],
+      "cleanText": "I had made plans for renovating Honey Haven, too. But.. I just can't forget the things I did to you."
+    },
+    {
+      "name": "e107",
+      "tags": "barnaby-speaker",
+      "id": "114",
+      "text": "I'm so sorry, Marty. Being mayor should never have been more important than anyone in Honey Haven. [[e108]]",
+      "links": [
+        {
+          "linkText": "e108",
+          "passageName": "e108",
+          "original": "[[e108]]"
+        }
+      ],
+      "cleanText": "I'm so sorry, Marty. Being mayor should never have been more important than anyone in Honey Haven."
+    },
+    {
+      "name": "e108",
+      "tags": "barnaby-speaker",
+      "id": "115",
+      "text": "And to the rest of you that I've let down... I understand if you don't wish for me to be mayor anymore. Perhaps it is time and I step down and settle down. [[e109]]",
+      "links": [
+        {
+          "linkText": "e109",
+          "passageName": "e109",
+          "original": "[[e109]]"
+        }
+      ],
+      "cleanText": "And to the rest of you that I've let down... I understand if you don't wish for me to be mayor anymore. Perhaps it is time and I step down and settle down."
+    },
+    {
+      "name": "e103.5",
+      "tags": "peaches-speaker",
+      "id": "116",
+      "text": "I've been sending letters to his office, but I was scared of you finding out and telling others. So I'd send them without my name and split up into multiple letters. [[e103.6]]",
+      "links": [
+        {
+          "linkText": "e103.6",
+          "passageName": "e103.6",
+          "original": "[[e103.6]]"
+        }
+      ],
+      "cleanText": "I've been sending letters to his office, but I was scared of you finding out and telling others. So I'd send them without my name and split up into multiple letters."
+    },
+    {
+      "name": "e103.6",
+      "tags": "barnaby-neutral barnaby-speaker",
+      "id": "117",
+      "text": "(Is that why I got one that just said \"except our love\"?) [[e103.7]]",
+      "links": [
+        {
+          "linkText": "e103.7",
+          "passageName": "e103.7",
+          "original": "[[e103.7]]"
+        }
+      ],
+      "cleanText": "(Is that why I got one that just said \"except our love\"?)"
+    },
+    {
+      "name": "e103.7",
+      "tags": "peaches-neutral peaches-speaker",
+      "id": "118",
+      "text": "(That message was split into two letters. Together they say \"Nothing in this world is real except our love.\") [[e104]]",
+      "links": [
+        {
+          "linkText": "e104",
+          "passageName": "e104",
+          "original": "[[e104]]"
+        }
+      ],
+      "cleanText": "(That message was split into two letters. Together they say \"Nothing in this world is real except our love.\")"
+    },
+    {
+      "name": "e109",
+      "tags": "barnaby-leave peaches-leave scotch-enter-right scotch-neutral",
+      "id": "119",
+      "text": "Jane D., Mochi, Peanut, Dr. Muffins, Matthew, Mr. Scotch, and Mrs. Tofu (who somehow made it despite her illness) read their letters next. At the end, Mr. Scotch reads one more. [[e110]]",
+      "links": [
+        {
+          "linkText": "e110",
+          "passageName": "e110",
+          "original": "[[e110]]"
+        }
+      ],
+      "cleanText": "Jane D., Mochi, Peanut, Dr. Muffins, Matthew, Mr. Scotch, and Mrs. Tofu (who somehow made it despite her illness) read their letters next. At the end, Mr. Scotch reads one more."
+    },
+    {
+      "name": "e110",
+      "tags": "scotch-speaker",
+      "id": "120",
+      "text": "This letter is from Mr. Smith. He asked me to read it to you. [[e111]]",
+      "links": [
+        {
+          "linkText": "e111",
+          "passageName": "e111",
+          "original": "[[e111]]"
+        }
+      ],
+      "cleanText": "This letter is from Mr. Smith. He asked me to read it to you."
+    },
+    {
+      "name": "e111",
+      "tags": "scotch-speaker",
+      "id": "121",
+      "text": "Ahem. \"Dear Marty, the fish brave enough to enter the fox's den. The things that spoke to you are not real. You were the only thing that was real. You are the apple pie of sweetness.\" [[e112]]",
+      "links": [
+        {
+          "linkText": "e112",
+          "passageName": "e112",
+          "original": "[[e112]]"
+        }
+      ],
+      "cleanText": "Ahem. \"Dear Marty, the fish brave enough to enter the fox's den. The things that spoke to you are not real. You were the only thing that was real. You are the apple pie of sweetness.\""
+    },
+    {
+      "name": "e112",
+      "tags": "scotch-happy scotch-speaker",
+      "id": "122",
+      "text": "Anddd that's all he wrote. To be honest, it doesn't mean much to me, but I'm sure it means something to him. [[e113]]",
+      "links": [
+        {
+          "linkText": "e113",
+          "passageName": "e113",
+          "original": "[[e113]]"
+        }
+      ],
+      "cleanText": "Anddd that's all he wrote. To be honest, it doesn't mean much to me, but I'm sure it means something to him."
+    },
+    {
+      "name": "e113",
+      "tags": "scotch-sad scotch-speaker",
+      "id": "123",
+      "text": "To the rest of you, Mr. Smith is a good fox. I hope you're able to extend your heart to him as well. [[e114]]",
+      "links": [
+        {
+          "linkText": "e114",
+          "passageName": "e114",
+          "original": "[[e114]]"
+        }
+      ],
+      "cleanText": "To the rest of you, Mr. Smith is a good fox. I hope you're able to extend your heart to him as well."
+    },
+    {
+      "name": "e114",
+      "tags": "scotch-leave",
+      "id": "124",
+      "text": "After 4 weeks, life in Honey Haven finally resumes. [[e115]]",
+      "links": [
+        {
+          "linkText": "e115",
+          "passageName": "e115",
+          "original": "[[e115]]"
+        }
+      ],
+      "cleanText": "After 4 weeks, life in Honey Haven finally resumes."
+    },
+    {
+      "name": "e115",
+      "tags": "",
+      "id": "125",
+      "text": "To the outside viewer, nothing much is different. [[e116]]",
+      "links": [
+        {
+          "linkText": "e116",
+          "passageName": "e116",
+          "original": "[[e116]]"
+        }
+      ],
+      "cleanText": "To the outside viewer, nothing much is different."
+    },
+    {
+      "name": "e116",
+      "tags": "",
+      "id": "126",
+      "text": "But to each other, there's a connection. An understanding. [[e117]]",
+      "links": [
+        {
+          "linkText": "e117",
+          "passageName": "e117",
+          "original": "[[e117]]"
+        }
+      ],
+      "cleanText": "But to each other, there's a connection. An understanding."
+    },
+    {
+      "name": "e117",
+      "tags": "",
+      "id": "127",
+      "text": "That they didn't need to hide things or be perfect. [[e118]]",
+      "links": [
+        {
+          "linkText": "e118",
+          "passageName": "e118",
+          "original": "[[e118]]"
+        }
+      ],
+      "cleanText": "That they didn't need to hide things or be perfect."
+    },
+    {
+      "name": "e118",
+      "tags": "",
+      "id": "128",
+      "text": "Because a utopia meant a community that would always be there. [[e119]]",
+      "links": [
+        {
+          "linkText": "e119",
+          "passageName": "e119",
+          "original": "[[e119]]"
+        }
+      ],
+      "cleanText": "Because a utopia meant a community that would always be there."
+    },
+    {
+      "name": "e119",
+      "tags": "sunny_bedroom matthew-enter-left matthew-happy",
+      "id": "129",
+      "text": "Matthew brings the townsfolks' letters back to Marty's house. [[e120]]",
+      "links": [
+        {
+          "linkText": "e120",
+          "passageName": "e120",
+          "original": "[[e120]]"
+        }
+      ],
+      "cleanText": "Matthew brings the townsfolks' letters back to Marty's house."
+    },
+    {
+      "name": "e120",
+      "tags": "",
+      "id": "130",
+      "text": "For the first time in a while, the sun shines and the wind blows. [[e121]]",
+      "links": [
+        {
+          "linkText": "e121",
+          "passageName": "e121",
+          "original": "[[e121]]"
+        }
+      ],
+      "cleanText": "For the first time in a while, the sun shines and the wind blows."
+    },
+    {
+      "name": "e121",
+      "tags": "matthew-neutral",
+      "id": "131",
+      "text": "He places the letters on his empty bed, tucking them under the sheets his best friend slept in every night. [[e122]]",
+      "links": [
+        {
+          "linkText": "e122",
+          "passageName": "e122",
+          "original": "[[e122]]"
+        }
+      ],
+      "cleanText": "He places the letters on his empty bed, tucking them under the sheets his best friend slept in every night."
+    },
+    {
+      "name": "e122",
+      "tags": "",
+      "id": "132",
+      "text": "Tonight would be another night without him. [[e123]]",
+      "links": [
+        {
+          "linkText": "e123",
+          "passageName": "e123",
+          "original": "[[e123]]"
+        }
+      ],
+      "cleanText": "Tonight would be another night without him."
+    },
+    {
+      "name": "e123",
+      "tags": "matthew-sad",
+      "id": "133",
+      "text": "A night of regret. A night of remembrance. [[e124]]",
+      "links": [
+        {
+          "linkText": "e124",
+          "passageName": "e124",
+          "original": "[[e124]]"
+        }
+      ],
+      "cleanText": "A night of regret. A night of remembrance."
+    },
+    {
+      "name": "e124",
+      "tags": "",
+      "id": "134",
+      "text": "But these days, honoring him felt more important. [[e125]]",
+      "links": [
+        {
+          "linkText": "e125",
+          "passageName": "e125",
+          "original": "[[e125]]"
+        }
+      ],
+      "cleanText": "But these days, honoring him felt more important."
+    },
+    {
+      "name": "e125",
+      "tags": "matthew-speaker",
+      "id": "135",
+      "text": "Goodbye, Marty. [[e126]]",
+      "links": [
+        {
+          "linkText": "e126",
+          "passageName": "e126",
+          "original": "[[e126]]"
+        }
+      ],
+      "cleanText": "Goodbye, Marty."
+    },
+    {
+      "name": "e126",
+      "tags": "",
+      "id": "136",
+      "text": "The End.",
+      "links": [],
+      "cleanText": "The End."
+    }
+  ]
+}
+

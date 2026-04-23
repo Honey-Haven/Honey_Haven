@@ -1,18 +1,23 @@
 [gd_scene format=3 uid="uid://btubw6puueecq"]
 
-[ext_resource type="Script" uid="uid://c3ckhb4kd7ayd" path="res://mainscript.gd" id="1_o5qli"]
-[ext_resource type="PackedScene" uid="uid://7irim6fci6yx" path="res://scenes/car.tscn" id="2_0wfyh"]
-[ext_resource type="Texture2D" uid="uid://b1xvyvs37iwel" path="res://sprites/target.png" id="3_sugp2"]
-[ext_resource type="Texture2D" uid="uid://dumt50dfnseoa" path="res://sprites/carrots1.webp" id="4_jyhfs"]
-[ext_resource type="AudioStream" uid="uid://6knmiicmn6g8" path="res://sounds/Final A Great Big Helping of Sarcasm.mp3" id="5_tbgi4"]
-[ext_resource type="Texture2D" uid="uid://dg7p2de21n73o" path="res://sprites/W button.png" id="6_o6xl0"]
-[ext_resource type="Texture2D" uid="uid://b0d11hha5j2sv" path="res://sprites/S Button.png" id="7_tipki"]
-[ext_resource type="Texture2D" uid="uid://dfw3aoeeixgh4" path="res://sprites/up button.png" id="8_85g3d"]
-[ext_resource type="Texture2D" uid="uid://dcc7bju7pft6s" path="res://sprites/down button.png" id="9_choun"]
+[ext_resource type="Script" uid="uid://caxrsrdupp6j0" path="res://minigames/CarrotMinigame/scenes/mainscript.gd" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://7irim6fci6yx" path="res://minigames/CarrotMinigame/scenes/car.tscn" id="2_0wfyh"]
+[ext_resource type="Texture2D" uid="uid://b1xvyvs37iwel" path="res://minigames/CarrotMinigame/sprites/target.png" id="3_sugp2"]
+[ext_resource type="Texture2D" uid="uid://dumt50dfnseoa" path="res://minigames/CarrotMinigame/sprites/carrots1.webp" id="4_jyhfs"]
+[ext_resource type="AudioStream" uid="uid://6knmiicmn6g8" path="res://minigames/CarrotMinigame/sounds/Final A Great Big Helping of Sarcasm.mp3" id="5_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://dg7p2de21n73o" path="res://minigames/CarrotMinigame/sprites/W button.png" id="6_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://b0d11hha5j2sv" path="res://minigames/CarrotMinigame/sprites/S Button.png" id="7_tipki"]
+[ext_resource type="Texture2D" uid="uid://dfw3aoeeixgh4" path="res://minigames/CarrotMinigame/sprites/up button.png" id="8_85g3d"]
+[ext_resource type="Texture2D" uid="uid://dcc7bju7pft6s" path="res://minigames/CarrotMinigame/sprites/down button.png" id="9_choun"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_sugp2"]
 font_size = 50
 outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_choun"]
+font_size = 30
+outline_size = 8
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_85g3d"]
@@ -65,6 +70,16 @@ offset_right = 1258.0
 offset_bottom = 100.0
 text = "0"
 label_settings = SubResource("LabelSettings_sugp2")
+
+[node name="AccuracyLabel" type="Label" parent="." unique_id=1270600677]
+visibility_layer = 64
+z_index = 4
+offset_left = 26.0
+offset_top = 106.0
+offset_right = 341.0
+offset_bottom = 175.0
+text = "Accuracy: 0%"
+label_settings = SubResource("LabelSettings_choun")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=929166674]
 

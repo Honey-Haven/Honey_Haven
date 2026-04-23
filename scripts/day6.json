@@ -1,19 +1,31 @@
-
-
 {
   "uuid": "8A1385AC-DBA2-4E30-B279-633069EF1C27",
   "name": "Honey Haven Day 6",
   "creator": "Twine",
-  "creatorVersion": "2.12.0",
+  "creatorVersion": "2.11.1",
   "schemaName": "Twine to JSON",
   "schemaVersion": "0.0.6",
-  "createdAtMs": 1776455784522,
+  "createdAtMs": 1776466116707,
   "passages": [
     {
-      "name": "6.1",
-      "tags": "Narrator sunny_bedroom honey-haven-title",
+      "name": "6.0",
+      "tags": "day_start sunny_bedroom",
       "id": "1",
-      "text": "You didn’t sleep a wink last night. [[6.2]]",
+      "text": "Day 6",
+      "links": [
+        {
+          "linkText": "6.1",
+          "passageName": "6.1",
+          "original": "[[6.1]]"
+        }
+      ],
+      "cleanText": "Day 6"
+    },
+    {
+      "name": "6.1",
+      "tags": "Narrator sunny_bedroom",
+      "id": "1",
+      "text": "You didn\u2019t sleep a wink last night. [[6.2]]",
       "links": [
         {
           "linkText": "6.2",
@@ -21,7 +33,7 @@
           "original": "[[6.2]]"
         }
       ],
-      "cleanText": "You didn’t sleep a wink last night."
+      "cleanText": "You didn\u2019t sleep a wink last night."
     },
     {
       "name": "6.2",
@@ -53,7 +65,7 @@
     },
     {
       "name": "6.4",
-      "tags": "Narrator marty-enter marty-angry",
+      "tags": "Narrator excite marty-angry marty-enter",
       "id": "4",
       "text": "You tear letters out of their envelopes. [[6.5]]",
       "links": [
@@ -83,7 +95,7 @@
       "name": "6.6",
       "tags": "Narrator marty-sad",
       "id": "6",
-      "text": "The others… [[6.7]]",
+      "text": "The others\u2026 [[6.7]]",
       "links": [
         {
           "linkText": "6.7",
@@ -91,13 +103,13 @@
           "original": "[[6.7]]"
         }
       ],
-      "cleanText": "The others…"
+      "cleanText": "The others\u2026"
     },
     {
       "name": "6.7",
       "tags": "Narrator",
       "id": "7",
-      "text": "//We can’t let anybody know how we do it.// [[6.7.5]]",
+      "text": "//We can\u2019t let anybody know how we do it.// [[6.7.5]]",
       "links": [
         {
           "linkText": "6.7.5",
@@ -105,13 +117,13 @@
           "original": "[[6.7.5]]"
         }
       ],
-      "cleanText": "//We can’t let anybody know how we do it.//"
+      "cleanText": "//We can\u2019t let anybody know how we do it.//"
     },
     {
       "name": "6.8",
-      "tags": "Marty marty-speaker marty-sad",
+      "tags": "Marty marty-sad marty-speaker",
       "id": "8",
-      "text": "No… this can’t be… [[6.9]]",
+      "text": "No\u2026 this can\u2019t be\u2026 [[6.9]]",
       "links": [
         {
           "linkText": "6.9",
@@ -119,13 +131,13 @@
           "original": "[[6.9]]"
         }
       ],
-      "cleanText": "No… this can’t be…"
+      "cleanText": "No\u2026 this can\u2019t be\u2026"
     },
     {
       "name": "6.7.5",
       "tags": "",
       "id": "9",
-      "text": "//If he asks, don’t let him see your notebook.// [[6.8]]",
+      "text": "//If he asks, don\u2019t let him see your notebook.// [[6.8]]",
       "links": [
         {
           "linkText": "6.8",
@@ -133,7 +145,7 @@
           "original": "[[6.8]]"
         }
       ],
-      "cleanText": "//If he asks, don’t let him see your notebook.//"
+      "cleanText": "//If he asks, don\u2019t let him see your notebook.//"
     },
     {
       "name": "6.9",
@@ -165,7 +177,7 @@
     },
     {
       "name": "6.11",
-      "tags": "marty-scared marty-speaker",
+      "tags": "big excite marty-scared marty-speaker quiver",
       "id": "12",
       "text": "No... NO! [[6.12]]",
       "links": [
@@ -179,7 +191,7 @@
     },
     {
       "name": "6.12",
-      "tags": "marty-sad",
+      "tags": "flash marty-sad",
       "id": "13",
       "text": "As you look down at your paw, you can see it morphing. The pinky grows, the fur fades away. [[6.13]]",
       "links": [
@@ -221,7 +233,7 @@
     },
     {
       "name": "6.15",
-      "tags": "marty-speaker",
+      "tags": "big excite marty-speaker",
       "id": "16",
       "text": "NO! [[6.16]]",
       "links": [
@@ -279,9 +291,9 @@
     },
     {
       "name": "6.20",
-      "tags": "",
+      "tags": "quiver",
       "id": "21",
-      "text": "But surely there s someone you can talk to... [[6.21]]",
+      "text": "But surely there's someone you can talk to... [[6.21]]",
       "links": [
         {
           "linkText": "6.21",
@@ -289,11 +301,11 @@
           "original": "[[6.21]]"
         }
       ],
-      "cleanText": "But surely there s someone you can talk to..."
+      "cleanText": "But surely there's someone you can talk to..."
     },
     {
       "name": "6.21",
-      "tags": "marty-speaker marty-happy matthew-enter-right matthew-happy",
+      "tags": "big excite marty-happy marty-speaker matthew-enter-right matthew-happy shake",
       "id": "22",
       "text": "MATTHEW!! [[6.22]]",
       "links": [
@@ -307,7 +319,7 @@
     },
     {
       "name": "6.22",
-      "tags": "matthew-netural matthew-speaker",
+      "tags": "big matthew-netural matthew-speaker",
       "id": "23",
       "text": "What is it?! [[6.23]]",
       "links": [
@@ -335,7 +347,7 @@
     },
     {
       "name": "6.24",
-      "tags": "marty-speaker marty-neutral",
+      "tags": "marty-neutral marty-speaker quiver",
       "id": "25",
       "text": "Everybody in this town, they've been... [[6.25]]",
       "links": [
@@ -349,7 +361,7 @@
     },
     {
       "name": "6.25",
-      "tags": "marty-speaker marty-angry",
+      "tags": "excite marty-angry marty-speaker",
       "id": "26",
       "text": "They've been keeping secrets from us. They've been lying to us! [[6.26]]",
       "links": [
@@ -363,7 +375,7 @@
     },
     {
       "name": "6.26",
-      "tags": "marty-speaker",
+      "tags": "marty-speaker shake",
       "id": "27",
       "text": "And when I start asking questions, they get mad! [[6.27]]",
       "links": [
@@ -377,7 +389,7 @@
     },
     {
       "name": "6.27",
-      "tags": "matthew-speaker matthew-sad",
+      "tags": "matthew-sad matthew-speaker quiver",
       "id": "28",
       "text": "I don't understand, Marty. We should go home and- [[6.28]]",
       "links": [
@@ -391,7 +403,7 @@
     },
     {
       "name": "6.28",
-      "tags": "marty-angry marty-speaker demonic-sympathy",
+      "tags": "big excite marty-angry marty-speaker shake",
       "id": "29",
       "text": "DON'T YOU GET IT? HOME ISN'T REAL NONE OF THIS IS REAL, MATTHEW! [[6.29]]",
       "links": [
@@ -405,7 +417,7 @@
     },
     {
       "name": "6.29",
-      "tags": "marty-speaker marty-sad",
+      "tags": "marty-sad marty-speaker quiver",
       "id": "30",
       "text": "The town, the tea, the food... maybe even some of the people! [[6.30]]",
       "links": [
@@ -419,7 +431,7 @@
     },
     {
       "name": "6.30",
-      "tags": "marty-speaker marty-scared",
+      "tags": "big excite marty-scared marty-speaker quiver shake",
       "id": "31",
       "text": "This world isn't real, Matthew! It's.. I don't know! A book, a movie, a theater show, SOMETHING! [[6.31]]",
       "links": [
@@ -433,7 +445,7 @@
     },
     {
       "name": "6.31",
-      "tags": "marty-speaker",
+      "tags": "excite marty-speaker",
       "id": "32",
       "text": "Whatever it is, we've been trapped inside! [[6.32]]",
       "links": [
@@ -447,7 +459,7 @@
     },
     {
       "name": "6.32",
-      "tags": "marty-speaker",
+      "tags": "big excite marty-speaker shake",
       "id": "33",
       "text": "We need to leave, Matthew! NOW! Before they stop us! [[6.33]]",
       "links": [
@@ -461,7 +473,7 @@
     },
     {
       "name": "6.33",
-      "tags": "matthew-speaker marty-sad",
+      "tags": "marty-sad matthew-speaker quiver",
       "id": "34",
       "text": "... [[6.34]]",
       "links": [
@@ -475,7 +487,7 @@
     },
     {
       "name": "6.34",
-      "tags": "matthew-speaker",
+      "tags": "matthew-speaker quiver",
       "id": "35",
       "text": "Marty... [[6.35]]",
       "links": [
@@ -489,7 +501,7 @@
     },
     {
       "name": "6.35",
-      "tags": "marty-speaker marty-sad",
+      "tags": "big marty-sad marty-speaker shake",
       "id": "36",
       "text": "PLEASE, you have to listen! [[6.36]]",
       "links": [
@@ -503,7 +515,7 @@
     },
     {
       "name": "6.36",
-      "tags": "marty-angry marty-speaker",
+      "tags": "excite marty-angry marty-speaker quiver",
       "id": "37",
       "text": "That tea they keep giving me... it's a potion! [[6.37]]",
       "links": [
@@ -517,7 +529,7 @@
     },
     {
       "name": "6.37",
-      "tags": "marty-speaker marty-scared",
+      "tags": "marty-scared marty-speaker",
       "id": "38",
       "text": "It keeps me from seeing what's real! [[6.38]]",
       "links": [
@@ -531,7 +543,7 @@
     },
     {
       "name": "6.38",
-      "tags": "marty-speaker",
+      "tags": "excite marty-speaker shake",
       "id": "39",
       "text": "We're being //watched//, Matthew! Watched from the sky! [[6.39]]",
       "links": [
@@ -545,7 +557,7 @@
     },
     {
       "name": "6.39",
-      "tags": "marty-happy marty-speaker",
+      "tags": "excite marty-happy marty-speaker",
       "id": "40",
       "text": "And whatever's watching us, it wants to help us escape! [[6.40]]",
       "links": [
@@ -559,7 +571,7 @@
     },
     {
       "name": "6.40",
-      "tags": "marty-speaker marty-angry",
+      "tags": "big excite marty-angry marty-speaker",
       "id": "41",
       "text": "//Now//, Matthew We need to //GO//! [[6.41]]",
       "links": [
@@ -573,7 +585,7 @@
     },
     {
       "name": "6.41",
-      "tags": "matthew-speaker",
+      "tags": "matthew-speaker quiver",
       "id": "42",
       "text": "Marty... [[6.42]]",
       "links": [
@@ -587,7 +599,7 @@
     },
     {
       "name": "6.42",
-      "tags": "matthew-speaker marty-sad",
+      "tags": "marty-sad matthew-speaker quiver",
       "id": "43",
       "text": "I.. I'm sorry. [[6.43]]",
       "links": [
@@ -615,7 +627,7 @@
     },
     {
       "name": "6.44",
-      "tags": "matthew-speaker",
+      "tags": "matthew-speaker quiver",
       "id": "45",
       "text": "I can't go with you. I.. can't let you go, either. [[6.45]]",
       "links": [
@@ -643,7 +655,7 @@
     },
     {
       "name": "6.46",
-      "tags": "matthew-neutral matthew-speaker",
+      "tags": "matthew-neutral matthew-speaker quiver",
       "id": "47",
       "text": "I need to take you to a doctor because... [[6.47]]",
       "links": [
@@ -657,7 +669,7 @@
     },
     {
       "name": "6.47",
-      "tags": "matthew-leave wolf-enter-right wolf-speaker wolf-angry flash",
+      "tags": "excite flash matthew-leave wolf-angry wolf-enter-right wolf-speaker",
       "id": "48",
       "text": "I'm one of them. [[6.48]]",
       "links": [
@@ -671,7 +683,7 @@
     },
     {
       "name": "6.48",
-      "tags": "wolf-speaker wolf-happy marty-scared",
+      "tags": "excite marty-scared wolf-happy wolf-speaker",
       "id": "49",
       "text": "Marty, how long have we been friends? [[6.49]]",
       "links": [
@@ -685,7 +697,7 @@
     },
     {
       "name": "6.49",
-      "tags": "wolf-speaker wolf-neutral",
+      "tags": "wolf-neutral wolf-speaker",
       "id": "50",
       "text": "How many times have we had lunch together, talked about books? How many times did we play as kids? [[6.50]]",
       "links": [
@@ -699,7 +711,7 @@
     },
     {
       "name": "6.50",
-      "tags": "wolf-speaker wolf-neutral marty-sad",
+      "tags": "marty-sad wolf-neutral wolf-speaker",
       "id": "51",
       "text": "Listen, Marty. [[6.51]]",
       "links": [
@@ -713,7 +725,7 @@
     },
     {
       "name": "6.51",
-      "tags": "wolf-speaker wolf-angry",
+      "tags": "excite wolf-angry wolf-speaker",
       "id": "52",
       "text": "I'm your best friend. [[6.52]]",
       "links": [
@@ -741,7 +753,7 @@
     },
     {
       "name": "6.53",
-      "tags": "wolf-happy wolf-speaker",
+      "tags": "excite wolf-happy wolf-speaker",
       "id": "54",
       "text": "Because you're important, Marty. [[6.54]]",
       "links": [
@@ -769,7 +781,7 @@
     },
     {
       "name": "6.55",
-      "tags": "wolf-speaker wolf-happy",
+      "tags": "excite quiver wolf-happy wolf-speaker",
       "id": "56",
       "text": "So, from one old friend to another... [[6.56]]",
       "links": [
@@ -783,7 +795,7 @@
     },
     {
       "name": "6.56",
-      "tags": "wolf-angry wolf-speaker",
+      "tags": "excite wolf-angry wolf-speaker",
       "id": "57",
       "text": "Don't resist. [[6.57]]",
       "links": [
@@ -811,7 +823,7 @@
     },
     {
       "name": "6.58",
-      "tags": "wolf-leave marty-leave",
+      "tags": "marty-leave wolf-leave",
       "id": "59",
       "text": "You run. [[6.59]]",
       "links": [
@@ -825,7 +837,7 @@
     },
     {
       "name": "6.59",
-      "tags": "marty-sad marty-enter",
+      "tags": "marty-enter marty-sad shake",
       "id": "60",
       "text": "Suddenly you're at Peaches house. [[6.60]]",
       "links": [
@@ -853,7 +865,7 @@
     },
     {
       "name": "6.61",
-      "tags": "marty-angry",
+      "tags": "excite marty-angry",
       "id": "62",
       "text": "Perhaps there's a reason why she's never let you see them. [[6.62]]",
       "links": [
@@ -867,7 +879,7 @@
     },
     {
       "name": "6.62",
-      "tags": "marty-scared",
+      "tags": "excite marty-scared quiver shake",
       "id": "63",
       "text": "That's it! They're wolves too! Just more wolves in sheep's clothing... [[6.63]]",
       "links": [
@@ -881,7 +893,7 @@
     },
     {
       "name": "6.63",
-      "tags": "marty-angry peaches-enter-right peaches-speaker peaches-angry",
+      "tags": "big excite marty-angry peaches-angry peaches-enter-right peaches-speaker quiver shake",
       "id": "64",
       "text": "Marty, what are you... Marty wa- Stop- MARTY! [[6.64]]",
       "links": [
@@ -895,7 +907,7 @@
     },
     {
       "name": "6.64",
-      "tags": "marty-leave peaches-leave flash baby",
+      "tags": "baby flash marty-leave peaches-leave",
       "id": "65",
       "text": "The child's skin is not the soft fur you would expect, but smooth, sticky flesh. [[6.65]]",
       "links": [
@@ -911,7 +923,7 @@
       "name": "6.65",
       "tags": "",
       "id": "66",
-      "text": "It's head is perfectly round, its arms ending in paws without claws. Another \"hand.\" [[6.66]]",
+      "text": "Its head is perfectly round, its arms ending in paws without claws. Another \"hand.\" [[6.66]]",
       "links": [
         {
           "linkText": "6.66",
@@ -919,7 +931,7 @@
           "original": "[[6.66]]"
         }
       ],
-      "cleanText": "It's head is perfectly round, its arms ending in paws without claws. Another \"hand.\""
+      "cleanText": "Its head is perfectly round, its arms ending in paws without claws. Another \"hand.\""
     },
     {
       "name": "6.66",
@@ -937,7 +949,7 @@
     },
     {
       "name": "6.67",
-      "tags": "",
+      "tags": "quiver",
       "id": "68",
       "text": "They look strangely familiar... [[6.68]]",
       "links": [
@@ -951,7 +963,7 @@
     },
     {
       "name": "6.68",
-      "tags": "peaches-speaker marty-enter peaches-enter-right peaches-angry marty-scared casserole_avenue peaches-baby-leave",
+      "tags": "big casserole_avenue excite marty-enter marty-scared peaches-angry peaches-baby-leave peaches-enter-right peaches-speaker shake",
       "id": "69",
       "text": "GET YOUR PAWS AWAY FROM THEM! [[6.69]]",
       "links": [
@@ -965,7 +977,7 @@
     },
     {
       "name": "6.69",
-      "tags": "peaches-sad peaches-speaker",
+      "tags": "big excite peaches-sad peaches-speaker shake",
       "id": "70",
       "text": "HELP! ANYBODY! PLEASE! I'M BEING ATTACKED! [[6.70]]",
       "links": [
@@ -1007,7 +1019,7 @@
     },
     {
       "name": "6.73",
-      "tags": "marty-angry",
+      "tags": "excite marty-angry",
       "id": "73",
       "text": "No wonder she tried so much to avoid you. [[6.74]]",
       "links": [
@@ -1021,7 +1033,7 @@
     },
     {
       "name": "6.74",
-      "tags": "",
+      "tags": "quiver",
       "id": "74",
       "text": "There's no telling what she could be hiding under that fur of hers... [[6.75]]",
       "links": [
@@ -1035,7 +1047,7 @@
     },
     {
       "name": "6.75",
-      "tags": "peaches-leave marty-leave",
+      "tags": "marty-leave peaches-leave shake",
       "id": "75",
       "text": "Suddenly you're tackled from behind. [[6.76]]",
       "links": [
@@ -1049,7 +1061,7 @@
     },
     {
       "name": "6.76",
-      "tags": "wolf-enter-left marty-enter-right marty-scared wolf-angry",
+      "tags": "excite marty-enter-right marty-scared wolf-angry wolf-enter-left",
       "id": "76",
       "text": "Matthew has knocked you to the ground. His breath stinks of meat. [[6.77]]",
       "links": [
@@ -1063,7 +1075,7 @@
     },
     {
       "name": "6.77",
-      "tags": "marty-angry wolf-neutral",
+      "tags": "excite marty-angry wolf-neutral",
       "id": "77",
       "text": "You pry yourself free, but more are coming. [[6.78]]",
       "links": [
@@ -1077,7 +1089,7 @@
     },
     {
       "name": "6.78",
-      "tags": "marty-leave barnaby-enter-right barnaby-angry",
+      "tags": "barnaby-angry barnaby-enter-right excite marty-leave",
       "id": "78",
       "text": "They pin you down. They've won. [[6.79]]",
       "links": [
@@ -1091,7 +1103,7 @@
     },
     {
       "name": "6.79",
-      "tags": "barnaby-leave wolf-leave casserole_tear",
+      "tags": "barnaby-leave casserole-tear wolf-leave",
       "id": "79",
       "text": "Just when it seems you won't be able to hold out any longer, the world splits. [[6.80]]",
       "links": [
@@ -1222,7 +1234,7 @@
     },
     {
       "name": "6.87a",
-      "tags": "black_screen",
+      "tags": "black-screen flash",
       "id": "88",
       "text": "Your vision fades to black. [[6.88]]",
       "links": [
@@ -1283,7 +1295,7 @@
     },
     {
       "name": "6.87c",
-      "tags": "black_screen hand-leave",
+      "tags": "black-screen flash hand-leave",
       "id": "92",
       "text": "The hand covers you with its palm, then slowly and softly presses you into the blackness of the earth. [[6.88]]",
       "links": [
@@ -1297,7 +1309,7 @@
     },
     {
       "name": "6.88",
-      "tags": "marty-speaker white_screen",
+      "tags": "marty-speaker quiver white-screen",
       "id": "93",
       "text": "Why.. can't I move my head? Where's.. my body? [[6.88.5]]",
       "links": [
@@ -1311,7 +1323,7 @@
     },
     {
       "name": "6.89",
-      "tags": "stranger-speaker",
+      "tags": "stranger-speaker demon5",
       "id": "94",
       "text": "When did you grow up? [[6.90]]",
       "links": [
@@ -1325,7 +1337,7 @@
     },
     {
       "name": "6.90",
-      "tags": "stranger-speaker stranger-frown",
+      "tags": "quiver demon2 stranger-speaker",
       "id": "95",
       "text": "It feels like just yesterday you were a wee little pup, taking your first steps... [[6.91]]",
       "links": [
@@ -1339,7 +1351,7 @@
     },
     {
       "name": "6.91",
-      "tags": "stranger-speaker",
+      "tags": "stranger-speaker demon4",
       "id": "96",
       "text": "Going to school, getting a job, building a quaint little life for yourself. [[6.92]]",
       "links": [
@@ -1353,7 +1365,7 @@
     },
     {
       "name": "6.92",
-      "tags": "stranger-speaker stranger-smile",
+      "tags": "demon6 stranger-speaker",
       "id": "97",
       "text": "And now, look at you. [[6.93]]",
       "links": [
@@ -1367,7 +1379,7 @@
     },
     {
       "name": "6.93",
-      "tags": "stranger-speaker",
+      "tags": "stranger-speaker demon7",
       "id": "98",
       "text": "In less than a week, it's all gone. [[6.94]]",
       "links": [
@@ -1381,7 +1393,7 @@
     },
     {
       "name": "6.94",
-      "tags": "stranger-speaker",
+      "tags": "stranger-speaker demon1 flash",
       "id": "99",
       "text": "You've caught on now, haven't you? [[6.95]]",
       "links": [
@@ -1395,7 +1407,7 @@
     },
     {
       "name": "6.95",
-      "tags": "stranger-speaker",
+      "tags": "stranger-speaker demon5",
       "id": "100",
       "text": "I'm always sure to start small. [[6.96]]",
       "links": [
@@ -1409,7 +1421,7 @@
     },
     {
       "name": "6.96",
-      "tags": "stranger-speaker",
+      "tags": "stranger-speaker demon4",
       "id": "101",
       "text": "A strange dream or two. [[6.97]]",
       "links": [
@@ -1423,7 +1435,7 @@
     },
     {
       "name": "6.97",
-      "tags": "stranger-speaker",
+      "tags": "flash stranger-speaker demon3",
       "id": "102",
       "text": "A reflection in the mirror. [[6.98]]",
       "links": [
@@ -1437,7 +1449,7 @@
     },
     {
       "name": "6.98",
-      "tags": "stranger-speaker",
+      "tags": "stranger-speaker demon5",
       "id": "103",
       "text": "Then let the town do the rest. [[6.99]]",
       "links": [
@@ -1451,7 +1463,7 @@
     },
     {
       "name": "6.99",
-      "tags": "stranger-speaker",
+      "tags": "shake stranger-speaker demon2",
       "id": "104",
       "text": "Those arrogant little snacks are so afraid of everyone knowing their secrets... [[6.100]]",
       "links": [
@@ -1465,7 +1477,7 @@
     },
     {
       "name": "6.100",
-      "tags": "stranger-speaker",
+      "tags": "stranger-speaker demon4",
       "id": "105",
       "text": "Their neighbors. Their families. Honey Haven~ [[6.101]]",
       "links": [
@@ -1479,7 +1491,7 @@
     },
     {
       "name": "6.101",
-      "tags": "stranger-speaker",
+      "tags": "stranger-speaker demon3",
       "id": "106",
       "text": "You just need to prod them a little and they'll start seeing demons in everything. [[6.102]]",
       "links": [
@@ -1493,7 +1505,7 @@
     },
     {
       "name": "6.102",
-      "tags": "stranger-speaker",
+      "tags": "shake stranger-speaker demon4",
       "id": "107",
       "text": "ehehehehe... [[6.103]]",
       "links": [
@@ -1507,7 +1519,7 @@
     },
     {
       "name": "6.103",
-      "tags": "stranger-speaker",
+      "tags": "stranger-speaker demon8 flash",
       "id": "108",
       "text": "Even though the only one was right here. [[6.104]]",
       "links": [
@@ -1521,7 +1533,7 @@
     },
     {
       "name": "6.104",
-      "tags": "stranger-speaker",
+      "tags": "stranger-speaker demon3",
       "id": "109",
       "text": "Once that starts, I'll seed some suspicions. [[6.105]]",
       "links": [
@@ -1535,7 +1547,7 @@
     },
     {
       "name": "6.105",
-      "tags": "stranger-speaker",
+      "tags": "shake stranger-speaker demon7",
       "id": "110",
       "text": "Help them view the town from a....  different perspective. [[6.106]]",
       "links": [
@@ -1549,7 +1561,7 @@
     },
     {
       "name": "6.106",
-      "tags": "stranger-speaker",
+      "tags": "stranger-speaker demon5",
       "id": "111",
       "text": "That eye in the sky was a personal touch. [[6.107]]",
       "links": [
@@ -1563,7 +1575,7 @@
     },
     {
       "name": "6.107",
-      "tags": "stranger-speaker",
+      "tags": "stranger-speaker demon7",
       "id": "112",
       "text": "It was nice, looking down at my meal. [[6.108]]",
       "links": [
@@ -1577,7 +1589,7 @@
     },
     {
       "name": "6.108",
-      "tags": "stranger-speaker",
+      "tags": "stranger-speaker demon6",
       "id": "113",
       "text": "Making it think I was a savior. [[6.109]]",
       "links": [
@@ -1591,7 +1603,7 @@
     },
     {
       "name": "6.109",
-      "tags": "stranger-speaker",
+      "tags": "stranger-speaker demon3",
       "id": "114",
       "text": "And once they start thinking Honey Haven isn't real, they'll believe anything they hear. [[6.110]]",
       "links": [
@@ -1605,7 +1617,7 @@
     },
     {
       "name": "6.110",
-      "tags": "stranger-speaker",
+      "tags": "stranger-speaker flash demon1",
       "id": "115",
       "text": "Once you push everyone away, there's nobody left to tell you you're going crazy. [[6.111]]",
       "links": [
@@ -1619,7 +1631,7 @@
     },
     {
       "name": "6.111",
-      "tags": "stranger-speaker stranger-frown",
+      "tags": "demon6 stranger-speaker",
       "id": "116",
       "text": "Then all you've got is that damnable tea.... [[6.112]]",
       "links": [
@@ -1633,7 +1645,7 @@
     },
     {
       "name": "6.112",
-      "tags": "stranger-speaker stranger-smile",
+      "tags": "shake demon7 stranger-speaker",
       "id": "117",
       "text": "ehehehe... You know, you could have saved yourself if you had just kept drinking it? [[6.113]]",
       "links": [
@@ -1647,7 +1659,7 @@
     },
     {
       "name": "6.113",
-      "tags": "stranger-speaker",
+      "tags": "demon2 stranger-speaker",
       "id": "118",
       "text": "Honey flower.. perhaps it could have worked. [[6.114]]",
       "links": [
@@ -1661,7 +1673,7 @@
     },
     {
       "name": "6.114",
-      "tags": "stranger-speaker",
+      "tags": "big shake demon7 stranger-speaker",
       "id": "119",
       "text": "Oh, but you just HAD to keep looking, didn't you? [[6.115]]",
       "links": [
@@ -1675,7 +1687,7 @@
     },
     {
       "name": "6.115",
-      "tags": "stranger-speaker",
+      "tags": "stranger-speaker demon5",
       "id": "120",
       "text": "So I gave you something to find. My writing. All the town's dirty laundry, all at once. [[6.116]]",
       "links": [
@@ -1689,7 +1701,7 @@
     },
     {
       "name": "6.116",
-      "tags": "stranger-speaker",
+      "tags": "demon3 stranger-speaker",
       "id": "121",
       "text": "And for my final act.. a wolf in sheep's clothing. [[6.117]]",
       "links": [
@@ -1703,7 +1715,7 @@
     },
     {
       "name": "6.117",
-      "tags": "stranger-speaker",
+      "tags": "stranger-speaker flash demon8",
       "id": "122",
       "text": "It always astounds me how easy you creatures are to trick. [[6.118]]",
       "links": [
@@ -1717,7 +1729,7 @@
     },
     {
       "name": "6.118",
-      "tags": "stranger-speaker",
+      "tags": "stranger-speaker demon5",
       "id": "123",
       "text": "Invade your mind a little each night and they'll do the work for you. [[6.119]]",
       "links": [
@@ -1731,7 +1743,7 @@
     },
     {
       "name": "6.119",
-      "tags": "stranger-speaker stranger-frown",
+      "tags": "demon6 stranger-speaker",
       "id": "124",
       "text": "Push away their friends. Abandon their lives. [[6.120]]",
       "links": [
@@ -1745,7 +1757,7 @@
     },
     {
       "name": "6.120",
-      "tags": "stranger-speaker",
+      "tags": "stranger-speaker demon7",
       "id": "125",
       "text": "Kill themselves searching for a truth that isn't there. [[6.121]]",
       "links": [
@@ -1759,7 +1771,7 @@
     },
     {
       "name": "6.121",
-      "tags": "stranger-speaker stranger-smile",
+      "tags": "shake flash demon8 stranger-speaker",
       "id": "126",
       "text": "ehehehe... [[6.122]]",
       "links": [
@@ -1773,7 +1785,7 @@
     },
     {
       "name": "6.122",
-      "tags": "stranger-speaker",
+      "tags": "stranger-speaker demon8",
       "id": "127",
       "text": "You paranoid little rat. [[6.123]]",
       "links": [
@@ -1787,7 +1799,7 @@
     },
     {
       "name": "6.123",
-      "tags": "stranger-speaker",
+      "tags": "stranger-speaker demon3",
       "id": "128",
       "text": "You shoved them all away for.. the sake of a lie. [[6.124]]",
       "links": [
@@ -1801,7 +1813,7 @@
     },
     {
       "name": "6.124",
-      "tags": "stranger-speaker",
+      "tags": "big flash demon7 stranger-speaker",
       "id": "129",
       "text": "For HERE. [[6.125]]",
       "links": [
@@ -1815,7 +1827,7 @@
     },
     {
       "name": "6.125",
-      "tags": "stranger-speaker",
+      "tags": "stranger-speaker shake demon4",
       "id": "130",
       "text": "ehehehehehehe will they even remember you? [[6.126]]",
       "links": [
@@ -1829,7 +1841,7 @@
     },
     {
       "name": "6.126",
-      "tags": "stranger-speaker stranger-frown",
+      "tags": "demon2 stranger-speaker",
       "id": "131",
       "text": "They've certainly been trying to forget Jonathan. [[6.127]]",
       "links": [
@@ -1843,7 +1855,7 @@
     },
     {
       "name": "6.127",
-      "tags": "stranger-speaker stranger-smile",
+      "tags": "flash demon8 stranger-speaker",
       "id": "132",
       "text": "You.. you're even less alive than he is! [[6.128]]",
       "links": [
@@ -1857,7 +1869,7 @@
     },
     {
       "name": "6.128",
-      "tags": "stranger-speaker",
+      "tags": "big shake stranger-speaker",
       "id": "133",
       "text": "HA! [[6.129]]",
       "links": [
@@ -1871,7 +1883,7 @@
     },
     {
       "name": "6.129",
-      "tags": "stranger-speaker",
+      "tags": "stranger-speaker demon4",
       "id": "134",
       "text": "Goodbye, Marty. [[6.130]]",
       "links": [
@@ -1885,7 +1897,7 @@
     },
     {
       "name": "6.130",
-      "tags": "stranger-speaker",
+      "tags": "stranger-speaker flash demon1",
       "id": "135",
       "text": "You were a fun one. [[6.131]]",
       "links": [
@@ -1899,7 +1911,7 @@
     },
     {
       "name": "6.131",
-      "tags": "",
+      "tags": "flash",
       "id": "136",
       "text": "End of Day 3.",
       "links": [],
@@ -1907,7 +1919,7 @@
     },
     {
       "name": "6.88.5",
-      "tags": "stranger-enter-middle stranger-speaker stranger-smile flash",
+      "tags": "flash demon3 stranger-speaker",
       "id": "137",
       "text": "Hello Marty. [[6.89]]",
       "links": [
@@ -1921,7 +1933,7 @@
     },
     {
       "name": "6.16.5",
-      "tags": "",
+      "tags": "quiver",
       "id": "138",
       "text": "You feel... different. You see things. You're starting to understand things. [[6.19]]",
       "links": [
@@ -1963,4 +1975,3 @@
     }
   ]
 }
-
