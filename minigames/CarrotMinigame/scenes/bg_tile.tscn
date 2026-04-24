@@ -2,13 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://weybwcmtfifd" path="res://minigames/CarrotMinigame/sprites/street1.png" id="1_rrb3y"]
 [ext_resource type="Script" uid="uid://i3eywrglvrss" path="res://minigames/CarrotMinigame/bg_tilescript.gd" id="1_x1ldc"]
-[ext_resource type="Texture2D" uid="uid://ca7x4sdtgwyi1" path="res://minigames/CarrotMinigame/sprites/newroad1.webp" id="2_k53ar"]
+[ext_resource type="Texture2D" uid="uid://bhcwdw0qy6chg" path="res://minigames/CarrotMinigame/sprites/POOP.png" id="2_cuwyl"]
 
 [node name="BGTile" type="Node2D" unique_id=155503527]
 script = ExtResource("1_x1ldc")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1671395682]
-texture = ExtResource("2_k53ar")
+texture = ExtResource("2_cuwyl")
 
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1870181926]
 visible = false

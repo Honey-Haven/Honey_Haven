@@ -1,3 +1,5 @@
+
+
 {
   "uuid": "8A1385AC-DBA2-4E30-B279-633069EF1C27",
   "name": "Honey Haven Day 6",
@@ -8,10 +10,10 @@
   "createdAtMs": 1776466116707,
   "passages": [
     {
-      "name": "6.0",
-      "tags": "day_start sunny_bedroom",
+      "name": "0",
+      "tags": "day_start black_screen",
       "id": "1",
-      "text": "Day 6",
+      "text": "Day 6 [[6.1]]",
       "links": [
         {
           "linkText": "6.1",
@@ -23,7 +25,7 @@
     },
     {
       "name": "6.1",
-      "tags": "Narrator sunny_bedroom",
+      "tags": "Narrator sunny_bedroom music_Goodbye_Moon",
       "id": "1",
       "text": "You didn\u2019t sleep a wink last night. [[6.2]]",
       "links": [
@@ -669,7 +671,7 @@
     },
     {
       "name": "6.47",
-      "tags": "excite flash matthew-leave wolf-angry wolf-enter-right wolf-speaker",
+      "tags": "excite flash matthew-leave wolf-angry wolf-enter-right wolf-speaker music_Demonic_Empathy",
       "id": "48",
       "text": "I'm one of them. [[6.48]]",
       "links": [
@@ -1103,7 +1105,7 @@
     },
     {
       "name": "6.79",
-      "tags": "barnaby-leave casserole-tear wolf-leave",
+      "tags": "barnaby-leave casserole-tear wolf-leave music_silence",
       "id": "79",
       "text": "Just when it seems you won't be able to hold out any longer, the world splits. [[6.80]]",
       "links": [
@@ -1309,7 +1311,7 @@
     },
     {
       "name": "6.88",
-      "tags": "marty-speaker quiver white-screen",
+      "tags": "marty-speaker quiver white-screen music_Demonic_Apathy",
       "id": "93",
       "text": "Why.. can't I move my head? Where's.. my body? [[6.88.5]]",
       "links": [
@@ -1911,11 +1913,31 @@
     },
     {
       "name": "6.131",
-      "tags": "flash",
+      "tags": "day_end black_screen",
       "id": "136",
-      "text": "End of Day 3.",
-      "links": [],
-      "cleanText": "End of Day 3."
+      "text": "End of Day 6.",
+      "links": [
+        {
+          "linkText": "END",
+          "passageName": "END",
+          "original": "END"
+        }
+      ],
+      "cleanText": "End of Day 6."
+    },
+    {
+      "name": "END",
+      "tags": "",
+      "id": "3000",
+      "text": "back to menu",
+      "links": [
+        {
+          "linkText": "",
+          "passageName": "",
+          "original": ""
+        }
+      ],
+      "cleanText": "back to menu"
     },
     {
       "name": "6.88.5",
@@ -1975,3 +1997,4 @@
     }
   ]
 }
+

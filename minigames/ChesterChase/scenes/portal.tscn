@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://fjcgxkxpkyt7"]
+
+[ext_resource type="Script" uid="uid://brtq4jcdpxqlb" path="res://minigames/ChesterChase/scenes/portal.gd" id="1_1ffj6"]
+[ext_resource type="Texture2D" uid="uid://cyhkdp8jvtlg8" path="res://minigames/ChesterChase/sprites/portal.png" id="2_1ffj6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jr6l0"]
+radius = 144.98
+height = 558.0
+
+[node name="portal" type="Area2D" unique_id=392439652]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_1ffj6")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1512968213]
+texture = ExtResource("2_1ffj6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1410678508]
+position = Vector2(-4, 35)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_jr6l0")

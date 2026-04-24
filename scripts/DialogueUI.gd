@@ -106,6 +106,9 @@ var _overlay_sprite_tween: Tween
 # ── Stranger SFX player
 var _stranger_type_player: AudioStreamPlayer
 
+# ── Demon SFX player
+var _demon_type_player: AudioStreamPlayer
+
 # ── Day splash SFX player
 var _day_splash_type_player: AudioStreamPlayer
 
@@ -227,6 +230,12 @@ func _ready() -> void:
 	add_child(_stranger_type_player)
 	_stranger_type_player.bus = "Master"
 	_stranger_type_player.volume_db = -6.0
+
+	_demon_type_player = AudioStreamPlayer.new()
+	_demon_type_player.name = "DemonAudioPlayer"
+	add_child(_demon_type_player)
+	_demon_type_player.bus = "Master"
+	_demon_type_player.volume_db = -6.0
 
 	_day_splash_type_player = AudioStreamPlayer.new()
 	_day_splash_type_player.name = "DaySplashAudioPlayer"
@@ -351,21 +360,27 @@ func _apply_theme() -> void:
 # ══════════════════════════════════════════════════════════════
 #  INPUT
 # ══════════════════════════════════════════════════════════════
-func _unhandled_key_input(event: InputEvent) -> void:
+func _input(event: InputEvent) -> void:
 	if not event is InputEventKey:
 		return
 	if not event.pressed or event.echo:
 		return
-	# Block ALL input while the day splash is playing
 	if _day_splash_active:
 		return
-	match event.keycode:
+	var handled := false
+	match (event as InputEventKey).keycode:
 		KEY_SPACE, KEY_ENTER, KEY_KP_ENTER, KEY_RIGHT:
 			if not _demon_active:
 				_handle_advance()
+				handled = true
 		KEY_LEFT:
 			if not _demon_active:
 				_on_back_pressed()
+				handled = true
+	if handled:
+		var vp := get_viewport()
+		if vp:
+			vp.set_input_as_handled()
 
 func _handle_advance() -> void:
 	# Day splash is unskippable
@@ -492,6 +507,12 @@ func _show_demon_dialogue(packet: Dictionary) -> void:
 	if _demon_growl_tween:
 		_demon_growl_tween.kill()
 		_demon_growl_tween = null
+
+	# Set up demon SFX from theme.
+	var tb := _tb()
+	if tb and tb.get("demon_typewriter_sfx") and tb.demon_typewriter_sfx:
+		_demon_type_player.stream    = tb.demon_typewriter_sfx
+		_demon_type_player.volume_db = tb.demon_typewriter_volume_db if tb.get("demon_typewriter_volume_db") else -6.0
 
 	var text: String = packet.get("text", "")
 	_demon_growl_animate(text)
@@ -620,6 +641,8 @@ func _demon_growl_animate(text: String) -> void:
 				lbl.position = slam_pos + jitter
 				lbl.modulate.a = 1.0
 				lbl.scale = Vector2(1.6, 1.6)
+				if _demon_type_player and _demon_type_player.stream:
+					_demon_type_player.play()
 				var t := lbl.create_tween()
 				t.set_parallel(true)
 				t.tween_property(lbl, "position", base_pos, DEMON_CHAR_SLAM_DUR)\
@@ -694,6 +717,11 @@ func _set_textbox_normal_style() -> void:
 	nps.content_margin_bottom = np.padding.w if np else 4
 	nameplate_panel.add_theme_stylebox_override("panel", nps)
 	name_label.add_theme_color_override("default_color", np.font_color if np else Color(0.8, 0.9, 1.0))
+	# Nameplate font matches the textbox font so they read as the same "voice".
+	if tb and tb.get("font") and tb.font:
+		name_label.add_theme_font_override("normal_font", tb.font)
+	else:
+		name_label.remove_theme_font_override("normal_font")
 
 func _set_textbox_narrator_style() -> void:
 	var tb := _tb()
@@ -851,9 +879,9 @@ func _start_typewriter(text: String, word_shake: bool, is_narrator: bool = false
 	var tb := _tb()
 	var base_font_size: int = tb.font_size if tb else 22
 	if text_effect == "big":
-		bbtext = "[font_size=%d]%s[/font_size]" % [int(base_font_size * TEXT_EFFECT_BIG_SCALE), bbtext]
+		bbtext = "[font_size=%d]%s[/font_size]" % [int(base_font_size * TEXT_EFFECT_BIG_SCALE) - 10, bbtext]
 	elif text_effect == "small":
-		bbtext = "[font_size=%d]%s[/font_size]" % [int(base_font_size * TEXT_EFFECT_SMALL_SCALE), bbtext]
+		bbtext = "[font_size=%d]%s[/font_size]" % [17, bbtext]
 
 	if char_effect == "quiver":
 		bbtext = "[shake rate=25 level=4]%s[/shake]" % bbtext
@@ -1164,13 +1192,19 @@ func _run_day_splash_sequence(bg_rect: TextureRect) -> void:
 	_on_day_splash_done()
 
 
+func hide_for_no_text() -> void:
+	textbox_panel.hide()
+	nameplate_panel.hide()
+	choice_container.hide()
+	continue_arrow.hide()
+	_click_catcher.hide()
+	_back_button.hide()
+
 func _on_day_splash_done() -> void:
 	_day_splash_active = false
-	# Restore normal UI.
-	textbox_panel.show()
-	_click_catcher.show()
-	_back_button.show()
-	# Signal VNLogic (_waiting_for_input is true, so _on_advance will call _process_next).
+	# Do NOT show the textbox here — _show_dialogue will reveal it together with
+	# the nameplate when the first actual dialogue packet arrives. Showing it now
+	# would leave an empty gray panel visible during the post-splash wait.
 	SignalBus.dialogue_line_finished.emit()
 
 # ══════════════════════════════════════════════════════════════

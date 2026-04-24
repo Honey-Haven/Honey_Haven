@@ -62,12 +62,13 @@ const POSITIONS: Dictionary = {
 
 # ── Paired-actor config ───────────────────────────────────────
 const PAIRED_OFFSET := Vector2(200, 0)  # used by the named pair (Scotch/Tofu)
-# How far each of two same-side actors is pushed from the slot anchor.
-# Increase this to widen the gap between co-occupants.
-const COOCCUPANT_HALF_OFFSET: float = 130.0
 
-# Per-slot secondary occupant tracking.
-# _slot_cooccupants[slot_key] = Array of up to 2 actor IDs on that side.
+# ── Two-actor same-side positioning ──────────────────────────
+# How far the existing actor slides inward when a second actor joins the same slot.
+# "Inward" = toward screen center. Adjust this to taste.
+const COOCCUPANT_INNER_OFFSET: float = 175.0
+
+# Per-slot occupant tracking (used for two-actor spreading).
 var _slot_cooccupants: Dictionary = {"left": [], "right": []}
 
 const PAIRED_ACTORS: Dictionary = {
@@ -80,9 +81,11 @@ const PAIRED_LAYOUT: Dictionary = {
 
 const PREFER_LEFT_ACTORS: Array = ["Marty"]
 
-# Actors whose sprite is flipped horizontally when they stand on the LEFT side.
-# Add any actor name here whose art faces right by default.
+# Actors flipped when on the LEFT (their art faces right by default).
 const MIRROR_LEFT_ACTORS: Array = ["Buttons"]
+
+# Actors flipped when on the RIGHT (their art faces left by default).
+const MIRROR_RIGHT_ACTORS: Array = ["Marty"]
 
 @export var vn_theme: Resource
 
@@ -99,6 +102,18 @@ var _active_slots: Array = ["", ""]
 
 # Tracks any in-progress hide tween per slot (0=left, 1=right) so enter can wait for it.
 var _hide_tweens: Dictionary = {}  # slot_index (int) → Tween
+
+# Per-actor hide tween tracking — lets a new appear kill a stale fade-out tween.
+var _actor_hide_tweens: Dictionary = {}  # actor_id (String) → Tween
+
+# Per-actor pop-in tween tracking — lets talk-scale kill a running pop-in so
+# they don't fight over sprite.scale simultaneously.
+var _popin_tweens: Dictionary = {}  # actor_id (String) → Tween
+# Untracked talk/restore scale tweens were fighting each other; track them so
+# each new one kills the previous before starting.
+var _scale_tweens: Dictionary = {}  # actor_id (String) → Tween
+# Animations queued to play once a pop-in finishes (enter + anim same passage).
+var _pending_anims: Dictionary = {}  # actor_id (String) → anim name (String)
 
 # Emoticon sprites — one per actor
 var _emoticon_sprites: Dictionary = {}   # actor_id → Sprite2D
@@ -160,8 +175,9 @@ func _process(_delta: float) -> void:
 		var base_scale_x: float   = data.get("base_scale", char_sprite.scale).x
 		if base_scale_x <= 0.0:
 			continue
-		# How much is the character scaled right now vs its resting size?
-		var live_ratio: float = char_sprite.scale.x / base_scale_x
+		# Use absolute value so a mirrored (negative scale.x) sprite doesn't flip
+		# the emoticon position or scale.
+		var live_ratio: float = abs(char_sprite.scale.x) / base_scale_x
 		# Base offset for this specific character (at rest scale = 1.0)
 		var base_offset: Vector2 = EMOTICON_OFFSETS.get(actor_id, EMOTICON_OFFSET_DEFAULT)
 		# Scale the offset proportionally so the emoticon stays at the same
@@ -210,10 +226,20 @@ func _on_clear_visual_state() -> void:
 	_pair_expressions.clear()
 	_emoticon_last_emotion.clear()
 	_emoticon_run_count.clear()
-	# Kill ALL pending hide tweens so their callbacks never fire after this clear.
+	# Kill ALL pending tweens so their callbacks never fire after this clear.
 	for slot_i in _hide_tweens:
 		_hide_tweens[slot_i].kill()
 	_hide_tweens.clear()
+	for aid in _actor_hide_tweens:
+		_actor_hide_tweens[aid].kill()
+	_actor_hide_tweens.clear()
+	for pid in _popin_tweens:
+		_popin_tweens[pid].kill()
+	_popin_tweens.clear()
+	for sid in _scale_tweens:
+		_scale_tweens[sid].kill()
+	_scale_tweens.clear()
+	_pending_anims.clear()
 	for actor_id in _actors:
 		var data   = _actors[actor_id]
 		var sprite = data["node"]
@@ -231,86 +257,78 @@ func _on_actor_appear(actor_id: String, expression: String, position: String, in
 	if not _actors.has(actor_id): return
 
 	# ── INSTANT PATH (go_back restore) ───────────────────────────────────────────
-	# Bypass ALL slot / co-occupant logic. The caller (VNLogic.go_back) has already
-	# computed the exact position from the saved stage snapshot, so we must honour
-	# it exactly — no co-occupant shifting, no call_deferred races, no slide tweens.
 	if instant:
 		if PAIRED_ACTORS.has(actor_id):
 			call_deferred("_on_paired_appear", actor_id, expression, position, true)
 			return
 		var data = _actors[actor_id]
 		var sprite: Sprite2D = data["node"]
-		var target: Vector2  = POSITIONS.get(position, POSITIONS["center"])
-		data["base_pos"]     = target
-		data["talking"]      = false
-		sprite.position      = target
-		sprite.visible       = true
-		sprite.modulate.a    = 1.0
-		_set_expression(data, expression)
-		_apply_mirror(actor_id, position)  # restore correct mirror for saved side
-		_stop_bob(actor_id)
-		# Update active_slots so subsequent logic knows who is where.
+
+		# Update slot ownership.
 		if position == "left":
 			_active_slots[0] = actor_id
 		elif position == "right":
 			_active_slots[1] = actor_id
-		# Keep co-occupant list in sync so any later real enters are positioned correctly.
-		for side in ["left", "right"]:
-			if not _slot_cooccupants[side].has(actor_id) and position == side:
-				_slot_cooccupants[side].append(actor_id)
+
+		# Rebuild co-occupant list and compute spread positions — same logic as
+		# the animated path so two actors on the same side end up correctly spaced.
+		var anchor: Vector2 = POSITIONS.get(position, POSITIONS["center"])
+		if position in _slot_cooccupants:
+			var occ: Array = _slot_cooccupants[position]
+			if not occ.has(actor_id):
+				occ.append(actor_id)
+			while occ.size() > 2:
+				occ.pop_front()
+
+		var target: Vector2 = anchor
+		if position in _slot_cooccupants:
+			var occ: Array = _slot_cooccupants[position]
+			if occ.size() == 2:
+				var inward_x: float = COOCCUPANT_INNER_OFFSET if position == "left" else -COOCCUPANT_INNER_OFFSET
+				var inner: Vector2  = anchor + Vector2(inward_x, 0.0)
+				if occ[occ.size() - 1] == actor_id:
+					# Latest arrival → outer anchor; push the existing occupant inward.
+					target = anchor
+					var other_id: String = occ[0]
+					if _actors.has(other_id) and _actors[other_id]["node"].visible:
+						_actors[other_id]["base_pos"]    = inner
+						_actors[other_id]["node"].position = inner
+				else:
+					target = inner
+
+		data["base_pos"]  = target
+		data["talking"]   = false
+		sprite.position   = target
+		sprite.visible    = true
+		sprite.modulate.a = 1.0
+		_set_expression(data, expression)
+		_apply_mirror(actor_id, position)
+		_stop_bob(actor_id)
+		_refresh_cooccupant_zorder(position)
 		return
 
-	# ── ANIMATED PATH (normal forward play) ──────────────────────────────────────
-	if not PREFER_LEFT_ACTORS.has(actor_id) and not PAIRED_ACTORS.has(actor_id):
-		call_deferred("_on_actor_appear_deferred", actor_id, expression, position, false)
-		return
+	# ── ANIMATED PATH ────────────────────────────────────────────────────────────
 	if PAIRED_ACTORS.has(actor_id):
 		call_deferred("_on_paired_appear", actor_id, expression, position, false)
 		return
 
-	var final_pos = position
-	if position == "center" or position == "":
+	# VNLogic always pre-assigns positions before emitting actor_appear, so
+	# position is "left", "right", or "center". Treat center/empty as right (fallback).
+	var pos_key: String = position
+	if pos_key == "" or pos_key == "center":
 		if _active_slots[0] == "" or _active_slots[0] == actor_id:
-			_active_slots[0] = actor_id
-			final_pos = "left"
+			pos_key = "left"
 		elif _active_slots[1] == "" or _active_slots[1] == actor_id:
-			_active_slots[1] = actor_id
-			final_pos = "right"
+			pos_key = "right"
 		else:
-			_on_actor_hide(_active_slots[1])
-			_active_slots[0] = actor_id
-			final_pos = "left"
-	else:
-		if position == "left":
-			_active_slots[0] = actor_id
-		elif position == "right":
-			_active_slots[1] = actor_id
+			pos_key = "right"
 
-	_do_appear_at(actor_id, expression, final_pos, false)
+	if pos_key == "left":
+		_active_slots[0] = actor_id
+	elif pos_key == "right":
+		_active_slots[1] = actor_id
 
-
-func _on_actor_appear_deferred(actor_id: String, expression: String, position: String, instant: bool) -> void:
-	if not _actors.has(actor_id): return
-
-	var final_pos = position
-	if position == "center" or position == "":
-		if _active_slots[1] == "" or _active_slots[1] == actor_id:
-			_active_slots[1] = actor_id
-			final_pos = "right"
-		elif _active_slots[0] == "" or _active_slots[0] == actor_id:
-			_active_slots[0] = actor_id
-			final_pos = "left"
-		else:
-			_on_actor_hide(_active_slots[1])
-			_active_slots[1] = actor_id
-			final_pos = "right"
-	else:
-		if position == "left":
-			_active_slots[0] = actor_id
-		elif position == "right":
-			_active_slots[1] = actor_id
-
-	_do_appear_at(actor_id, expression, final_pos, false)
+	_do_appear_at(actor_id, expression, pos_key, false)
 
 
 # ── Paired-actor appear ───────────────────────────────────────
@@ -403,49 +421,80 @@ func _on_paired_hide(pair_id: String) -> void:
 	if _active_slots[0] == pair_id: _active_slots[0] = ""
 	if _active_slots[1] == pair_id: _active_slots[1] = ""
 
+# When a co-occupant actor is speaking, bring them visually in front of their
+# slot-mate so they're never hidden behind the other character.
+func _elevate_speaker_zorder(actor_id: String) -> void:
+	for slot in ["left", "right"]:
+		var occ: Array = _slot_cooccupants.get(slot, [])
+		if occ.has(actor_id) and occ.size() >= 2:
+			if _actors.has(actor_id):
+				_actors[actor_id]["node"].z_index = 2
+				if _emoticon_sprites.has(actor_id):
+					_emoticon_sprites[actor_id].z_index = 12
+			return
+	# Solo actor or center — leave z_index at its current value
+
+func _refresh_cooccupant_zorder(slot: String) -> void:
+	var occ: Array = _slot_cooccupants.get(slot, [])
+	if occ.size() == 1:
+		var id: String = occ[0]
+		if _actors.has(id):
+			_actors[id]["node"].z_index = 0
+		if _emoticon_sprites.has(id):
+			_emoticon_sprites[id].z_index = 10
+	elif occ.size() == 2:
+		# occ[0] = earlier arrival = inner (pushed toward center, behind)
+		# occ[1] = later arrival  = outer (at anchor, in front)
+		var inner_id: String = occ[0]
+		var outer_id: String = occ[1]
+		if _actors.has(inner_id):
+			_actors[inner_id]["node"].z_index = 0
+			if _emoticon_sprites.has(inner_id):
+				# z=0 puts inner emoticon behind outer sprite (z=1)
+				_emoticon_sprites[inner_id].z_index = 0
+		if _actors.has(outer_id):
+			_actors[outer_id]["node"].z_index = 1
+			if _emoticon_sprites.has(outer_id):
+				_emoticon_sprites[outer_id].z_index = 11
+
 func _do_appear_at(actor_id: String, expression: String, pos_key: String, instant: bool):
 	var slot_index: int = 0 if pos_key == "left" else (1 if pos_key == "right" else -1)
 	var anchor: Vector2 = POSITIONS.get(pos_key, POSITIONS["center"])
 
-	# ── Update per-slot co-occupant list ─────────────────────────────────────
+	# ── Two-actor same-side positioning ──────────────────────────────────────
+	# Add this actor to the slot's occupant list (if not already there).
 	if pos_key in _slot_cooccupants:
 		var occ: Array = _slot_cooccupants[pos_key]
 		if not occ.has(actor_id):
 			occ.append(actor_id)
 		while occ.size() > 2:
 			occ.pop_front()
+	_refresh_cooccupant_zorder(pos_key)
 
-	# ── Compute this actor's base position ───────────────────────────────────
-	# 1 occupant  → normal slot anchor.
-	# 2 occupants → spread symmetrically; first-arrived gets inner spot,
-	#               new arrival gets outer spot.
+	# ── Compute my_base: new arrival always gets the anchor (outer position). ─
+	# The existing occupant slides inward (toward screen center) to make room.
 	var my_base: Vector2 = anchor
 	if pos_key in _slot_cooccupants:
 		var occ: Array = _slot_cooccupants[pos_key]
 		if occ.size() == 2:
-			# inner = closer to screen center, outer = closer to screen edge
-			var inner_pos: Vector2 = anchor + Vector2( COOCCUPANT_HALF_OFFSET, 0.0)
-			var outer_pos: Vector2 = anchor + Vector2(-COOCCUPANT_HALF_OFFSET, 0.0)
-			if pos_key == "right":
-				inner_pos = anchor + Vector2(-COOCCUPANT_HALF_OFFSET, 0.0)
-				outer_pos = anchor + Vector2( COOCCUPANT_HALF_OFFSET, 0.0)
-			# occ[0] = first to arrive (inner), occ[1] = new arrival (outer)
-			var positions_for_occ: Array = [inner_pos, outer_pos]
+			# "Inward" direction: left-slot actors move right, right-slot actors move left.
+			var inward_x: float = COOCCUPANT_INNER_OFFSET if pos_key == "left" else -COOCCUPANT_INNER_OFFSET
+			var inner: Vector2  = anchor + Vector2(inward_x, 0.0)
 			for i in occ.size():
 				var oid: String = occ[i]
 				if oid == actor_id:
-					my_base = positions_for_occ[i]
+					# New arrival: appears at the slot anchor (outer).
+					my_base = anchor
 				elif _actors.has(oid) and _actors[oid]["node"].visible:
-					# Slide the existing occupant to their adjusted spot.
-					# Capture oid in a local so the lambda closes over the right value.
+					# Existing occupant: slide inward to make room.
 					var slide_oid: String = oid
 					var odata = _actors[oid]
-					odata["base_pos"] = positions_for_occ[i]
+					odata["base_pos"] = inner
 					_stop_bob(oid)
 					var slide_tw: Tween = create_tween()
-					slide_tw.tween_property(odata["node"], "position", positions_for_occ[i], 0.35).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+					slide_tw.tween_property(odata["node"], "position", inner, 0.35) \
+						.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 					slide_tw.tween_callback(func():
-						# Only restart bob if the actor is still visible (not cleared mid-tween).
 						if _actors.has(slide_oid) and _actors[slide_oid]["node"].visible:
 							_start_bob(slide_oid, _actors[slide_oid].get("talking", false))
 					)
@@ -460,8 +509,20 @@ func _do_appear_at(actor_id: String, expression: String, pos_key: String, instan
 	_do_appear_at_immediate(actor_id, expression, pos_key, my_base, instant)
 
 func _do_appear_at_immediate(actor_id: String, expression: String, pos_key: String, base: Vector2, instant: bool):
+	# Kill any stale hide tween so its alpha callback can't fade this actor out after appearing.
+	if _actor_hide_tweens.has(actor_id):
+		_actor_hide_tweens[actor_id].kill()
+		_actor_hide_tweens.erase(actor_id)
+	# Kill any running pop-in or scale tween so they don't conflict with the new appearance.
+	if _popin_tweens.has(actor_id):
+		_popin_tweens[actor_id].kill()
+		_popin_tweens.erase(actor_id)
+	if _scale_tweens.has(actor_id):
+		_scale_tweens[actor_id].kill()
+		_scale_tweens.erase(actor_id)
 	var data = _actors[actor_id]
 	var sprite = data["node"]
+	sprite.modulate.a = 1.0
 	data["base_pos"] = base
 	_stop_bob(actor_id)
 	sprite.position = base
@@ -477,21 +538,22 @@ func _do_appear_at_immediate(actor_id: String, expression: String, pos_key: Stri
 		_do_popin(actor_id)
 
 # ── Horizontal mirror helper ──────────────────────────────────
-# Flips the sprite scale.x sign for actors in MIRROR_LEFT_ACTORS when they
-# are on the left side (they face right by default, so they should face
-# inward/right when on left, and face left — their natural direction — when
-# on right).  base_scale is always stored as positive magnitude.
+# MIRROR_LEFT_ACTORS: art faces right by default → flip when on left.
+# MIRROR_RIGHT_ACTORS: art faces left by default → flip when on right.
+# base_scale is always stored as positive magnitude.
 func _apply_mirror(actor_id: String, pos_key: String) -> void:
-	if not MIRROR_LEFT_ACTORS.has(actor_id):
-		return
 	if not _actors.has(actor_id):
+		return
+	var mirror: float
+	if MIRROR_LEFT_ACTORS.has(actor_id):
+		mirror = -1.0 if pos_key == "left" else 1.0
+	elif MIRROR_RIGHT_ACTORS.has(actor_id):
+		mirror = -1.0 if pos_key == "right" else 1.0
+	else:
 		return
 	var data = _actors[actor_id]
 	var sprite: Sprite2D = data["node"]
 	var base_scale: Vector2 = data.get("base_scale", sprite.scale.abs())
-	# On the left side, flip so the character faces right (toward center).
-	# On any other side, use the natural (positive) orientation.
-	var mirror: float = -1.0 if pos_key == "left" else 1.0
 	sprite.scale = Vector2(base_scale.x * mirror, base_scale.y)
 
 
@@ -499,22 +561,30 @@ func _apply_mirror(actor_id: String, pos_key: String) -> void:
 func _do_popin(actor_id: String) -> void:
 	var data = _actors[actor_id]
 	var sprite: Sprite2D = data["node"]
-	var base_scale: Vector2 = data.get("base_scale", sprite.scale)
+	var base_scale: Vector2 = data.get("base_scale", sprite.scale.abs())
 	data["base_scale"] = base_scale
 
+	var mirror_x: float = sign(sprite.scale.x) if sprite.scale.x != 0.0 else 1.0
+	var target_scale: Vector2 = Vector2(base_scale.x * mirror_x, base_scale.y)
+
 	sprite.modulate.a = 1.0
-	sprite.scale = base_scale * POPIN_OVERSHOOT_SCALE
+	sprite.scale = target_scale * POPIN_OVERSHOOT_SCALE
 
 	var tw: Tween = create_tween()
+	_popin_tweens[actor_id] = tw
 	tw.set_trans(Tween.TRANS_BACK)
 	tw.set_ease(Tween.EASE_OUT)
-	tw.tween_property(sprite, "scale", base_scale, POPIN_DURATION)
+	tw.tween_property(sprite, "scale", target_scale, POPIN_DURATION)
+	var cap_id: String = actor_id
 	tw.tween_callback(func():
-		_start_bob(actor_id, false)
-		# If this actor is already the current speaker (entered on the same line
-		# they speak), apply the talk scale now that popin has settled.
-		if _current_speaker == actor_id:
-			_apply_talk_scale(actor_id)
+		_popin_tweens.erase(cap_id)
+		_start_bob(cap_id, false)
+		if _current_speaker == cap_id:
+			_apply_talk_scale(cap_id)
+		if _pending_anims.has(cap_id):
+			var queued: String = _pending_anims[cap_id]
+			_pending_anims.erase(cap_id)
+			_on_actor_animate(cap_id, queued)
 	)
 
 func _on_actor_hide(actor_id: String) -> void:
@@ -522,6 +592,11 @@ func _on_actor_hide(actor_id: String) -> void:
 		if PAIRED_LAYOUT.has(actor_id):
 			_on_paired_hide(actor_id)
 		return
+
+	# Kill any previous hide tween for this actor so its alpha callback can't fire later.
+	if _actor_hide_tweens.has(actor_id):
+		_actor_hide_tweens[actor_id].kill()
+		_actor_hide_tweens.erase(actor_id)
 
 	# Determine which slot this actor occupies so we can key the tween by slot.
 	var slot_index: int = -1
@@ -555,40 +630,45 @@ func _on_actor_hide(actor_id: String) -> void:
 	tw.set_parallel(true)
 	tw.tween_property(sprite, "position", slide_target, 0.35).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
 	tw.tween_property(sprite, "modulate:a", 0.0, 0.3)
-	# ── Remove from co-occupant tracking and re-centre the remaining solo ───
-	var leaving_side: String = ""
+
+	# ── Remove from co-occupant tracking; slide remaining solo back to anchor ─
 	for side in ["left", "right"]:
 		if _slot_cooccupants[side].has(actor_id):
-			leaving_side = side
 			_slot_cooccupants[side].erase(actor_id)
+			_refresh_cooccupant_zorder(side)
 			if _slot_cooccupants[side].size() == 1:
 				var solo_id: String = _slot_cooccupants[side][0]
 				if _actors.has(solo_id) and _actors[solo_id]["node"].visible:
-					var solo_data = _actors[solo_id]
 					var solo_anchor: Vector2 = POSITIONS.get(side, POSITIONS["center"])
+					var solo_data = _actors[solo_id]
 					solo_data["base_pos"] = solo_anchor
 					_stop_bob(solo_id)
+					var slide_solo_id: String = solo_id
 					var solo_tw: Tween = create_tween()
-					solo_tw.tween_property(solo_data["node"], "position", solo_anchor, 0.35).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+					solo_tw.tween_property(solo_data["node"], "position", solo_anchor, 0.35) \
+						.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 					solo_tw.tween_callback(func():
-						if _actors.has(solo_id) and _actors[solo_id]["node"].visible:
-							_start_bob(solo_id, solo_data.get("talking", false))
+						if _actors.has(slide_solo_id) and _actors[slide_solo_id]["node"].visible:
+							_start_bob(slide_solo_id, solo_data.get("talking", false))
 					)
 			break
 
+	var hide_actor_id: String = actor_id  # capture for lambda
 	tw.chain().tween_callback(func():
 		sprite.visible = false
 		sprite.position = home_pos
 		# Only clear the slot if it still belongs to this actor.
 		# (A new actor may have already claimed it while the slide-out ran.)
 		if slot_index >= 0:
-			if _active_slots[slot_index] == actor_id:
+			if _active_slots[slot_index] == hide_actor_id:
 				_active_slots[slot_index] = ""
 			_hide_tweens.erase(slot_index)
+		_actor_hide_tweens.erase(hide_actor_id)
 	)
 
 	if slot_index >= 0:
 		_hide_tweens[slot_index] = tw
+	_actor_hide_tweens[actor_id] = tw
 
 
 # ── SHOW ──────────────────────────────────────────────────────
@@ -602,6 +682,7 @@ func _on_actor_show(actor_id: String, expression: String, position: String) -> v
 	data["base_pos"]      = base
 	sprite.visible        = true
 	_set_expression(data, expression)
+	_apply_mirror(actor_id, position)
 	var tw: Tween = create_tween()
 	tw.tween_property(sprite, "modulate:a", 1.0, 0.3)
 	tw.tween_callback(func(): _start_bob(actor_id, false))
@@ -645,6 +726,11 @@ func _on_actor_expression(actor_id: String, expression: String) -> void:
 func _on_actor_animate(actor_id: String, anim: String) -> void:
 	if not _actors.has(actor_id):
 		return
+	# If the actor is still entering (pop-in running), queue the animation so
+	# it plays immediately after the entry finishes rather than fighting it.
+	if _popin_tweens.has(actor_id):
+		_pending_anims[actor_id] = anim
+		return
 	var sprite: Sprite2D = _actors[actor_id]["node"]
 	match anim:
 		"shake":   _shake_sprite(sprite)
@@ -652,6 +738,7 @@ func _on_actor_animate(actor_id: String, anim: String) -> void:
 		"bounce":  _bounce_sprite(sprite)
 		"pulse":   _pulse_sprite(sprite)
 		"spin":    _spin_sprite(sprite)
+		"excite":  _excite_sprite(actor_id)
 		_:         push_warning("ActorManager: unknown anim '%s'" % anim)
 
 # ── DIALOGUE STARTED — update who is talking ──────────────────
@@ -670,6 +757,11 @@ func _on_dialogue_started(packet: Dictionary) -> void:
 			_actors[_current_speaker]["talking"] = false
 			_start_bob(_current_speaker, false)
 			_restore_base_scale(_current_speaker)
+		# Restore previous speaker's slot z-order now that they stopped talking.
+		for slot in ["left", "right"]:
+			if _slot_cooccupants.get(slot, []).has(_current_speaker):
+				_refresh_cooccupant_zorder(slot)
+				break
 
 	_current_speaker = speaker
 
@@ -688,34 +780,60 @@ func _on_dialogue_started(packet: Dictionary) -> void:
 					_restore_base_scale(member_id)
 	elif _actors.has(speaker):
 		_actors[speaker]["talking"] = true
+		_actors[speaker]["node"].modulate.a = 1.0
 		_start_bob(speaker, true)
+		_elevate_speaker_zorder(speaker)
 		_apply_talk_scale(speaker)
 
 # ── Talking scale helpers ─────────────────────────────────────
 func _apply_talk_scale(actor_id: String) -> void:
 	if not _actors.has(actor_id): return
+	if _popin_tweens.has(actor_id):
+		_popin_tweens[actor_id].kill()
+		_popin_tweens.erase(actor_id)
+		var snap_data = _actors[actor_id]
+		var snap_sprite: Sprite2D = snap_data["node"]
+		snap_sprite.modulate.a = 1.0
+		var snap_base: Vector2 = snap_data["base_scale"]
+		var snap_mirror: float = sign(snap_sprite.scale.x) if snap_sprite.scale.x != 0.0 else 1.0
+		snap_sprite.scale = Vector2(snap_base.x * snap_mirror, snap_base.y)
+	if _scale_tweens.has(actor_id):
+		_scale_tweens[actor_id].kill()
+		_scale_tweens.erase(actor_id)
 	var data = _actors[actor_id]
 	var sprite: Sprite2D = data["node"]
+	sprite.modulate.a = 1.0
 	var base_scale: Vector2 = data.get("base_scale", sprite.scale.abs())
-	# Preserve mirror: scale.x sign tells us if we're mirrored right now.
 	var mirror_x: float = sign(sprite.scale.x) if sprite.scale.x != 0.0 else 1.0
 	var target: Vector2 = base_scale * TALK_SCALE_MULTIPLIER
 	target.x *= mirror_x
 	var tw: Tween = create_tween()
+	_scale_tweens[actor_id] = tw
 	tw.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	tw.tween_property(sprite, "scale", target, 0.12)
+	tw.tween_callback(func(): _scale_tweens.erase(actor_id))
 
 func _restore_base_scale(actor_id: String) -> void:
 	if not _actors.has(actor_id): return
+	if _popin_tweens.has(actor_id):
+		_popin_tweens[actor_id].kill()
+		_popin_tweens.erase(actor_id)
+		_actors[actor_id]["node"].modulate.a = 1.0
+	if _scale_tweens.has(actor_id):
+		_scale_tweens[actor_id].kill()
+		_scale_tweens.erase(actor_id)
 	var data = _actors[actor_id]
 	var sprite: Sprite2D = data["node"]
+	sprite.modulate.a = 1.0
 	var base_scale: Vector2 = data.get("base_scale", sprite.scale.abs())
 	var mirror_x: float = sign(sprite.scale.x) if sprite.scale.x != 0.0 else 1.0
 	var target: Vector2 = base_scale
 	target.x *= mirror_x
 	var tw: Tween = create_tween()
+	_scale_tweens[actor_id] = tw
 	tw.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	tw.tween_property(sprite, "scale", target, 0.12)
+	tw.tween_callback(func(): _scale_tweens.erase(actor_id))
 
 # ── BOB ───────────────────────────────────────────────────────
 func _start_bob(actor_id: String, talking: bool) -> void:
@@ -821,7 +939,8 @@ func _show_emoticon(actor_id: String, emo_name: String) -> void:
 	var actor_data            = _actors[actor_id]
 	var char_sprite: Sprite2D = actor_data["node"]
 	var base_scale_x: float   = actor_data.get("base_scale", char_sprite.scale).x
-	var live_ratio: float     = char_sprite.scale.x / base_scale_x if base_scale_x > 0.0 else 1.0
+	# abs() keeps the ratio positive even when the sprite is horizontally mirrored.
+	var live_ratio: float     = abs(char_sprite.scale.x) / base_scale_x if base_scale_x > 0.0 else 1.0
 	var base_offset: Vector2  = EMOTICON_OFFSETS.get(actor_id, EMOTICON_OFFSET_DEFAULT)
 
 	emo_sprite.texture = _emoticon_textures[emo_name]
@@ -877,6 +996,20 @@ func _hop_in_place(sprite: Sprite2D) -> void:
 	tw.tween_property(sprite, "position", origin + Vector2(0, -30), 0.2).set_ease(Tween.EASE_OUT)
 	tw.tween_property(sprite, "position", origin,                   0.2).set_ease(Tween.EASE_IN)
 
+func _excite_sprite(actor_id: String) -> void:
+	if not _actors.has(actor_id): return
+	var data   = _actors[actor_id]
+	var sprite: Sprite2D = data["node"]
+	var origin: Vector2  = data["base_pos"]
+	var h: float = 14.0   # bounce height in pixels
+	var d: float = 0.10   # duration of each up/down segment
+	var tw: Tween = create_tween()
+	tw.set_trans(Tween.TRANS_SINE)
+	tw.tween_property(sprite, "position", origin + Vector2(0, -h),        d).set_ease(Tween.EASE_OUT)
+	tw.tween_property(sprite, "position", origin,                          d).set_ease(Tween.EASE_IN)
+	tw.tween_property(sprite, "position", origin + Vector2(0, -h * 0.7),  d).set_ease(Tween.EASE_OUT)
+	tw.tween_property(sprite, "position", origin,                          d).set_ease(Tween.EASE_IN)
+
 func _bounce_sprite(sprite: Sprite2D) -> void:
 	var s: Vector2 = sprite.scale
 	var tw: Tween = create_tween()
@@ -915,6 +1048,12 @@ func reset_all_actors() -> void:
 	for slot_i in _hide_tweens:
 		_hide_tweens[slot_i].kill()
 	_hide_tweens.clear()
+	for aid in _actor_hide_tweens:
+		_actor_hide_tweens[aid].kill()
+	_actor_hide_tweens.clear()
+	for pid in _popin_tweens:
+		_popin_tweens[pid].kill()
+	_popin_tweens.clear()
 	for actor_id in _actors:
 		var data = _actors[actor_id]
 		_stop_bob(actor_id)

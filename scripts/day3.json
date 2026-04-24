@@ -1,3 +1,5 @@
+
+
 {
   "uuid": "56E95204-E672-4F4E-82DB-53D3E0407B3C",
   "name": "Honey Haven Day 3",
@@ -9,7 +11,7 @@
   "passages": [
     {
       "name": "3.1",
-      "tags": "",
+      "tags": "day_start black_screen",
       "id": "1",
       "text": "Day 3 [[3.2]]",
       "links": [
@@ -23,7 +25,7 @@
     },
     {
       "name": "3.2",
-      "tags": "sunny_bedroom",
+      "tags": "sunny_bedroom music_title_theme",
       "id": "2",
       "text": "Regretfully, you wake up. [[3.3]]",
       "links": [
@@ -79,7 +81,7 @@
     },
     {
       "name": "3.6",
-      "tags": "",
+      "tags": "music_A_Home_Called_Honey_Haven",
       "id": "6",
       "text": "But you feel like your head is cleared, at least. [[3.7]]",
       "links": [
@@ -491,7 +493,7 @@
     },
     {
       "name": "3.29",
-      "tags": "marty-serious marty-speaker quiver",
+      "tags": "marty-serious marty-speaker quiver music_silence",
       "id": "34",
       "text": "Well.. I think I saw something in the sky last night. [[3.30]]",
       "links": [
@@ -505,7 +507,7 @@
     },
     {
       "name": "3.30",
-      "tags": "matthew-speaker quiver",
+      "tags": "matthew-speaker quiver music_Goodbye_Moon",
       "id": "35",
       "text": "Saw.. something? \n[[\"Something.. that wasn't real\" -> 3.31a]]\n[[\"The moon looked like a giant eye.\" -> 3.31b]]",
       "links": [
@@ -762,7 +764,7 @@
     },
     {
       "name": "3.47",
-      "tags": "matthew-sad matthew-speaker quiver",
+      "tags": "matthew-sad matthew-speaker quiver music_silence",
       "id": "53",
       "text": "... [[3.48]]",
       "links": [
@@ -860,7 +862,7 @@
     },
     {
       "name": "3.54",
-      "tags": "casserole_avenue marty_leave",
+      "tags": "casserole_avenue marty_leave music_A_Touch_Of_Sarcasm",
       "id": "60",
       "text": "You keep walking down Casserole Avenue and see Ms. Buttons. Her garden is as ripe as ever with blooming carrots. [[3.55]]",
       "links": [
@@ -977,7 +979,7 @@
     },
     {
       "name": " 3.61a",
-      "tags": "marty-neutral marty-speaker",
+      "tags": "marty-neutral marty-speaker music_silence",
       "id": "68",
       "text": "Hey Ms. Buttons, I just noticed your crops are growing back awfully fast. What are you doing with them? [[3.62a]]",
       "links": [
@@ -991,7 +993,7 @@
     },
     {
       "name": " 3.61b",
-      "tags": "marty-serious marty-speaker",
+      "tags": "marty-serious marty-speaker music_silence",
       "id": "69",
       "text": "Your crops are growing back every night. You're either a witch, or you're hiding something. [[3.62b]]",
       "links": [
@@ -1229,7 +1231,7 @@
     },
     {
       "name": "3.75",
-      "tags": "buttons_leave marty_leave quiver",
+      "tags": "buttons_leave marty_leave quiver music_A_Home_Called_Honey_Haven",
       "id": "86",
       "text": "She hops away and gets to work on picking the carrots, which you bet you'll see again tomorrow. You feel...\n[[Annoyed -> 3.76a]]\n[[Extremely suspicious-> 3.76b]]",
       "links": [
@@ -1318,7 +1320,7 @@
     },
     {
       "name": "3.80",
-      "tags": "chester-enter-right chester-neutral chester-speaker marty-neutral marty_enter",
+      "tags": "chester-enter-right chester-neutral chester-speaker marty-neutral marty_enter music_Who_Is_This_Kid",
       "id": "92",
       "text": "So, did you see it last night? [[3.81]]",
       "links": [
@@ -1454,7 +1456,7 @@
     },
     {
       "name": "3.87",
-      "tags": "chester_leave marty_leave quiver",
+      "tags": "chester_leave marty_leave quiver music_A_Home_Called_Honey_Haven",
       "id": "101",
       "text": "You decide to ignore Chester and shove a weird, bubbling feeling down. You don't quite understand what it is. [[3.88]]",
       "links": [
@@ -1800,7 +1802,7 @@
     },
     {
       "name": " 3.104",
-      "tags": "marty-scared tofu-speaker",
+      "tags": "marty-scared tofu-speaker music_Untitled_Man",
       "id": "125",
       "text": "Oh Martin, there's a lot this town doesn't like to talk about. [[3.105]]",
       "links": [
@@ -2066,7 +2068,7 @@
     },
     {
       "name": "3.123",
-      "tags": "marty_leave night-closed-bedroom scotch-leave tofu-leave",
+      "tags": "marty_leave night-closed-bedroom scotch-leave tofu-leave music_A_Home_Called_Honey_Haven",
       "id": "144",
       "text": "You decide to take their advice and call up Dr. Muffins. He arrives at your home that evening. [[3.124]]",
       "links": [
@@ -2108,7 +2110,7 @@
     },
     {
       "name": "3.104",
-      "tags": "tofu-sad tofu-speaker",
+      "tags": "tofu-sad tofu-speaker music_Untitled_Man",
       "id": "147",
       "text": "There's a lot this town doesn't like to talk about. [[3.105]]",
       "links": [
@@ -2178,7 +2180,7 @@
     },
     {
       "name": "3.128",
-      "tags": "muffins-sad muffins-speaker quiver",
+      "tags": "muffins-sad muffins-speaker quiver music_silence",
       "id": "152",
       "text": "... [[3.129]]",
       "links": [
@@ -2389,7 +2391,7 @@
     },
     {
       "name": "3.136a",
-      "tags": "marty-serious marty-speaker quiver",
+      "tags": "marty-serious marty-speaker quiver music_Demonic_Sympathy music_Goodnight_Moon",
       "id": "166",
       "text": "I can't even describe it. It feels... *otherworldy*. [[3.137]]",
       "links": [
@@ -2851,7 +2853,7 @@
     },
     {
       "name": "3.169",
-      "tags": "",
+      "tags": "music_silence",
       "id": "199",
       "text": "You get into bed, pull up the covers, and try to sleep. You drift off into a sweet dream. [[3.170]]",
       "links": [
@@ -2865,7 +2867,7 @@
     },
     {
       "name": "3.170",
-      "tags": "stranger-speaker",
+      "tags": "stranger-speaker music_Demonic_Apathy",
       "id": "200",
       "text": "Are you starting to understand? [[3.171]]",
       "links": [
@@ -2991,11 +2993,31 @@
     },
     {
       "name": "3.179",
-      "tags": "flash",
+      "tags": "day_end black_screen",
       "id": "209",
       "text": "End of Day 3.",
-      "links": [],
+      "links": [
+        {
+          "linkText": "END",
+          "passageName": "END",
+          "original": "END"
+        }
+      ],
       "cleanText": "End of Day 3."
+    },
+    {
+      "name": "END",
+      "tags": "",
+      "id": "143",
+      "text": "back to menu",
+      "links": [
+        {
+          "linkText": "",
+          "passageName": "",
+          "original": ""
+        }
+      ],
+      "cleanText": "back to menu"
     },
     {
       "name": "3.169 minigame",
@@ -3007,3 +3029,4 @@
     }
   ]
 }
+

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://beq5qwuukfta2"]
+
+[ext_resource type="Script" uid="uid://ciuy6c8tsmdty" path="res://minigames/ChesterChase/scripts/chester.gd" id="1_amc2r"]
+[ext_resource type="Texture2D" uid="uid://b3r4qman71e6w" path="res://minigames/ChesterChase/sprites/chesterNeutral.webp" id="1_ht0uc"]
+
+[node name="Chester" type="CharacterBody2D" unique_id=1223095311]
+script = ExtResource("1_amc2r")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1750471236]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_ht0uc")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="." unique_id=602603401]
+position = Vector2(0, -7)
+polygon = PackedVector2Array(-66, -147, -80, -83, -109, -76, -127, -93, -138, -62, -116, -24, -116, -25, -138, -16, -110, 11, -64, 24, -56, 35, -66, 64, -102, 91, -84, 114, -64, 103, -45, 141, -62, 158, -54, 172, -20, 168, -4, 151, 48, 149, 70, 166, 95, 169, 100, 160, 94, 146, 95, 120, 110, 100, 111, 80, 128, 60, 136, 47, 123, 31, 95, 31, 119, 12, 151, -38, 121, -30, 143, -59, 145, -96, 124, -82, 94, -94, 68, -160, 58, -157, 33, -117, 29, -137, 10, -148, -10, -142, -17, -123, -26, -125, -53, -156)

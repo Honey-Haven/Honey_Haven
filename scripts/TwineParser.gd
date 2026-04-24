@@ -78,10 +78,22 @@ const STRUCTURAL_TAGS: Array = [
 	"must_visit", "minigame_start", "minigame_end",
 	"flash", "shake", "quiver", "big", "small",
 	"hand-outstretched-sprite",
-	"minigame_carrots", "minigame_gameee",
+	"minigame_carrots", "minigame_gameee", "minigame_chester",
 	"day_start", "day_end",
-	"excite",  # layout/mood hint tag — not an actor
+	"excite",        # layout/mood hint tag — not an actor
+	"music_silence", # stops all BGM — handled in audio tag loop
+	"no_text",       # hides UI for a hold, then continues — no dialogue emitted
 ]
+
+# ── Day-start background reveal timing ───────────────────────────────────────
+# After the day splash fades out the background fades IN over the theme's
+# transition duration (~0.5 s).  DAY_START_BG_HOLD is the total pause before
+# the first character/dialogue appears — so the effective "clear hold" after
+# the background is fully visible ≈ DAY_START_BG_HOLD minus the fade time.
+# e.g. 1.5 s total → 0.5 s fade + 1.0 s of clean background before story starts.
+const DAY_START_BG_HOLD: float = 1.0
+# How long the screen holds with no textbox when a passage is tagged no_text.
+const NO_TEXT_HOLD: float = 2.0
 
 # All tags that should trigger a minigame (prefix-matched against "minigame_")
 static func _get_minigame_tag(tags: Array) -> String:
@@ -192,22 +204,27 @@ static func _walk(name: String, ctx: _ParseContext) -> void:
 	# any actors or dialogue.  day_start uses the bg from this passage's tags.
 	if raw_tags.has("day_start"):
 		var splash_bg: String = BACKGROUND_MAP.get(bg_tag, "")
-		ctx.packets.append({
-			"type":     "day_splash",
-			"day_text": text,
-			"is_end":   false,
-			"bg_path":  splash_bg,
-		})
-		# After the splash dissolves, set the background via a cut so the scene
-		# is correct when normal dialogue begins.
+		# Load the story background BEFORE the splash so it sits underneath the
+		# overlay. When the splash fades out the background is already fully
+		# visible — the player never sees an empty or black screen.
 		if bg_tag != "":
 			ctx.packets.append({
 				"type":       "background",
 				"path":       BACKGROUND_MAP[bg_tag],
 				"transition": "cut",
 			})
-		# day_start passages have no separate dialogue line — jump straight to
-		# routing children so the story continues immediately after the card.
+		ctx.packets.append({
+			"type":     "day_splash",
+			"day_text": text,
+			"is_end":   false,
+			"bg_path":  splash_bg,
+		})
+		# Hold with just the background visible after the splash clears before
+		# the first character and dialogue appear.
+		ctx.packets.append({
+			"type":     "wait",
+			"duration": DAY_START_BG_HOLD,
+		})
 		_route_children(clean_name, links, raw_tags, ctx)
 		return
 
@@ -250,9 +267,9 @@ static func _walk(name: String, ctx: _ParseContext) -> void:
 				"action": "play",
 				"path":   bgm_data["path"],
 				"volume": bgm_data["volume"],
-				"fade":   0.1,
+				"fade":   1.5,
 			})
-		elif clean_t == "stop_bgm":
+		elif clean_t == "stop_bgm" or clean_t == "music_silence":
 			ctx.packets.append({"type": "bgm", "action": "stop", "fade": 1.0})
 
 		if SFX_MAP.has(clean_t):
@@ -305,7 +322,7 @@ static func _walk(name: String, ctx: _ParseContext) -> void:
 	# ── Dialogue / narrator line ──────────────────────────────────────────────
 	if text != "" and not _is_structural_only(raw_tags, text):
 		var text_effect: String    = "big" if raw_tags.has("big") else ("small" if raw_tags.has("small") else "")
-		var char_effect: String    = "quiver" if raw_tags.has("quiver") else ""
+		var char_effect: String    = "quiver" if raw_tags.has("quiver") else ("excite" if raw_tags.has("excite") else "")
 		var textbox_effect: String = "shake"  if raw_tags.has("shake")  else ""
 		var is_stranger: bool      = raw_tags.has("stranger-speaker") or speaker.to_lower() == "stranger"
 
@@ -327,6 +344,10 @@ static func _walk(name: String, ctx: _ParseContext) -> void:
 		ctx.packets.append({"type": "minigame", "id": mg_tag, "data": {}})
 	elif raw_tags.has("minigame_start"):
 		ctx.packets.append({"type": "minigame", "id": clean_name, "data": {}})
+
+	# ── no_text: hide UI, hold, then continue ─────────────────────────────────
+	if raw_tags.has("no_text"):
+		ctx.packets.append({"type": "no_text", "duration": NO_TEXT_HOLD})
 
 	# ── Route children ────────────────────────────────────────────────────────
 	_route_children(clean_name, links, raw_tags, ctx)
@@ -575,10 +596,9 @@ static func _is_structural_only(tags: Array, text: String) -> bool:
 		return true
 	if _get_minigame_tag(tags) != "":
 		return true
-	# day_start and day_end passages are handled specially in _walk —
-	# they return early after emitting the splash packet, so _is_structural_only
-	# is never reached for them; keep this guard here for safety.
 	if tags.has("day_start") or tags.has("day_end"):
+		return true
+	if tags.has("no_text"):
 		return true
 	if text.begins_with("[[") and text.ends_with("]]"):
 		return true

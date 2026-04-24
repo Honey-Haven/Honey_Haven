@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://ctvgxmf6mavp3"]
+
+[ext_resource type="Script" uid="uid://d7yudojxxl6m" path="res://minigames/ChesterChase/scripts/mouse_trap.gd" id="1_sepr4"]
+[ext_resource type="Texture2D" uid="uid://cjnrttjatrgba" path="res://minigames/ChesterChase/sprites/trap.png" id="2_sepr4"]
+
+[node name="mouse_trap" type="Area2D" unique_id=1781560002]
+scale = Vector2(0.75, 0.75)
+script = ExtResource("1_sepr4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1310056457]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_sepr4")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=515278504]
+polygon = PackedVector2Array(59, -113, 182, -74, 186, -45, -64, 124, -185, 51, -185, 34, -178, 33, -178, -6, -117, -21)

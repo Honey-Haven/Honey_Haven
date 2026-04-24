@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://gjaotp1o68w7"]
+
+[ext_resource type="Texture2D" uid="uid://dy4pgfnsn3s0r" path="res://minigames/ChesterChase/sprites/Martyscared.PNG" id="1_eio76"]
+
+[node name="Marty" type="CharacterBody2D" unique_id=1163780948]
+scale = Vector2(1.1, 1.1)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1502980960]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_eio76")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=285306253]
+polygon = PackedVector2Array(-66, -155, 39, -189, 65, -181, 79, -152, 71, -108, 45, -97, 61, -83, 65, -58, 49, -37, 73, -27, 67, -19, 83, 1, 96, 39, 87, 58, 58, 182, -27, 183, -38, 142, -63, 145, -98, 113, -56, 63, -57, 36, -39, -5, -7, -22, -21, -29, -3, -37, -18, -50, -19, -75, -38, -75, -62, -90, -80, -125)

@@ -4,14 +4,14 @@
   "uuid": "0C78958B-B4BE-4AC2-B2B7-A7B0DDEACAC0",
   "name": "Epilogue",
   "creator": "Twine",
-  "creatorVersion": "2.12.0",
+  "creatorVersion": "2.11.1",
   "schemaName": "Twine to JSON",
   "schemaVersion": "0.0.6",
-  "createdAtMs": 1776894001544,
+  "createdAtMs": 1776910390924,
   "passages": [
     {
       "name": "e1",
-      "tags": "",
+      "tags": "day_start black_screen",
       "id": "1",
       "text": "Epilogue. [[e1.5]]",
       "links": [
@@ -67,7 +67,7 @@
     },
     {
       "name": "e1.5",
-      "tags": "pepper_lane",
+      "tags": "pepper_lane music_Martyr's_Legacy",
       "id": "5",
       "text": "4 weeks later. [[e2]]",
       "links": [
@@ -375,7 +375,7 @@
     },
     {
       "name": "e25",
-      "tags": "tofu-enter-left muffins-enter-right muffins-speaker muffins-sad tofu-neutral",
+      "tags": "tofu-enter-left scotch-enter-left scotch-neutral muffins-enter-right muffins-speaker muffins-sad tofu-neutral",
       "id": "27",
       "text": "Mrs. Tofu, my goodness. You look so frail.. [[e26]]",
       "links": [
@@ -445,7 +445,7 @@
     },
     {
       "name": "e30",
-      "tags": "tofu-leave scotch-enter-left scotch-sad scotch-speaker",
+      "tags": "scotch-sad scotch-speaker",
       "id": "32",
       "text": "How is this possible?! [[e31]]",
       "links": [
@@ -473,7 +473,7 @@
     },
     {
       "name": "e32",
-      "tags": "scotch-leave tofu-enter-left tofu-neutral tofu-speaker",
+      "tags": "tofu-neutral tofu-speaker",
       "id": "34",
       "text": "Well, doc, all my pieces are here. [[e33]]",
       "links": [
@@ -501,7 +501,7 @@
     },
     {
       "name": "e34",
-      "tags": "muffins-speaker",
+      "tags": "muffins-speaker muffins-sad",
       "id": "36",
       "text": "Your heart is too broken. [[e35]]",
       "links": [
@@ -557,7 +557,7 @@
     },
     {
       "name": "e38",
-      "tags": "muffins-leave scotch-enter-right scotch-sad scotch-speaker",
+      "tags": "scotch-sad scotch-speaker",
       "id": "40",
       "text": "Dear... [[e39]]",
       "links": [
@@ -585,7 +585,7 @@
     },
     {
       "name": "e40",
-      "tags": "scotch-leave muffins-enter-right muffins-sad muffins-speaker",
+      "tags": "muffins-sad muffins-speaker",
       "id": "42",
       "text": "I'm.. I'm sorry. I thought it would be better if he had just shoved down those invading thoughts. [[e41]]",
       "links": [
@@ -595,13 +595,13 @@
           "original": "[[e41]]"
         }
       ],
-      "cleanText": "I'm.. I'm sorry. I thought it would be better if he had just shoved down those invading thoughts."
+      "cleanText": "I'm.. I'm sorry. I thought it would be better if he just shoved down those invading thoughts."
     },
     {
       "name": "e41",
       "tags": "muffins-speaker quiver",
       "id": "43",
-      "text": "I was too scared of losing another patient... and in my cowardice, I did him in. [[e42]]",
+      "text": "I was too scared of losing another patient... and in my cowardice, I wasn't truly there for him. [[e42]]",
       "links": [
         {
           "linkText": "e42",
@@ -609,7 +609,7 @@
           "original": "[[e42]]"
         }
       ],
-      "cleanText": "I was too scared of losing another patient... and in my cowardice, I did him in."
+      "cleanText": "I was too scared of losing another patient... and in my cowardice, I wasn't truly there for him."
     },
     {
       "name": "e42",
@@ -641,7 +641,7 @@
     },
     {
       "name": "e44",
-      "tags": "tofu-leave muffins-leave",
+      "tags": "tofu-leave muffins-leave scotch-leave",
       "id": "46",
       "text": "Mrs. Tofu wasn't the only one broken by the incident. [[e45]]",
       "links": [
@@ -1901,11 +1901,31 @@
     },
     {
       "name": "e126",
-      "tags": "",
+      "tags": "day_end black_screen",
       "id": "136",
       "text": "The End.",
-      "links": [],
+      "links": [
+        {
+          "linkText": "END",
+          "passageName": "END",
+          "original": "END"
+        }
+      ],
       "cleanText": "The End."
+    },
+    {
+      "name": "END",
+      "tags": "",
+      "id": "143",
+      "text": "back to menu",
+      "links": [
+        {
+          "linkText": "",
+          "passageName": "",
+          "original": ""
+        }
+      ],
+      "cleanText": "back to menu"
     }
   ]
 }

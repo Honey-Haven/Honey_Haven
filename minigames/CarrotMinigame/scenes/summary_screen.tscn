@@ -62,17 +62,17 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="star1" type="Sprite2D" parent="." unique_id=1704035657]
-position = Vector2(768, 645)
+position = Vector2(768, 575)
 scale = Vector2(0.25520825, 0.25520825)
 texture = ExtResource("4_q3quu")
 
 [node name="star2" type="Sprite2D" parent="." unique_id=1049390460]
-position = Vector2(872, 648)
+position = Vector2(872, 575)
 scale = Vector2(0.25520825, 0.25520825)
 texture = ExtResource("4_q3quu")
 
 [node name="star3" type="Sprite2D" parent="." unique_id=216930736]
-position = Vector2(979, 648)
+position = Vector2(979, 575)
 scale = Vector2(0.25520825, 0.25520825)
 texture = ExtResource("4_q3quu")
 

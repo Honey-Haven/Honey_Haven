@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cnrtl5apij6bb"]
+
+[ext_resource type="Texture2D" uid="uid://b10aj54ux8h22" path="res://minigames/ChesterChase/sprites/bkground.png" id="1_bb2ko"]
+[ext_resource type="FontFile" uid="uid://d1k37g27s8gij" path="res://minigames/ChesterChase/sprites/CookieCrisp-L36ly.ttf" id="1_oj2if"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fca3t"]
+font = ExtResource("1_oj2if")
+font_size = 128
+font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+
+[node name="game_won" type="Control" unique_id=194487042]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="Sprite2D" parent="." unique_id=1310470086]
+position = Vector2(591, 339)
+texture = ExtResource("1_bb2ko")
+
+[node name="Label" type="Label" parent="." unique_id=1545417085]
+layout_mode = 0
+offset_left = 317.0
+offset_top = 211.0
+offset_right = 823.0
+offset_bottom = 430.0
+text = "YOU WIN!!!"
+label_settings = SubResource("LabelSettings_fca3t")
+horizontal_alignment = 1
+vertical_alignment = 1

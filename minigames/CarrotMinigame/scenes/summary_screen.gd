@@ -55,6 +55,10 @@ func _ready() -> void:
 	# Replay / Continue buttons — hardcoded for VN integration.
 	call_deferred("_create_buttons")
 
+	# Pre-load the VN scene in the background for an instant transition.
+	if MinigameReturn.vn_scene_path != "":
+		ResourceLoader.load_threaded_request(MinigameReturn.vn_scene_path)
+
 
 func _set_pivots() -> void:
 	$Label.pivot_offset  = $Label.size  / 2.0
@@ -134,11 +138,11 @@ func _create_buttons() -> void:
 	cl.layer = 10
 	add_child(cl)
 
-	var btn_replay   := _make_btn("Play Again",     Color(0.15, 0.35, 0.60))
-	var btn_continue := _make_btn("Continue Story", Color(0.20, 0.50, 0.25))
+	var btn_replay   := _make_btn("Play Again")
+	var btn_continue := _make_btn("Continue Story")
 
-	btn_replay.position   = Vector2(vp.x * 0.5 - 220, vp.y - 80)
-	btn_continue.position = Vector2(vp.x * 0.5 + 20,  vp.y - 80)
+	btn_replay.position   = Vector2(vp.x * 0.5 - 175, vp.y - 68)
+	btn_continue.position = Vector2(vp.x * 0.5 + 15,  vp.y - 68)
 
 	cl.add_child(btn_replay)
 	cl.add_child(btn_continue)
@@ -147,23 +151,26 @@ func _create_buttons() -> void:
 	btn_continue.pressed.connect(_on_continue)
 
 
-func _make_btn(label_text: String, color: Color) -> Button:
+func _make_btn(label_text: String) -> Button:
 	var btn := Button.new()
-	btn.text = label_text
-	btn.size = Vector2(200, 52)
+	btn.text = label_text.to_upper()
+	btn.size = Vector2(158, 40)
 	btn.focus_mode = Control.FOCUS_NONE
+	var yellow      := Color(0.99, 0.95, 0.62, 1.0)
+	var yellow_hover := Color(1.0, 0.98, 0.75, 1.0)
 	var sn := StyleBoxFlat.new()
-	sn.bg_color = color
-	sn.set_corner_radius_all(10)
-	sn.content_margin_left   = 18; sn.content_margin_right  = 18
-	sn.content_margin_top    = 8;  sn.content_margin_bottom = 8
+	sn.bg_color = yellow
+	sn.set_corner_radius_all(20)
+	sn.content_margin_left   = 14; sn.content_margin_right  = 14
+	sn.content_margin_top    = 6;  sn.content_margin_bottom = 6
 	var sh := sn.duplicate() as StyleBoxFlat
-	sh.bg_color = color.lightened(0.25)
+	sh.bg_color = yellow_hover
 	btn.add_theme_stylebox_override("normal",  sn)
 	btn.add_theme_stylebox_override("hover",   sh)
 	btn.add_theme_stylebox_override("pressed", sh)
-	btn.add_theme_color_override("font_color", Color.WHITE)
-	btn.add_theme_font_size_override("font_size", 18)
+	btn.add_theme_color_override("font_color",       Color(0.28, 0.16, 0.04, 1.0))
+	btn.add_theme_color_override("font_hover_color", Color(0.20, 0.10, 0.02, 1.0))
+	btn.add_theme_font_size_override("font_size", 15)
 	return btn
 
 
@@ -172,4 +179,9 @@ func _on_replay() -> void:
 
 func _on_continue() -> void:
 	MinigameReturn.returning_from_minigame = true
-	get_tree().change_scene_to_file(MinigameReturn.vn_scene_path)
+	var path: String = MinigameReturn.vn_scene_path
+	var status := ResourceLoader.load_threaded_get_status(path)
+	if status == ResourceLoader.THREAD_LOAD_LOADED:
+		get_tree().change_scene_to_packed(ResourceLoader.load_threaded_get(path) as PackedScene)
+	else:
+		get_tree().change_scene_to_file(path)

@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://bysxx20syi4pa"]
+
+[ext_resource type="Script" uid="uid://c8nbpqown6w6k" path="res://minigames/ChesterChase/scripts/game.gd" id="1_aug50"]
+[ext_resource type="PackedScene" uid="uid://dwi1xhktygm4l" path="res://minigames/ChesterChase/scenes/rock.tscn" id="1_s0nni"]
+[ext_resource type="PackedScene" uid="uid://gjaotp1o68w7" path="res://minigames/ChesterChase/scenes/Marty.tscn" id="2_aug50"]
+[ext_resource type="Texture2D" uid="uid://b10aj54ux8h22" path="res://minigames/ChesterChase/sprites/bkground.png" id="2_kiw3p"]
+[ext_resource type="Script" uid="uid://drojtdl4svn55" path="res://minigames/ChesterChase/scripts/marty.gd" id="3_kiw3p"]
+[ext_resource type="PackedScene" uid="uid://beq5qwuukfta2" path="res://minigames/ChesterChase/scenes/Chester.tscn" id="4_400sg"]
+[ext_resource type="PackedScene" uid="uid://cdj7jce82fy48" path="res://minigames/ChesterChase/scenes/LandingShadow.tscn" id="7_kiw3p"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_aug50"]
+font_size = 64
+font_color = Color(0, 0, 0, 1)
+
+[node name="Game" type="Node2D" unique_id=1627946474]
+script = ExtResource("1_aug50")
+
+[node name="WhiteBgLayer" type="CanvasLayer" parent="." unique_id=1900000001]
+layer = -1
+
+[node name="WhiteBg" type="ColorRect" parent="WhiteBgLayer" unique_id=1900000002]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=986185403]
+zoom = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1869937814]
+scale = Vector2(2, 2)
+texture = ExtResource("2_kiw3p")
+
+[node name="Rock" parent="." unique_id=710935231 instance=ExtResource("1_s0nni")]
+position = Vector2(-680, 182)
+
+[node name="Rock2" parent="." unique_id=1989596534 instance=ExtResource("1_s0nni")]
+position = Vector2(-127, -246)
+
+[node name="Rock3" parent="." unique_id=319275408 instance=ExtResource("1_s0nni")]
+position = Vector2(620, 98)
+
+[node name="Marty" parent="." unique_id=1163780948 instance=ExtResource("2_aug50")]
+position = Vector2(-421, 10)
+scale = Vector2(0.75, 0.75)
+script = ExtResource("3_kiw3p")
+
+[node name="Chester" parent="." unique_id=1223095311 instance=ExtResource("4_400sg")]
+position = Vector2(427, -95)
+scale = Vector2(0.7, 0.7)
+
+[node name="Area2D" type="RigidBody2D" parent="." unique_id=1037531405]
+gravity_scale = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=840271872]
+polygon = PackedVector2Array(1154, -642, -1151, -644, -1154, 648, 1152, 646, 1141, 4, 1873, -1, 1457, 946, -1380, 978, -1398, -1086, 1731, -1067, 1869, 5, 1141, 25)
+
+[node name="Label" type="Label" parent="." unique_id=103068941]
+offset_left = -1036.0
+offset_top = -563.0
+offset_right = -788.0
+offset_bottom = -475.0
+label_settings = SubResource("LabelSettings_aug50")
+
+[node name="LandingShadow" parent="." unique_id=1517426982 instance=ExtResource("7_kiw3p")]

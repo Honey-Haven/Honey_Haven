@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cdj7jce82fy48"]
+
+[ext_resource type="Texture2D" uid="uid://c7vkwd11cdxcm" path="res://minigames/ChesterChase/sprites/chesterAngry.webp" id="1_6pqxc"]
+
+[node name="Shadow" type="Node2D" unique_id=1517426982]
+
+[node name="LandingShadow" type="Sprite2D" parent="." unique_id=119421017]
+modulate = Color(0, 0, 0, 0.44313726)
+light_mask = 3
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_6pqxc")

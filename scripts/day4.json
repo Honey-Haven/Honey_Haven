@@ -1,3 +1,5 @@
+
+
 {
   "uuid": "DDD9AA2E-5AAE-43A1-92D7-B0BA14CD1AC0",
   "name": "Honey Haven Day 4",
@@ -9,7 +11,7 @@
   "passages": [
     {
       "name": "4.1",
-      "tags": "",
+      "tags": "day_start black_screen",
       "id": "1",
       "text": "Day 4 [[4.2]]",
       "links": [
@@ -23,7 +25,7 @@
     },
     {
       "name": "4.2",
-      "tags": "flash sunny_bedroom",
+      "tags": "flash sunny_bedroom music_silence",
       "id": "2",
       "text": "You wake up in a cold sweat. You hear the words reverberating in your brain. [[4.3]]",
       "links": [
@@ -79,7 +81,7 @@
     },
     {
       "name": "4.6",
-      "tags": "",
+      "tags": "music_title_theme",
       "id": "6",
       "text": "You get ready for the day, taking longer than you normally do. Every movement you make feels heavy. It's like you've been mouse-trapped. [[4.7]]",
       "links": [
@@ -163,7 +165,7 @@
     },
     {
       "name": "4.12",
-      "tags": "marty_leave",
+      "tags": "marty_leave music_A_Home_Called_Honey_Haven",
       "id": "12",
       "text": "You pick up the mail. There is a letter for Mochi and Peaches. [[4.13]]",
       "links": [
@@ -317,7 +319,7 @@
     },
     {
       "name": "4.22",
-      "tags": "mochi-speaker mochi-stern",
+      "tags": "mochi-speaker mochi-stern music_silence",
       "id": "23",
       "text": "Not anymore, he doesn't. [[4.23]]",
       "links": [
@@ -429,7 +431,7 @@
     },
     {
       "name": "4.30",
-      "tags": "big marty-scared marty-speaker quiver shake",
+      "tags": "big marty-scared marty-speaker quiver shake music_Who_Is_This_Kid",
       "id": "31",
       "text": "WAIT- is the monster Chester keeps talking about real? If it is... why are they pretending nothing's wrong... \n\n[[\"It's a monster!\" -> 4.31a]]\n[[\"It must be something else.\" -> 4.31b]]",
       "links": [
@@ -644,7 +646,7 @@
     },
     {
       "name": "4.39",
-      "tags": "big marty-serious marty-speaker quiver shake",
+      "tags": "big marty-serious marty-speaker quiver shake music_silence",
       "id": "46",
       "text": "I think... I NEED to talk to him. Only he can help me. [[4.40]]",
       "links": [
@@ -658,7 +660,7 @@
     },
     {
       "name": "4.40",
-      "tags": "casserole_avenue marty_leave",
+      "tags": "casserole_avenue marty_leave music_A_Home_Called_Honey_Haven",
       "id": "47",
       "text": "Unfortunately, you still have a job to do. You take the backroads to Casserole Avenue to deliver the mail to Peaches. [[4.41]]",
       "links": [
@@ -966,7 +968,7 @@
     },
     {
       "name": "4.62",
-      "tags": "marty_leave outside_town_square",
+      "tags": "marty_leave outside_town_square music_A_Touch_Of_Sarcasm",
       "id": "69",
       "text": "You head to Bunalicious, where you see Ms. Buttons put on a fake, overly large smile while dishing plates out to customers. [[4.63]]",
       "links": [
@@ -1008,7 +1010,7 @@
     },
     {
       "name": "4.65",
-      "tags": "buttons-neutral",
+      "tags": "buttons-neutral music_silence",
       "id": "72",
       "text": "She notices you watching. [[4.66]]",
       "links": [
@@ -1022,7 +1024,7 @@
     },
     {
       "name": "4.66",
-      "tags": "buttons-angry buttons-speaker excite",
+      "tags": "buttons-angry buttons-speaker excite music_A_Great_Big_Helping_Of_Sarcasm",
       "id": "73",
       "text": "Oh. Hello Marty. [[4.67]]",
       "links": [
@@ -1092,7 +1094,7 @@
     },
     {
       "name": "4.71",
-      "tags": "",
+      "tags": "music_silence",
       "id": "78",
       "text": "The restaurant goes silent. [[4.72]]",
       "links": [
@@ -1106,7 +1108,7 @@
     },
     {
       "name": "4.72",
-      "tags": "marty-speaker",
+      "tags": "marty-speaker music_A_Touch_Of_Sarcasm",
       "id": "79",
       "text": "I've already accepted that you're a liar, but your customers here should know the truth. What are you doing to your carrots? [[4.73]]",
       "links": [
@@ -1274,7 +1276,7 @@
     },
     {
       "name": "4.86",
-      "tags": "marty-sad marty-speaker",
+      "tags": "marty-sad marty-speaker music_Demonic_Sympathy",
       "id": "91",
       "text": "Was Ms. Buttons right? Have I been so sleep deprived, that I'm deluding myself? [[4.87]]",
       "links": [
@@ -1344,7 +1346,7 @@
     },
     {
       "name": "4.91",
-      "tags": "marty_leave truffle_corner",
+      "tags": "marty_leave truffle_corner music_silence",
       "id": "96",
       "text": "You take a silent walk to Truffle Corner. [[4.92]]",
       "links": [
@@ -1657,7 +1659,7 @@
     },
     {
       "name": "4.112",
-      "tags": "foxs_house",
+      "tags": "foxs_house music_Untitled_Man",
       "id": "118",
       "text": "The inside of the fox's house smells like dead fish and rotten apples. There's a broom on the floor, like he was in the middle of cleaning. It's certainly unlike any home you've been in. [[4.113]]",
       "links": [
@@ -2017,7 +2019,7 @@
     },
     {
       "name": "4.135a",
-      "tags": "smith-neutral smith-speaker",
+      "tags": "smith-neutral smith-speaker music_silence",
       "id": "143",
       "text": "You're welcome. [[4.136a]]",
       "links": [
@@ -2101,7 +2103,7 @@
     },
     {
       "name": "4.140",
-      "tags": "flash mirror",
+      "tags": "flash mirror no_text music_Demonic_Apathy",
       "id": "149",
       "text": "mirror cutscene [[4.141]]",
       "links": [
@@ -2143,7 +2145,7 @@
     },
     {
       "name": "4.143",
-      "tags": "flash night_closed_bedroom",
+      "tags": "flash night_closed_bedroom music_silence",
       "id": "152",
       "text": "You pass out on the floor. That night, it's your bed. [[4.144]]",
       "links": [
@@ -2157,15 +2159,35 @@
     },
     {
       "name": "4.144",
-      "tags": "flash",
+      "tags": "day_end black_screen",
       "id": "153",
       "text": "End of Day 4.",
-      "links": [],
+      "links": [
+        {
+          "linkText": "END",
+          "passageName": "END",
+          "original": "END"
+        }
+      ],
       "cleanText": "End of Day 4."
     },
     {
+      "name": "END",
+      "tags": "",
+      "id": "143",
+      "text": "back to menu",
+      "links": [
+        {
+          "linkText": "",
+          "passageName": "",
+          "original": ""
+        }
+      ],
+      "cleanText": "back to menu"
+    },
+    {
       "name": "4.82",
-      "tags": "buttons buttons-speaker flash",
+      "tags": "buttons buttons-speaker flash music_silence",
       "id": "154",
       "text": "Can you even tell what's real and what's your delusions? [[4.83]]",
       "links": [
@@ -2177,6 +2199,7 @@
       ],
       "cleanText": "Can you even tell what's real and what's your delusions?"
     },
+    
     {
       "name": "4.85",
       "tags": "buttons_leave",
@@ -2193,3 +2216,4 @@
     }
   ]
 }
+

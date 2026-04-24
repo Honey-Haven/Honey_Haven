@@ -242,7 +242,7 @@ func _spawn_backgrounds():
 
 	for i in BG_COUNT:
 		var tile = BGTileScene.instantiate()
-		var tex_path = "res://minigames/CarrotMinigame/sprites/newroad%d.webp" % ((i % 2) + 1)
+		var tex_path = "res://minigames/CarrotMinigame/sprites/POOP.png" % ((i % 2) + 1)
 		tile.get_node("Sprite2D").texture = load(tex_path)
 		tile.position = Vector2(i * bg_tile_width, screen_size.y / 2.0)
 		add_child(tile)

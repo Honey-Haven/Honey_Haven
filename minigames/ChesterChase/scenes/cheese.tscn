@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dvjas4rd25g3x"]
+
+[ext_resource type="Script" uid="uid://crlao01iyl7mk" path="res://minigames/ChesterChase/scripts/cheese.gd" id="1_gv6i6"]
+[ext_resource type="Texture2D" uid="uid://cigavuckabhcr" path="res://minigames/ChesterChase/sprites/cheese.png" id="2_gv6i6"]
+
+[node name="cheese" type="Area2D" unique_id=596121463]
+script = ExtResource("1_gv6i6")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=853438613]
+position = Vector2(0, -31)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_gv6i6")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=2140699239]
+scale = Vector2(0.75, 0.75)
+polygon = PackedVector2Array(-51, -115, -142.66667, -73.333336, -130.66667, 82.66667, 142.66667, 94.66667, 153.33334, -65.333336)

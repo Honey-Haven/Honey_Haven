@@ -61,10 +61,13 @@ func _on_background_change(path: String, transition: String) -> void:
 			_slide_transition(Vector2(1280, 0), dur)
 		_:
 			# "fade" and default
+			# Bring the incoming bg on top so it fades in OVER the old one.
+			# Only after the new bg is fully opaque do we hide the old one — no dark flash.
+			_inactive.z_index = 1
+			_active.z_index   = 0
 			var tween: Tween = create_tween()
 			_current_tween = tween
 			tween.tween_property(_inactive, "modulate:a", 1.0, dur)
-			tween.parallel().tween_property(_active, "modulate:a", 0.0, dur)
 			tween.tween_callback(_on_fade_done)
 
 func _slide_transition(from_offset: Vector2, dur: float) -> void:
@@ -86,8 +89,10 @@ func _swap_buffers() -> void:
 	_active = _inactive
 	_inactive = tmp
 	var centre := get_viewport_rect().size / 2.0
-	_active.modulate.a = 1.0
-	_active.position = centre
+	_active.modulate.a  = 1.0
+	_active.z_index     = 0
+	_active.position    = centre
 	_scale_sprite_to_viewport(_active)
 	_inactive.modulate.a = 0.0
-	_inactive.position = centre
+	_inactive.z_index    = 0
+	_inactive.position   = centre

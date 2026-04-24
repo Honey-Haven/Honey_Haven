@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="VNTheme" format=3 uid="uid://cgeon6stjg2n8"]
 
+[ext_resource type="FontFile" uid="uid://b8l0j4j5juaub" path="res://fonts/Solway-Regular.ttf" id="1_272qe"]
 [ext_resource type="Script" uid="uid://de7mn0ofm6q7c" path="res://resources/VNThemeChoices.gd" id="1_bags0"]
 [ext_resource type="Script" uid="uid://2o1qm3s0dpnm" path="res://resources/VNTheme.gd" id="1_dfh5v"]
 [ext_resource type="Script" uid="uid://bjidwmwu4h6ak" path="res://resources/VNThemeEffects.gd" id="2_8kri3"]
@@ -11,6 +12,9 @@
 [ext_resource type="Script" uid="uid://drm2ubrn867ui" path="res://resources/VNThemeTypewriter.gd" id="8_272qe"]
 [ext_resource type="Script" uid="uid://rq1somhdexrd" path="res://resources/VNThemeStranger.gd" id="9_stranger"]
 [ext_resource type="Script" uid="uid://bsok2kek8e74j" path="res://resources/VNThemeDaySplash.gd" id="10_daysplash"]
+[ext_resource type="FontFile" uid="uid://bmbjj8gponj5e" path="res://fonts/sdglitchdemo/SDGlitch_Demo.ttf" id="10_t3fuo"]
+[ext_resource type="AudioStream" uid="uid://cit8wyis8xp7k" path="res://audio/sfx/dragon-studio-radio-static-323621 (mp3cut.net)(1).mp3" id="11_xhn5g"]
+[ext_resource type="AudioStream" uid="uid://c6a3fghj8tdk0" path="res://audio/sfx/dragon-studio-radio-static-323621 (mp3cut.net).mp3" id="12_dcahf"]
 
 [sub_resource type="Resource" id="Resource_xhn5g"]
 script = ExtResource("1_bags0")
@@ -18,10 +22,14 @@ bg_color = Color(0.29, 0.23127499, 0.21169999, 0.8784314)
 hover_bg_color = Color(0.41, 0.27989334, 0.2706, 0.8784314)
 border_color = Color(0.2901961, 0.23137255, 0.21176471, 0.8784314)
 font_color = Color(0.87, 0.78387004, 0.6351, 1)
+font = ExtResource("1_272qe")
 metadata/_custom_type_script = "uid://de7mn0ofm6q7c"
 
 [sub_resource type="Resource" id="Resource_okm8k"]
 script = ExtResource("10_daysplash")
+font = ExtResource("1_272qe")
+font_size = 80
+typewriter_sfx = ExtResource("12_dcahf")
 metadata/_custom_type_script = "uid://bsok2kek8e74j"
 
 [sub_resource type="Resource" id="Resource_dcahf"]
@@ -35,6 +43,7 @@ metadata/_custom_type_script = "uid://bjidwmwu4h6ak"
 script = ExtResource("3_7evcc")
 bg_color = Color(0.3647059, 0.24313726, 0.21960784, 1)
 border_color = Color(0.98039216, 0.85882354, 0.7607843, 1)
+font = ExtResource("1_272qe")
 font_color = Color(0.99215686, 0.8980392, 0.8509804, 1)
 metadata/_custom_type_script = "uid://cacl4te26q5q2"
 
@@ -44,12 +53,22 @@ metadata/_custom_type_script = "uid://bxgr1pbwt8map"
 
 [sub_resource type="Resource" id="Resource_y6r7j"]
 script = ExtResource("9_stranger")
+bg_color = Color(0, 0, 0, 1)
+border_color = Color(1, 1, 1, 1)
+font_color = Color(1, 1, 1, 1)
+np_bg_color = Color(0, 0, 0, 1)
+np_border_color = Color(1, 1, 1, 1)
+np_font_color = Color(1, 1, 1, 1)
+font = ExtResource("10_t3fuo")
+font_size = 30
+typewriter_sfx = ExtResource("11_xhn5g")
 metadata/_custom_type_script = "uid://rq1somhdexrd"
 
 [sub_resource type="Resource" id="Resource_b5efn"]
 script = ExtResource("6_y6r7j")
 bg_color = Color(0.9785531, 0.8606543, 0.7588572, 1)
 border_color = Color(0.36524293, 0.24167445, 0.2211226, 1)
+font = ExtResource("1_272qe")
 font_color = Color(0.3647059, 0.24313726, 0.21960784, 1)
 narrator_bg_color = Color(1, 1, 1, 1)
 narrator_border_color = Color(1, 1, 1, 1)

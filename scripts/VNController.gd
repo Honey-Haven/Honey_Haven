@@ -1,7 +1,7 @@
 extends Node
 
 @export var vn_theme: Resource
-@export_file("*.json") var script_path: String = "res://scripts/day1.json"
+@export_file("*.json") var script_path: String = "res://scripts/epilogue.json"
 @export var actor_manager_path:     NodePath = "ActorManager"
 @export var logic_path:             NodePath = "VNLogic"
 @export var background_manager_path: NodePath = "BackgroundManager"
@@ -14,8 +14,9 @@ extends Node
 # Maps the Twine tag name → the scene path to load.
 # Add a new entry here for every minigame you create.
 const MINIGAME_SCENES: Dictionary = {
-	"minigame_carrots": "res://minigames/CarrotMinigame/scenes/main.tscn",
-	"minigame_gameee":  "res://minigames/Gameee/Gameee.tscn",
+	"minigame_carrots":  "res://minigames/CarrotMinigame/scenes/main.tscn",
+	"minigame_gameee":   "res://minigames/Gameee/Gameee.tscn",
+	"minigame_chester":  "res://minigames/ChesterChase/scenes/chester_rules.tscn",
 }
 
 # The path to THIS scene, so we can return to it after a minigame.
@@ -36,12 +37,11 @@ func _ready() -> void:
 	if MinigameReturn.returning_from_minigame:
 		MinigameReturn.returning_from_minigame = false
 
-		# FIX: read back all three saved values (previously only resume_label was read,
-		# so stage_state and current_bg were silently discarded, leaving actors
-		# transparent / missing when the VN resumed after a minigame).
-		var resume_label: String   = MinigameReturn.pending_result.get("resume_label", "")
+		var resume_label: String    = MinigameReturn.pending_result.get("resume_label", "")
 		var saved_stage: Dictionary = MinigameReturn.pending_result.get("stage_state", {})
 		var saved_bg: String        = MinigameReturn.pending_result.get("current_bg", "")
+		var saved_bgm: String       = MinigameReturn.pending_result.get("current_bgm", "")
+		var saved_bgm_vol: float    = MinigameReturn.pending_result.get("current_bgm_vol", 0.0)
 		MinigameReturn.pending_result = {}
 
 		var return_script: String = MinigameReturn.script_path
@@ -54,15 +54,10 @@ func _ready() -> void:
 		await get_tree().process_frame
 		await get_tree().process_frame
 
-		# We do NOT call logic.start() here because start() would call _process_next()
-		# from index 0, which hits the day_splash packet and plays the intro card again.
-		# Instead we set up _dialogue_ui manually and jump straight to the resume label.
 		logic._dialogue_ui = logic._find_dialogue_ui(get_tree().root)
 		if resume_label != "":
-			# Restore actors/bg instantly, then jump to saved label — no splash.
-			logic.resume_after_minigame(resume_label, saved_stage, saved_bg)
+			logic.resume_after_minigame(resume_label, saved_stage, saved_bg, saved_bgm, saved_bgm_vol)
 		else:
-			# Fallback: no label saved, skip any leading day_splash and start normally.
 			logic.skip_next_day_splash = true
 			logic.start()
 		return
@@ -143,7 +138,8 @@ func _register_actors() -> void:
 		"expressions": {
 			"neutral": preload("res://actors/chester/chesterNeutral.webp"),
 			"angry": preload("res://actors/chester/chesterAngry.webp"),
-			"happy": preload("res://actors/chester/chesterHappy.webp")
+			"happy": preload("res://actors/chester/chesterHappy.webp"),
+			"sad": preload("res://actors/chester/chesterSad.webp")
 		}
 	})
 
@@ -152,7 +148,9 @@ func _register_actors() -> void:
 		"scale": 1.0,
 		"expressions": {
 			"neutral": preload("res://actors/barnaby/barnaby_normal.png"),
-			"angry": preload("res://actors/barnaby/barnaby_angry.png")
+			"angry": preload("res://actors/barnaby/barnaby_angry.png"),
+			"happy": preload("res://actors/barnaby/barnaby_happy.png"),
+			"sad": preload("res://actors/barnaby/barnaby_sad.png")
 		}
 	})
 
@@ -160,7 +158,9 @@ func _register_actors() -> void:
 		"id": "Peanut",
 		"scale": 1.0,
 		"expressions": {
-			"neutral": preload("res://actors/peanut/peanutOpen.webp")
+			"open": preload("res://actors/peanut/peanutOpen.webp"),
+			"sad": preload("res://actors/peanut/peanutCry.webp"),
+			"neutral": preload("res://actors/peanut/peanutNeutral.webp")
 		}
 	})
 
@@ -218,7 +218,7 @@ func _register_actors() -> void:
 
 	actor_manager.register_actor({
 		"id": "Smith",
-		"scale": 1.0,
+		"scale": 1.1,
 		"expressions": {
 			"neutral": preload("res://actors/jonathon/jonathon_normal.png"),
 			"scared": preload("res://actors/jonathon/jonathon_scared.png"),
@@ -252,7 +252,7 @@ func _register_actors() -> void:
 		"scale": 1.1,
 		"expressions": {
 			"neutral": preload("res://actors/mochi/mochiNeutral.webp"),
-			"scared": preload("res://actors/mochi/mochiAngry.webp"),
+			"angry": preload("res://actors/mochi/mochiAngry.webp"),
 			"happy": preload("res://actors/mochi/mochiHappy.webp"),
 			"stern": preload("res://actors/mochi/mochiStern.webp")
 		}
@@ -262,8 +262,9 @@ func _register_backgrounds() -> void:
 	TwineParser.register_background("sunny_bedroom", "res://backgrounds/sunny_bedroom.png")
 	TwineParser.register_background("pepper_lane",  "res://backgrounds/pepper_lane.PNG")
 	TwineParser.register_background("casserole_avenue",  "res://backgrounds/casserole_carrots.PNG")
-	TwineParser.register_background("truffle_corner",  "res://backgrounds/TEMPtruffle.jpg")
-	TwineParser.register_background("towncenter",  "res://backgrounds/TEMPtowncenter.jpg")
+	TwineParser.register_background("truffle_corner",  "res://backgrounds/truffleCorner.PNG")
+	TwineParser.register_background("outside_town_square",  "res://backgrounds/TownsquareOutside.PNG")
+	TwineParser.register_background("inside_town_square",  "res://backgrounds/JaneOffice.PNG")
 	TwineParser.register_background("casserole_tear",  "res://backgrounds/tear.png")
 	TwineParser.register_background("black_screen",  "res://backgrounds/black-screen.png")
 	TwineParser.register_background("white_screen",  "res://backgrounds/white-screen.jpg")
@@ -280,13 +281,26 @@ func _register_backgrounds() -> void:
 	TwineParser.register_background("demon8",  "res://backgrounds/demon/Demon8.PNG")
 	TwineParser.register_background("mirror",  "res://backgrounds/demon/mirror.PNG")	
 	TwineParser.register_background("closet_letter",  "res://backgrounds/demon/Closet_letter.webp")
+	TwineParser.register_background("night_eye_bedroom",  "res://backgrounds/night_eye_bedroom.png")
+	TwineParser.register_background("foxs_house",  "res://backgrounds/foxshouse.jpg")
 
 
 func _register_audio() -> void:
-	TwineParser.register_bgm("music_honey-haven-title", "res://audio/bgm/Honey-Haven-Title.mp3", -5.0);
-	TwineParser.register_bgm("music_demonic-sympathy", "res://audio/bgm/Demonic-Sympathy.mp3", 10.0);
-	TwineParser.register_bgm("music_chester", "res://audio/bgm/Chester.mp3", 10.0);
-
+	TwineParser.register_bgm("music_A_Home_Called_Honey_Haven", "res://audio/bgm/musicupdated/Music/A-Home-Called-Honey-Haven.mp3", -5.0);
+	TwineParser.register_bgm("music_Chester_Chase", "res://audio/bgm/musicupdated/Music/Chester Chase.mp3", -10.0);
+	TwineParser.register_bgm("music_Chester", "res://audio/bgm/musicupdated/Music/Chester.mp3", -10.0);
+	TwineParser.register_bgm("music_Demonic_Sympathy", "res://audio/bgm/musicupdated/Music/Demonic-Sympathy.mp3", -10.0);
+	TwineParser.register_bgm("music_Don’t_Talk_To_Me", "res://audio/bgm/musicupdated/Music/Don_t-Talk-To-Me-_Honey-Haven_.mp3", -10.0);
+	TwineParser.register_bgm("music_Goodnight_Moon", "res://audio/bgm/musicupdated/Music/Goodbye Moon.mp3", -10.0);
+	TwineParser.register_bgm("music_Goodnight_Moon", "res://audio/bgm/musicupdated/Music/Goodnight Moon.mp3", -10.0);
+	#TwineParser.register_bgm("music_title_theme", "res://audio/bgm/musicupdated/Music/Honey Haven Title.mp3", -10.0);
+	TwineParser.register_bgm("music_title_theme", "res://audio/bgm/musicupdated/Music/Honey-Haven-Title.mp3", -10.0);
+	TwineParser.register_bgm("music_Peanut", "res://audio/bgm/musicupdated/Music/Peanut-_Honey-Haven_.mp3", -10.0);
+	TwineParser.register_bgm("music_A_Great_Big_Helping_Of_Sarcasm", "res://audio/bgm/musicupdated/Music/REAL FINAL A Great Big Helping Of Sarcasm.mp3", -10.0);
+	TwineParser.register_bgm("music_A_Touch_Of_Sarcasm", "res://audio/bgm/musicupdated/Music/REAL FINAL A Touch Of Sarcasm.mp3", -10.0);
+	TwineParser.register_bgm("music_Untitled_Man", "res://audio/bgm/musicupdated/Music/Untitled Man.mp3", -10.0);
+	TwineParser.register_bgm("music_Who_Is_This_Kid", "res://audio/bgm/musicupdated/Music/Who the hell is this kid! (Chester)_1.mp3", -10.0);
+	
 	TwineParser.register_overlay_sprite("hand-beckon-sprite", "res://hands/Hand-beckon-sprite(1).png")
 	TwineParser.register_overlay_sprite("hand-grab-sprite", "res://hands/Hand-grab-sprite(1).png")
 	TwineParser.register_overlay_sprite("hand-outstretched-sprite", "res://hands/Hand-outstretched-sprite.png")
@@ -312,14 +326,21 @@ func _on_minigame_start(minigame_id: String, _data: Dictionary) -> void:
 	# Save the label VNLogic should resume at, and which scene to return to.
 	# VNLogic.get_resume_label() returns the label immediately AFTER the
 	# minigame packet — i.e. the next passage in the script.
-	MinigameReturn.vn_scene_path       = VN_SCENE_PATH
-	MinigameReturn.script_path         = script_path
+	MinigameReturn.vn_scene_path           = VN_SCENE_PATH
+	MinigameReturn.script_path             = script_path
 	MinigameReturn.returning_from_minigame = false
-	MinigameReturn.pending_result      = {
-		"resume_label": logic.get_resume_label(),
-		"stage_state":  logic.get_stage_state(),
-		"current_bg":   logic.get_current_bg(),
+	MinigameReturn.pending_result          = {
+		"resume_label":    logic.get_resume_label(),
+		"stage_state":     logic.get_stage_state(),
+		"current_bg":      logic.get_current_bg(),
+		"current_bgm":     logic.get_current_bgm(),
+		"current_bgm_vol": logic.get_current_bgm_volume(),
 	}
+
+	# Fade out BGM before the scene switch so the minigame starts silent.
+	# Position is saved by AudioManager so we can resume from the same spot
+	# when the player returns to the VN.
+	SignalBus.bgm_stop.emit(0.5)
 
 	# Full scene switch — the VN disappears, minigame takes over completely.
 	get_tree().change_scene_to_file(scene_path)

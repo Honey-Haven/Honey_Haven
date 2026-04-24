@@ -16,9 +16,11 @@ class_name VNThemeTextbox
 @export var narrator_border_color: Color = Color(0.4, 0.4, 0.4, 1.0)
 @export var narrator_font_color: Color  = Color(0.85, 0.85, 0.85, 1.0)
 
-# ---- Demon _-----------
+# ---- Demon ---------------
 @export var demon_bg_color:     Color = Color(0.04, 0.0, 0.06, 0.93)
 @export var demon_border_color: Color = Color(0.45, 0.0, 0.55, 1.0)
 @export var demon_font_color:   Color = Color(0.85, 0.6, 1.0, 1.0)
 @export var demon_font: Font
 @export var demon_font_size: int = 22
+@export var demon_typewriter_sfx:       AudioStream = null
+@export var demon_typewriter_volume_db: float       = -6.0

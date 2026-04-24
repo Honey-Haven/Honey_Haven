@@ -1,3 +1,5 @@
+
+
 {
   "uuid": "C663ADA9-4CC0-462B-A43B-6A687DDCDD5F",
   "name": "Honey Haven Day 5",
@@ -9,7 +11,7 @@
   "passages": [
     {
       "name": "5.1",
-      "tags": "",
+      "tags": "day_start black_screen",
       "id": "1",
       "text": "Day 5 [[5.2]]",
       "links": [
@@ -23,7 +25,7 @@
     },
     {
       "name": "5.2",
-      "tags": "marty-neutral marty_enter sunny_bedroom",
+      "tags": "marty-neutral marty_enter sunny_bedroom music_title_theme",
       "id": "2",
       "text": "You wake up with a pounding headache. You barely got any sleep last night. [[5.3]]",
       "links": [
@@ -65,7 +67,7 @@
     },
     {
       "name": "5.5",
-      "tags": "excite marty-angry shake",
+      "tags": "excite marty-angry shake music_silence",
       "id": "5",
       "text": "You push the cup of water off the table. The porcelain shatters on the floor. [[5.6]]",
       "links": [
@@ -121,7 +123,7 @@
     },
     {
       "name": "5.9",
-      "tags": "marty_leave",
+      "tags": "marty_leave music_A_Touch_Of_Sarcasm",
       "id": "9",
       "text": "You hastily put on your clothes and head out the door. It's 8:30am and you are definitely late. [[5.10]]",
       "links": [
@@ -219,7 +221,7 @@
     },
     {
       "name": "5.16",
-      "tags": "buttons-fake-smile buttons-speaker",
+      "tags": "buttons-fake-smile buttons-speaker music_A_Great_Big_Helping_Of_Sarcasm",
       "id": "16",
       "text": "Oh there you are Marty! [[5.17]]",
       "links": [
@@ -434,7 +436,7 @@
     },
     {
       "name": "5.29",
-      "tags": "buttons-fake-smile excite peaches-happy",
+      "tags": "buttons-fake-smile excite peaches-happy music_A_Home_Called_Honey_Haven",
       "id": "31",
       "text": "You stare at them for a few moments. Ms. Buttons has a strained smile on her face. Peaches is trying to force herself to smile too. [[5.30]]",
       "links": [
@@ -574,7 +576,7 @@
     },
     {
       "name": "5.39",
-      "tags": "",
+      "tags": "music_silence",
       "id": "41",
       "text": "With the two people running the whole thing. [[5.40]]",
       "links": [
@@ -602,7 +604,7 @@
     },
     {
       "name": "5.41",
-      "tags": "marty_leave",
+      "tags": "marty_leave music_Don't_Talk_To_Me",
       "id": "43",
       "text": "You walk through the town square and head to the town center. [[5.42]]",
       "links": [
@@ -1051,7 +1053,7 @@
     },
     {
       "name": " 5.61b",
-      "tags": "excite flash marty-angry",
+      "tags": "excite flash marty-angry music_Demonic_Empathy",
       "id": "74",
       "text": "You shove Barnaby with all your might. [[5.62b]]",
       "links": [
@@ -1173,7 +1175,7 @@
     },
     {
       "name": " 5.65c2",
-      "tags": "",
+      "tags": "music_Don't_Talk_To_Me",
       "id": "82",
       "text": "Barnaby fixes you with an intense stare. [[5.66c]]",
       "links": [
@@ -1201,7 +1203,7 @@
     },
     {
       "name": "5.66c",
-      "tags": "barnaby-speaker",
+      "tags": "barnaby-speaker music_silence",
       "id": "84",
       "text": "Don't come to work tomorrow. [[5.67c]]",
       "links": [
@@ -1327,7 +1329,7 @@
     },
     {
       "name": "5.73b1",
-      "tags": "barnaby-angry barnaby-speaker excite",
+      "tags": "barnaby-angry barnaby-speaker excite music_silence",
       "id": "93",
       "text": "Don't come to work tomorrow. [[5.74]]",
       "links": [
@@ -1341,7 +1343,7 @@
     },
     {
       "name": "5.74",
-      "tags": "barnaby_leave marty_leave night_closed_bedroom",
+      "tags": "barnaby_leave marty_leave night_closed_bedroom music_Goodbye_Moon",
       "id": "94",
       "text": "Time passed faster than it felt like, and soon it is night. You pace around your room. [[5.75]]",
       "links": [
@@ -1397,7 +1399,7 @@
     },
     {
       "name": "5.78",
-      "tags": "closet_letter flash marty_leave quiver",
+      "tags": "closet_letter flash marty_leave quiver music_Demonic_Sympathy",
       "id": "98",
       "text": "As you prepare to sleep, you see a weirdly shaped paw slowly reach out from inside your closet. It beckons you closer. [[5.79]]",
       "links": [
@@ -1489,3 +1491,4 @@
     }
   ]
 }
+

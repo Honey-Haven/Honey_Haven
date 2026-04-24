@@ -15,6 +15,7 @@ var _current_overlay_active: bool = false
 var _current_bg: String = ""
 var _current_overlay_path: String = ""
 var _current_bgm: String = ""
+var _current_bgm_volume: float = 0.0
 var skip_next_day_splash: bool = false
 
 # must_visit tracking: hub_id → Array of unvisited passage names
@@ -152,9 +153,11 @@ func _process_next() -> void:
 		"bgm":
 			if packet["action"] == "play":
 				_current_bgm = packet["path"]
-				SignalBus.bgm_play.emit(packet["path"], packet["fade"], packet.get("volume", 0.0))
+				_current_bgm_volume = packet.get("volume", 0.0)
+				SignalBus.bgm_play.emit(packet["path"], packet["fade"], _current_bgm_volume)
 			else:
 				_current_bgm = ""
+				_current_bgm_volume = 0.0
 				SignalBus.bgm_stop.emit(packet.get("fade", 0.5))
 			_process_next()
 
@@ -199,6 +202,9 @@ func _process_next() -> void:
 					if _dialogue_ui.has_method("hide_overlay_sprite"):
 						_dialogue_ui.hide_overlay_sprite()
 			_process_next()
+
+		"no_text":
+			_do_no_text(packet.get("duration", 2.0))
 
 		"minigame":
 			_in_minigame = true
@@ -329,9 +335,11 @@ func _handle_dialogue(packet: Dictionary) -> void:
 	if speaker != "" and expression != "" and _current_stage_state.has(speaker):
 		_current_stage_state[speaker]["expression"] = expression
 		SignalBus.actor_expression.emit(speaker, expression)
-	# Quiver tag — also shake the speaking character's sprite
-	if packet.get("char_effect", "") == "quiver" and speaker != "":
+	var _char_effect: String = packet.get("char_effect", "")
+	if _char_effect == "quiver" and speaker != "":
 		SignalBus.actor_animate.emit(speaker, "shake")
+	elif _char_effect == "excite" and speaker != "":
+		SignalBus.actor_animate.emit(speaker, "excite")
 	_waiting_for_input = true
 	SignalBus.scene_packet_ready.emit(packet)
 	SignalBus.dialogue_line_started.emit(packet)
@@ -391,22 +399,39 @@ func get_stage_state() -> Dictionary:
 func get_current_bg() -> String:
 	return _current_bg
 
+func get_current_bgm() -> String:
+	return _current_bgm
+
+func get_current_bgm_volume() -> float:
+	return _current_bgm_volume
+
 func get_resume_label() -> String:
 	for i in range(_index, _packets.size()):
 		if _packets[i].get("type") == "label":
 			return _packets[i].get("name", "")
 	return ""
 
-func resume_after_minigame(label: String, stage_state: Dictionary = {}, saved_bg: String = "") -> void:
+func resume_after_minigame(label: String, stage_state: Dictionary = {}, saved_bg: String = "", saved_bgm: String = "", saved_bgm_vol: float = 0.0) -> void:
 	_in_minigame = false
 	if saved_bg != "":
 		_current_bg = saved_bg
 		SignalBus.background_change.emit(saved_bg, "cut")
+	if saved_bgm != "":
+		_current_bgm = saved_bgm
+		_current_bgm_volume = saved_bgm_vol
+		SignalBus.bgm_play.emit(saved_bgm, 0.5, saved_bgm_vol)
 	if not stage_state.is_empty():
 		_current_stage_state = stage_state.duplicate(true)
 		for actor_id in _current_stage_state:
 			var data = _current_stage_state[actor_id]
 			SignalBus.actor_appear.emit(actor_id, data["expression"], data["position"], true)
+	if _dialogue_ui:
+		if _current_overlay_active and _current_overlay_path != "":
+			if _dialogue_ui.has_method("show_overlay_sprite"):
+				_dialogue_ui.show_overlay_sprite(_current_overlay_path)
+		else:
+			if _dialogue_ui.has_method("hide_overlay_sprite"):
+				_dialogue_ui.hide_overlay_sprite()
 	if label != "":
 		_jump_to_label(label)
 	else:
@@ -425,6 +450,13 @@ func _jump_to_label(label_name: String) -> void:
 		_process_next()
 	else:
 		push_error("VNLogic: label '%s' not found! Available: %s" % [label_name, _labels.keys()])
+
+func _do_no_text(duration: float) -> void:
+	_waiting_for_input = false
+	if _dialogue_ui and _dialogue_ui.has_method("hide_for_no_text"):
+		_dialogue_ui.hide_for_no_text()
+	await get_tree().create_timer(duration).timeout
+	_process_next()
 
 func _do_wait(duration: float) -> void:
 	_waiting_for_input = false

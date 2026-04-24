@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dwi1xhktygm4l"]
+
+[ext_resource type="Texture2D" uid="uid://bvrv02x0uwmc6" path="res://minigames/ChesterChase/sprites/rock.png" id="1_1di36"]
+
+[node name="Rock" type="StaticBody2D" unique_id=1121530076]
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=2116375159]
+position = Vector2(-1, -11)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_1di36")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="." unique_id=1351056164]
+position = Vector2(-5, 4)
+rotation = 1.5707964
+polygon = PackedVector2Array(-78, 13.000004, -26.999998, 58, -2.999995, 109, 44.000008, 132, 59.000008, 145, 78.00001, 138, 101.00001, 94.99999, 97, 54.999996, 113, 38.999996, 110, -31.000006, 98, -52.000004, 102.99999, -111.00001, 83.99999, -145, 56.999992, -151, 39.999992, -143, 10.999994, -141, -2.0000045, -109, -66, -73, -80, -45.999996)
