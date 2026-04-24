@@ -51,6 +51,11 @@ func _on_bgm_play(path: String, fade_time: float, volume: float = 0.0) -> void:
 		tw.tween_property(old_player, "volume_db", -80.0, fade_time).set_trans(Tween.TRANS_SINE)
 		tw.chain().tween_callback(old_player.stop)
 
+func stop_and_forget(fade_time: float = 0.5) -> void:
+	_on_bgm_stop(fade_time)
+	_saved_positions.clear()
+	_current_path = ""
+
 func _on_bgm_stop(fade_time: float) -> void:
 	var current_player: AudioStreamPlayer = bgm_players[active_bgm_idx]
 	if current_player.playing:

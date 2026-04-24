@@ -181,9 +181,12 @@ func _process_next() -> void:
 			# cannot skip the animation by clicking.
 			if _dialogue_ui and _dialogue_ui.has_method("play_day_splash"):
 				_waiting_for_input = true
+				var _is_end: bool = packet.get("is_end", false)
+				if _is_end:
+					_index = _packets.size()  # skip any remaining packets — script_finished fires next
 				_dialogue_ui.play_day_splash(
 					packet.get("day_text", ""),
-					packet.get("is_end", false),
+					_is_end,
 					packet.get("bg_path", "")
 				)
 			else:

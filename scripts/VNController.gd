@@ -63,6 +63,9 @@ func _ready() -> void:
 		return
 
 	# ── Normal startup ────────────────────────────────────────────────────────
+	if menucontrolflow.selected_script != "":
+		script_path = menucontrolflow.selected_script
+		menucontrolflow.selected_script = ""
 	var packets: Array = _load_twine_json(script_path)
 	if packets.is_empty():
 		push_error("VNController: Twine JSON produced no packets – check the file path.")
@@ -348,3 +351,8 @@ func _on_minigame_start(minigame_id: String, _data: Dictionary) -> void:
 
 func _on_script_finished() -> void:
 	print("Script finished!")
+	AudioManager.stop_and_forget()
+	MinigameReturn.returning_from_minigame = false
+	MinigameReturn.pending_result = {}
+	MinigameReturn.script_path = ""
+	get_tree().change_scene_to_file("res://scenes/days_menu.tscn")

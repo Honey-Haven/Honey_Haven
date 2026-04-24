@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://c76re7krcxuk4"]
+
+[ext_resource type="Script" uid="uid://dbqms08kmx8dp" path="res://main_menu.gd" id="1_rtw2f"]
+[ext_resource type="Texture2D" uid="uid://wbvyykhja20j" path="res://menu_images/Titlescreen2.png" id="2_rtw2f"]
+[ext_resource type="Texture2D" uid="uid://6bml8u8cqmsg" path="res://menu_images/Title.png" id="3_tbmy8"]
+[ext_resource type="Texture2D" uid="uid://dei7ibble4jth" path="res://menu_images/Playbutton.png" id="4_jk1qb"]
+[ext_resource type="Texture2D" uid="uid://cwass3kc8gulb" path="res://menu_images/Aboutbutton.png" id="5_5dd4i"]
+[ext_resource type="Texture2D" uid="uid://sp77y5brid2x" path="res://menu_images/Contactbutton.png" id="6_lgwnu"]
+
+[node name="MainMenu" type="Node2D" unique_id=149552937]
+script = ExtResource("1_rtw2f")
+
+[node name="background" type="Sprite2D" parent="." unique_id=1253418840]
+position = Vector2(640, 360)
+texture = ExtResource("2_rtw2f")
+
+[node name="title" type="Sprite2D" parent="." unique_id=743976429]
+position = Vector2(587, 202)
+texture = ExtResource("3_tbmy8")
+offset = Vector2(53, 158)
+
+[node name="playbutton" type="Sprite2D" parent="." unique_id=469098733]
+position = Vector2(612, 344)
+texture = ExtResource("4_jk1qb")
+offset = Vector2(28, 16)
+
+[node name="Button" type="Button" parent="playbutton" unique_id=567778430]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -352.0
+offset_top = -25.0
+offset_right = 347.0
+offset_bottom = 33.0
+pivot_offset = Vector2(350, 27)
+
+[node name="helpbutton" type="Sprite2D" parent="." unique_id=398338920]
+position = Vector2(624, 432)
+texture = ExtResource("5_5dd4i")
+offset = Vector2(16, -72)
+
+[node name="Button2" type="LinkButton" parent="helpbutton" unique_id=1081302445]
+offset_left = -367.0
+offset_top = -17.0
+offset_right = 326.0
+offset_bottom = 41.0
+pivot_offset = Vector2(347, 22)
+uri = "https://c.tenor.com/W4FpVJ5IlxIAAAAd/tenor.gif"
+
+[node name="oldbutton2" type="Button" parent="helpbutton" unique_id=1444657786]
+visible = false
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -364.0
+offset_top = -18.0
+offset_right = 335.0
+offset_bottom = 36.0
+pivot_offset = Vector2(349, 25)
+
+[node name="contactdevbutton" type="Sprite2D" parent="." unique_id=842754603]
+position = Vector2(601, 518)
+texture = ExtResource("6_lgwnu")
+offset = Vector2(39, -158)
+
+[node name="Button3" type="LinkButton" parent="contactdevbutton" unique_id=1662010821]
+offset_left = -341.0
+offset_top = -21.0
+offset_right = 358.0
+offset_bottom = 36.0
+pivot_offset = Vector2(349, 21)
+uri = "https://docs.google.com/forms/d/e/1FAIpQLSepZPuktcuXyl9EuZf8YYd_yRXZA4lfc5-7Kzeufb-kZpZMRQ/viewform"
+
+[node name="oldbutton3" type="Button" parent="contactdevbutton" unique_id=1512730276]
+visible = false
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -341.0
+offset_top = -21.0
+offset_right = 358.0
+offset_bottom = 37.0
+pivot_offset = Vector2(350, 27)
+
+[node name="FADE" type="ColorRect" parent="." unique_id=280714858]
+visible = false
+offset_left = -16.0
+offset_top = -14.0
+offset_right = 1300.0
+offset_bottom = 746.0
+color = Color(0, 0, 0, 1)

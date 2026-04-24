@@ -1,0 +1,177 @@
+[gd_scene format=3 uid="uid://bf3budxm7vvpy"]
+
+[ext_resource type="Script" uid="uid://b1sj62f3mx3kh" path="res://scenes/days_menu.gd" id="1_83cfp"]
+[ext_resource type="Texture2D" uid="uid://wbvyykhja20j" path="res://menu_images/Titlescreen2.png" id="2_pqbx1"]
+[ext_resource type="Texture2D" uid="uid://bgdrcgqlp64p" path="res://menu_images/DaylistTitle.png" id="3_moocl"]
+[ext_resource type="Texture2D" uid="uid://c420kh74836qg" path="res://menu_images/Day1button.png" id="4_dmqsg"]
+[ext_resource type="Texture2D" uid="uid://cwl16vxfp7spk" path="res://menu_images/Daytag.png" id="5_g5n8x"]
+[ext_resource type="Texture2D" uid="uid://ci7v8ust1ugyg" path="res://menu_images/Day2button.png" id="5_ii5rv"]
+[ext_resource type="Texture2D" uid="uid://djf4utbomx2pf" path="res://menu_images/Day3button.png" id="6_moocl"]
+[ext_resource type="Texture2D" uid="uid://bliulv2avko3x" path="res://menu_images/Day4button.png" id="7_83cfp"]
+[ext_resource type="Texture2D" uid="uid://wsdtqgst3k1j" path="res://menu_images/Day5button.png" id="8_g5n8x"]
+[ext_resource type="Texture2D" uid="uid://duo1r2cujkvyj" path="res://menu_images/Day6button.png" id="9_4tfk8"]
+[ext_resource type="Texture2D" uid="uid://bwlra7x0vqhn2" path="res://menu_images/Epiloguebutton.png" id="11_4tfk8"]
+[ext_resource type="Texture2D" uid="uid://c2evorug54jde" path="res://menu_images/Backbutton.png" id="12_pqbx1"]
+
+[node name="DaysMenu" type="Node2D" unique_id=149552937]
+script = ExtResource("1_83cfp")
+
+[node name="background" type="Sprite2D" parent="." unique_id=1253418840]
+position = Vector2(640, 360)
+texture = ExtResource("2_pqbx1")
+
+[node name="title" type="Sprite2D" parent="." unique_id=743976429]
+position = Vector2(587, 202)
+texture = ExtResource("3_moocl")
+offset = Vector2(53, 158)
+
+[node name="day1" type="Sprite2D" parent="." unique_id=469098733]
+position = Vector2(332, 306)
+texture = ExtResource("4_dmqsg")
+offset = Vector2(308, 54)
+
+[node name="Button" type="Button" parent="day1" unique_id=567778430]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -59.0
+offset_top = -59.0
+offset_right = 66.0
+offset_bottom = 57.0
+pivot_offset = Vector2(57, 55)
+
+[node name="ribbon" type="Sprite2D" parent="day1" unique_id=1072304389]
+visible = false
+position = Vector2(308, 54)
+texture = ExtResource("5_g5n8x")
+
+[node name="day2" type="Sprite2D" parent="." unique_id=398338920]
+position = Vector2(599, 299)
+texture = ExtResource("5_ii5rv")
+offset = Vector2(41, 61)
+
+[node name="Button2" type="Button" parent="day2" unique_id=1444657786]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -61.0
+offset_top = -55.0
+offset_right = 67.0
+offset_bottom = 54.0
+pivot_offset = Vector2(63, 52)
+
+[node name="ribbon" type="Sprite2D" parent="day2" unique_id=1632763244]
+visible = false
+position = Vector2(308, 54)
+texture = ExtResource("5_g5n8x")
+
+[node name="day3" type="Sprite2D" parent="." unique_id=842754603]
+position = Vector2(873, 297)
+texture = ExtResource("6_moocl")
+offset = Vector2(-233, 63)
+
+[node name="Button3" type="Button" parent="day3" unique_id=1512730276]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -60.0
+offset_top = -57.0
+offset_right = 62.0
+offset_bottom = 58.0
+pivot_offset = Vector2(58, 58)
+
+[node name="ribbon" type="Sprite2D" parent="day3" unique_id=1120098834]
+visible = false
+position = Vector2(308, 54)
+texture = ExtResource("5_g5n8x")
+
+[node name="day4" type="Sprite2D" parent="." unique_id=1280462654]
+position = Vector2(336, 490)
+texture = ExtResource("7_83cfp")
+offset = Vector2(304, -130)
+
+[node name="Button4" type="Button" parent="day4" unique_id=1057700706]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -63.0
+offset_top = -56.0
+offset_right = 59.0
+offset_bottom = 53.0
+pivot_offset = Vector2(58, 58)
+
+[node name="ribbon" type="Sprite2D" parent="day4" unique_id=428600353]
+visible = false
+position = Vector2(308, 54)
+texture = ExtResource("5_g5n8x")
+
+[node name="day5" type="Sprite2D" parent="." unique_id=1620318337]
+position = Vector2(598, 484)
+texture = ExtResource("8_g5n8x")
+offset = Vector2(42, -124)
+
+[node name="Button5" type="Button" parent="day5" unique_id=235439916]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -63.0
+offset_top = -56.0
+offset_right = 59.0
+offset_bottom = 53.0
+pivot_offset = Vector2(58, 58)
+
+[node name="ribbon" type="Sprite2D" parent="day5" unique_id=628676878]
+visible = false
+position = Vector2(308, 54)
+texture = ExtResource("5_g5n8x")
+
+[node name="day6" type="Sprite2D" parent="." unique_id=1675908315]
+position = Vector2(872, 476)
+texture = ExtResource("9_4tfk8")
+offset = Vector2(-232, -116)
+
+[node name="Button6" type="Button" parent="day6" unique_id=913928926]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -60.0
+offset_top = -53.0
+offset_right = 62.0
+offset_bottom = 56.0
+pivot_offset = Vector2(58, 58)
+
+[node name="ribbon" type="Sprite2D" parent="day6" unique_id=463939999]
+visible = false
+position = Vector2(308, 54)
+texture = ExtResource("5_g5n8x")
+
+[node name="day7" type="Sprite2D" parent="." unique_id=715594581]
+position = Vector2(585, 582)
+texture = ExtResource("11_4tfk8")
+offset = Vector2(55, -222)
+
+[node name="Button7" type="Button" parent="day7" unique_id=1072516246]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -136.0
+offset_top = -15.0
+offset_right = 162.0
+offset_bottom = 18.0
+pivot_offset = Vector2(144, 18)
+
+[node name="FADE" type="ColorRect" parent="." unique_id=280714858]
+visible = false
+z_index = 4
+offset_left = -16.0
+offset_top = -14.0
+offset_right = 1300.0
+offset_bottom = 746.0
+color = Color(0, 0, 0, 1)
+
+[node name="back" type="Sprite2D" parent="." unique_id=938114487]
+position = Vector2(214, 616)
+texture = ExtResource("12_pqbx1")
+offset = Vector2(426, -256)
+
+[node name="backbutton" type="Button" parent="back" unique_id=845927788]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -35.0
+offset_top = -19.0
+offset_right = 44.0
+offset_bottom = 23.0
+pivot_offset = Vector2(38, 22)

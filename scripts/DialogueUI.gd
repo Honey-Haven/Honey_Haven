@@ -247,11 +247,11 @@ func _ready() -> void:
 	# z_index 200 — sits above absolutely everything.
 	# mouse_filter STOP so clicks during the splash go nowhere.
 	_day_splash_overlay = ColorRect.new()
-	_day_splash_overlay.color = Color(0, 0, 0, 0)
+	_day_splash_overlay.color = Color(0, 0, 0, 1)
 	_day_splash_overlay.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	_day_splash_overlay.mouse_filter = Control.MOUSE_FILTER_STOP
 	_day_splash_overlay.z_index = 200
-	_day_splash_overlay.visible = false
+	_day_splash_overlay.visible = true
 	add_child(_day_splash_overlay)
 
 	_day_splash_label = Label.new()
@@ -1104,7 +1104,6 @@ func play_day_splash(day_text: String, is_end: bool, bg_path: String) -> void:
 		_day_splash_overlay.add_child(bg_rect)
 		_day_splash_overlay.move_child(bg_rect, 0)  # keep below the label
 
-	_day_splash_overlay.color = Color(0, 0, 0, 0)
 	var ds := _ds()
 	_day_splash_label.text    = day_text
 	_day_splash_label.add_theme_font_size_override("font_size", ds.font_size if ds else DAY_SPLASH_FONT_SIZE)
@@ -1117,10 +1116,10 @@ func play_day_splash(day_text: String, is_end: bool, bg_path: String) -> void:
 	_day_splash_overlay.visible  = true
 
 	# Run the animation sequence as a coroutine.
-	_run_day_splash_sequence.call_deferred(bg_rect)
+	_run_day_splash_sequence.call_deferred(bg_rect, is_end)
 
 
-func _run_day_splash_sequence(bg_rect: TextureRect) -> void:
+func _run_day_splash_sequence(bg_rect: TextureRect, is_end: bool) -> void:
 	# ── FADE IN black overlay (and bg image if provided) ─────────────────────
 	var ds_run := _ds()
 	var _fade_in:     float = ds_run.fade_in       if ds_run else DAY_SPLASH_FADE_IN
@@ -1175,20 +1174,28 @@ func _run_day_splash_sequence(bg_rect: TextureRect) -> void:
 		return
 
 	# ── FADE OUT ──────────────────────────────────────────────────────────────
-	var tw_out := create_tween().set_parallel(true)
-	tw_out.tween_property(_day_splash_overlay, "color",       Color(0, 0, 0, 0), _fade_out)
-	tw_out.tween_property(_day_splash_label,   "modulate:a",  0.0,               _fade_out)
-	if bg_rect and is_instance_valid(bg_rect):
-		tw_out.tween_property(bg_rect, "modulate:a", 0.0, _fade_out)
-	await tw_out.finished
-	if not is_instance_valid(self):
-		return
-
-	# ── CLEANUP ───────────────────────────────────────────────────────────────
-	_day_splash_overlay.visible = false
-	_day_splash_label.visible   = false
-	if bg_rect and is_instance_valid(bg_rect):
-		bg_rect.queue_free()
+	if not is_end:
+		var tw_out := create_tween().set_parallel(true)
+		tw_out.tween_property(_day_splash_overlay, "color",      Color(0, 0, 0, 0), _fade_out)
+		tw_out.tween_property(_day_splash_label,   "modulate:a", 0.0,               _fade_out)
+		if bg_rect and is_instance_valid(bg_rect):
+			tw_out.tween_property(bg_rect, "modulate:a", 0.0, _fade_out)
+		await tw_out.finished
+		if not is_instance_valid(self):
+			return
+		_day_splash_overlay.visible = false
+		_day_splash_label.visible   = false
+		if bg_rect and is_instance_valid(bg_rect):
+			bg_rect.queue_free()
+	else:
+		var tw_label := create_tween()
+		tw_label.tween_property(_day_splash_label, "modulate:a", 0.0, _fade_out * 0.5)
+		await tw_label.finished
+		if not is_instance_valid(self):
+			return
+		_day_splash_label.visible = false
+		# Overlay stays solid black — VNController switches to days_menu,
+		# which fades in from black for a seamless cut.
 	_on_day_splash_done()
 
 

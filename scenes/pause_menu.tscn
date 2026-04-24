@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://ka1ctlel8e0v"]
+
+[ext_resource type="Script" uid="uid://b6jqdhonxt14e" path="res://scenes/pause_menu.gd" id="1_v4r4p"]
+[ext_resource type="Texture2D" uid="uid://dfvpjp60xb5yy" path="res://menu_images/Menu.png" id="2_5d2l8"]
+[ext_resource type="Texture2D" uid="uid://hh65ubbmvn8j" path="res://menu_images/Homebutton.png" id="3_7l7mv"]
+[ext_resource type="Texture2D" uid="uid://b8jhm706yce8x" path="res://menu_images/Helpbutton.png" id="4_v4r4p"]
+[ext_resource type="Texture2D" uid="uid://n106suyfnpmj" path="res://menu_images/Menubutton.png" id="5_7l7mv"]
+[ext_resource type="Texture2D" uid="uid://dhs0ercsi2mdx" path="res://menu_images/Xbutton.png" id="5_v4r4p"]
+
+[node name="MainMenu" type="Node2D" unique_id=149552937]
+script = ExtResource("1_v4r4p")
+
+[node name="background" type="Sprite2D" parent="." unique_id=1253418840]
+position = Vector2(640, -400)
+texture = ExtResource("2_5d2l8")
+
+[node name="playbutton" type="Sprite2D" parent="background" unique_id=469098733]
+position = Vector2(-30, -28)
+texture = ExtResource("3_7l7mv")
+offset = Vector2(30, 28)
+
+[node name="Button" type="Button" parent="background/playbutton" unique_id=567778430]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+z_index = 3
+offset_left = -347.0
+offset_top = -17.0
+offset_right = 352.0
+offset_bottom = 23.0
+pivot_offset = Vector2(347, 14)
+
+[node name="helpbutton" type="Sprite2D" parent="background" unique_id=398338920]
+position = Vector2(-16, 72)
+texture = ExtResource("4_v4r4p")
+offset = Vector2(16, -72)
+
+[node name="Button2" type="LinkButton" parent="background/helpbutton" unique_id=1081302445]
+z_index = 3
+offset_left = -367.0
+offset_top = -17.0
+offset_right = 326.0
+offset_bottom = 22.0
+pivot_offset = Vector2(347, 17)
+uri = "https://media.tenor.com/kmMGgNMQiHsAAAAM/mater-desperate.gif"
+
+[node name="oldbutton2" type="Button" parent="background/helpbutton" unique_id=1444657786]
+visible = false
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -364.0
+offset_top = -18.0
+offset_right = 335.0
+offset_bottom = 36.0
+pivot_offset = Vector2(349, 25)
+
+[node name="xbutton" type="Sprite2D" parent="background" unique_id=140267831]
+position = Vector2(370, -248)
+texture = ExtResource("5_v4r4p")
+offset = Vector2(-370, 248)
+
+[node name="Button3" type="Button" parent="background/xbutton" unique_id=1438442982]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -31.0
+offset_top = -29.0
+offset_right = 30.0
+offset_bottom = 35.0
+pivot_offset = Vector2(32, 31)
+
+[node name="menubutton" type="Sprite2D" parent="." unique_id=1679508886]
+position = Vector2(65, 39)
+texture = ExtResource("5_7l7mv")
+offset = Vector2(575, 321)
+
+[node name="Button" type="Button" parent="menubutton" unique_id=1057617125]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -40.0
+offset_top = -18.0
+offset_right = 47.0
+offset_bottom = 20.0
+pivot_offset = Vector2(39, 17)
+
+[node name="FADE" type="ColorRect" parent="." unique_id=1820635746]
+visible = false
+offset_left = -16.0
+offset_top = -14.0
+offset_right = 1300.0
+offset_bottom = 746.0
+color = Color(0, 0, 0, 1)

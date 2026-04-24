@@ -11,11 +11,12 @@ config_version=5
 [application]
 
 config/name="hh_test_v2"
-run/main_scene="res://resources/VNScene.tscn"
+run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.6", "Forward Plus")
 
 [autoload]
 
+menucontrolflow="*res://autoload/menucontrolflow.gd"
 SignalBus="*uid://c7wyrpllepb3b"
 AudioManager="*uid://dc0awv3v2n06m"
 CarrotsResults="*uid://bu8tkv0wvwok1"
