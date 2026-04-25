@@ -44,7 +44,7 @@ offset_top = -17.0
 offset_right = 326.0
 offset_bottom = 41.0
 pivot_offset = Vector2(347, 22)
-uri = "https://docs.google.com/presentation/d/1wkJlo7oryu4fN1T0jWW0g1Rvkax27dGmvD3BGdL7pok/edit?usp=sharing"
+uri = "https://honey-haven.github.io/Handbook/"
 
 [node name="oldbutton2" type="Button" parent="helpbutton" unique_id=1444657786]
 visible = false
