@@ -3,13 +3,13 @@
 [ext_resource type="Script" uid="uid://bdvctli063a1h" path="res://scripts/VNController.gd" id="1_xunwx"]
 [ext_resource type="Resource" uid="uid://cgeon6stjg2n8" path="res://resources/my_theme.tres" id="2_ovnvk"]
 [ext_resource type="Script" uid="uid://xamk3rp5acka" path="res://scripts/BackgroundManager.gd" id="2_qiym0"]
-[ext_resource type="Script" uid="uid://dr1uyr3yybsyn" path="res://scripts/ActorManager.gd" id="3_ovnvk"]
+[ext_resource type="Script" uid="uid://3eihejyyhcdd" path="res://scripts/ActorManager.gd" id="3_ovnvk"]
 [ext_resource type="Script" uid="uid://4wynu0e2w18s" path="res://scripts/VNLogic.gd" id="4_pjpao"]
 [ext_resource type="Script" uid="uid://cvl6wig0ix7w0" path="res://scripts/DialogueUI.gd" id="6_ovnvk"]
 [ext_resource type="AudioStream" uid="uid://eux08sdk27ps" path="res://audio/sfx/Chipmunk Voice Honey Haven (mp3cut.net)(2).mp3" id="7_pjpao"]
 [ext_resource type="AudioStream" uid="uid://dcf5tlxmcjhbv" path="res://audio/sfx/freesound_community-typewriter-typing-68696 (mp3cut.net)(1).mp3" id="8_2qy2b"]
-[ext_resource type="PackedScene" uid="uid://ka1ctlel8e0v" path="res://scenes/pause_menu.tscn" id="9_pmenu"]
-[ext_resource type="Texture2D" path="res://stuff/backarrow.png" id="10_back"]
+[ext_resource type="PackedScene" path="res://scenes/pause_menu.tscn" id="9_pmenu"]
+[ext_resource type="Texture2D" uid="uid://djh362461j2yf" path="res://stuff/backarrow.png" id="10_back"]
 
 [node name="VNScene" type="Node" unique_id=153324785]
 script = ExtResource("1_xunwx")
@@ -112,12 +112,11 @@ offset_bottom = 112.0
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 focus_mode = 0
-flat = true
 icon = ExtResource("10_back")
+flat = true
 expand_icon = true
-text = ""
 
-[node name="PauseMenuLayer" type="CanvasLayer" parent="."]
+[node name="PauseMenuLayer" type="CanvasLayer" parent="." unique_id=2147274595]
 layer = 2
 
-[node name="PauseMenu" parent="PauseMenuLayer" instance=ExtResource("9_pmenu")]
+[node name="PauseMenu" parent="PauseMenuLayer" unique_id=1578430874 instance=ExtResource("9_pmenu")]

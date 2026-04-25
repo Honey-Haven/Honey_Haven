@@ -7,10 +7,13 @@ const BOB_TALK_HEIGHT  := 14.0
 const BOB_TALK_SPEED   := 0.35
 
 # ── Pop-in tuning ─────────────────────────────────────────────
-# How much bigger the character starts on entry (1.0 = normal size, 1.2 = 20% bigger)
-const POPIN_OVERSHOOT_SCALE: float = 1.20  # ← ADJUST: entry overshoot scale multiplier
-const POPIN_DURATION:        float = 0.7  # ← ADJUST: seconds for pop-in animation
-const POPIN_SETTLE_DURATION: float = 0.10  # ← ADJUST: seconds for settle to normal
+# The pop-in grows the sprite from POPIN_START_SCALE up to its base scale,
+# overshooting slightly past the target (via TRANS_BACK + EASE_OUT) before
+# settling — a classic snappy "pop in" feel. Keeping the start slightly below
+# 1.0 avoids the old bug where starting ABOVE 1.0 and shrinking looked like the
+# character was deflating on entry.
+const POPIN_START_SCALE: float = 0.6   # ← ADJUST: starting scale (fraction of base)
+const POPIN_DURATION:    float = 0.35  # ← ADJUST: seconds for pop-in animation
 
 # ── Talking scale tuning ──────────────────────────────────────
 const TALK_SCALE_MULTIPLIER: float = 1.2  # ← ADJUST: how much bigger the speaker gets (e.g. 1.07 = 7% bigger)
@@ -100,11 +103,14 @@ var _actors: Dictionary = {}
 var _current_speaker: String = ""
 var _active_slots: Array = ["", ""]
 
-# Tracks any in-progress hide tween per slot (0=left, 1=right) so enter can wait for it.
-var _hide_tweens: Dictionary = {}  # slot_index (int) → Tween
-
 # Per-actor hide tween tracking — lets a new appear kill a stale fade-out tween.
+# Keyed by actor_id so co-occupants (two actors sharing a slot) never clobber
+# each other's hide animation.
 var _actor_hide_tweens: Dictionary = {}  # actor_id (String) → Tween
+
+# Global hide counter + appear queue — ensures no actor enters while any is still leaving.
+var _hide_count: int = 0
+var _pending_appears: Array = []  # Array[Callable]
 
 # Per-actor pop-in tween tracking — lets talk-scale kill a running pop-in so
 # they don't fight over sprite.scale simultaneously.
@@ -128,7 +134,14 @@ var _emoticon_run_count: Dictionary    = {}   # actor_id → consecutive count
 # Enter SFX player
 var _enter_sfx_player: AudioStreamPlayer = null
 
+func _flush_pending_appears() -> void:
+	var pending := _pending_appears.duplicate()
+	_pending_appears.clear()
+	for fn in pending:
+		fn.call()
+
 func _ready() -> void:
+	z_index = 10  # always above background cross-fade (BG sprites use z_index 0–1)
 	SignalBus.actor_show.connect(_on_actor_show)
 	SignalBus.actor_hide.connect(_on_actor_hide)
 	SignalBus.actor_move.connect(_on_actor_move)
@@ -226,10 +239,9 @@ func _on_clear_visual_state() -> void:
 	_pair_expressions.clear()
 	_emoticon_last_emotion.clear()
 	_emoticon_run_count.clear()
+	_hide_count = 0
+	_pending_appears.clear()
 	# Kill ALL pending tweens so their callbacks never fire after this clear.
-	for slot_i in _hide_tweens:
-		_hide_tweens[slot_i].kill()
-	_hide_tweens.clear()
 	for aid in _actor_hide_tweens:
 		_actor_hide_tweens[aid].kill()
 	_actor_hide_tweens.clear()
@@ -264,7 +276,10 @@ func _on_actor_appear(actor_id: String, expression: String, position: String, in
 		var data = _actors[actor_id]
 		var sprite: Sprite2D = data["node"]
 
-		# Update slot ownership.
+		# Update slot ownership — clear any stale entry first so actor is never in two slots.
+		for i in 2:
+			if _active_slots[i] == actor_id:
+				_active_slots[i] = ""
 		if position == "left":
 			_active_slots[0] = actor_id
 		elif position == "right":
@@ -309,11 +324,10 @@ func _on_actor_appear(actor_id: String, expression: String, position: String, in
 
 	# ── ANIMATED PATH ────────────────────────────────────────────────────────────
 	if PAIRED_ACTORS.has(actor_id):
+		# Defer so the signal stack fully unwinds before we touch sprite state.
 		call_deferred("_on_paired_appear", actor_id, expression, position, false)
 		return
 
-	# VNLogic always pre-assigns positions before emitting actor_appear, so
-	# position is "left", "right", or "center". Treat center/empty as right (fallback).
 	var pos_key: String = position
 	if pos_key == "" or pos_key == "center":
 		if _active_slots[0] == "" or _active_slots[0] == actor_id:
@@ -323,11 +337,8 @@ func _on_actor_appear(actor_id: String, expression: String, position: String, in
 		else:
 			pos_key = "right"
 
-	if pos_key == "left":
-		_active_slots[0] = actor_id
-	elif pos_key == "right":
-		_active_slots[1] = actor_id
-
+	# Slot ownership is claimed inside _do_appear_at AFTER the hide-count gate,
+	# so a queued appear doesn't pre-empt a still-departing actor's slot.
 	_do_appear_at(actor_id, expression, pos_key, false)
 
 
@@ -337,21 +348,38 @@ var _pair_expressions: Dictionary = {}
 
 func _on_paired_appear(actor_id: String, expression: String, position: String, instant: bool) -> void:
 	var pair_id: String = PAIRED_ACTORS[actor_id]
-	var layout: Array   = PAIRED_LAYOUT.get(pair_id, [pair_id, actor_id])
 
+	# Resolve slot key.
 	var slot_key: String = _pair_slots.get(pair_id, "")
 	if slot_key == "" or position != "":
 		if position != "" and position != "center":
 			slot_key = position
 		else:
-			if _active_slots[1] == "" or _active_slots[1] == pair_id:
-				slot_key = "right"
-			elif _active_slots[0] == "" or _active_slots[0] == pair_id:
-				slot_key = "left"
-			else:
-				slot_key = "right"
+			slot_key = "right"   # Scotch/Tofu default to right
 		_pair_slots[pair_id] = slot_key
 
+	# Record this member's expression before the gate so both expressions are
+	# available when _do_paired_appear_now eventually runs.
+	if not _pair_expressions.has(pair_id):
+		_pair_expressions[pair_id] = {}
+	_pair_expressions[pair_id][actor_id] = expression
+
+	# Gate: wait for any departing actors to finish before entering.
+	if _hide_count > 0 and not instant:
+		var cid := actor_id; var cex := expression; var cslot := slot_key; var cinst := instant
+		_pending_appears.append(func(): _do_paired_appear_now(cid, cex, cslot, cinst))
+		return
+
+	_do_paired_appear_now(actor_id, expression, slot_key, instant)
+
+# ── Inner paired-appear (runs after hides drain) ──────────────
+func _do_paired_appear_now(actor_id: String, expression: String, slot_key: String, instant: bool) -> void:
+	var pair_id: String = PAIRED_ACTORS[actor_id]
+	# PAIRED_LAYOUT["Scotch"] = ["Scotch", "Tofu"]
+	# layout[0] = Scotch (left of pair), layout[1] = Tofu (right of pair = outermost when on right side)
+	var layout: Array   = PAIRED_LAYOUT.get(pair_id, [pair_id, actor_id])
+
+	# Claim slot ownership now that hides are done.
 	if slot_key == "left":
 		_active_slots[0] = pair_id
 	else:
@@ -359,11 +387,10 @@ func _on_paired_appear(actor_id: String, expression: String, position: String, i
 
 	if not _pair_expressions.has(pair_id):
 		_pair_expressions[pair_id] = {}
-	_pair_expressions[pair_id][actor_id] = expression
 
-	var base_pos: Vector2 = POSITIONS.get(slot_key, POSITIONS["right"])
-	var left_member:  String = layout[0]
-	var right_member: String = layout[1]
+	var base_pos: Vector2  = POSITIONS.get(slot_key, POSITIONS["right"])
+	var left_member:  String = layout[0]   # Scotch — left of the pair
+	var right_member: String = layout[1]   # Tofu   — right of the pair (outermost on right side)
 
 	for member_id in [left_member, right_member]:
 		if not _actors.has(member_id):
@@ -371,26 +398,49 @@ func _on_paired_appear(actor_id: String, expression: String, position: String, i
 		var is_left_of_pair: bool = (member_id == left_member)
 		var offset: Vector2 = -PAIRED_OFFSET * 0.5 if is_left_of_pair else PAIRED_OFFSET * 0.5
 		var member_pos: Vector2 = base_pos + offset
-		var member_expr: String = _pair_expressions[pair_id].get(member_id, "neutral")
 		var data = _actors[member_id]
-		data["base_pos"] = member_pos
-		_stop_bob(member_id)
-		data["node"].visible = true
-		_set_expression(data, member_expr)
-		if instant:
-			data["node"].modulate.a = 1.0
-			data["node"].position = member_pos
-		else:
-			data["node"].position = member_pos
-			_play_enter_sfx()
-			_do_popin(member_id)
 
+		if member_id == actor_id:
+			# New arrival — full enter.
+			var member_expr: String = _pair_expressions[pair_id].get(member_id, expression)
+			data["base_pos"]      = member_pos
+			data["node"].position = member_pos
+			data["node"].visible  = true
+			_stop_bob(member_id)
+			_set_expression(data, member_expr)
+			_apply_mirror(member_id, slot_key)
+			if instant:
+				data["node"].modulate.a = 1.0
+				_start_bob(member_id, false)
+			else:
+				_play_enter_sfx()
+				_do_popin(member_id)
+		elif data["node"].visible:
+			# Partner already on stage: update base_pos and slide if needed.
+			var prev_pos: Vector2 = data["base_pos"]
+			data["base_pos"] = member_pos
+			if prev_pos.distance_to(member_pos) > 1.0:
+				_stop_bob(member_id)
+				if _popin_tweens.has(member_id):
+					# Still entering — snap position so pop-in lands correctly.
+					data["node"].position = member_pos
+				else:
+					var sid: String = member_id
+					var stw: Tween = create_tween()
+					stw.tween_property(data["node"], "position", member_pos, 0.25) 						.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+					stw.tween_callback(func():
+						if _actors.has(sid) and _actors[sid]["node"].visible:
+							_start_bob(sid, _actors[sid].get("talking", false)))
+		# else: partner not yet on stage — positions itself on its own appear call.
+
+	# Refresh bob state for visible members.
 	for member_id in [left_member, right_member]:
-		if not _actors.has(member_id):
+		if not _actors.has(member_id) or not _actors[member_id]["node"].visible:
 			continue
 		var is_speaker: bool = (member_id == actor_id)
 		_actors[member_id]["talking"] = is_speaker
-		_start_bob(member_id, is_speaker)
+		if not _popin_tweens.has(member_id):
+			_start_bob(member_id, is_speaker)
 
 
 func _on_paired_hide(pair_id: String) -> void:
@@ -408,6 +458,7 @@ func _on_paired_hide(pair_id: String) -> void:
 				slide_target = sprite.position + Vector2(-slide_offset, 0)
 			else:
 				slide_target = sprite.position + Vector2(slide_offset, 0)
+			_hide_count += 1
 			var tw = create_tween()
 			tw.set_parallel(true)
 			tw.tween_property(sprite, "position", slide_target, 0.35).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
@@ -415,6 +466,9 @@ func _on_paired_hide(pair_id: String) -> void:
 			tw.chain().tween_callback(func():
 				sprite.visible = false
 				sprite.position = home_pos
+				_hide_count = max(0, _hide_count - 1)
+				if _hide_count == 0:
+					call_deferred("_flush_pending_appears")
 			)
 	_pair_slots.erase(pair_id)
 	_pair_expressions.erase(pair_id)
@@ -458,11 +512,29 @@ func _refresh_cooccupant_zorder(slot: String) -> void:
 				_emoticon_sprites[outer_id].z_index = 11
 
 func _do_appear_at(actor_id: String, expression: String, pos_key: String, instant: bool):
-	var slot_index: int = 0 if pos_key == "left" else (1 if pos_key == "right" else -1)
+	# ── Gate: queue immediately if any actor is still leaving. ───────────────
+	# MUST be before slot/cooccupant mutation so departing actors are not evicted
+	# prematurely, and so the new actor's slot is claimed with a clean slate.
+	if _hide_count > 0 and not instant:
+		var cid := actor_id; var cex := expression; var cpos := pos_key
+		_pending_appears.append(func(): _do_appear_at(cid, cex, cpos, false))
+		return
+
+	# Claim _active_slots now (hides are done / instant).
+	for i in 2:
+		if _active_slots[i] == actor_id:
+			_active_slots[i] = ""
+	if pos_key == "left":
+		_active_slots[0] = actor_id
+	elif pos_key == "right":
+		_active_slots[1] = actor_id
+
 	var anchor: Vector2 = POSITIONS.get(pos_key, POSITIONS["center"])
 
 	# ── Two-actor same-side positioning ──────────────────────────────────────
-	# Add this actor to the slot's occupant list (if not already there).
+	for other_side in ["left", "right"]:
+		if other_side != pos_key:
+			_slot_cooccupants[other_side].erase(actor_id)
 	if pos_key in _slot_cooccupants:
 		var occ: Array = _slot_cooccupants[pos_key]
 		if not occ.has(actor_id):
@@ -471,22 +543,17 @@ func _do_appear_at(actor_id: String, expression: String, pos_key: String, instan
 			occ.pop_front()
 	_refresh_cooccupant_zorder(pos_key)
 
-	# ── Compute my_base: new arrival always gets the anchor (outer position). ─
-	# The existing occupant slides inward (toward screen center) to make room.
 	var my_base: Vector2 = anchor
 	if pos_key in _slot_cooccupants:
 		var occ: Array = _slot_cooccupants[pos_key]
 		if occ.size() == 2:
-			# "Inward" direction: left-slot actors move right, right-slot actors move left.
 			var inward_x: float = COOCCUPANT_INNER_OFFSET if pos_key == "left" else -COOCCUPANT_INNER_OFFSET
 			var inner: Vector2  = anchor + Vector2(inward_x, 0.0)
 			for i in occ.size():
 				var oid: String = occ[i]
 				if oid == actor_id:
-					# New arrival: appears at the slot anchor (outer).
 					my_base = anchor
 				elif _actors.has(oid) and _actors[oid]["node"].visible:
-					# Existing occupant: slide inward to make room.
 					var slide_oid: String = oid
 					var odata = _actors[oid]
 					odata["base_pos"] = inner
@@ -499,13 +566,6 @@ func _do_appear_at(actor_id: String, expression: String, pos_key: String, instan
 							_start_bob(slide_oid, _actors[slide_oid].get("talking", false))
 					)
 
-	# If a hide tween is still running for this slot, chain our appear after it.
-	if slot_index >= 0 and _hide_tweens.has(slot_index) and not instant:
-		_hide_tweens[slot_index].tween_callback(func():
-			_do_appear_at_immediate(actor_id, expression, pos_key, my_base, false)
-		)
-		return
-
 	_do_appear_at_immediate(actor_id, expression, pos_key, my_base, instant)
 
 func _do_appear_at_immediate(actor_id: String, expression: String, pos_key: String, base: Vector2, instant: bool):
@@ -513,6 +573,10 @@ func _do_appear_at_immediate(actor_id: String, expression: String, pos_key: Stri
 	if _actor_hide_tweens.has(actor_id):
 		_actor_hide_tweens[actor_id].kill()
 		_actor_hide_tweens.erase(actor_id)
+		# The killed tween's decrement callback will never fire, so compensate here.
+		_hide_count = max(0, _hide_count - 1)
+		if _hide_count == 0:
+			call_deferred("_flush_pending_appears")
 	# Kill any running pop-in or scale tween so they don't conflict with the new appearance.
 	if _popin_tweens.has(actor_id):
 		_popin_tweens[actor_id].kill()
@@ -559,6 +623,12 @@ func _apply_mirror(actor_id: String, pos_key: String) -> void:
 
 # ── Pop-in animation ─────────────────────────────────────────
 func _do_popin(actor_id: String) -> void:
+	# Kill any in-flight pop-in for this actor so we don't fight an earlier one
+	# (e.g. two actors entering on the same frame in a paired arrangement).
+	if _popin_tweens.has(actor_id):
+		_popin_tweens[actor_id].kill()
+		_popin_tweens.erase(actor_id)
+
 	var data = _actors[actor_id]
 	var sprite: Sprite2D = data["node"]
 	var base_scale: Vector2 = data.get("base_scale", sprite.scale.abs())
@@ -568,7 +638,9 @@ func _do_popin(actor_id: String) -> void:
 	var target_scale: Vector2 = Vector2(base_scale.x * mirror_x, base_scale.y)
 
 	sprite.modulate.a = 1.0
-	sprite.scale = target_scale * POPIN_OVERSHOOT_SCALE
+	# Start smaller than base and grow up to target — TRANS_BACK + EASE_OUT
+	# overshoots slightly past the target for a snappy "pop" feel.
+	sprite.scale = target_scale * POPIN_START_SCALE
 
 	var tw: Tween = create_tween()
 	_popin_tweens[actor_id] = tw
@@ -578,8 +650,15 @@ func _do_popin(actor_id: String) -> void:
 	var cap_id: String = actor_id
 	tw.tween_callback(func():
 		_popin_tweens.erase(cap_id)
-		_start_bob(cap_id, false)
+		if not _actors.has(cap_id):
+			return
+		var is_talking: bool = _actors[cap_id].get("talking", false)
+		_start_bob(cap_id, is_talking)
+		# If dialogue arrived while this actor was still queued/popping-in,
+		# apply all speaker visuals now that they are actually on screen.
 		if _current_speaker == cap_id:
+			_actors[cap_id]["node"].modulate.a = 1.0
+			_elevate_speaker_zorder(cap_id)
 			_apply_talk_scale(cap_id)
 		if _pending_anims.has(cap_id):
 			var queued: String = _pending_anims[cap_id]
@@ -593,22 +672,41 @@ func _on_actor_hide(actor_id: String) -> void:
 			_on_paired_hide(actor_id)
 		return
 
+	# No-op if actor is already off screen (e.g. redundant hide at a convergent passage).
+	if not _actors[actor_id]["node"].visible:
+		return
+
 	# Kill any previous hide tween for this actor so its alpha callback can't fire later.
+	# Compensate _hide_count since the killed tween's decrement callback won't fire.
 	if _actor_hide_tweens.has(actor_id):
 		_actor_hide_tweens[actor_id].kill()
 		_actor_hide_tweens.erase(actor_id)
+		_hide_count = max(0, _hide_count - 1)
 
-	# Determine which slot this actor occupies so we can key the tween by slot.
+	# Determine slot from the actor's actual base position — more reliable than
+	# _active_slots which can hold stale entries when tweens were killed early.
+	var data = _actors[actor_id]
 	var slot_index: int = -1
-	if _active_slots[0] == actor_id:
+	var base_x: float = data["base_pos"].x
+	if base_x < 640.0:
 		slot_index = 0
-	elif _active_slots[1] == actor_id:
+	elif base_x > 640.0:
 		slot_index = 1
 	# Don't clear the slot yet — keep it blocked until the slide-out finishes.
 
-	var data = _actors[actor_id]
 	_stop_bob(actor_id)
 	_hide_emoticon(actor_id, false)
+
+	# Paired actors are registered individually, so they take this non-paired hide
+	# path. Clean up pair bookkeeping so a later re-entry doesn't inherit stale slot
+	# or expression data.
+	if PAIRED_ACTORS.has(actor_id):
+		var pair_id: String = PAIRED_ACTORS[actor_id]
+		if _pair_expressions.has(pair_id):
+			_pair_expressions[pair_id].erase(actor_id)
+			if _pair_expressions[pair_id].is_empty():
+				_pair_expressions.erase(pair_id)
+				_pair_slots.erase(pair_id)
 
 	# Slide off toward the edge the actor is closest to.
 	var sprite: Sprite2D = data["node"]
@@ -622,10 +720,7 @@ func _on_actor_hide(actor_id: String) -> void:
 
 	var home_pos: Vector2 = data["base_pos"]
 
-	# Kill any previous hide tween on this slot.
-	if slot_index >= 0 and _hide_tweens.has(slot_index):
-		_hide_tweens[slot_index].kill()
-
+	_hide_count += 1
 	var tw = create_tween()
 	tw.set_parallel(true)
 	tw.tween_property(sprite, "position", slide_target, 0.35).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
@@ -659,15 +754,14 @@ func _on_actor_hide(actor_id: String) -> void:
 		sprite.position = home_pos
 		# Only clear the slot if it still belongs to this actor.
 		# (A new actor may have already claimed it while the slide-out ran.)
-		if slot_index >= 0:
-			if _active_slots[slot_index] == hide_actor_id:
-				_active_slots[slot_index] = ""
-			_hide_tweens.erase(slot_index)
+		if slot_index >= 0 and _active_slots[slot_index] == hide_actor_id:
+			_active_slots[slot_index] = ""
 		_actor_hide_tweens.erase(hide_actor_id)
+		_hide_count = max(0, _hide_count - 1)
+		if _hide_count == 0:
+			call_deferred("_flush_pending_appears")
 	)
 
-	if slot_index >= 0:
-		_hide_tweens[slot_index] = tw
 	_actor_hide_tweens[actor_id] = tw
 
 
@@ -780,10 +874,15 @@ func _on_dialogue_started(packet: Dictionary) -> void:
 					_restore_base_scale(member_id)
 	elif _actors.has(speaker):
 		_actors[speaker]["talking"] = true
-		_actors[speaker]["node"].modulate.a = 1.0
-		_start_bob(speaker, true)
-		_elevate_speaker_zorder(speaker)
-		_apply_talk_scale(speaker)
+		# Only apply visual talk effects if the speaker is actually on screen.
+		# If they are still queued in _pending_appears (hidden, waiting for a
+		# departing actor to finish), touching modulate.a here causes the
+		# ghost-at-center bug. Effects are applied in _do_popin's callback instead.
+		if _actors[speaker]["node"].visible:
+			_actors[speaker]["node"].modulate.a = 1.0
+			_start_bob(speaker, true)
+			_elevate_speaker_zorder(speaker)
+			_apply_talk_scale(speaker)
 
 # ── Talking scale helpers ─────────────────────────────────────
 func _apply_talk_scale(actor_id: String) -> void:
@@ -1045,9 +1144,8 @@ func reset_all_actors() -> void:
 	_current_speaker = ""
 	_emoticon_last_emotion.clear()
 	_emoticon_run_count.clear()
-	for slot_i in _hide_tweens:
-		_hide_tweens[slot_i].kill()
-	_hide_tweens.clear()
+	_hide_count = 0
+	_pending_appears.clear()
 	for aid in _actor_hide_tweens:
 		_actor_hide_tweens[aid].kill()
 	_actor_hide_tweens.clear()

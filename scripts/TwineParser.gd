@@ -80,9 +80,11 @@ const STRUCTURAL_TAGS: Array = [
 	"hand-outstretched-sprite",
 	"minigame_carrots", "minigame_gameee", "minigame_chester",
 	"day_start", "day_end",
-	"excite",        # layout/mood hint tag — not an actor
-	"music_silence", # stops all BGM — handled in audio tag loop
-	"no_text",       # hides UI for a hold, then continues — no dialogue emitted
+	"excite",            # layout/mood hint tag — not an actor
+	"music_silence",     # stops all BGM — handled in audio tag loop
+	"no_text",           # hides UI for a hold, then continues — no dialogue emitted
+	"no_dark",           # suppresses narrator dark overlay for this line
+	"blueprint_chosen",  # one-time flag: set when visiting, gates option 2 in choice passages
 ]
 
 # ── Day-start background reveal timing ───────────────────────────────────────
@@ -276,10 +278,12 @@ static func _walk(name: String, ctx: _ParseContext) -> void:
 			ctx.packets.append({"type": "sfx", "path": SFX_MAP[clean_t]})
 
 	# ── Actor leaves ──────────────────────────────────────────────────────────
+	# Emit unconditionally: convergent passages (e.g. 5.74) are only walked once
+	# by the parser but can be reached at runtime from branches with different
+	# on-stage states. ActorManager skips the tween if the sprite is already hidden.
 	for actor_id in leaves:
-		if ctx.on_stage.has(actor_id):
-			ctx.packets.append({"type": "actor_hide", "actor_id": actor_id})
-			ctx.on_stage.erase(actor_id)
+		ctx.packets.append({"type": "actor_hide", "actor_id": actor_id})
+		ctx.on_stage.erase(actor_id)  # keep tracking accurate for subsequent passages
 
 	# ── Actor enters ──────────────────────────────────────────────────────────
 	for enter_info in enters:
@@ -336,6 +340,7 @@ static func _walk(name: String, ctx: _ParseContext) -> void:
 			"char_effect":    char_effect,
 			"textbox_effect": textbox_effect,
 			"is_stranger":    is_stranger,
+			"no_dark":        raw_tags.has("no_dark"),
 		})
 
 	# ── Minigame tag ──────────────────────────────────────────────────────────
@@ -349,6 +354,12 @@ static func _walk(name: String, ctx: _ParseContext) -> void:
 	if raw_tags.has("no_text"):
 		ctx.packets.append({"type": "no_text", "duration": NO_TEXT_HOLD})
 
+	# ── blueprint_chosen flag setter ──────────────────────────────────────────
+	# On a linear (non-choice) passage tagged blueprint_chosen, record that the
+	# player visited it so the gated choice option can appear later.
+	if raw_tags.has("blueprint_chosen") and not (_links_are_choices(links) and links.size() > 1):
+		ctx.packets.append({"type": "set_flag", "flag": "blueprint_chosen"})
+
 	# ── Route children ────────────────────────────────────────────────────────
 	_route_children(clean_name, links, raw_tags, ctx)
 
@@ -358,7 +369,7 @@ static func _walk(name: String, ctx: _ParseContext) -> void:
 static func _route_children(
 		parent_name: String,
 		links: Array,
-		_raw_tags: Array,
+		raw_tags: Array,
 		ctx: _ParseContext) -> void:
 
 	if links.is_empty():
@@ -443,6 +454,10 @@ static func _route_children(
 				"label": label_text,
 				"goto":  _label_for(target),
 			})
+		# blueprint_chosen: gate the second choice option behind the flag so it
+		# only appears if the player previously visited the blueprint passage.
+		if raw_tags.has("blueprint_chosen") and choice_entries.size() > 1:
+			choice_entries[1]["require_flag"] = "blueprint_chosen"
 		ctx.packets.append({
 			"type":         "choice",
 			"prompt":       "",

@@ -607,7 +607,7 @@
     },
     {
       "name": "1.10 truffle corner",
-      "tags": "marty-neutral marty_enter",
+      "tags": "marty-neutral marty_enter music_Untitled_Man",
       "id": "40",
       "text": "You knock on the door of the eerily silent home. The doorplate reads, \"Jonathan F. Smith.\" [[1.11 truffle]]",
       "links": [
@@ -1214,7 +1214,7 @@
     },
     {
       "name": "1.18 main",
-      "tags": "jane-enter-right jane-neutral jane-speaker marty-neutral marty_enter music_Don't_Talk_To_Me",
+      "tags": "jane-enter-right jane-neutral jane-speaker marty-neutral marty_enter music_Dont_Talk_To_Me",
       "id": "83",
       "text": "Hello Marty. You have some mail for me? [[1.19 main]]",
       "links": [
@@ -1715,7 +1715,7 @@
     },
     {
       "name": "1.48 main",
-      "tags": "marty_leave muffins_leave outside_town_square",
+      "tags": "marty_leave muffins_leave outside_town_square music_A_Home_Called_Honey_Haven",
       "id": "117",
       "text": "You head back to Honeybee Center to hear Barnaby's speech. You only catch the tailwind of it since you're late. [[1.50 main]]",
       "links": [

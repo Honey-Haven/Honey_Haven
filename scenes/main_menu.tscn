@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c76re7krcxuk4"]
 
-[ext_resource type="Script" uid="uid://dbqms08kmx8dp" path="res://main_menu.gd" id="1_rtw2f"]
+[ext_resource type="Script" path="res://main_menu.gd" id="1_rtw2f"]
 [ext_resource type="Texture2D" uid="uid://wbvyykhja20j" path="res://menu_images/Titlescreen2.png" id="2_rtw2f"]
 [ext_resource type="Texture2D" uid="uid://6bml8u8cqmsg" path="res://menu_images/Title.png" id="3_tbmy8"]
 [ext_resource type="Texture2D" uid="uid://dei7ibble4jth" path="res://menu_images/Playbutton.png" id="4_jk1qb"]
@@ -44,7 +44,7 @@ offset_top = -17.0
 offset_right = 326.0
 offset_bottom = 41.0
 pivot_offset = Vector2(347, 22)
-uri = "https://c.tenor.com/W4FpVJ5IlxIAAAAd/tenor.gif"
+uri = "https://docs.google.com/presentation/d/1wkJlo7oryu4fN1T0jWW0g1Rvkax27dGmvD3BGdL7pok/edit?usp=sharing"
 
 [node name="oldbutton2" type="Button" parent="helpbutton" unique_id=1444657786]
 visible = false

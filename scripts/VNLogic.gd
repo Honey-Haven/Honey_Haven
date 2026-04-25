@@ -18,6 +18,11 @@ var _current_bgm: String = ""
 var _current_bgm_volume: float = 0.0
 var skip_next_day_splash: bool = false
 
+# One-time story flags set by set_flag packets (e.g. blueprint_chosen).
+# Persist for the whole playthrough session; never rolled back by go_back.
+var _flags: Dictionary = {}
+var _active_choice_packet: Dictionary = {}
+
 # must_visit tracking: hub_id → Array of unvisited passage names
 var _must_visit_remaining: Dictionary = {}
 var _must_visit_continuation: Dictionary = {}
@@ -44,6 +49,7 @@ func load_twine_script(packets: Array) -> void:
 	_current_bg = ""
 	_current_overlay_path = ""
 	_current_bgm = ""
+	_flags.clear()
 
 func start() -> void:
 	_dialogue_ui = _find_dialogue_ui(get_tree().root)
@@ -79,19 +85,24 @@ func _process_next() -> void:
 
 	match packet.get("type", ""):
 		"appear":
+			var actor_id: String   = packet["actor_id"]
+			var enter_expr: String = packet.get("expression", "neutral")
 			var appear_pos: String = packet.get("position", "")
 			if appear_pos == "" or appear_pos == "center":
-				var used: Array = []
-				for aid in _current_stage_state:
-					used.append(_current_stage_state[aid].get("position", ""))
-				if not used.has("left"):
-					appear_pos = "left"
-				elif not used.has("right"):
-					appear_pos = "right"
+				# If already on stage with no explicit new position, keep the same slot
+				# so a re-enter tag on a bg-change passage doesn't trigger a pop-in.
+				if _current_stage_state.has(actor_id):
+					appear_pos = _current_stage_state[actor_id].get("position", "left")
 				else:
-					appear_pos = "left"
-			var actor_id: String    = packet["actor_id"]
-			var enter_expr: String  = packet.get("expression", "neutral")
+					var used: Array = []
+					for aid in _current_stage_state:
+						used.append(_current_stage_state[aid].get("position", ""))
+					if not used.has("left"):
+						appear_pos = "left"
+					elif not used.has("right"):
+						appear_pos = "right"
+					else:
+						appear_pos = "left"
 			# If already on stage at the same position, just update expression.
 			if _current_stage_state.has(actor_id) and _current_stage_state[actor_id].get("position", "") == appear_pos:
 				_current_stage_state[actor_id]["expression"] = enter_expr
@@ -215,6 +226,10 @@ func _process_next() -> void:
 
 		"must_visit_hub":
 			_handle_must_visit_hub(packet)
+
+		"set_flag":
+			_flags[packet.get("flag", "")] = true
+			_process_next()
 
 		_:
 			_process_next()
@@ -353,7 +368,16 @@ func _handle_dialogue(packet: Dictionary) -> void:
 func _handle_choice(packet: Dictionary) -> void:
 	_choice_pending    = true
 	_waiting_for_input = false
-	SignalBus.scene_packet_ready.emit(packet)
+	# Filter out any choices the player hasn't unlocked yet.
+	var filtered := packet.duplicate(true)
+	var visible: Array = []
+	for c in filtered.get("choices", []):
+		var req: String = c.get("require_flag", "")
+		if req == "" or _flags.get(req, false):
+			visible.append(c)
+	filtered["choices"] = visible
+	_active_choice_packet = filtered
+	SignalBus.scene_packet_ready.emit(filtered)
 
 
 func _on_choice_selected(choice_index: int) -> void:
@@ -377,9 +401,8 @@ func _on_choice_selected(choice_index: int) -> void:
 			_jump_to_label(goto_label)
 		return
 
-	# Regular choice selection
-	var prev: Dictionary = _packets[_index - 1]
-	var choices: Array   = prev.get("choices", [])
+	# Regular choice selection — use filtered packet so indices match what was displayed.
+	var choices: Array = _active_choice_packet.get("choices", [])
 	_history.clear()
 	SignalBus.back_button_visibility_changed.emit(false)
 	if choice_index < choices.size():
@@ -387,7 +410,7 @@ func _on_choice_selected(choice_index: int) -> void:
 		if goto_label != "":
 			_jump_to_label(goto_label)
 			return
-	var continuation: String = prev.get("continuation", "")
+	var continuation: String = _active_choice_packet.get("continuation", "")
 	if continuation != "":
 		_jump_to_label(continuation)
 		return

@@ -289,16 +289,18 @@ func _register_backgrounds() -> void:
 
 
 func _register_audio() -> void:
-	TwineParser.register_bgm("music_A_Home_Called_Honey_Haven", "res://audio/bgm/musicupdated/Music/A-Home-Called-Honey-Haven.mp3", -5.0);
+	TwineParser.register_bgm("music_A_Home_Called_Honey_Haven", "res://audio/bgm/ok/AHCHH.mp3", 0.0);
 	TwineParser.register_bgm("music_Chester_Chase", "res://audio/bgm/musicupdated/Music/Chester Chase.mp3", -10.0);
 	TwineParser.register_bgm("music_Chester", "res://audio/bgm/musicupdated/Music/Chester.mp3", -10.0);
-	TwineParser.register_bgm("music_Demonic_Sympathy", "res://audio/bgm/musicupdated/Music/Demonic-Sympathy.mp3", -10.0);
-	TwineParser.register_bgm("music_Don’t_Talk_To_Me", "res://audio/bgm/musicupdated/Music/Don_t-Talk-To-Me-_Honey-Haven_.mp3", -10.0);
-	TwineParser.register_bgm("music_Goodnight_Moon", "res://audio/bgm/musicupdated/Music/Goodbye Moon.mp3", -10.0);
-	TwineParser.register_bgm("music_Goodnight_Moon", "res://audio/bgm/musicupdated/Music/Goodnight Moon.mp3", -10.0);
+	TwineParser.register_bgm("music_Demonic_Sympathy", "res://audio/bgm/musicupdated/Music/Demonic-Sympathy.mp3", 0.0);
+	TwineParser.register_bgm("music_Demonic_Apathy", "res://audio/bgm/DA.mp3", 0.0);
+	TwineParser.register_bgm("music_Demonic_Empathy", "res://audio/bgm/DE.mp3", 0.0);
+	TwineParser.register_bgm("music_Dont_Talk_To_Me", "res://audio/bgm/musicupdated/Music/Don_t-Talk-To-Me-_Honey-Haven_.mp3", 10.0);
+	TwineParser.register_bgm("music_Goodbye_Moon", "res://audio/bgm/musicupdated/Music/Goodbye Moon.mp3", 10.0);
+	TwineParser.register_bgm("music_Goodnight_Moon", "res://audio/bgm/musicupdated/Music/Goodnight Moon.mp3", 10.0);
 	#TwineParser.register_bgm("music_title_theme", "res://audio/bgm/musicupdated/Music/Honey Haven Title.mp3", -10.0);
 	TwineParser.register_bgm("music_title_theme", "res://audio/bgm/musicupdated/Music/Honey-Haven-Title.mp3", -10.0);
-	TwineParser.register_bgm("music_Peanut", "res://audio/bgm/musicupdated/Music/Peanut-_Honey-Haven_.mp3", -10.0);
+	TwineParser.register_bgm("music_Peanut", "res://audio/bgm/musicupdated/Music/Peanut-_Honey-Haven_.mp3", 0.0);
 	TwineParser.register_bgm("music_A_Great_Big_Helping_Of_Sarcasm", "res://audio/bgm/musicupdated/Music/REAL FINAL A Great Big Helping Of Sarcasm.mp3", -10.0);
 	TwineParser.register_bgm("music_A_Touch_Of_Sarcasm", "res://audio/bgm/musicupdated/Music/REAL FINAL A Touch Of Sarcasm.mp3", -10.0);
 	TwineParser.register_bgm("music_Untitled_Man", "res://audio/bgm/musicupdated/Music/Untitled Man.mp3", -10.0);

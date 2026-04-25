@@ -247,11 +247,14 @@ func _ready() -> void:
 	# z_index 200 — sits above absolutely everything.
 	# mouse_filter STOP so clicks during the splash go nowhere.
 	_day_splash_overlay = ColorRect.new()
-	_day_splash_overlay.color = Color(0, 0, 0, 1)
 	_day_splash_overlay.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	_day_splash_overlay.mouse_filter = Control.MOUSE_FILTER_STOP
 	_day_splash_overlay.z_index = 200
-	_day_splash_overlay.visible = true
+	# Start black only on a normal day load so the scene-switch flash is hidden.
+	# When returning from a minigame there is no day_start splash, so start transparent.
+	var _normal_load: bool = not MinigameReturn.returning_from_minigame
+	_day_splash_overlay.color   = Color(0, 0, 0, 1) if _normal_load else Color(0, 0, 0, 0)
+	_day_splash_overlay.visible = _normal_load
 	add_child(_day_splash_overlay)
 
 	_day_splash_label = Label.new()
@@ -437,7 +440,10 @@ func _show_dialogue(packet: Dictionary) -> void:
 	if speaker == "":
 		nameplate_panel.hide()
 		_set_textbox_narrator_style()
-		_show_narrator_overlay()
+		if packet.get("no_dark", false):
+			_hide_narrator_overlay()
+		else:
+			_show_narrator_overlay()
 	elif is_stranger:
 		name_label.text = speaker
 		nameplate_panel.show()

@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://ka1ctlel8e0v"]
+[gd_scene format=3 uid="uid://dolqnhvh1prt7"]
 
 [ext_resource type="Script" uid="uid://b6jqdhonxt14e" path="res://scenes/pause_menu.gd" id="1_v4r4p"]
 [ext_resource type="Texture2D" uid="uid://dfvpjp60xb5yy" path="res://menu_images/Menu.png" id="2_5d2l8"]
@@ -41,7 +41,7 @@ offset_top = -17.0
 offset_right = 326.0
 offset_bottom = 22.0
 pivot_offset = Vector2(347, 17)
-uri = "https://media.tenor.com/kmMGgNMQiHsAAAAM/mater-desperate.gif"
+uri = "https://alyssahui.github.io/honey-haven-guide/"
 
 [node name="oldbutton2" type="Button" parent="background/helpbutton" unique_id=1444657786]
 visible = false

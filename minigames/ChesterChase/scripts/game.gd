@@ -1,5 +1,4 @@
 extends Node2D
-
 @export var drop_scene:   PackedScene = preload("res://minigames/ChesterChase/scenes/cheese.tscn")
 @export var trap_scene:   PackedScene = preload("res://minigames/ChesterChase/scenes/mouse_trap.tscn")
 @export var portal_scene: PackedScene = preload("res://minigames/ChesterChase/scenes/portal.tscn")
@@ -8,35 +7,36 @@ extends Node2D
 @export var portal_interval: float = 12.0
 var time_left: float  = 30.0
 var portal_count: int = 0
-
-# Safe spawn region — stays well inside the background (world half-extents ±1280/±720)
-# and away from the boundary walls (inner boundary ~±1150/±645).
 const SPAWN_HALF_W: float = 1000.0
 const SPAWN_HALF_H: float = 540.0
 
+var music_player: AudioStreamPlayer
+
 func _ready() -> void:
+	# --- Music ---
+	music_player = AudioStreamPlayer.new()
+	add_child(music_player)
+	music_player.stream = load("res://audio/bgm/musicupdated/Music/Chester Chase.mp3")
+	music_player.play()
+
 	var drop_timer := Timer.new()
 	add_child(drop_timer)
 	drop_timer.wait_time = drop_interval
 	drop_timer.timeout.connect(spawn_drop)
 	drop_timer.start()
-
 	var trap_timer := Timer.new()
 	add_child(trap_timer)
 	trap_timer.wait_time = trap_interval
 	trap_timer.timeout.connect(spawn_trap)
 	trap_timer.start()
-
 	var portal_timer := Timer.new()
 	add_child(portal_timer)
 	portal_timer.wait_time = portal_interval
 	portal_timer.timeout.connect(spawn_portals)
 	portal_timer.start()
-
 	var my_font: Font = load("res://minigames/ChesterChase/sprites/CookieCrisp-L36ly.ttf")
 	$Label.add_theme_font_override("font", my_font)
 	$Label.add_theme_font_size_override("font_size", 64)
-
 	var game_timer := Timer.new()
 	add_child(game_timer)
 	game_timer.wait_time = time_left
@@ -83,4 +83,5 @@ func on_portal_used() -> void:
 	portal_count = 0
 
 func time_up() -> void:
+	music_player.stop()
 	get_tree().change_scene_to_file.call_deferred("res://minigames/ChesterChase/scenes/cc_game_won.tscn")
